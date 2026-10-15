@@ -15,8 +15,7 @@ in that result's **comment**. Native Xray iteration rows and datasets are not
 supported.
 
 This guide accompanies the **0.1.1 documentation patch**. Runtime behavior is
-unchanged from 0.1.0. Until 0.1.1 is published, install 0.1.0 with the command below;
-all tutorial features work in that release too.
+unchanged from 0.1.0. The complete tutorial below works with the installed package.
 
 ## 1. Create a project
 
@@ -28,7 +27,7 @@ mkdir xray-demo
 cd xray-demo
 python3.12 -m venv .venv
 . .venv/bin/activate
-python -m pip install pytest-jira-xray-plus==0.1.0
+python -m pip install pytest-jira-xray-plus==0.1.1
 ```
 
 Here is what each command does:
@@ -351,8 +350,23 @@ private test data need to be shared with the maintainer.
    with its key.
 2. Choose an existing sandbox **Test Execution**, for example `DEMO-100`.
    You will pass that key as `--execution`.
-3. Rerun the offline command from step 6 and inspect `xray.json`. Confirm that it
-   names the intended Test and contains only information you intend to send.
+3. Preview the intended upload with the command below. Replace `DEMO-100` with
+   your chosen execution key. Keep `--xraypath=xray.json`: this preview is local.
+
+<!-- run:preupload -->
+```sh
+python -m pytest -q test_example.py --jira-xray --execution=DEMO-100 --allow-duplicate-ids --xray-parameter-details --xray-case-report=cases.json --xray-full-report=full-xray.json --xraypath=xray.json
+```
+
+<!-- run:inspect_xray -->
+```sh
+python -m json.tool xray.json
+```
+
+Expect `2 passed`. Check `testExecutionKey` matches the intended execution,
+`tests[0].testKey` matches your Test marker, and `comment` contains the case details
+you intend to send. This uses the normal comment limit, not step 7's deliberately
+small demonstration limit. No credentials are required for this file export.
 
 The two keys are not interchangeable: one identifies the Test; the other selects
 where its result goes.

@@ -150,8 +150,8 @@
 * No runtime feature changes from 0.1.0a2. Native iteration rows and datasets
   remain unsupported; documented platform/plugin and status-mapping limits apply.
 
-0.1.1 (unreleased documentation patch)
---------------------------------------
+0.1.1 (2026-10-15)
+------------------
 
 * Replace the option-heavy introduction with a progressive, runnable tutorial
   covering local reports, values/identity choices, failures, offline Xray export,

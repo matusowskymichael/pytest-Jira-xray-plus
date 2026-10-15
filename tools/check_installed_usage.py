@@ -86,6 +86,8 @@ with tempfile.TemporaryDirectory() as directory:
             test = payload['tests'][0]
             assert test['testKey'] == 'DEMO-1' and test['status'] == 'PASS'
             assert 'iterations' not in test
+            if name == 'preupload':
+                assert payload['testExecutionKey'] == 'DEMO-100'
             if name == 'xray':
                 assert 'comment' not in test
             elif name == 'archive':
@@ -109,12 +111,14 @@ with tempfile.TemporaryDirectory() as directory:
         'xray',
         'comments',
         'archive',
+        'preupload',
+        'inspect_xray',
         'parallel',
         'retries',
         'hooks',
     ], seen
     print(
-        'PASS: all 12 README commands, JSON excerpt, intentional failure, restored passing cases, '
+        'PASS: all 14 README commands, JSON excerpt, intentional failure, restored passing cases, '
         'values/redaction, Xray comments/archive, parallel/retries and hooks; HTTP blocked'
     )
 
