@@ -137,3 +137,15 @@
   truncation, and prevent partial uploads after fail-fast or collection failures.
 * Prepare exact 0.1.0a2 artifacts in the existing manual publishing workflow;
   publication uses the existing manual approval workflow.
+
+0.1.0 (2026-10-15)
+------------------
+
+* Release the validated 0.1.0a2 feature set as stable: local case/attempt reporting
+  and optional aggregate Xray comments, including bounded comments with full
+  local archival, transport failure handling and partial-upload suppression.
+* Michael reported successful validation and explicitly authorized stable
+  publication. This is user-reported evidence, not independent observation of
+  exhaustive server behavior or confirmation of Automatic's effective Test type.
+* No runtime feature changes from 0.1.0a2. Native iteration rows and datasets
+  remain unsupported; documented platform/plugin and status-mapping limits apply.

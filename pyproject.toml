@@ -8,14 +8,14 @@ license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "Lukasz Fundakowski", email = "fundakol@yahoo.com" }]
 keywords = ["pytest, JIRA, XRAY"]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 5 - Production/Stable",
   "Framework :: Pytest",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.12",
 ]
 dependencies = ["pytest>=9.1.1,<10", "requests>=2.34.2,<3"]
-version = "0.1.0a2"
+version = "0.1.0"
 
 [project.urls]
 Repository = "https://github.com/matusowskymichael/pytest-Jira-xray-plus"

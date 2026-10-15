@@ -1,4 +1,4 @@
-"""Build reproducible alpha archives locally; never upload (Apache-2.0)."""
+"""Build reproducible release archives locally; never upload (Apache-2.0)."""
 
 import gzip
 import hashlib

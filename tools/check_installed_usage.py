@@ -82,7 +82,7 @@ requests.sessions.Session.request = blocked
         assert len(full.encode('utf-8')) > 256 >= len(bounded.encode('utf-8'))
         assert all(name in full for name in ('one-plus-one', 'two-plus-one'))
         assert len(json.loads((path / 'cases.json').read_text())['cases']) == 2
-        print('PASS: installed 0.1.0a2 size-policy example, complete archive, visible truncation')
+        print('PASS: installed size-policy example, complete archive, visible truncation')
     print('PASS: installed README examples, passing/failing cases, both formats, no HTTP')
 
 if len(sys.argv) > 2:

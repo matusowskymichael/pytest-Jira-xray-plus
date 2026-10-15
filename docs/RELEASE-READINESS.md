@@ -1,3 +1,34 @@
+# Stable 0.1.0 release decision — 2026-10-15
+
+Michael reported successful validation and explicitly authorized publishing the
+current feature set as stable 0.1.0. This is **user-reported successful use**, not
+independently observed exhaustive validation. No private test content, credentials,
+hostnames or issue keys were requested or recorded.
+
+Stable support covers the documented local case/attempt report and optional
+aggregate Xray comment fallback, including bounded comments/full archival,
+conservative retry summaries, transport failure handling and partial-upload
+suppression. The 0.1.0 release changes metadata and documentation only; runtime
+features are unchanged from 0.1.0a2. Existing local/CI evidence below still applies,
+and full tests, distributions, installed examples and README checks are rerun for
+the exact release commit before manual Trusted Publisher publication.
+
+**Native iteration rows and datasets remain unsupported.** Automatic's effective
+Generic mapping and all API behaviors on Xray 8.5.3-j10 have not been independently
+verified. User-reported success does not establish those capabilities. Cloud has
+synthetic coverage only; Windows/macOS and untested plugin combinations are not
+certified. Explicit legacy skip/xfail mappings and incomplete-process limitations
+remain documented in the README.
+
+Version 0.1.0 and the Production/Stable classifier describe that bounded feature
+scope. Publishing retains the existing manual workflow, reviewed-SHA and artifact
+hash checks, `pypi` environment and permissions. No new credentials or workplace
+access are involved. The sections below are the **historical prerelease readiness
+record**, superseded for release authorization by this scoped decision; they are
+retained to distinguish prior concerns from evidence actually obtained.
+
+---
+
 # Release readiness — 2026-10-15
 
 Decision: **not ready for stable publication**. This change prepares reviewable
