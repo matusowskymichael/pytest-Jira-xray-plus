@@ -123,7 +123,7 @@
 ==================
 - First release
 
-0.1.0a2 (unreleased)
+0.1.0a2 (2026-10-15)
 -------------------
 
 * Bound HTTP connect/read waits; validate authentication and import responses.
@@ -136,4 +136,4 @@
 * Add configurable UTF-8 comment bounds with required full local archival before
   truncation, and prevent partial uploads after fail-fast or collection failures.
 * Prepare exact 0.1.0a2 artifacts in the existing manual publishing workflow;
-  publishing remains pending independent review.
+  publication uses the existing manual approval workflow.

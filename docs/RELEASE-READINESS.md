@@ -122,3 +122,10 @@ The [minimal sandbox check](MINIMAL-SANDBOX-CHECK.md) separates implemented comm
 validation from a three-import anonymous-native-row capability probe. Neither
 requests private credentials or data. Current official docs do not supply a
 version-pinned Generic/name contract; this remains an explicit blocker.
+
+## Release authorization update
+
+Independent review approved the implementation at df9ddd86 for experimental alpha.
+The release guide now targets 0.1.0a2. Merge and manual publication are authorized
+after green checks; the stable-release limitations above remain in force. Earlier
+“proposed” and review-pending notes record the preparation stage, not a stable claim.
