@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Keep every pytest case. Export clear aggregate results to Jira Xray.">
+        <meta name="description" content="Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.">
       
       
       
         <link rel="canonical" href="https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/archive/">
       
       
-        <link rel="prev" href="../xray/">
+        <link rel="prev" href="../failure/">
       
       
-        <link rel="next" href="../upload/">
+        <link rel="next" href="../../guides/parallel/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Archive long comments - pytest Xray Plus</title>
+        <title>Archive Xray comments - pytest Xray Plus</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7-keep-full-comments-when-an-export-is-shortened" class="md-skip">
+        <a href="#8-archive-complete-xray-comments" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Archive long comments
+              Archive Xray comments
             
           </span>
         </div>
@@ -457,7 +457,35 @@
   <span class="md-ellipsis">
     
   
-    Start the tutorial
+    Integration overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira/Xray prerequisites
   
 
     
@@ -513,91 +541,7 @@
   <span class="md-ellipsis">
     
   
-    Run two cases
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../local-report/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Save a local report
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../values/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Choose report contents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../failure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inspect a failure
+    Map and run two cases
   
 
     
@@ -625,7 +569,119 @@
   <span class="md-ellipsis">
     
   
-    Preview Xray results
+    Preview the Xray import
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticate and publish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose audit contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnose a failure
   
 
     
@@ -662,7 +718,7 @@
   <span class="md-ellipsis">
     
   
-    Archive long comments
+    Archive Xray comments
   
 
     
@@ -672,34 +728,6 @@
 
       </a>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../upload/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Send to Jira
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1241,16 +1269,30 @@
   
 
 
-<h1 id="7-keep-full-comments-when-an-export-is-shortened">7. Keep full comments when an export is shortened<a class="headerlink" href="#7-keep-full-comments-when-an-export-is-shortened" title="Permanent link">&para;</a></h1>
+<h1 id="8-archive-complete-xray-comments">8. Archive complete Xray comments<a class="headerlink" href="#8-archive-complete-xray-comments" title="Permanent link">&para;</a></h1>
 <div class="step-context">
-<p>Continue from <a href="../xray/">6. Prepare an Xray result without uploading</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
+<p>Continue from <a href="../failure/">7. Diagnose a failing case</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
 </div>
+<p>Restore the passing, marked test before trying this archive recipe:</p>
+<!-- tutorial:restore -->
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xray</span><span class="p">(</span><span class="s2">"DEMO-1"</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"value, expected"</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">"one-plus-one"</span><span class="p">,</span> <span class="s2">"two-plus-one"</span><span class="p">],</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_one</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">assert</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">expected</span>
+</code></pre></div>
 <p>Large parametrized suites can produce long comments. The default client policy
 limits each exported comment to <strong>32,000 UTF-8 bytes</strong>. This is a configurable
 client choice, not a universal Jira/Xray server limit.</p>
 <p>To see the behavior with our small example, deliberately choose a tiny limit:</p>
 <!-- run:archive -->
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>xray.json<span class="w"> </span>--allow-duplicate-ids<span class="w"> </span>--xray-parameter-details<span class="w"> </span>--xray-comment-limit<span class="o">=</span><span class="m">256</span><span class="w"> </span>--xray-full-report<span class="o">=</span>full-xray.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>xray.json<span class="w"> </span>--allow-duplicate-ids<span class="w"> </span>--xray-parameter-details<span class="w"> </span>--xray-comment-limit<span class="o">=</span><span class="m">256</span><span class="w"> </span>--xray-full-report<span class="o">=</span>full-xray.json
 </code></pre></div>
 <p>Two new options work together:</p>
 <ul>
@@ -1326,7 +1368,7 @@ choose unique paths to retain history.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../xray/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Preview Xray results">
+          <a href="../failure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Diagnose a failure">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1336,20 +1378,20 @@ choose unique paths to retain history.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Preview Xray results
+                Diagnose a failure
               </div>
             </div>
           </a>
         
         
           
-          <a href="../upload/" class="md-footer__link md-footer__link--next" aria-label="Next: Send to Jira">
+          <a href="../../guides/parallel/" class="md-footer__link md-footer__link--next" aria-label="Next: Parallel tests and retries">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Send to Jira
+                Parallel tests and retries
               </div>
             </div>
             <div class="md-footer__button md-icon">

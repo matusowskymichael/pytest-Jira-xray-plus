@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Keep every pytest case. Export clear aggregate results to Jira Xray.">
+        <meta name="description" content="Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.">
       
       
       
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#every-pytest-case-clearly-reported" class="md-skip">
+        <a href="#publish-pytest-results-to-jira-and-xray" class="md-skip">
           Skip to content
         </a>
       
@@ -424,10 +424,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#start-locally-add-jira-when-you-need-it" class="md-nav__link">
+  <a href="#connect-your-tests-to-your-jira-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Start locally. Add Jira when you need it.
+        Connect your tests to your Jira workflow
       
     </span>
   </a>
@@ -435,10 +435,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-reaches-xray" class="md-nav__link">
+  <a href="#what-reaches-jiraxray" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What reaches Xray?
+        What reaches Jira/Xray?
       
     </span>
   </a>
@@ -446,10 +446,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keep-this-guide-close" class="md-nav__link">
+  <a href="#complete-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Keep this guide close
+        Complete documentation
       
     </span>
   </a>
@@ -532,7 +532,35 @@
   <span class="md-ellipsis">
     
   
-    Start the tutorial
+    Integration overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira/Xray prerequisites
   
 
     
@@ -588,91 +616,7 @@
   <span class="md-ellipsis">
     
   
-    Run two cases
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/local-report/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Save a local report
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/values/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Choose report contents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/failure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inspect a failure
+    Map and run two cases
   
 
     
@@ -700,35 +644,7 @@
   <span class="md-ellipsis">
     
   
-    Preview Xray results
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/archive/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Archive long comments
+    Preview the Xray import
   
 
     
@@ -756,7 +672,119 @@
   <span class="md-ellipsis">
     
   
-    Send to Jira
+    Authenticate and publish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial/local-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial/values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose audit contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial/failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnose a failure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial/archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Xray comments
   
 
     
@@ -1295,10 +1323,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#start-locally-add-jira-when-you-need-it" class="md-nav__link">
+  <a href="#connect-your-tests-to-your-jira-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Start locally. Add Jira when you need it.
+        Connect your tests to your Jira workflow
       
     </span>
   </a>
@@ -1306,10 +1334,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-reaches-xray" class="md-nav__link">
+  <a href="#what-reaches-jiraxray" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What reaches Xray?
+        What reaches Jira/Xray?
       
     </span>
   </a>
@@ -1317,10 +1345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keep-this-guide-close" class="md-nav__link">
+  <a href="#complete-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Keep this guide close
+        Complete documentation
       
     </span>
   </a>
@@ -1348,53 +1376,56 @@
 
 
 <div class="hero">
-<div class="eyebrow">pytest Xray Plus · 0.1.1</div>
-<h1 id="every-pytest-case-clearly-reported">Every pytest case, clearly reported.<a class="headerlink" href="#every-pytest-case-clearly-reported" title="Permanent link">&para;</a></h1>
-<p>Keep each input case and retry in a local JSON report. When you are ready,
-export an aggregate result and readable case details to Jira Xray.</p>
-<p><a class="md-button md-button--primary" href="tutorial/install/">Start the tutorial</a>
-<a class="md-button" href="reference/options/">See all options</a></p>
-<p>Python 3.12+ · pytest 9.1.1–9.x · Open source · Apache-2.0</p>
+<div class="eyebrow">pytest Xray Plus · Jira/Xray integration</div>
+<h1 id="publish-pytest-results-to-jira-and-xray">Publish pytest results to Jira and Xray.<a class="headerlink" href="#publish-pytest-results-to-jira-and-xray" title="Permanent link">&para;</a></h1>
+<p>Map pytest tests to Jira Test issues. Run your parametrized suite and import
+aggregate results into an Xray Test Execution, with case details in comments
+when you enable them.</p>
+<p><a class="md-button md-button--primary" href="reference/prerequisites/">Start the integration guide</a>
+<a class="md-button" href="reference/settings/">Configure authentication</a></p>
+<p>Jira with Xray required · Python 3.12+ · pytest 9.1.1–9.x</p>
 </div>
-<h2 id="start-locally-add-jira-when-you-need-it">Start locally. Add Jira when you need it.<a class="headerlink" href="#start-locally-add-jira-when-you-need-it" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pytest-jira-xray-plus<span class="o">==</span><span class="m">0</span>.1.1
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json
-</code></pre></div>
-<p>Use a fresh environment: this fork cannot be installed alongside <code>pytest-jira-xray</code>.
-The local report does not need Jira markers, credentials or a server connection.</p>
+<h2 id="connect-your-tests-to-your-jira-workflow">Connect your tests to your Jira workflow<a class="headerlink" href="#connect-your-tests-to-your-jira-workflow" title="Permanent link">&para;</a></h2>
+<p>You need Jira with the Xray app, existing Test and Test Execution issues, and
+credentials with permission to import results. The requested target is on-premises
+<strong>Xray 8.5.3-j10</strong>. Its exact configuration and custom <strong>Automatic</strong> Test-type mapping
+still require live validation; this guide does not claim verified native iterations.</p>
+<p>The guide takes you through installation, a marked parametrized test, an Xray
+payload preview, authentication and import. You then inspect the Test Run in Jira.</p>
 <div class="grid cards">
 <ul>
 <li>
-<p><strong>Learn with one file</strong></p>
-<p>Build from two passing input cases to a local report, an intentional failure,
-and a reviewed Xray export. Copy complete examples and check the expected output.</p>
-<p><a href="tutorial/">Follow the tutorial →</a></p>
+<p><strong>Map and publish results</strong></p>
+<p>Associate cases with an existing Jira Test and target an existing Test Execution.
+Preview the payload, then send it using protected environment variables.</p>
+<p><a href="tutorial/">Follow the integration tutorial →</a></p>
 </li>
 <li>
-<p><strong>Find the right command</strong></p>
-<p>Look up options, authentication settings and the exact rules for retries,
-skips and combined Jira results.</p>
-<p><a href="reference/options/">Open the reference →</a></p>
+<p><strong>Configure your integration</strong></p>
+<p>Find Server/Data Center authentication, execution settings, status rules and
+exact compatibility limits before applying the exporter to your project.</p>
+<p><a href="reference/settings/">Open the reference →</a></p>
 </li>
 <li>
-<p><strong>Understand your reports</strong></p>
-<p>Keep structured cases in <code>cases.json</code>, a bounded Xray payload in <code>xray.json</code>,
-and complete comment text in an optional archive.</p>
-<p><a href="tutorial/xray/">Compare report formats →</a></p>
+<p><strong>Debug and audit an import</strong></p>
+<p>Inspect Xray JSON before sending, retain structured pytest cases and archive
+full comments. These facilities support the Jira/Xray integration.</p>
+<p><a href="tutorial/xray/">Inspect the import preview →</a></p>
 </li>
 </ul>
 </div>
-<h2 id="what-reaches-xray">What reaches Xray?<a class="headerlink" href="#what-reaches-xray" title="Permanent link">&para;</a></h2>
-<p>One aggregate Test Run per Jira Test key, with optional case details in its comment.
-<strong>Native Xray iteration rows and datasets are not supported.</strong> The local report
-preserves the individual pytest cases independently.</p>
-<p><a href="reference/compatibility/">Read the compatibility boundaries</a> before applying
-the exporter to a new server configuration.</p>
-<h2 id="keep-this-guide-close">Keep this guide close<a class="headerlink" href="#keep-this-guide-close" title="Permanent link">&para;</a></h2>
-<p>The <a href="https://pypi.org/project/pytest-jira-xray-plus/0.1.1/">full tutorial is also on PyPI</a>
-and in the <a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus#readme">repository README</a>.
-Website tutorial and reference pages are generated from that tested source so the
-commands stay aligned across all three places.</p>
+<h2 id="what-reaches-jiraxray">What reaches Jira/Xray?<a class="headerlink" href="#what-reaches-jiraxray" title="Permanent link">&para;</a></h2>
+<p>One aggregate Test Run per Jira Test key, with opt-in case details in its comment.
+<strong>Native Xray iteration rows and datasets are not supported.</strong> The local audit
+report preserves individual pytest cases, but it is not an Xray import format.</p>
+<p>Offline previews deliberately make no network request. They help review data;
+they do not establish valid credentials, permissions, issue keys or server mapping.</p>
+<p><a href="reference/compatibility/">Read the compatibility boundaries</a>.</p>
+<h2 id="complete-documentation">Complete documentation<a class="headerlink" href="#complete-documentation" title="Permanent link">&para;</a></h2>
+<p>The full guide is preserved in the
+<a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus#readme">repository README</a>
+and packaged for <a href="https://pypi.org/project/pytest-jira-xray-plus/">PyPI</a>.
+Website tutorial and reference pages use that same source.</p>
 
 
 
@@ -1431,13 +1462,13 @@ commands stay aligned across all three places.</p>
         
         
           
-          <a href="tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: Start the tutorial">
+          <a href="tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: Integration overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Start the tutorial
+                Integration overview
               </div>
             </div>
             <div class="md-footer__button md-icon">

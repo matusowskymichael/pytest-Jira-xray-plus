@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Keep every pytest case. Export clear aggregate results to Jira Xray.">
+        <meta name="description" content="Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.">
       
       
       
         <link rel="canonical" href="https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/upload/">
       
       
-        <link rel="prev" href="../archive/">
+        <link rel="prev" href="../xray/">
       
       
-        <link rel="next" href="../../guides/parallel/">
+        <link rel="next" href="../local-report/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Send to Jira - pytest Xray Plus</title>
+        <title>Authenticate and publish - pytest Xray Plus</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#8-send-to-jira-optional" class="md-skip">
+        <a href="#4-authenticate-and-publish-to-jiraxray" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Send to Jira
+              Authenticate and publish
             
           </span>
         </div>
@@ -457,7 +457,35 @@
   <span class="md-ellipsis">
     
   
-    Start the tutorial
+    Integration overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira/Xray prerequisites
   
 
     
@@ -513,91 +541,7 @@
   <span class="md-ellipsis">
     
   
-    Run two cases
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../local-report/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Save a local report
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../values/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Choose report contents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../failure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inspect a failure
+    Map and run two cases
   
 
     
@@ -625,35 +569,7 @@
   <span class="md-ellipsis">
     
   
-    Preview Xray results
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../archive/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Archive long comments
+    Preview the Xray import
   
 
     
@@ -690,7 +606,7 @@
   <span class="md-ellipsis">
     
   
-    Send to Jira
+    Authenticate and publish
   
 
     
@@ -708,7 +624,7 @@
   <span class="md-ellipsis">
     
   
-    Send to Jira
+    Authenticate and publish
   
 
     
@@ -770,6 +686,118 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose audit contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnose a failure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Xray comments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1352,11 +1380,12 @@
   
 
 
-<h1 id="8-send-to-jira-optional">8. Send to Jira (optional)<a class="headerlink" href="#8-send-to-jira-optional" title="Permanent link">&para;</a></h1>
+<h1 id="4-authenticate-and-publish-to-jiraxray">4. Authenticate and publish to Jira/Xray<a class="headerlink" href="#4-authenticate-and-publish-to-jiraxray" title="Permanent link">&para;</a></h1>
 <div class="step-context">
-<p>Continue from <a href="../archive/">7. Keep full comments when an export is shortened</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
+<p>Continue from <a href="../xray/">3. Preview the Jira/Xray import</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
 </div>
-<p>Everything above was local. This step sends a request to a server. Start with an
+<p>Publish the reviewed result into Jira/Xray. This step makes the integration
+request; the preceding payload preview did not contact the server. Start with an
 authorized disposable test project and existing credentials; no credentials or
 private test data need to be shared with the maintainer.</p>
 <h3 id="prepare-the-two-issue-keys">Prepare the two issue keys<a class="headerlink" href="#prepare-the-two-issue-keys" title="Permanent link">&para;</a></h3>
@@ -1376,7 +1405,7 @@ private test data need to be shared with the maintainer.</p>
 </code></pre></div>
 <p>Expect <code>2 passed</code>. Check <code>testExecutionKey</code> matches the intended execution,
 <code>tests[0].testKey</code> matches your Test marker, and <code>comment</code> contains the case details
-you intend to send. This uses the normal comment limit, not step 7's deliberately
+you intend to send. This uses the normal comment limit, not the archive recipe's deliberately
 small demonstration limit. No credentials are required for this file export.</p>
 <p>The two keys are not interchangeable: one identifies the Test; the other selects
 where its result goes.</p>
@@ -1454,7 +1483,7 @@ See the compatibility section below for the tested versions and limits.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../archive/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Archive long comments">
+          <a href="../xray/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Preview the Xray import">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1464,20 +1493,20 @@ See the compatibility section below for the tested versions and limits.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Archive long comments
+                Preview the Xray import
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../guides/parallel/" class="md-footer__link md-footer__link--next" aria-label="Next: Parallel tests and retries">
+          <a href="../local-report/" class="md-footer__link md-footer__link--next" aria-label="Next: Audit cases">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Parallel tests and retries
+                Audit cases
               </div>
             </div>
             <div class="md-footer__button md-icon">

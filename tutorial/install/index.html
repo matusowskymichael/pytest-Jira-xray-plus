@@ -6,14 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Keep every pytest case. Export clear aggregate results to Jira Xray.">
+        <meta name="description" content="Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.">
       
       
       
         <link rel="canonical" href="https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../../reference/prerequisites/">
       
       
         <link rel="next" href="../cases/">
@@ -457,7 +457,35 @@
   <span class="md-ellipsis">
     
   
-    Start the tutorial
+    Integration overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira/Xray prerequisites
   
 
     
@@ -523,91 +551,7 @@
   <span class="md-ellipsis">
     
   
-    Run two cases
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../local-report/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Save a local report
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../values/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Choose report contents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../failure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inspect a failure
+    Map and run two cases
   
 
     
@@ -635,35 +579,7 @@
   <span class="md-ellipsis">
     
   
-    Preview Xray results
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../archive/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Archive long comments
+    Preview the Xray import
   
 
     
@@ -691,7 +607,119 @@
   <span class="md-ellipsis">
     
   
-    Send to Jira
+    Authenticate and publish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose audit contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnose a failure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Xray comments
   
 
     
@@ -1242,13 +1270,13 @@
 
 
 <h1 id="1-create-a-project">1. Create a project<a class="headerlink" href="#1-create-a-project" title="Permanent link">&para;</a></h1>
-<p>You need Python 3.12 or newer and a terminal. Start in a folder where you keep
-small Python projects. These commands use Bash on Linux or macOS:</p>
+<p>First confirm the <a href="../../reference/prerequisites/">Jira/Xray prerequisites</a>. In a terminal, start in a folder
+where you keep small Python projects. These commands use Bash on Linux or macOS:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>xray-demo
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>xray-demo
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>python3.12<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>.<span class="w"> </span>.venv/bin/activate
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pytest-jira-xray-plus<span class="o">==</span><span class="m">0</span>.1.1
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pytest-jira-xray-plus
 </code></pre></div>
 <p>Here is what each command does:</p>
 <ul>
@@ -1260,7 +1288,7 @@ small Python projects. These commands use Bash on Linux or macOS:</p>
 <p>On Windows, create the environment with <code>py -3.12 -m venv .venv</code>. Activate it
 with <code>.venv\Scripts\Activate.ps1</code> in PowerShell or
 <code>.venv\Scripts\activate.bat</code> in Command Prompt. Use the same <code>python -m ...</code>
-commands for the rest of the local tutorial.</p>
+commands for the rest of the integration tutorial.</p>
 <p><strong>Use a fresh environment.</strong> Do not also install <code>pytest-jira-xray</code>: that upstream
 package and this fork share the <code>pytest_xray</code> module and <code>xray</code> plugin name.
 Installing both can overwrite files. If that happened, recreate the environment.</p>
@@ -1301,7 +1329,7 @@ internet access; the local test commands below do not contact Jira.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Start the tutorial">
+          <a href="../../reference/prerequisites/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Jira/Xray prerequisites">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1311,20 +1339,20 @@ internet access; the local test commands below do not contact Jira.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Start the tutorial
+                Jira/Xray prerequisites
               </div>
             </div>
           </a>
         
         
           
-          <a href="../cases/" class="md-footer__link md-footer__link--next" aria-label="Next: Run two cases">
+          <a href="../cases/" class="md-footer__link md-footer__link--next" aria-label="Next: Map and run two cases">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Run two cases
+                Map and run two cases
               </div>
             </div>
             <div class="md-footer__button md-icon">

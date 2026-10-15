@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Keep every pytest case. Export clear aggregate results to Jira Xray.">
+        <meta name="description" content="Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../install/">
       
       
-        <link rel="next" href="../local-report/">
+        <link rel="next" href="../xray/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Run two cases - pytest Xray Plus</title>
+        <title>Map and run two cases - pytest Xray Plus</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Run two cases
+              Map and run two cases
             
           </span>
         </div>
@@ -457,7 +457,35 @@
   <span class="md-ellipsis">
     
   
-    Start the tutorial
+    Integration overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira/Xray prerequisites
   
 
     
@@ -522,7 +550,7 @@
   <span class="md-ellipsis">
     
   
-    Run two cases
+    Map and run two cases
   
 
     
@@ -544,90 +572,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../local-report/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Save a local report
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../values/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Choose report contents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../failure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inspect a failure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../xray/" class="md-nav__link">
         
   
@@ -635,35 +579,7 @@
   <span class="md-ellipsis">
     
   
-    Preview Xray results
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../archive/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Archive long comments
+    Preview the Xray import
   
 
     
@@ -691,7 +607,119 @@
   <span class="md-ellipsis">
     
   
-    Send to Jira
+    Authenticate and publish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choose audit contents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnose a failure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive Xray comments
   
 
     
@@ -1245,19 +1273,20 @@
 <div class="step-context">
 <p>Continue from <a href="../install/">1. Create a project</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
 </div>
-<p>Create <strong><code>test_example.py</code></strong> inside <code>xray-demo</code>, next to <code>.venv</code>.
+<p>Map the example to your Jira Test (<code>DEMO-1</code> is a placeholder). Create <strong><code>test_example.py</code></strong> inside <code>xray-demo</code>, next to <code>.venv</code>.
 Paste this complete file:</p>
 <!-- tutorial:basic -->
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"value, expected"</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">"one-plus-one"</span><span class="p">,</span> <span class="s2">"two-plus-one"</span><span class="p">],</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_one</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">assert</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">expected</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xray</span><span class="p">(</span><span class="s2">"DEMO-1"</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"value, expected"</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">"one-plus-one"</span><span class="p">,</span> <span class="s2">"two-plus-one"</span><span class="p">],</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_one</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">assert</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
 <p>Run it from <code>xray-demo</code>:</p>
 <!-- run:basic -->
@@ -1270,13 +1299,15 @@ Paste this complete file:</p>
 <ul>
 <li><code>import pytest</code> lets us use pytest's test decorators.</li>
 <li>The function name starts with <code>test_</code>, so pytest discovers it.</li>
+<li><code>@pytest.mark.xray("DEMO-1")</code> maps both cases to the existing Jira Test.</li>
 <li><code>parametrize</code> runs the function once for each input pair: first <code>1, 2</code>, then
   <code>2, 3</code>. These two runs are called <strong>cases</strong>.</li>
 <li><code>ids</code> gives those cases readable names. Use names without secrets.</li>
 <li><code>assert</code> checks that adding one gives the expected result.</li>
 </ul>
 <p><code>python -m pytest</code> uses pytest from your active environment. <code>-q</code> keeps output
-short. You have not added a Jira marker or contacted any server.</p>
+short. This first command checks the test itself. The Jira marker is in place,
+but uploading starts only when <code>--jira-xray</code> is enabled without <code>--xraypath</code>.</p>
 <p>Your folder contains:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>xray-demo/
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  .venv/
@@ -1335,13 +1366,13 @@ short. You have not added a Jira marker or contacted any server.</p>
         
         
           
-          <a href="../local-report/" class="md-footer__link md-footer__link--next" aria-label="Next: Save a local report">
+          <a href="../xray/" class="md-footer__link md-footer__link--next" aria-label="Next: Preview the Xray import">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Save a local report
+                Preview the Xray import
               </div>
             </div>
             <div class="md-footer__button md-icon">

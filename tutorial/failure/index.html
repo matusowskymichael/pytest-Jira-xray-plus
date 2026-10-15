@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Keep every pytest case. Export clear aggregate results to Jira Xray.">
+        <meta name="description" content="Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../values/">
       
       
-        <link rel="next" href="../xray/">
+        <link rel="next" href="../archive/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Inspect a failure - pytest Xray Plus</title>
+        <title>Diagnose a failure - pytest Xray Plus</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-see-what-happens-when-one-case-fails" class="md-skip">
+        <a href="#7-diagnose-a-failing-case" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inspect a failure
+              Diagnose a failure
             
           </span>
         </div>
@@ -457,7 +457,35 @@
   <span class="md-ellipsis">
     
   
-    Start the tutorial
+    Integration overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira/Xray prerequisites
   
 
     
@@ -513,7 +541,63 @@
   <span class="md-ellipsis">
     
   
-    Run two cases
+    Map and run two cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preview the Xray import
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authenticate and publish
   
 
     
@@ -541,7 +625,7 @@
   <span class="md-ellipsis">
     
   
-    Save a local report
+    Audit cases
   
 
     
@@ -569,7 +653,7 @@
   <span class="md-ellipsis">
     
   
-    Choose report contents
+    Choose audit contents
   
 
     
@@ -606,7 +690,7 @@
   <span class="md-ellipsis">
     
   
-    Inspect a failure
+    Diagnose a failure
   
 
     
@@ -628,34 +712,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../xray/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Preview Xray results
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../archive/" class="md-nav__link">
         
   
@@ -663,35 +719,7 @@
   <span class="md-ellipsis">
     
   
-    Archive long comments
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../upload/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Send to Jira
+    Archive Xray comments
   
 
     
@@ -1241,9 +1269,9 @@
   
 
 
-<h1 id="5-see-what-happens-when-one-case-fails">5. See what happens when one case fails<a class="headerlink" href="#5-see-what-happens-when-one-case-fails" title="Permanent link">&para;</a></h1>
+<h1 id="7-diagnose-a-failing-case">7. Diagnose a failing case<a class="headerlink" href="#7-diagnose-a-failing-case" title="Permanent link">&para;</a></h1>
 <div class="step-context">
-<p>Continue from <a href="../values/">4. Choose what the local report contains</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
+<p>Continue from <a href="../values/">6. Choose audit report contents</a>. Use the same <code>xray-demo</code> folder and activated environment.</p>
 </div>
 <p>Replace the file with this version. Only the second expected value has changed,
 from <code>3</code> to <code>99</code>:</p>
@@ -1251,13 +1279,14 @@ from <code>3</code> to <code>99</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"value, expected"</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">)],</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">"one-plus-one"</span><span class="p">,</span> <span class="s2">"two-plus-one"</span><span class="p">],</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_one</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">assert</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">expected</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xray</span><span class="p">(</span><span class="s2">"DEMO-1"</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"value, expected"</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">)],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">"one-plus-one"</span><span class="p">,</span> <span class="s2">"two-plus-one"</span><span class="p">],</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_one</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">assert</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
 <!-- run:failure -->
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json
@@ -1269,9 +1298,9 @@ from <code>3</code> to <code>99</code>:</p>
 for success. The report is still written. <code>one-plus-one</code> remains <code>passed</code>;
 <code>two-plus-one</code> is <code>failed</code>. Neither case disappears because another case has a
 different result.</p>
-<p><strong>Checkpoint:</strong> you now have useful local reporting. You can apply
-<code>--xray-case-report=cases.json</code> to your own pytest suite without adding Jira
-markers or credentials. The remaining steps are optional.</p>
+<p><strong>Checkpoint:</strong> the audit report retains both input cases behind the Jira Test.
+This diagnostic run has not updated Jira. Restore passing inputs before the next
+recipe, and repeat the preview/upload workflow when you intend to update Xray.</p>
 
 
 
@@ -1307,7 +1336,7 @@ markers or credentials. The remaining steps are optional.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../values/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Choose report contents">
+          <a href="../values/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Choose audit contents">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1317,20 +1346,20 @@ markers or credentials. The remaining steps are optional.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Choose report contents
+                Choose audit contents
               </div>
             </div>
           </a>
         
         
           
-          <a href="../xray/" class="md-footer__link md-footer__link--next" aria-label="Next: Preview Xray results">
+          <a href="../archive/" class="md-footer__link md-footer__link--next" aria-label="Next: Archive Xray comments">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Preview Xray results
+                Archive Xray comments
               </div>
             </div>
             <div class="md-footer__button md-icon">
