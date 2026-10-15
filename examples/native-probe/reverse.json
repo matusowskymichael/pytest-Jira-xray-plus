@@ -1,0 +1,18 @@
+{
+  "testExecutionKey": "SYN-100",
+  "tests": [
+    {
+      "testKey": "SYN-1",
+      "status": "FAIL",
+      "comment": "EXPERIMENTAL synthetic probe: case-a FAIL, case-b PASS. Order: PASS, FAIL. No stable native case identity asserted.",
+      "iterations": [
+        {
+          "status": "PASS"
+        },
+        {
+          "status": "FAIL"
+        }
+      ]
+    }
+  ]
+}

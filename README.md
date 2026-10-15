@@ -6,6 +6,9 @@ An independent Apache-2.0 fork of
 The working distribution name is `pytest-jira-xray-plus`; it has **not** been
 reserved or released on PyPI. Native per-case Xray integration is unverified.
 
+Start with the [two-stage validation kit](docs/QUICK-VALIDATION.md): one offline
+command, then an optional experimental sandbox-only native capability probe.
+
 ## Preserve every executed case offline
 
 `pytest --xray-case-report=cases.json` now produces a transport-independent
