@@ -26,13 +26,13 @@ credential requirement is imposed on offline preview commands.
   test results. The requested target is **Xray 8.5.3-j10**; this exact server/version
   has not been independently validated. The implemented transport uses Xray's
   Server/DC `/rest/raven/2.0/import/execution` API. Keep `--cloud` off for this target.
-- An existing **Test** issue and **Test Execution** in an authorized project.
+- An existing **Generic Test** issue and **Test Execution** in an authorized project.
   This guide uses `DEMO-1` and `DEMO-100` as placeholders; replace them with your
   own keys before uploading. A Test identifies what is tested; the Execution
   holds its result. Both input cases share the Test key and produce one Test Run.
-- Confirm the Test's effective Xray type with the administrator. The custom
-  **Automatic** label has been reported to default to Generic, but that mapping
-  remains unverified. The label alone does not establish import compatibility.
+- **Generic** is the confirmed target Xray Test type. Use an existing Generic
+  Test; the plugin imports results by issue key and does not create, select or
+  change the Test type. This confirmation does not establish native iteration support.
 - An existing Jira personal access token (or administrator-enabled Basic auth),
   the Jira base URL including any context path, and a trusted TLS certificate/CA.
   Step 4 configures these through environment variables; never put secrets in tests.
@@ -42,7 +42,7 @@ credential requirement is imposed on offline preview commands.
 Use an authorized disposable Test Execution for first validation. Confirm its
 aggregate result and comments in Jira before using this configuration in production.
 The preview commands deliberately perform no network requests and do not validate
-credentials, issue existence, permissions or the server's Test-type mapping.
+credentials, issue existence, permissions or server-side import behavior.
 
 ## 1. Create a project
 
@@ -213,7 +213,7 @@ private test data need to be shared with the maintainer.
 
 ### Prepare the two issue keys
 
-1. Choose an existing sandbox Jira **Test** issue. Replace `DEMO-1` in the marker
+1. Choose an existing sandbox Jira **Generic Test** issue. Replace `DEMO-1` in the marker
    with its key.
 2. Choose an existing sandbox **Test Execution**, for example `DEMO-100`.
    You will pass that key as `--execution`.
@@ -289,9 +289,9 @@ Imports are not retried automatically because the server might already have
 accepted the first request. This replacement behavior is documented in the
 [official Server/DC import API](https://getxraydocs.atlassian.net/wiki/spaces/XRAY/pages/301667997).
 
-This command uses the aggregate comment fallback. Confirm the effective Test type
-with your administrator if your project uses a custom label such as **Automatic**.
-A label alone does not establish Generic behavior or native iteration support.
+This command targets an existing **Generic Test** using the aggregate comment
+fallback. It does not set or change the Test type, and Generic targeting does not
+enable native iteration rows or datasets.
 See the compatibility section below for the tested versions and limits.
 
 
@@ -626,8 +626,8 @@ Future dependency versions are not automatically certified.
 Subtests and repeat plugins are not supported as distinct case models. Reliable
 case identity across worker crashes/restarts, cross-session aggregation and
 per-iteration evidence are outside this release. Crashed-worker reports can lack
-parameter metadata or Jira keys. Native rows and datasets are unsupported even
-when a Test type's label is Automatic.
+parameter metadata or Jira keys. Native rows and datasets are unsupported
+for the confirmed Generic target.
 
 
 ## Troubleshooting and migration

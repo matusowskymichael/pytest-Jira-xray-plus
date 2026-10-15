@@ -19,8 +19,9 @@ Jira with Xray required · Python 3.12+ · pytest 9.1.1–9.x
 
 You need Jira with the Xray app, existing Test and Test Execution issues, and
 credentials with permission to import results. The requested target is on-premises
-**Xray 8.5.3-j10**. Its exact configuration and custom **Automatic** Test-type mapping
-still require live validation; this guide does not claim verified native iterations.
+**Xray 8.5.3-j10**, targeting existing **Generic Tests**. Generic is the confirmed
+Test type; live import behavior on this exact server/version still requires
+validation. Native iteration rows and datasets are not implemented.
 
 The guide takes you through installation, a marked parametrized test, an Xray
 payload preview, authentication and import. You then inspect the Test Run in Jira.

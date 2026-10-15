@@ -71,10 +71,8 @@ execution. No credential, screenshot or real test is needed for this kit.
 
 Before any manual import, confirm with the sandbox administrator or vendor:
 
-- Exact build is 8.5.3-j10. In **Jira Administration → Manage apps → Xray →
-  Manage Test Types**, check the effective project context's **Type** column.
-  A custom label such as **Automatic** must actually map to Generic/Unstructured.
-  A label alone is insufficient. Do not change the type to make this probe pass.
+- Exact build is 8.5.3-j10 and the disposable Test is Generic, matching the
+  confirmed target. Do not change its type to make this probe pass.
 - The supported JSON schema for that build accepts status-only `iterations` on
   this kind. Current Server/DC documentation is not a pinned 8.5.3 contract.
 - The sandbox's PASS and FAIL status names exist. If schema or type support is
@@ -117,8 +115,7 @@ parametrized support. Do not add undocumented `name`, parameters or datasets.
 
 Exact question for Xray support (synthetic information only):
 
-> For Xray Server/DC 8.5.3-j10, does a Generic/Unstructured Test (including a
-> custom Automatic label mapped to that kind) accept status-only iterations
+> For Xray Server/DC 8.5.3-j10, does a Generic/Unstructured Test accept status-only iterations
 > through Xray JSON import? Which documented field provides stable case identity
 > across reordered and repeated imports? The current iteration prose mentions
 > name but the published closed schema does not establish that field. Are full

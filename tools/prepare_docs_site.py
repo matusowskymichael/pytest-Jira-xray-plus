@@ -34,7 +34,7 @@ for index, (slug, heading) in enumerate(tutorial):
     write(f'tutorial/{slug}.md', heading, context + sections[heading].replace('Jira/Xray prerequisites above', '[Jira/Xray prerequisites](../reference/prerequisites.md)'))
 write('tutorial/index.md', 'Integrate pytest with Jira and Xray', """
 Begin with the [Jira/Xray prerequisites](../reference/prerequisites.md): your server,
-Test and Test Execution issues, effective Test type and existing credentials.
+existing Generic Test and Test Execution issues, and existing credentials.
 Install the plugin, map your test, preview the payload, then authenticate and import
 results. Debugging and audit recipes follow the core integration workflow.
 
@@ -42,7 +42,8 @@ results. Debugging and audit recipes follow the core integration workflow.
 
 Preview commands do not contact Jira. CI executes these commands against an installed
 package with HTTP blocked; live imports require your authorized Jira/Xray environment.
-The target Xray 8.5.3-j10 and custom Automatic mapping remain unverified.
+Generic is the confirmed Test type. Live import behavior on Xray 8.5.3-j10 remains
+unverified; native iteration rows and datasets are not implemented.
 """)
 write('reference/prerequisites.md', 'Jira/Xray prerequisites', sections['Jira/Xray prerequisites'])
 for path, heading in [

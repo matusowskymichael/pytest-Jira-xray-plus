@@ -1,13 +1,18 @@
 # Server/DC compatibility research
 
-The initial research target is Xray **8.5.3-j10**, with Generic/Unstructured
-Tests. Jira with Xray is the product foundation; this exact server/version and
-custom Test-type mapping require live validation. Offline reports support import
+The confirmed target is Xray **8.5.3-j10** on Jira Server/Data Center, with
+**Generic Tests** (Unstructured kind). Jira with Xray is the product foundation.
+Michael confirmed Generic as the target, superseding the earlier Automatic-label
+uncertainty; live import behavior on this exact server/version still needs validation. Offline reports support import
 preview and diagnostics. Native iteration import is not implemented or exercised.
 The existing legacy publisher remains inherited from upstream. For Server/DC
 status spelling, omit `--cloud`. GitLab runners do not change the JSON contract.
 
-## Custom Test Type names
+## Generic target and custom Test Type names
+
+The plugin imports results for an existing Generic Test key and does not select
+or change the Test type. The following custom-name background applies only when
+evaluating other project configurations; it is not an unresolved target requirement.
 
 Xray distinguishes a configurable Test Type name from its underlying kind:
 Steps, Gherkin or Unstructured. Default names are Manual, Cucumber and Generic.

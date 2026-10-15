@@ -17,10 +17,9 @@ warns that reimport replaces existing dataset/iteration information.
 
 Neither page is a pinned 8.5.3-j10 contract. Public searches did not locate an
 authoritative version-specific contract resolving the Generic/name discrepancy.
-A Jira platform API version, Cloud documentation, or an Automatic display label
-is not evidence for this Xray app build. Ask the sandbox administrator/vendor to
-confirm both the app build and Automatic's actual Generic/Unstructured type.
-Do not change that type to make a test pass.
+Generic is the confirmed target Test type. A Jira platform API version or Cloud
+documentation is not evidence for this Xray app build. Use a disposable Generic
+Test on the matching app build; do not change its type to make a probe pass.
 
 ## A. Implemented comment fallback: one synthetic import
 
@@ -63,7 +62,7 @@ blocked until the vendor confirms a field supported by this exact build and a
 separate synthetic probe verifies it across reordered imports. Do not add `name`,
 Manual-only parameters, or datasets based solely on the current prose.
 
-Return only: build confirmed yes/no; Generic mapping confirmed yes/no; comment
+Return only: build confirmed yes/no; sandbox Test is Generic yes/no; comment
 persisted yes/no; native row counts/status order; repeated import replaced or
 appended; supported identity field confirmed or unknown. No private content is
 needed. A rejection or “not observable” is a useful result, not a reason to guess.
