@@ -192,3 +192,19 @@ environment. Exact artifact/version checks advance from 0.1.1 to 0.1.2; permissi
 Trusted Publisher identity and runtime source are unchanged. The workflow verifies
 the reviewed commit, tests, installed examples and artifact hashes before publishing.
 Publication success must be verified from the workflow result and public PyPI files.
+
+
+## 0.1.3 Generic target documentation release
+
+Michael confirmed Generic as the target Test type and approved merging the correction,
+updating Pages and publishing stable 0.1.3. This supersedes the earlier uncertainty
+about an Automatic display label. The implementation still imports aggregate results
+for existing Jira Test keys and does not provision, infer or change their type.
+Jira with Xray remains required for the intended integration; native iteration rows,
+datasets and per-iteration evidence remain unsupported. Independent live import
+validation on Xray 8.5.3-j10 remains outstanding.
+
+Runtime source is unchanged from 0.1.2. The existing manual Trusted Publisher workflow
+retains its permissions and pypi environment; only exact version/filename checks advance
+to 0.1.3. Publication must be verified against the reviewed remote commit, CI artifact
+hashes, public package metadata and a fresh public-PyPI installation.
