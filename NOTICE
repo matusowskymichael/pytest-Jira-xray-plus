@@ -1,0 +1,17 @@
+This prototype contains code from pytest-jira-xray by Lukasz Fundakowski
+and its contributors, licensed under Apache License 2.0.
+Upstream: https://github.com/fundakol/pytest-jira-xray
+Source revision: 6ac1117585da590001cdbc2bf261b78683c19dcb
+Inspected 2026-10-15. Upstream contains LICENSE and no NOTICE file.
+
+The original LICENSE, source notices, README.rst, CHANGELOG.rst and tests are
+retained. This independent fork is not endorsed by upstream or Xray.
+
+Prototype modifications: opt-in parameter details in plugin.py and
+xray_plugin.py; new regression tests, reproduction tool, documentation,
+synthetic example, local packaging metadata, and tests-only CI. The inherited
+publishing workflow has been removed. New contributions are Apache-2.0.
+
+Further prototype modifications: transport-independent case/attempt/phase model,
+opt-in offline JSON collector and writer, rerun/xdist coverage, and unexecuted
+Xray 8.5.3-j10 synthetic native-import validation plan.

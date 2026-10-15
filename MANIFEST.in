@@ -1,0 +1,5 @@
+include LICENSE NOTICE README.md README.rst CHANGELOG.rst
+recursive-include docs *.md
+recursive-include tests *.py *.png *.jpeg *.zip
+recursive-include tools *.py
+recursive-include examples *.py *.json

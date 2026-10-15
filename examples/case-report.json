@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "pytest_exit_status": 1,
+  "cases": [
+    {
+      "nodeid": "examples/synthetic.py::test_parameter[first-fails]",
+      "status": "failed",
+      "attempts": [
+        {
+          "number": 1,
+          "worker_id": "local",
+          "parameter_id": "first-fails",
+          "phases": [
+            {
+              "phase": "setup",
+              "outcome": "passed",
+              "pytest_outcome": "passed",
+              "duration": 0.00024509100012437557
+            },
+            {
+              "phase": "call",
+              "outcome": "failed",
+              "pytest_outcome": "failed",
+              "duration": 0.0002455919998283207
+            },
+            {
+              "phase": "teardown",
+              "outcome": "passed",
+              "pytest_outcome": "passed",
+              "duration": 0.0002896080000027723
+            }
+          ],
+          "complete": true,
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "nodeid": "examples/synthetic.py::test_parameter[last-passes]",
+      "status": "passed",
+      "attempts": [
+        {
+          "number": 1,
+          "worker_id": "local",
+          "parameter_id": "last-passes",
+          "phases": [
+            {
+              "phase": "setup",
+              "outcome": "passed",
+              "pytest_outcome": "passed",
+              "duration": 0.0003114809996986878
+            },
+            {
+              "phase": "call",
+              "outcome": "passed",
+              "pytest_outcome": "passed",
+              "duration": 6.526900006065262e-05
+            },
+            {
+              "phase": "teardown",
+              "outcome": "passed",
+              "pytest_outcome": "passed",
+              "duration": 7.569400031570694e-05
+            }
+          ],
+          "complete": true,
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}
