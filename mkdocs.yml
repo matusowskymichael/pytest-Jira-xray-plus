@@ -1,0 +1,87 @@
+site_name: pytest Xray Plus
+site_description: Keep every pytest case. Export clear aggregate results to Jira Xray.
+site_url: https://matusowskymichael.github.io/pytest-Jira-xray-plus/
+repo_url: https://github.com/matusowskymichael/pytest-Jira-xray-plus
+repo_name: pytest-Jira-xray-plus
+docs_dir: .docs-source
+site_dir: site
+strict: true
+theme:
+  name: material
+  language: en
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  font: false
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+extra_css:
+  - assets/extra.css
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/matusowskymichael/pytest-Jira-xray-plus
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/pytest-jira-xray-plus/
+nav:
+  - Home: index.md
+  - Tutorial:
+      - Start the tutorial: tutorial/index.md
+      - Install: tutorial/install.md
+      - Run two cases: tutorial/cases.md
+      - Save a local report: tutorial/local-report.md
+      - Choose report contents: tutorial/values.md
+      - Inspect a failure: tutorial/failure.md
+      - Preview Xray results: tutorial/xray.md
+      - Archive long comments: tutorial/archive.md
+      - Send to Jira: tutorial/upload.md
+  - How-to guides:
+      - Parallel tests and retries: guides/parallel.md
+      - Multiple Jira Tests: guides/multiple-tests.md
+      - Custom metadata and evidence: guides/hooks.md
+  - Reference:
+      - Command-line options: reference/options.md
+      - Authentication and settings: reference/settings.md
+      - Results and compatibility: reference/compatibility.md
+      - Local JSON schema: reference/schema.md
+      - Troubleshooting and migration: reference/troubleshooting.md
+  - Project:
+      - Changelog: project/changelog.md
+      - Development: project/development.md
+      - Maintaining this site: project/site.md
+copyright: Apache-2.0 · Independent fork of pytest-jira-xray
