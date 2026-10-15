@@ -162,7 +162,7 @@ after green checks; the stable-release limitations above remain in force. Earlie
 “proposed” and review-pending notes record the preparation stage, not a stable claim.
 
 
-## 0.1.2 integration-first documentation patch (prepared, not published)
+## 0.1.2 integration-first documentation release
 
 Jira with Xray is the required product foundation. The README, website and package
 summary now lead with prerequisites, existing Test/Test Execution mapping, Server/DC
@@ -185,3 +185,9 @@ rendered and both distributions passed Twine checks. All 13 runtime module files
 match the installed public 0.1.1 package byte-for-byte. The strict site build,
 internal links and desktop/mobile browser checks passed. This evidence does not
 replace the outstanding server validation or authenticate a live import.
+
+The 0.1.2 release uses the existing manual `publish.yml` workflow and `pypi`
+environment. Exact artifact/version checks advance from 0.1.1 to 0.1.2; permissions,
+Trusted Publisher identity and runtime source are unchanged. The workflow verifies
+the reviewed commit, tests, installed examples and artifact hashes before publishing.
+Publication success must be verified from the workflow result and public PyPI files.
