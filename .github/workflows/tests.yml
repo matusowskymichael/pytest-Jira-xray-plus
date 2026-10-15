@@ -25,7 +25,7 @@ jobs:
       - name: Check installed wheel examples and full PyPI description
         run: |
           python -m venv /tmp/xray-wheel
-          /tmp/xray-wheel/bin/python -m pip install release-dist/*.whl
+          /tmp/xray-wheel/bin/python -m pip install release-dist/*.whl pytest-xdist==3.8.0 pytest-rerunfailures==16.7
           python tools/check_installed_usage.py /tmp/xray-wheel/bin/python release-dist/*.whl
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
