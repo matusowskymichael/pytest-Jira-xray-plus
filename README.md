@@ -3,10 +3,16 @@
 An independent Apache-2.0 fork of
 [pytest-jira-xray](https://github.com/fundakol/pytest-jira-xray), based on
 `6ac1117585da590001cdbc2bf261b78683c19dcb` (0.9.4 line).
-The working distribution name is `pytest-jira-xray-plus`; it has **not** been
-reserved or released on PyPI. Native per-case Xray integration is unverified.
+**Experimental alpha 0.1.0a1**, prepared for community testing. Native per-case
+Xray integration is unverified; this is not production-ready. No native iteration
+or dataset support is claimed. Publication status must be checked on PyPI.
 
-Start with the [two-stage validation kit](docs/QUICK-VALIDATION.md): one offline
+Requires Python 3.12+ and pytest 9.1.1–9.x; validated on Python 3.12 / pytest
+9.1.1 only. Older inherited compatibility claims have been removed for this
+initial alpha. Report bugs with synthetic reproducers via
+[GitHub issues](https://github.com/matusowskymichael/pytest-Jira-xray-plus/issues).
+
+Start with the [two-stage validation kit](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/QUICK-VALIDATION.md): one offline
 command, then an optional experimental sandbox-only native capability probe.
 
 ## Preserve every executed case offline
@@ -19,7 +25,7 @@ markers, credentials or uploads are needed. Parameter values are excluded;
 IDs themselves can contain data, so use safe explicit IDs or opt into
 `--xray-case-redact-identities` for per-run aliases in the offline file.
 
-See [report schema and aggregation rules](docs/CASE-REPORT.md). The report is
+See [report schema and aggregation rules](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/CASE-REPORT.md). The report is
 not Xray import JSON and does not populate Jira's native iteration UI.
 
 ## Optional comment fallback
@@ -81,7 +87,7 @@ python -m twine check dist/*
 The regression probe can also be run against an unmodified upstream checkout:
 `python tools/reproduce.py /path/to/upstream/src`. It deliberately fails when
 both passing parameter cases are absent from the report, after first proving
-that a failure survives a later pass. See [validation scope](docs/VALIDATION.md).
+that a failure survives a later pass. See [validation scope](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/VALIDATION.md).
 Regression tests block HTTP transport; inherited integration tests use only a
 localhost fake server with synthetic credentials.
 
@@ -89,14 +95,14 @@ localhost fake server with synthetic credentials.
 
 Native iterations, dataset creation, per-iteration evidence, cross-session
 attempt identity, parameter redaction and comment-size limits need further design.
-See the [unexecuted native validation plan](docs/NATIVE-VALIDATION.md).
+See the [unexecuted native validation plan](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/NATIVE-VALIDATION.md).
 For the legacy Xray payload only, the original status hierarchy is retained: ABORTED outranks FAIL, so a group
 containing a skip and a failure is ABORTED, with the failure visible in comments.
 This prototype does not silently turn that group into PASS, but does not change
 upstream's semantics to fail-dominant either. Expected failures and unexpected
 passes retain upstream mappings. Publishing error exit behavior is also inherited.
 The independent offline report uses the conservative failure-first rules
-documented in [CASE-REPORT.md](docs/CASE-REPORT.md).
+documented in [CASE-REPORT.md](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/CASE-REPORT.md).
 
-Read [API decision notes](docs/API.md), [release proposal](docs/RELEASE.md),
-and [NOTICE](NOTICE). Original upstream instructions remain in `README.rst`.
+Read [API decision notes](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/API.md), [release proposal](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/docs/RELEASE.md),
+and [NOTICE](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/dev/offline-case-reporting/NOTICE). Original upstream instructions remain in `README.rst`.

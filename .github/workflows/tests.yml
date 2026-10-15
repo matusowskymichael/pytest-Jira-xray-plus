@@ -10,9 +10,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install -e . pytest-httpserver pytest-xdist pytest-rerunfailures build twine
+      - run: python -m pip install -e . pytest-httpserver pytest-xdist pytest-rerunfailures build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0
       - run: pytest -q
       - run: python tools/reproduce.py src --details
       - run: python tools/validate_offline.py
-      - run: python -m build
-      - run: python -m twine check dist/*
+      - run: python tools/build_release.py release-dist
+      - run: python -m twine check release-dist/*

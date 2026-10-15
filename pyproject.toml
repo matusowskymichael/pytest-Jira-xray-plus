@@ -2,27 +2,24 @@
 name = "pytest-jira-xray-plus"
 description = "Offline pytest case and attempt reporting with an optional Jira Xray comment fallback"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "Lukasz Fundakowski", email = "fundakol@yahoo.com" }]
 keywords = ["pytest, JIRA, XRAY"]
 classifiers = [
-  "Development Status :: 4 - Beta",
+  "Development Status :: 3 - Alpha",
   "Framework :: Pytest",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
-  "Programming Language :: Python :: 3.14"
 ]
-dependencies = ["pytest>=6.2.4", "requests>=2.27.0"]
-version = "0.1.0.dev0"
+dependencies = ["pytest>=9.1.1,<10", "requests>=2.34.2,<3"]
+version = "0.1.0a1"
 
 [project.urls]
 Repository = "https://github.com/matusowskymichael/pytest-Jira-xray-plus"
+Issues = "https://github.com/matusowskymichael/pytest-Jira-xray-plus/issues"
 Upstream = "https://github.com/fundakol/pytest-jira-xray"
 
 [project.entry-points.pytest11]
@@ -48,7 +45,7 @@ test = [
 ]
 
 [build-system]
-requires = ["setuptools>=77"]
+requires = ["setuptools==84.0.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.black]
