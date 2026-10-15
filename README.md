@@ -15,10 +15,10 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide accompanies the **0.1.2 documentation patch**, which corrects
-Jira/Xray positioning and the package description. Its examples also work with
-0.1.1; installation selects the latest published version. Runtime behavior is unchanged from 0.1.0/0.1.1. No new network or
-credential requirement is imposed on offline preview commands.
+This guide accompanies the **0.1.3 documentation patch**, which confirms Generic
+as the target Xray Test type. Runtime behavior is unchanged from 0.1.2; the examples
+also work with that version. Installation selects the latest published version.
+Offline previews still require neither network access nor credentials.
 
 ## Jira/Xray prerequisites
 
@@ -652,8 +652,8 @@ The Python imports, marker and `xray` plugin name are retained. Check the depend
 requirements, add local reporting as needed, and compare an offline export before
 uploading. Do not install both distributions together.
 
-**From 0.1.0/0.1.1:** 0.1.2 corrects Jira/Xray positioning and documentation;
-runtime behavior is unchanged.
+**From 0.1.0–0.1.2:** 0.1.3 confirms Generic as the target Test type in the
+documentation; runtime behavior is unchanged.
 **From 0.1.0a1:** later releases add bounded comments, meaningful publishing failures,
 atomic file export and failure-preserving rerun summaries; update CI expectations.
 

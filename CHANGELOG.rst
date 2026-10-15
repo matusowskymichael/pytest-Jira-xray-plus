@@ -167,3 +167,10 @@
 - Lead the complete guide with prerequisites, Test/Execution mapping, authentication and import.
 - Retain offline preview, local case audit and archives as integration support facilities.
 - No runtime changes, network enforcement, credentials or publishing permission changes.
+
+
+0.1.3 (2026-10-15)
+------------------
+- Confirm Generic as the target Test type on Jira Server/Data Center with Xray 8.5.3-j10.
+- Correct README, website and compatibility guidance; retain native-iteration limitations.
+- Documentation-only release: runtime, credentials and publishing permissions unchanged.
