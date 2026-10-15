@@ -15,9 +15,9 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide is prepared for the **0.1.2 documentation patch**, which corrects
+This guide accompanies the **0.1.2 documentation patch**, which corrects
 Jira/Xray positioning and the package description. Its examples also work with
-the published 0.1.1 package; installation selects the latest published version. Runtime behavior is unchanged from 0.1.0/0.1.1. No new network or
+0.1.1; installation selects the latest published version. Runtime behavior is unchanged from 0.1.0/0.1.1. No new network or
 credential requirement is imposed on offline preview commands.
 
 ## Jira/Xray prerequisites
