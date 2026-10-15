@@ -8,8 +8,8 @@ a **Test Run** is Xray's result for one Jira Test issue in a Test Execution.
 This package does **not** create native Xray iteration rows or datasets.
 
 [0.1.0a1 is published on PyPI](https://pypi.org/project/pytest-jira-xray-plus/0.1.0a1/).
-It is an experimental alpha, not a stable release. This guide includes unreleased
-hardening changes, clearly identified below. The installation and local examples
+It is an experimental alpha, not a stable release. Version **0.1.0a2 is prepared but not published** while PR review is outstanding.
+This guide includes its proposed hardening changes, clearly identified below. The installation and local examples
 work with the published alpha as well as the proposed changes.
 
 This is an independent Apache-2.0 fork of
@@ -106,8 +106,26 @@ it repeated Jira keys are rejected. Multiple keys can be given as
 `@pytest.mark.xray("DEMO-1", "DEMO-2")`, which copies the result to both Tests.
 
 The fallback is opt-in because comments can expose data and grow large.
-There is no automatic size limit or truncation; large suites may exceed the
-server's limit. Check `xray.json` before use and keep the complete local report.
+Published 0.1.0a1 has no size limit. Proposed 0.1.0a2 uses a **32,000 UTF-8 byte
+limit per final comment**, configurable with `--xray-comment-limit` (minimum 256).
+This is our conservative client policy, not a universal Jira/Xray server limit;
+a server may impose a different limit. The bound includes the truncation notice
+and any wiki formatting wrapper, but does not bound evidence or total request size.
+
+In 0.1.0a2, add `--xray-full-report=full-xray.json` to preserve the **entire
+original Xray payload** locally before shortening any comments. The main export
+(either `xray.json` or the upload) then contains a clearly marked shortened
+comment, and pytest prints how many comments were truncated. Without a full-report
+path, an oversized comment stops export with a nonzero exit rather than silently
+losing detail. If writing the archive fails, export also stops. Status and evidence
+are never truncated. Keep `cases.json` for structured cases/attempts; it remains
+unbounded and is independent of the full-payload archive.
+
+`full-xray.json` contains full comments, values, failure text and evidence: protect
+it like the original test data. It is replaced each run; use a unique path to keep
+history. It must differ from `cases.json` and `xray.json`. Do not upload it to
+bypass the chosen bound. This extra file is written only when explicitly requested.
+Check `xray.json` before use and keep both local reports when exporting large suites.
 A successful import should show one aggregate Test Run and its comment, **not
 separate native iteration rows**. Actual rendering on Xray 8.5.3-j10 is unverified.
 Only parametrized reports get the extra parameter comment. Failure text is
@@ -129,7 +147,7 @@ Ask the administrator to confirm the actual type; the label alone is insufficien
 
 Replace `DEMO-1` in your test with an existing sandbox **Test** key. Obtain an
 existing sandbox **Test Execution** key, for example `DEMO-100`. The following
-POSIX shell example reads an existing personal access token without putting it
+Bash example reads an existing personal access token without putting it
 in shell history. Use your CI's protected environment variables for automation;
 do not commit credentials or put them in pytest options.
 
@@ -200,6 +218,8 @@ See `python -m pytest --help` for pytest's own options.
 | `--jira-xray` | Enable the legacy marked-test exporter. Uploads unless `--xraypath` is set. |
 | `--xraypath=PATH` | With `--jira-xray`, write Xray JSON to a file instead of uploading; creates parent folders. |
 | `--allow-duplicate-ids` | Merge cases sharing a Jira Test key; required for the example's parametrization. |
+| `--xray-comment-limit=BYTES` | Proposed 0.1.0a2: bound each final comment in UTF-8 bytes; default 32000, minimum 256. |
+| `--xray-full-report=PATH` | Proposed 0.1.0a2: save full original legacy payload before comment truncation; requires `--jira-xray`. |
 | `--xray-parameter-details` | With `--jira-xray`, add parameter identities and scalar values to comments. |
 | `--execution=KEY` | Update an existing Test Execution. |
 | `--testplan=KEY` | Set the Test Plan key in execution metadata. |
@@ -245,12 +265,13 @@ Subtests, repeat plugins, crash recovery identity, cross-session merging and
 per-iteration evidence are **not supported as distinct case models**. Do not
 assume one record per subtest or one stable attempt ID across restarted workers.
 
-**Unreleased hardening in this branch:** requests have a 10-second connect and
+**Proposed 0.1.0a2 hardening (not published):** requests have a 10-second connect and
 60-second read-inactivity timeout (not a total deadline); redirects are rejected;
 authentication and response shapes are checked; response bodies are not dumped
 to shared temporary files. Failed publishing changes an otherwise successful
 pytest exit to 3; existing nonzero exits are preserved. Uploads are withheld for
-worker crashes, interrupted/collection-error sessions, or empty marked results.
+worker crashes, interrupted/collection-error sessions (including continue-on-error),
+fail-fast/maxfail stops, or empty marked results.
 Local Xray file writes are atomic and retain the previous file on failure.
 These guarantees are **not in the published 0.1.0a1 wheel**.
 
@@ -282,6 +303,30 @@ and attaching evidence through `pytest_runtest_makereport`; see the
 [upstream-style reference](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/README.rst).
 Hooks run trusted local Python and can alter the safety and correctness of a report.
 
+## Try proposed 0.1.0a2 before publication
+
+The PR's CI artifacts contain a wheel named
+`pytest_jira_xray_plus-0.1.0a2-py3-none-any.whl` and source archive named
+`pytest_jira_xray_plus-0.1.0a2.tar.gz`. In a fresh environment, install the downloaded
+wheel with `python -m pip install /path/to/pytest_jira_xray_plus-0.1.0a2-py3-none-any.whl`.
+This is an explicitly experimental local installation, not a PyPI release. The basic
+example above works unchanged; the new options are available only in this build.
+
+For a no-network size-policy demonstration after installing that wheel, run the
+same `test_example.py` with:
+
+```sh
+python -m pytest -q test_example.py --jira-xray --xraypath=xray.json \
+  --allow-duplicate-ids --xray-parameter-details --xray-comment-limit=256 \
+  --xray-full-report=full-xray.json --xray-case-report=cases.json
+```
+
+With the original passing example, expect exit 0, two passing cases in
+`cases.json`, one full comment in `full-xray.json`, and one shorter marked comment
+in `xray.json`. The terminal reports one truncated comment. Neither file is sent.
+The deliberately small 256-byte limit demonstrates the behavior, not a recommended
+server setting.
+
 ## Development and stable-release gates
 
 To test the proposed changes rather than the published alpha, clone this repository,
@@ -300,14 +345,18 @@ Regression tests use synthetic data, blocked transport or a localhost fake serve
 The [readiness record](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASE-READINESS.md)
 separates executed checks from unverified claims. Before stable publication,
 review CI, validate authorized sandbox comment behavior on 8.5.3-j10, confirm
-Automatic's effective type and resolve scope/limits. Native iteration support
+Automatic's effective type and validate the configurable comment policy. Native iteration support
 requires separate evidence for schema, stable identity, reordered/repeated imports
 and persisted UI/readback; the
 [experimental probe](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/QUICK-VALIDATION.md)
-is a review plan, not an enabled feature. No workplace access is needed or requested.
+is a review plan, not an enabled feature. The
+[minimal sandbox check](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/MINIMAL-SANDBOX-CHECK.md)
+needs only synthetic Tests and an existing browser login; it requests no private
+credentials or data. No workplace access is needed or requested.
 
 Publishing remains manual through the existing `publish.yml` / `pypi` environment.
-That workflow is pinned to 0.1.0a1 and must be reviewed separately for any new
-version. This work does not publish, create credentials, broaden permissions,
+That workflow is prepared for 0.1.0a2 with the same manual approval, exact
+artifact checks and permissions; it has not been dispatched. Review must finish
+before merging or publishing. This work does not publish, create credentials, broaden permissions,
 or relabel the alpha as stable. Report synthetic reproductions through
 [GitHub issues](https://github.com/matusowskymichael/pytest-Jira-xray-plus/issues).

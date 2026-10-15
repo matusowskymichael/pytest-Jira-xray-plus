@@ -8,6 +8,7 @@ from requests.auth import AuthBase
 
 from pytest_xray import hooks
 from pytest_xray.case_report import CaseReportPlugin
+from pytest_xray.comment_limits import DEFAULT_COMMENT_LIMIT
 from pytest_xray.constant import (
     JIRA_API_KEY,
     JIRA_CLIENT_SECRET_AUTH,
@@ -30,6 +31,18 @@ from pytest_xray.xray_publisher import ApiKeyAuth, ClientSecretAuth, XrayPublish
 
 def pytest_addoption(parser: pytest.Parser) -> None:
     xray = parser.getgroup('Jira Xray report')
+    xray.addoption(
+        '--xray-comment-limit',
+        type=int,
+        default=DEFAULT_COMMENT_LIMIT,
+        help='Maximum UTF-8 bytes per exported comment (default: 32000; minimum: 256)',
+    )
+    xray.addoption(
+        '--xray-full-report',
+        metavar='path',
+        default=None,
+        help='Retain complete legacy Xray JSON locally before bounding comments',
+    )
     xray.addoption(
         '--xray-case-report',
         metavar='path',
@@ -102,6 +115,15 @@ def pytest_configure(config: pytest.Config) -> None:
     if config.option.collectonly:
         return
 
+    full_path = config.getoption('--xray-full-report')
+    if config.getoption('--xray-comment-limit') < 256:
+        raise pytest.UsageError('--xray-comment-limit must be at least 256 bytes')
+    if full_path and not config.getoption(JIRA_XRAY_FLAG):
+        raise pytest.UsageError('--xray-full-report requires --jira-xray')
+    paths = [(config.getoption('--xray-case-report'), False), (config.getoption(XRAYPATH), True), (full_path, True)]
+    normalized = [Path(os.path.expandvars(p) if expand else p).expanduser().resolve() for p, expand in paths if p]
+    if len(set(normalized)) != len(normalized):
+        raise pytest.UsageError('Report paths must be different: --xray-case-report, --xraypath, --xray-full-report')
     case_path = config.getoption('--xray-case-report')
     redact_ids = config.getoption('--xray-case-redact-identities')
     if redact_ids and not case_path:

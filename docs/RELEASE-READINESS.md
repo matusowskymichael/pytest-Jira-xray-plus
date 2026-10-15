@@ -1,8 +1,8 @@
 # Release readiness — 2026-10-15
 
 Decision: **not ready for stable publication**. This change prepares reviewable
-hardening and complete PyPI usage documentation. Version and Alpha classifier
-remain 0.1.0a1; locally rebuilt wheels are validation artifacts, not a new release.
+hardening and complete PyPI usage documentation. Version is prepared as **0.1.0a2**, with the Alpha classifier retained.
+Locally rebuilt wheels are validation artifacts, not a published release.
 The released 0.1.0a1 on PyPI remains unchanged.
 
 ## Executed evidence
@@ -15,13 +15,14 @@ was accessed and no credential was created.
 Local environment: Linux, Python 3.12.14, pytest 9.1.1, requests 2.34.2,
 pytest-xdist 3.8.0, pytest-rerunfailures 16.7.
 
-- Full suite: **102 passed** (69 existing tests plus 33 regression cases).
+- Full suite: **115 passed** (69 original tests plus 46 regression cases).
 - New regression coverage: HTTP timeouts and transport failures, bad authentication,
   malformed successful responses, invalid JSON, atomic file preservation,
   setup/call/teardown retries with 0 and 2 workers, collection errors,
   interruption, no-tests sessions, worker crash with and without restart,
   withheld partial uploads, publish-failure exit status in the local report,
-  grouped skip/failure semantics, repeated keys within one marker.
+  grouped skip/failure semantics, repeated keys within one marker, UTF-8 comment
+  bounds and full archival, fail-fast and continue-on-collection-error upload suppression.
 - `tools/reproduce.py src --details`: confirms retained passing-case identities
   and failure-before-pass summary. Its nested synthetic pytest failure is expected;
   the verification script itself exits 0.
@@ -82,9 +83,13 @@ Before a stable release:
    custom statuses, Unicode, realistic comment size, persisted comments and
    repeated imports. Confirm Automatic's effective Generic/Unstructured mapping.
    No such live validation was performed in this task.
-3. Decide and test comment-size handling. Currently comments are unbounded;
-   oversized payload rejection is reported but no automatic splitting/truncation
-   is implemented. Offline JSON remains the complete source of observed cases.
+3. Validate the implemented client comment policy on the target sandbox: default
+   32,000 UTF-8 bytes, configurable minimum 256. Oversized comments are shortened
+   only after a successful full original payload archive (`--xray-full-report`);
+   without an archive export fails. Console and comment both identify truncation.
+   The bound is not a universal server limit or a bound on total payload/evidence.
+   Structured local case reporting remains unbounded. Local policy tests pass;
+   server acceptance still needs validation.
 4. If native parameter rows are part of the stable scope, resolve schema and test
    type support with version-specific vendor evidence, then implement behind an
    explicit experimental option and validate stable identity, order, repeat imports,
@@ -93,11 +98,27 @@ Before a stable release:
 5. Subtests, repeat-plugin semantics, reliable identity across crashed/restarted
    workers and cross-session aggregation need separate design if required.
    Hard termination cannot guarantee final report writing.
-6. Choose a new version and review release notes and publishing configuration.
-   The existing manual `publish.yml` is hardcoded to 0.1.0a1 and exact artifact names.
-   It was deliberately left unchanged, with the existing `pypi` environment and
-   permissions. Do not attempt to republish the changed build as 0.1.0a1.
+6. Finish independent PR review before merge or publication. Version, release notes
+   and the manual `publish.yml` exact artifact checks are prepared for **0.1.0a2**.
+   The `pypi` environment, workflow_dispatch-only trigger, explicit publish opt-in,
+   reviewed-SHA check and permissions remain unchanged. No dispatch occurred.
+   Do not republish this changed build as 0.1.0a1 or label it stable.
 
 The full README is packaged for the next approved release. A PR alone does not
 update the published PyPI long description. Publishing a new version remains a
 separate decision after these gates; this task performed no publication.
+
+## Proposed prerelease artifacts
+
+- `pytest_jira_xray_plus-0.1.0a2-py3-none-any.whl`
+- `pytest_jira_xray_plus-0.1.0a2.tar.gz`
+
+CI uploads both in `prerelease-distributions-python-3.12` (and equivalent 3.13/3.14
+artifacts); each build prints SHA-256 hashes. The separate README preview artifact
+allows inspection of the full packaged description. The next PyPI upload is not
+performed until independent review is complete.
+
+The [minimal sandbox check](MINIMAL-SANDBOX-CHECK.md) separates implemented comment
+validation from a three-import anonymous-native-row capability probe. Neither
+requests private credentials or data. Current official docs do not supply a
+version-pinned Generic/name contract; this remains an explicit blocker.

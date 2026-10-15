@@ -53,6 +53,36 @@ requests.sessions.Session.request = blocked
                 assert tests[0]['status'] == ('FAIL' if failing else 'PASS')
                 assert all(name in tests[0]['comment'] for name in ('one-plus-one', 'two-plus-one'))
                 assert 'iterations' not in tests[0]
+    if len(sys.argv) > 2:
+        sample.write_text(source)
+        run = subprocess.run(
+            [
+                python,
+                '-m',
+                'pytest',
+                '-q',
+                'test_example.py',
+                '--jira-xray',
+                '--xraypath=xray.json',
+                '--allow-duplicate-ids',
+                '--xray-parameter-details',
+                '--xray-comment-limit=256',
+                '--xray-full-report=full-xray.json',
+                '--xray-case-report=cases.json',
+            ],
+            cwd=path,
+            env=env,
+            capture_output=True,
+            text=True,
+        )
+        assert run.returncode == 0, run.stdout + run.stderr
+        assert 'truncated 1 comment(s)' in run.stdout
+        full = json.loads((path / 'full-xray.json').read_text())['tests'][0]['comment']
+        bounded = json.loads((path / 'xray.json').read_text())['tests'][0]['comment']
+        assert len(full.encode('utf-8')) > 256 >= len(bounded.encode('utf-8'))
+        assert all(name in full for name in ('one-plus-one', 'two-plus-one'))
+        assert len(json.loads((path / 'cases.json').read_text())['cases']) == 2
+        print('PASS: installed 0.1.0a2 size-policy example, complete archive, visible truncation')
     print('PASS: installed README examples, passing/failing cases, both formats, no HTTP')
 
 if len(sys.argv) > 2:

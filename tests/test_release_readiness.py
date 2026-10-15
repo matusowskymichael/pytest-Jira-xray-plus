@@ -228,3 +228,34 @@ def test_repeated_marker_key_is_not_duplicated(pytester):
     assert result.ret == 0
     test = json.loads((pytester.path / 'xray.json').read_text())['tests'][0]
     assert test['comment'].count('pytest parameter case:') == 1
+
+
+@pytest.mark.parametrize('mode', ['failfast', 'collection'])
+def test_exit_one_partial_session_withholds_upload(pytester, monkeypatch, mode):
+    monkeypatch.setenv('XRAY_API_BASE_URL', 'https://example.invalid')
+    monkeypatch.setenv('XRAY_API_USER', 'synthetic')
+    monkeypatch.setenv('XRAY_API_PASSWORD', 'synthetic')
+    pytester.makeconftest("""
+        from pytest_xray.xray_publisher import XrayPublisher
+        def forbidden(self, data): raise AssertionError('partial upload was attempted')
+        XrayPublisher.publish = forbidden
+    """)
+    pytester.makepyfile(
+        test_cases="""
+        import pytest
+        @pytest.mark.xray('SYN-1')
+        def test_a_fail(): assert False
+        @pytest.mark.xray('SYN-2')
+        def test_b_pass(): pass
+    """
+    )
+    if mode == 'collection':
+        pytester.makepyfile(test_broken='def broken(: pass')
+    option = '-x' if mode == 'failfast' else '--continue-on-collection-errors'
+    result = pytester.runpytest_subprocess('--jira-xray', option, '--xray-case-report=cases.json')
+    assert result.ret == 1
+    assert 'Upload withheld' in result.stdout.str()
+    assert 'partial upload was attempted' not in result.stdout.str()
+    data = json.loads((pytester.path / 'cases.json').read_text())
+    assert data['pytest_exit_status'] == 1
+    assert len(data['cases']) == (1 if mode == 'failfast' else 2)

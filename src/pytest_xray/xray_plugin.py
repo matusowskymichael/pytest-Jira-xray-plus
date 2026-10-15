@@ -14,6 +14,7 @@ from _pytest.reports import TestReport
 from _pytest.terminal import TerminalReporter
 
 from pytest_xray.case_report import scalar_values
+from pytest_xray.comment_limits import bound_comments
 from pytest_xray.constant import (
     JIRA_CLOUD,
     XRAY_ADD_CAPTURES,
@@ -42,6 +43,8 @@ class XrayPlugin:
     """Collects results from pytest and exports to Jira Xray server."""
 
     def __init__(self, config: pytest.Config, publisher: Publisher) -> None:
+        self.truncated_comments = 0
+        self.collection_failed = False
         self.worker_failed = False
         self.config = config
         self.parameter_details = config.getoption('--xray-parameter-details', default=False)
@@ -228,6 +231,10 @@ class XrayPlugin:
     def pytest_collection_modifyitems(self, config: Config, items: list[Item]) -> None:
         self._verify_jira_ids_for_items(items)
 
+    def pytest_collectreport(self, report):
+        if report.failed:
+            self.collection_failed = True
+
     @pytest.hookimpl(optionalhook=True)
     def pytest_testnodedown(self, node, error):
         if error:
@@ -240,8 +247,14 @@ class XrayPlugin:
         results = self.test_execution.as_dict()
         session.config.pluginmanager.hook.pytest_xray_results(results=results, session=session)
         try:
+            results, self.truncated_comments = bound_comments(
+                results, self.config.getoption('--xray-comment-limit'), self.config.getoption('--xray-full-report')
+            )
             if not isinstance(self.publisher, FilePublisher) and (
                 self.worker_failed
+                or self.collection_failed
+                or session.shouldfail
+                or session.shouldstop
                 or session.exitstatus not in (ExitCode.OK, ExitCode.TESTS_FAILED)
                 or not results['tests']
             ):
@@ -253,6 +266,13 @@ class XrayPlugin:
                 session.exitstatus = ExitCode.INTERNAL_ERROR
 
     def pytest_terminal_summary(self, terminalreporter: TerminalReporter, exitstatus: ExitCode, config: Config) -> None:
+        if self.truncated_comments:
+            terminalreporter.write_line(
+                f'XRAY: truncated {self.truncated_comments} comment(s) to '
+                f'{self.config.getoption("--xray-comment-limit")} UTF-8 bytes; complete payload saved to '
+                f'{self.config.getoption("--xray-full-report")}',
+                yellow=True,
+            )
         if self.exception:
             terminalreporter.ensure_newline()
             terminalreporter.section('Jira XRAY', sep='-', red=True, bold=True)

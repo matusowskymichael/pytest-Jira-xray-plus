@@ -123,8 +123,8 @@
 ==================
 - First release
 
-Unreleased release-readiness hardening
--------------------------------------
+0.1.0a2 (unreleased)
+-------------------
 
 * Bound HTTP connect/read waits; validate authentication and import responses.
 * Surface publishing failure with a nonzero exit; withhold incomplete remote imports.
@@ -132,3 +132,8 @@ Unreleased release-readiness hardening
 * Add failure, retry and worker regression coverage, installed-wheel CI checks,
   and complete beginner usage documentation for the PyPI long description.
 * Keep native iterations unimplemented and stable publication blocked on target validation.
+
+* Add configurable UTF-8 comment bounds with required full local archival before
+  truncation, and prevent partial uploads after fail-fast or collection failures.
+* Prepare exact 0.1.0a2 artifacts in the existing manual publishing workflow;
+  publishing remains pending independent review.
