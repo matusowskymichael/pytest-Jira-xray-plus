@@ -13,9 +13,9 @@ features are unchanged from 0.1.0a2. Existing local/CI evidence below still appl
 and full tests, distributions, installed examples and README checks are rerun for
 the exact release commit before manual Trusted Publisher publication.
 
-**Native iteration rows and datasets remain unsupported.** Automatic's effective
-Generic mapping and all API behaviors on Xray 8.5.3-j10 have not been independently
-verified. User-reported success does not establish those capabilities. Cloud has
+**Native iteration rows and datasets remain unsupported.** Generic is the
+confirmed target Test type, superseding earlier Automatic-label uncertainty.
+API behaviors on Xray 8.5.3-j10 have not been independently verified. User-reported success does not establish those capabilities. Cloud has
 synthetic coverage only; Windows/macOS and untested plugin combinations are not
 certified. Explicit legacy skip/xfail mappings and incomplete-process limitations
 remain documented in the README.
@@ -112,7 +112,7 @@ Before a stable release:
 2. In an independently authorized disposable sandbox, validate the existing
    comment fallback against Xray **8.5.3-j10**, including authentication,
    custom statuses, Unicode, realistic comment size, persisted comments and
-   repeated imports. Confirm Automatic's effective Generic/Unstructured mapping.
+   repeated imports on an existing Generic Test, the confirmed target.
    No such live validation was performed in this task.
 3. Validate the implemented client comment policy on the target sandbox: default
    32,000 UTF-8 bytes, configurable minimum 256. Oversized comments are shortened
@@ -169,8 +169,9 @@ summary now lead with prerequisites, existing Test/Test Execution mapping, Serve
 authentication, preview and import. Offline exports and case JSON remain available
 as integration preview/debugging/audit facilities; no runtime files change.
 
-Independent live validation of Xray 8.5.3-j10, custom Automatic effective Test type,
-authentication/permissions and resulting aggregate Test Runs remains outstanding.
+Generic is the confirmed target Test type. Independent live validation of Xray
+8.5.3-j10 authentication/permissions and resulting aggregate Test Runs remains
+outstanding.
 Native iteration rows, datasets and per-iteration evidence are not implemented.
 Synthetic import tests and offline commands do not establish server compatibility.
 

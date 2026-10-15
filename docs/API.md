@@ -23,7 +23,7 @@ requests are introduced. The word `parameters` appears inside comment text,
 not as a field in an API iteration object. The existing --cloud switch controls
 status spelling. The initial compatibility research targets Server/DC 8.5.3-j10; omit --cloud. See
 [Server compatibility](SERVER-COMPATIBILITY.md) for the unresolved
-custom Test Type mapping and minimal read-only metadata.
+confirmed Generic target and remaining server compatibility checks.
 
 The follow-up independent API review should verify Cloud name/log/duration
 support and Server/DC iteration replacement behavior. Any future iteration
@@ -53,5 +53,5 @@ format still restricts parameter-bearing iterations/dataset creation to Manual
 tests and has a prose/schema discrepancy for iteration name. The REST page
 explicitly documents replacement of existing iteration and dataset information
 on Xray JSON reimport. These public pages are not a version-pinned 8.5.3-j10
-contract. Automatic's effective type and named Generic iteration behavior remain
-unverified. No live request was made; no native serializer was added.
+contract. Generic is now confirmed as the target Test type; named Generic
+iteration behavior remains unverified. No live request was made; no native serializer was added.
