@@ -149,3 +149,13 @@
   exhaustive server behavior or confirmation of Automatic's effective Test type.
 * No runtime feature changes from 0.1.0a2. Native iteration rows and datasets
   remain unsupported; documented platform/plugin and status-mapping limits apply.
+
+0.1.1 (unreleased documentation patch)
+--------------------------------------
+
+* Replace the option-heavy introduction with a progressive, runnable tutorial
+  covering local reports, values/identity choices, failures, offline Xray export,
+  full comment archival and optional upload. Keep reference material below it.
+* Execute tutorial commands and check actual report excerpts against installed
+  wheels in CI. Replace obsolete README.rst guidance with a maintained-guide link.
+* No runtime feature changes or expanded compatibility claims.
