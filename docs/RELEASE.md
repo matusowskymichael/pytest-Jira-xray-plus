@@ -38,34 +38,43 @@ environment and run synthetic reporting before publishing. Do not upload stale
 `dist/` files or mix different versions. The source kit is in the sdist/repository;
 the wheel contains the runtime plugin and license metadata.
 
-## Publication gate and smallest setup step
+## Manual Trusted Publishing
 
-The user has authorized an honestly described alpha publication. No authorized
-PyPI upload mechanism is connected yet. As checked on 2026-10-15, the project's
-PyPI JSON endpoint returned 404: no public listing, not a reservation or proof
-that the name will be accepted. Recheck immediately before upload.
+The user has authorized the experimental alpha and configured a PyPI pending
+Trusted Publisher for project `pytest-jira-xray-plus`, owner
+`matusowskymichael`, repository `pytest-Jira-xray-plus`, workflow `publish.yml`,
+and GitHub environment `pypi`. A pending publisher supports first publication;
+no account-wide API token is necessary. It does not reserve the project name.
 
-First confirm the intended PyPI account exists, has a verified email and 2FA.
-The user must handle account setup and any legal agreements personally. Never
-paste passwords, API tokens or recovery codes into chat or commit them.
+The workflow must be present on default branch `main` for manual dispatch.
+It runs only through **Actions → Publish experimental alpha → Run workflow**,
+never on pushes, pull requests or releases. Select `main`, enter its full
+reviewed commit SHA, and leave `publish` unchecked for build validation only.
+Check `publish` explicitly to upload version `0.1.0a1` after validation succeeds.
+The expected SHA must exactly match the dispatched commit.
 
-For a first manual upload to a new project, a PyPI API token needs permission to
-create that project; an account-wide token may be required because a project
-scope cannot be selected before the project exists. That broad credential must
-not be created or supplied to this agent without explicit setup approval and a
-secure secret mechanism. The smallest alternative is a user-run local Twine
-upload of the reviewed archives using their own approved credential, then revoke
-any temporary account-wide token. Once a project exists, scope future upload
-tokens to only `pytest-jira-xray-plus`; maintainer upload rights suffice.
+Global permissions are empty. The build/test job has only `contents: read`.
+The publishing job has only `id-token: write`, uses environment `pypi`, and
+performs no checkout or package installation. It downloads the exact artifact
+ID from the successful build job in the same run, verifies the exact two file
+names and SHA256 values, then uploads via PyPA's pinned publishing action with
+metadata verification and attestations. Existing releases are not skipped.
+Package/version/license metadata is checked before artifact upload; a clean
+wheel smoke test must pass. Actions are pinned to commit SHAs.
 
-Trusted Publishing with a pending publisher is another option but establishes
-persistent repository/workflow trust and needs explicit approval. None is
-configured. No secrets, OIDC grants, release workflow or permissions were changed.
+GitHub environment protections are separate settings, not created by the YAML.
+This public repository supports required reviewers and selected-branch rules,
+including on GitHub Free. No reviewer or branch protection settings are changed
+by this workflow. Its own job conditions restrict execution to this repository
+and `main`. Additional protection settings require a separate decision; do not
+assume a manual environment approval exists merely because `pypi` is named.
 
-A merge is **not technically required** for a manual upload of artifacts built
-from the reviewed development-branch commit. Keep the draft PR until checks pass;
-merging or tagging is a separate decision. The current CI has contents:read only
-and cannot publish. No GitHub release or PyPI upload is performed by this plan.
+The pending publisher becomes ongoing publishing trust after first use. Future
+versions require a reviewed workflow change because artifact names/version are
+fixed at `0.1.0a1`. No password, API token or repository publishing secret is used.
+Check PyPI and the successful workflow run to confirm publication; this document
+is not evidence that an upload has happened.
 
-Official requirements: [PyPI account and token help](https://pypi.org/help/),
-[PyPA build/upload guide](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
+Official requirements: [pending publisher for first upload](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/),
+[manual workflow discovery](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow),
+[environment protections](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments).

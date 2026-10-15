@@ -1,0 +1,149 @@
+name: Publish experimental alpha
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: Full reviewed main-branch commit SHA (40 characters)
+        required: true
+        type: string
+      publish:
+        description: Publish 0.1.0a1 to PyPI after validation (explicit opt-in)
+        type: boolean
+        default: false
+permissions: {}
+concurrency:
+  group: pypi-pytest-jira-xray-plus
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.repository == 'matusowskymichael/pytest-Jira-xray-plus' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      artifact_id: ${{ steps.artifact.outputs.artifact-id }}
+      wheel_sha: ${{ steps.verify.outputs.wheel_sha }}
+      sdist_sha: ${{ steps.verify.outputs.sdist_sha }}
+    steps:
+      - name: Require the reviewed commit
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: |
+          [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]]
+          test "$GITHUB_SHA" = "$EXPECTED_SHA"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install build and test dependencies
+        run: python -m pip install -e . pytest-httpserver pytest-xdist==3.8.0 pytest-rerunfailures==16.7 build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0
+      - name: Run offline validation
+        run: |
+          python -m pytest -q
+          python tools/reproduce.py src --details
+          python tools/validate_offline.py
+      - name: Build and check distributions
+        run: |
+          python tools/build_release.py release-dist
+          python -m twine check release-dist/*
+      - name: Verify package, version and exact artifact set
+        id: verify
+        run: |
+          python - <<'PY'
+          import email.parser, hashlib, os, tarfile, tomllib, zipfile
+          from pathlib import Path
+          name, version = 'pytest-jira-xray-plus', '0.1.0a1'
+          metadata = tomllib.loads(Path('pyproject.toml').read_text())['project']
+          assert (metadata['name'], metadata['version']) == (name, version)
+          wheel = 'pytest_jira_xray_plus-0.1.0a1-py3-none-any.whl'
+          sdist = 'pytest_jira_xray_plus-0.1.0a1.tar.gz'
+          root = Path('release-dist')
+          assert {p.name for p in root.iterdir()} == {wheel, sdist}
+          with zipfile.ZipFile(root / wheel) as z:
+              matches = [n for n in z.namelist() if n.endswith('.dist-info/METADATA')]
+              assert len(matches) == 1
+              records = [z.read(matches[0])]
+              assert any(n.endswith('/LICENSE') for n in z.namelist())
+              assert any(n.endswith('/NOTICE') for n in z.namelist())
+          with tarfile.open(root / sdist) as t:
+              prefix = 'pytest_jira_xray_plus-0.1.0a1/'
+              records.append(t.extractfile(prefix + 'PKG-INFO').read())
+              assert prefix + 'LICENSE' in t.getnames()
+              assert prefix + 'NOTICE' in t.getnames()
+          for record in records:
+              m = email.parser.BytesParser().parsebytes(record)
+              assert (m['Name'], m['Version']) == (name, version)
+              assert m['License-Expression'] == 'Apache-2.0'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              for key, filename in [('wheel_sha', wheel), ('sdist_sha', sdist)]:
+                  digest = hashlib.sha256((root / filename).read_bytes()).hexdigest()
+                  output.write(f'{key}={digest}\n')
+                  print(filename, digest)
+          PY
+      - name: Smoke-test the installed wheel outside the checkout
+        run: |
+          python -m venv /tmp/alpha-wheel-smoke
+          /tmp/alpha-wheel-smoke/bin/python -m pip install release-dist/*.whl
+          python - <<'PY'
+          import json, subprocess, tempfile
+          from pathlib import Path
+          sample = Path('examples/synthetic.py').read_text()
+          with tempfile.TemporaryDirectory() as directory:
+              root = Path(directory)
+              (root / 'test_synthetic.py').write_text(sample)
+              result = subprocess.run(['/tmp/alpha-wheel-smoke/bin/python', '-m', 'pytest', '-q',
+                                       '--xray-case-report=cases.json'], cwd=root)
+              assert result.returncode == 1
+              report = json.loads((root / 'cases.json').read_text())
+              assert [case['status'] for case in report['cases']] == ['failed', 'passed']
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        id: artifact
+        with:
+          name: verified-distributions
+          path: release-dist/*
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: build
+    if: inputs.publish && github.repository == 'matusowskymichael/pytest-Jira-xray-plus' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pytest-jira-xray-plus
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          artifact-ids: ${{ needs.build.outputs.artifact_id }}
+          merge-multiple: true
+          path: dist
+      - name: Require exactly the distributions verified in this run
+        env:
+          WHEEL_SHA: ${{ needs.build.outputs.wheel_sha }}
+          SDIST_SHA: ${{ needs.build.outputs.sdist_sha }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, os
+          from pathlib import Path
+          expected = {
+              'pytest_jira_xray_plus-0.1.0a1-py3-none-any.whl': os.environ['WHEEL_SHA'],
+              'pytest_jira_xray_plus-0.1.0a1.tar.gz': os.environ['SDIST_SHA'],
+          }
+          root = Path('dist')
+          assert {p.name for p in root.iterdir()} == set(expected)
+          for name, digest in expected.items():
+              path = root / name
+              assert path.is_file() and not path.is_symlink()
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
+          PY
+      - name: Publish verified alpha with PyPI Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
+        with:
+          packages-dir: dist/
+          verify-metadata: true
+          skip-existing: false
+          attestations: true
