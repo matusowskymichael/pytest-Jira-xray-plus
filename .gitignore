@@ -90,3 +90,6 @@ dmypy.json
 *.xml
 
 .ruff_cache/
+
+# Generated documentation site sources
+.docs-source/
