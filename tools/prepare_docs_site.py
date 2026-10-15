@@ -21,9 +21,9 @@ def write(path, title, body):
 
 tutorial = [
     ('install', '1. Create a project'), ('cases', '2. Run two input cases'),
-    ('local-report', '3. Save that result locally'), ('values', '4. Choose what the local report contains'),
-    ('failure', '5. See what happens when one case fails'), ('xray', '6. Prepare an Xray result without uploading'),
-    ('archive', '7. Keep full comments when an export is shortened'), ('upload', '8. Send to Jira (optional)'),
+    ('xray', '3. Preview the Jira/Xray import'), ('upload', '4. Authenticate and publish to Jira/Xray'),
+    ('local-report', '5. Audit cases behind a Jira Test Run'), ('values', '6. Choose audit report contents'),
+    ('failure', '7. Diagnose a failing case'), ('archive', '8. Archive complete Xray comments'),
 ]
 for index, (slug, heading) in enumerate(tutorial):
     context = ''
@@ -31,20 +31,20 @@ for index, (slug, heading) in enumerate(tutorial):
         prev, prev_heading = tutorial[index - 1]
         context = f'<div class="step-context" markdown>\nContinue from [{prev_heading}]({prev}.md). '
         context += 'Use the same `xray-demo` folder and activated environment.\n</div>\n\n'
-    write(f'tutorial/{slug}.md', heading, context + sections[heading])
-write('tutorial/index.md', 'A working report, one step at a time', '''
-Start with two passing input cases and one Python file. Each page adds a concept,
-explains its purpose and shows what you should see. Steps 1–7 run entirely locally;
-uploading is an optional final step.
+    write(f'tutorial/{slug}.md', heading, context + sections[heading].replace('Jira/Xray prerequisites above', '[Jira/Xray prerequisites](../reference/prerequisites.md)'))
+write('tutorial/index.md', 'Integrate pytest with Jira and Xray', """
+Begin with the [Jira/Xray prerequisites](../reference/prerequisites.md): your server,
+Test and Test Execution issues, effective Test type and existing credentials.
+Install the plugin, map your test, preview the payload, then authenticate and import
+results. Debugging and audit recipes follow the core integration workflow.
 
-You need Python 3.12 or newer and a terminal. No Jira access is needed to begin.
+""" + '\n'.join(f'- [{heading}]({slug}.md)' for slug, heading in tutorial) + """
 
-''' + '\n'.join(f'- [{heading}]({slug}.md)' for slug, heading in tutorial) + '''
-
-The command examples are executed against an installed package in CI, with network
-transport blocked for local examples. The site uses the same source as the complete
-PyPI tutorial. You can return to the reference pages at any time.
-''')
+Preview commands do not contact Jira. CI executes these commands against an installed
+package with HTTP blocked; live imports require your authorized Jira/Xray environment.
+The target Xray 8.5.3-j10 and custom Automatic mapping remain unverified.
+""")
+write('reference/prerequisites.md', 'Jira/Xray prerequisites', sections['Jira/Xray prerequisites'])
 for path, heading in [
     ('reference/options.md', 'All package options'),
     ('reference/settings.md', 'Authentication and execution settings'),

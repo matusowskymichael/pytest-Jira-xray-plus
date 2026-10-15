@@ -5,7 +5,7 @@ current feature set as stable 0.1.0. This is **user-reported successful use**, n
 independently observed exhaustive validation. No private test content, credentials,
 hostnames or issue keys were requested or recorded.
 
-Stable support covers the documented local case/attempt report and optional
+The product integrates pytest with Jira and Xray. Its implementation includes case/attempt audit reports and
 aggregate Xray comment fallback, including bounded comments/full archival,
 conservative retry summaries, transport failure handling and partial-upload
 suppression. The 0.1.0 release changes metadata and documentation only; runtime
@@ -160,3 +160,28 @@ Independent review approved the implementation at df9ddd86 for experimental alph
 The release guide now targets 0.1.0a2. Merge and manual publication are authorized
 after green checks; the stable-release limitations above remain in force. Earlier
 “proposed” and review-pending notes record the preparation stage, not a stable claim.
+
+
+## 0.1.2 integration-first documentation patch (prepared, not published)
+
+Jira with Xray is the required product foundation. The README, website and package
+summary now lead with prerequisites, existing Test/Test Execution mapping, Server/DC
+authentication, preview and import. Offline exports and case JSON remain available
+as integration preview/debugging/audit facilities; no runtime files change.
+
+Independent live validation of Xray 8.5.3-j10, custom Automatic effective Test type,
+authentication/permissions and resulting aggregate Test Runs remains outstanding.
+Native iteration rows, datasets and per-iteration evidence are not implemented.
+Synthetic import tests and offline commands do not establish server compatibility.
+
+A GitHub read request briefly returned HTTP 401 (Bad credentials). After reporting
+the denial, the same read-only request succeeded with existing authorization; no
+credentials or permissions were changed. PyPI publication remains a separate step
+through the existing manual workflow after review and CI.
+
+Local 0.1.2 validation: 115 tests passed; all 14 reordered README commands passed
+against a clean installed wheel with HTTP blocked; full wheel metadata Markdown
+rendered and both distributions passed Twine checks. All 13 runtime module files
+match the installed public 0.1.1 package byte-for-byte. The strict site build,
+internal links and desktop/mobile browser checks passed. This evidence does not
+replace the outstanding server validation or authenticate a live import.

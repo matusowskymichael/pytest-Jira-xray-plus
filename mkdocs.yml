@@ -1,5 +1,5 @@
 site_name: pytest Xray Plus
-site_description: Keep every pytest case. Export clear aggregate results to Jira Xray.
+site_description: Integrate pytest with Jira and Xray. Publish aggregate Test Run results with case audit records.
 site_url: https://matusowskymichael.github.io/pytest-Jira-xray-plus/
 repo_url: https://github.com/matusowskymichael/pytest-Jira-xray-plus
 repo_name: pytest-Jira-xray-plus
@@ -61,15 +61,16 @@ extra:
 nav:
   - Home: index.md
   - Tutorial:
-      - Start the tutorial: tutorial/index.md
+      - Integration overview: tutorial/index.md
+      - Jira/Xray prerequisites: reference/prerequisites.md
       - Install: tutorial/install.md
-      - Run two cases: tutorial/cases.md
-      - Save a local report: tutorial/local-report.md
-      - Choose report contents: tutorial/values.md
-      - Inspect a failure: tutorial/failure.md
-      - Preview Xray results: tutorial/xray.md
-      - Archive long comments: tutorial/archive.md
-      - Send to Jira: tutorial/upload.md
+      - Map and run two cases: tutorial/cases.md
+      - Preview the Xray import: tutorial/xray.md
+      - Authenticate and publish: tutorial/upload.md
+      - Audit cases: tutorial/local-report.md
+      - Choose audit contents: tutorial/values.md
+      - Diagnose a failure: tutorial/failure.md
+      - Archive Xray comments: tutorial/archive.md
   - How-to guides:
       - Parallel tests and retries: guides/parallel.md
       - Multiple Jira Tests: guides/multiple-tests.md

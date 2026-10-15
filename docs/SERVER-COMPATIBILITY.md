@@ -1,8 +1,9 @@
 # Server/DC compatibility research
 
 The initial research target is Xray **8.5.3-j10**, with Generic/Unstructured
-Tests. This is not a verified native integration claim. Offline reports work
-without Xray; native iteration import has not been implemented or exercised.
+Tests. Jira with Xray is the product foundation; this exact server/version and
+custom Test-type mapping require live validation. Offline reports support import
+preview and diagnostics. Native iteration import is not implemented or exercised.
 The existing legacy publisher remains inherited from upstream. For Server/DC
 status spelling, omit `--cloud`. GitLab runners do not change the JSON contract.
 

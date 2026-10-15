@@ -34,8 +34,8 @@ with tempfile.TemporaryDirectory() as directory, sync_playwright() as playwright
     assert page.locator('.md-sidebar--primary').is_visible()
     assert page.locator('.md-tabs').is_visible()
     page.screenshot(path=str(OUT / 'desktop-home.png'), full_page=True)
-    page.get_by_role('link', name='Start the tutorial', exact=True).click()
-    assert page.locator('h1').inner_text().startswith('1. Create a project')
+    page.get_by_role('link', name='Start the integration guide', exact=True).click()
+    assert page.locator('h1').inner_text().startswith('Jira/Xray prerequisites')
     page.goto(base + 'tutorial/cases/', wait_until='networkidle')
     assert page.locator('.highlight .k').count() > 0  # syntax highlighting
     assert page.locator('button[title="Copy to clipboard"]').count() > 0
