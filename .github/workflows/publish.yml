@@ -1,4 +1,4 @@
-name: Publish experimental alpha
+name: Publish release
 on:
   workflow_dispatch:
     inputs:
@@ -7,7 +7,7 @@ on:
         required: true
         type: string
       publish:
-        description: Publish 0.1.0a2 to PyPI after validation (explicit opt-in)
+        description: Publish 0.1.0 to PyPI after validation (explicit opt-in)
         type: boolean
         default: false
 permissions: {}
@@ -54,11 +54,11 @@ jobs:
           python - <<'PY'
           import email.parser, hashlib, os, tarfile, tomllib, zipfile
           from pathlib import Path
-          name, version = 'pytest-jira-xray-plus', '0.1.0a2'
+          name, version = 'pytest-jira-xray-plus', '0.1.0'
           metadata = tomllib.loads(Path('pyproject.toml').read_text())['project']
           assert (metadata['name'], metadata['version']) == (name, version)
-          wheel = 'pytest_jira_xray_plus-0.1.0a2-py3-none-any.whl'
-          sdist = 'pytest_jira_xray_plus-0.1.0a2.tar.gz'
+          wheel = 'pytest_jira_xray_plus-0.1.0-py3-none-any.whl'
+          sdist = 'pytest_jira_xray_plus-0.1.0.tar.gz'
           root = Path('release-dist')
           assert {p.name for p in root.iterdir()} == {wheel, sdist}
           with zipfile.ZipFile(root / wheel) as z:
@@ -68,7 +68,7 @@ jobs:
               assert any(n.endswith('/LICENSE') for n in z.namelist())
               assert any(n.endswith('/NOTICE') for n in z.namelist())
           with tarfile.open(root / sdist) as t:
-              prefix = 'pytest_jira_xray_plus-0.1.0a2/'
+              prefix = 'pytest_jira_xray_plus-0.1.0/'
               records.append(t.extractfile(prefix + 'PKG-INFO').read())
               assert prefix + 'LICENSE' in t.getnames()
               assert prefix + 'NOTICE' in t.getnames()
@@ -84,8 +84,8 @@ jobs:
           PY
       - name: Smoke-test the installed wheel outside the checkout
         run: |
-          python -m venv /tmp/alpha-wheel-smoke
-          /tmp/alpha-wheel-smoke/bin/python -m pip install release-dist/*.whl
+          python -m venv /tmp/release-wheel-smoke
+          /tmp/release-wheel-smoke/bin/python -m pip install release-dist/*.whl
           python - <<'PY'
           import json, subprocess, tempfile
           from pathlib import Path
@@ -93,14 +93,14 @@ jobs:
           with tempfile.TemporaryDirectory() as directory:
               root = Path(directory)
               (root / 'test_synthetic.py').write_text(sample)
-              result = subprocess.run(['/tmp/alpha-wheel-smoke/bin/python', '-m', 'pytest', '-q',
+              result = subprocess.run(['/tmp/release-wheel-smoke/bin/python', '-m', 'pytest', '-q',
                                        '--xray-case-report=cases.json'], cwd=root)
               assert result.returncode == 1
               report = json.loads((root / 'cases.json').read_text())
               assert [case['status'] for case in report['cases']] == ['failed', 'passed']
           PY
       - name: Check installed README examples and full package description
-        run: python tools/check_installed_usage.py /tmp/alpha-wheel-smoke/bin/python release-dist/*.whl
+        run: python tools/check_installed_usage.py /tmp/release-wheel-smoke/bin/python release-dist/*.whl
       - name: Keep only verified distribution files in the publishing artifact
         run: rm release-dist/README-preview.html
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -134,8 +134,8 @@ jobs:
           import hashlib, os
           from pathlib import Path
           expected = {
-              'pytest_jira_xray_plus-0.1.0a2-py3-none-any.whl': os.environ['WHEEL_SHA'],
-              'pytest_jira_xray_plus-0.1.0a2.tar.gz': os.environ['SDIST_SHA'],
+              'pytest_jira_xray_plus-0.1.0-py3-none-any.whl': os.environ['WHEEL_SHA'],
+              'pytest_jira_xray_plus-0.1.0.tar.gz': os.environ['SDIST_SHA'],
           }
           root = Path('dist')
           assert {p.name for p in root.iterdir()} == set(expected)
@@ -144,7 +144,7 @@ jobs:
               assert path.is_file() and not path.is_symlink()
               assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
           PY
-      - name: Publish verified alpha with PyPI Trusted Publishing
+      - name: Publish verified release with PyPI Trusted Publishing
         uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
         with:
           packages-dir: dist/
