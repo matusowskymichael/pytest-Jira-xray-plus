@@ -40,9 +40,42 @@ permissions. After review, publish the verified static files on `gh-pages` using
 existing repository write access. Pages serves the root of that branch; `.nojekyll`
 keeps the static files intact.
 
-Enabling Pages is a separate repository setting. It must be approved before it is
-changed; prior PyPI Trusted Publisher authorization is not Pages authorization.
-No custom domain, extra token, or new publishing credential is required.
+The public site is configured to deploy from `gh-pages`, at `/(root)`. Publication
+uses the maintainer's existing repository access; no custom domain, extra token,
+or new publishing credential is required. CI does not publish automatically.
+
+## Deploy manually from main
+
+Use a clean checkout with existing push access. Start with the reviewed source:
+
+```sh
+git switch main
+git pull --ff-only origin main
+python -m pip install -r requirements-docs.txt
+python tools/prepare_docs_site.py
+python -m mkdocs build --strict
+python tools/check_docs_links.py
+```
+
+Run the browser check above and confirm the checks for this commit have passed.
+Then fetch the published branch so its history is preserved, and push the built
+site (`ghp_import` is installed with MkDocs):
+
+```sh
+git fetch origin gh-pages:gh-pages
+python -m ghp_import -n -p -b gh-pages -m "Publish reviewed documentation from main" site
+```
+
+A non-fast-forward rejection means the local deployment branch is stale; fetch
+and review the remote state before trying again. Do not force-push. GitHub's
+built-in Pages build serves the static files, including `.nojekyll`. Check the
+[Pages deployment runs](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions)
+and open the [live tutorial](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/)
+and search before considering publication complete.
+
+For a new repository, pushing its first `gh-pages` branch may automatically enable
+Pages. Treat that push as publication and obtain the repository owner's publication
+authorization first. This repository's public Pages publication is authorized.
 
 ## Dependencies
 
