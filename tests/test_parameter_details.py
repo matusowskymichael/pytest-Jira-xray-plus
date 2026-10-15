@@ -144,7 +144,7 @@ def test_non_scalar_values_do_not_invoke_repr(pytester):
         '--xray-parameter-details',
     )
     result.assert_outcomes(passed=1)
-    assert entries(tests[0])[0]['parameters']['value'] == '<non-scalar: use a descriptive pytest id>'
+    assert entries(tests[0])[0]['parameters']['value'] == '<unsupported value: use a descriptive pytest id>'
 
 
 def test_non_parametrized_output_unchanged(pytester):

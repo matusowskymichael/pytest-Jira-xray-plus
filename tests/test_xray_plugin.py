@@ -126,10 +126,10 @@ def test_jira_xray_plugin_handles_http_error_504(xray_tests, pytester, httpserve
     result.stdout.fnmatch_lines(
         [
             '*Could not publish results to Jira XRAY!*',
-            '*Could not post to JIRA service at*Response status code: 504*',
+            '*Could not post to Xray.*Response status code: 504*',
         ]
     )
-    assert result.ret == 0
+    assert result.ret == 3
     assert not result.errlines
 
 
@@ -510,10 +510,9 @@ def test_jira_xray_plugin_gets_unexpected_response(xray_tests, fake_xray_server)
     result.stdout.fnmatch_lines(
         [
             '*Cannot read Test Execution ID from server response*',
-            '*Server response can be found in log file*',
         ]
     )
-    assert result.ret == 0
+    assert result.ret == 3
 
 
 def test_jira_xray_plugin_authentication_issue(xray_tests, environment_variables):
@@ -523,10 +522,10 @@ def test_jira_xray_plugin_authentication_issue(xray_tests, environment_variables
     result.stdout.fnmatch_lines(
         [
             '*Could not publish results to Jira XRAY!*',
-            '*ConnectionError: cannot authenticate with http://127.0.0.1:5002/api/v2/authenticate*',
+            '*ConnectionError: cannot authenticate with Xray*',
         ]
     )
-    assert result.ret == 0
+    assert result.ret == 3
 
 
 def test_jira_xray_plugin_connection_error(xray_tests, environment_variables):
@@ -536,10 +535,10 @@ def test_jira_xray_plugin_connection_error(xray_tests, environment_variables):
     result.stdout.fnmatch_lines(
         [
             '*Could not publish results to Jira XRAY!*',
-            '*ConnectionError: cannot connect to JIRA service at http://127.0.0.1:5002/rest/raven/2.0/import/execution*',
+            '*ConnectionError: cannot post results to Xray*',
         ]
     )
-    assert result.ret == 0
+    assert result.ret == 3
 
 
 def test_jira_xray_plugin_http_error(xray_tests, fake_xray_server):
@@ -553,11 +552,10 @@ def test_jira_xray_plugin_http_error(xray_tests, fake_xray_server):
     result.stdout.fnmatch_lines(
         [
             '*Could not publish results to Jira XRAY!*',
-            '*HTTPError: Could not post to JIRA service at http://127.0.0.1:5002/rest/raven/2.0/import/execution*',
-            '*Error message from server: Not Found for url*',
+            '*HTTPError: Could not post to Xray.*',
         ]
     )
-    assert result.ret == 0
+    assert result.ret == 3
 
 
 def test_export_to_file_when_cannot_serialize_report(xray_tests):
@@ -569,5 +567,5 @@ def test_export_to_file_when_cannot_serialize_report(xray_tests):
     )
     report_file = xray_tests.tmpdir / 'jira.json'
     result = xray_tests.runpytest('--jira-xray', f'--xraypath={report_file}')
-    assert result.ret == 0
+    assert result.ret == 3
     result.stdout.fnmatch_lines(['Cannot export Xray results to file: Object of type object is not JSON serializable'])

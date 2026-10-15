@@ -1,8 +1,4 @@
-import contextlib
 import json
-import logging
-import os
-import tempfile
 from typing import Any, Callable, Optional, Union
 
 import requests
@@ -15,7 +11,8 @@ from pytest_xray.exceptions import XrayError
 AuthType = Optional[Union[tuple[str, str], AuthBase, Callable[[PreparedRequest], PreparedRequest]]]
 
 
-_logger = logging.getLogger(__name__)
+# Connect timeout and read inactivity timeout, not a total wall-clock deadline.
+REQUEST_TIMEOUT = (10, 60)
 
 
 class ClientSecretAuth(AuthBase):
@@ -38,14 +35,25 @@ class ClientSecretAuth(AuthBase):
         auth_data = {'client_id': self.client_id, 'client_secret': self.client_secret}
 
         try:
-            response = requests.post(self.endpoint_url, data=json.dumps(auth_data), headers=headers, verify=self.verify)
-        except requests.exceptions.ConnectionError as exc:
-            err_message = f'ConnectionError: cannot authenticate with {self.endpoint_url}'
-            _logger.exception(err_message)
-            raise XrayError(err_message) from exc
-        else:
-            auth_token = response.text.replace('"', '')
-            r.headers['Authorization'] = f'Bearer {auth_token}'
+            response = requests.post(
+                self.endpoint_url,
+                data=json.dumps(auth_data),
+                headers=headers,
+                verify=self.verify,
+                timeout=REQUEST_TIMEOUT,
+                allow_redirects=False,
+            )
+            response.raise_for_status()
+            if response.status_code != 200:
+                raise XrayError('Authentication did not return HTTP 200')
+            auth_token = response.json()
+            if not isinstance(auth_token, str) or not auth_token.strip() or any(c.isspace() for c in auth_token):
+                raise XrayError('Authentication returned an invalid token')
+        except requests.exceptions.RequestException as exc:
+            raise XrayError(f'{type(exc).__name__}: cannot authenticate with Xray') from exc
+        except ValueError as exc:
+            raise XrayError('Authentication returned invalid JSON') from exc
+        r.headers['Authorization'] = f'Bearer {auth_token}'
         return r
 
 
@@ -80,47 +88,36 @@ class XrayPublisher:
         headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
         try:
             response = requests.request(
-                method='POST', url=url, headers=headers, json=data, auth=auth, verify=self.verify
+                method='POST',
+                url=url,
+                headers=headers,
+                json=data,
+                auth=auth,
+                verify=self.verify,
+                timeout=REQUEST_TIMEOUT,
+                allow_redirects=False,
             )
-        except requests.exceptions.ConnectionError as exc:
-            err_message = f'ConnectionError: cannot connect to JIRA service at {url}'
-            _logger.exception(err_message)
-            raise XrayError(err_message) from exc
-        else:
-            try:
-                response.raise_for_status()
-            except requests.exceptions.HTTPError as exc:
-                err_message = (
-                    f'HTTPError: Could not post to JIRA service at {url}. Response status code: {response.status_code}'
-                )
-                _logger.exception(err_message)
-                with contextlib.suppress(requests.exceptions.JSONDecodeError):
-                    if 'error' in response.json():
-                        server_return_error = f'Error message from server: {response.json()["error"]}'
-                        err_message += '\n' + server_return_error
-                        _logger.error(server_return_error)
-                raise XrayError(err_message) from exc
-            return response.json()
+            response.raise_for_status()
+            if not 200 <= response.status_code < 300:
+                raise XrayError(f'Xray import returned unexpected HTTP {response.status_code}; redirects are disabled')
+            result = response.json()
+        except requests.exceptions.HTTPError as exc:
+            raise XrayError(f'HTTPError: Could not post to Xray. Response status code: {response.status_code}') from exc
+        except requests.exceptions.RequestException as exc:
+            raise XrayError(f'{type(exc).__name__}: cannot post results to Xray') from exc
+        except ValueError as exc:
+            raise XrayError('Xray import returned invalid JSON') from exc
+        if not isinstance(result, dict):
+            raise XrayError('Xray import response must be a JSON object')
+        return result
 
     def publish(self, data: dict[str, Any]) -> str:
-        """
-        Publish results to Jira and return testExecutionId or raise XrayError.
-
-        :param data: data to send
-        :return: test execution issue id
-        """
+        """Publish once; never retry a potentially accepted import automatically."""
         response_data = self._send_data(self.endpoint_url, self.auth, data)
-        # The Xray cloud response does not include the 'testExecIssue' attribute
         try:
             key = response_data['testExecIssue']['key'] if 'testExecIssue' in response_data else response_data['key']
-        except KeyError:
-            _logger.error('Cannot read Test Execution ID from server response')
-            _logger.debug('Response from server:\n%s', response_data)
-            log_file = os.path.join(tempfile.gettempdir(), 'jira-xray-response.json')
-            with open(log_file, 'w') as file:
-                json.dump(response_data, file, indent=4)
-            raise XrayError(
-                'Cannot read Test Execution ID from server response. '
-                f'Server response can be found in log file: {log_file}'
-            ) from None
+        except (KeyError, TypeError):
+            raise XrayError('Cannot read Test Execution ID from server response') from None
+        if not isinstance(key, str) or not key.strip():
+            raise XrayError('Cannot read Test Execution ID from server response')
         return key

@@ -1,31 +1,31 @@
 import json
-import logging
+import os
+import tempfile
 from pathlib import Path
 
 from pytest_xray.exceptions import XrayError
 
-logger = logging.getLogger(__name__)
-
 
 class FilePublisher:
-    """Exports Xray report to a file."""
+    """Atomically export a complete Xray report, preserving any existing file on failure."""
 
     def __init__(self, filepath: str) -> None:
-        self.filepath: Path = Path(filepath)
+        self.filepath = Path(os.path.expandvars(filepath)).expanduser().resolve()
 
     def publish(self, data: dict) -> str:
-        """
-        Save results to a file or raise XrayError.
-
-        :param data: data to save
-        :return: file path where data was saved
-        """
-        self.filepath.parent.mkdir(parents=True, exist_ok=True)
+        temporary = None
         try:
-            with open(self.filepath, 'w', encoding='UTF-8') as file:
-                json.dump(data, file, indent=2)
-        except TypeError as exc:
-            logger.exception(exc)
+            content = json.dumps(data, indent=2, allow_nan=False)
+            self.filepath.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(
+                mode='w', encoding='utf-8', dir=self.filepath.parent, delete=False
+            ) as file:
+                temporary = Path(file.name)
+                file.write(content + '\n')
+            os.replace(temporary, self.filepath)
+        except (OSError, TypeError, ValueError) as exc:
             raise XrayError(f'Cannot export Xray results to file: {exc}') from exc
-        else:
-            return f'{self.filepath}'
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
+        return str(self.filepath)

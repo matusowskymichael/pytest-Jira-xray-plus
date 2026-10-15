@@ -13,6 +13,8 @@ from _pytest.nodes import Item
 from _pytest.reports import TestReport
 from _pytest.terminal import TerminalReporter
 
+from pytest_xray.case_report import scalar_values
+from pytest_xray.comment_limits import bound_comments
 from pytest_xray.constant import (
     JIRA_CLOUD,
     XRAY_ADD_CAPTURES,
@@ -23,6 +25,7 @@ from pytest_xray.constant import (
     XRAYPATH,
 )
 from pytest_xray.exceptions import XrayError
+from pytest_xray.file_publisher import FilePublisher
 from pytest_xray.helper import (
     STATUS_STR_MAPPER_CLOUD,
     STATUS_STR_MAPPER_JIRA,
@@ -40,6 +43,9 @@ class XrayPlugin:
     """Collects results from pytest and exports to Jira Xray server."""
 
     def __init__(self, config: pytest.Config, publisher: Publisher) -> None:
+        self.truncated_comments = 0
+        self.collection_failed = False
+        self.worker_failed = False
         self.config = config
         self.parameter_details = config.getoption('--xray-parameter-details', default=False)
         self.publisher = publisher
@@ -84,7 +90,10 @@ class XrayPlugin:
             test_keys = marker.args[0]
         else:
             raise XrayError(f'xray marker can only accept strings or lists but got {type(marker.args[0])}')
-        return test_keys
+        if not test_keys or any(not isinstance(key, str) or not key.strip() for key in test_keys):
+            raise XrayError('xray marker requires nonempty string test keys')
+        # Repeating one key in one marker must not duplicate comments or evidence.
+        return list(dict.fromkeys(test_keys))
 
     def _get_defects(self, item: Item) -> list[str]:
         """Return JIRA ids for defects associated with test item"""
@@ -132,12 +141,7 @@ class XrayPlugin:
         report = outcome.get_result()
         if self.parameter_details and hasattr(item, 'callspec'):
             # Snapshot only scalar values; never call arbitrary user __repr__.
-            report.xray_parameters = {
-                name: value
-                if type(value) in (str, int, float, bool, type(None))
-                else '<non-scalar: use a descriptive pytest id>'
-                for name, value in item.callspec.params.items()
-            }
+            report.xray_parameters = scalar_values(item.callspec.params)
 
         if not hasattr(report, 'test_keys'):
             report.test_keys = {}
@@ -156,11 +160,11 @@ class XrayPlugin:
         if status is None:
             return
 
-        test_keys = report.test_keys.get(report.nodeid)
+        test_keys = getattr(report, 'test_keys', {}).get(report.nodeid)
         if test_keys is None:
             return
 
-        defects = report.defects.get(report.nodeid)
+        defects = getattr(report, 'defects', {}).get(report.nodeid)
         evidences = getattr(report, 'evidences', [])
 
         comment = report.longreprtext
@@ -207,6 +211,8 @@ class XrayPlugin:
                 test_case.merge(new_test_case)
 
     def _get_status_from_report(self, report) -> Optional[Status]:
+        if report.outcome == 'rerun':
+            return Status.FAIL
         if report.failed:
             if report.when != 'call':
                 return Status.FAIL
@@ -225,6 +231,15 @@ class XrayPlugin:
     def pytest_collection_modifyitems(self, config: Config, items: list[Item]) -> None:
         self._verify_jira_ids_for_items(items)
 
+    def pytest_collectreport(self, report):
+        if report.failed:
+            self.collection_failed = True
+
+    @pytest.hookimpl(optionalhook=True)
+    def pytest_testnodedown(self, node, error):
+        if error:
+            self.worker_failed = True
+
     def pytest_sessionfinish(self, session: pytest.Session) -> None:
         if hasattr(self.config, 'workerinput'):  # skipping on xdist
             return
@@ -232,11 +247,32 @@ class XrayPlugin:
         results = self.test_execution.as_dict()
         session.config.pluginmanager.hook.pytest_xray_results(results=results, session=session)
         try:
+            results, self.truncated_comments = bound_comments(
+                results, self.config.getoption('--xray-comment-limit'), self.config.getoption('--xray-full-report')
+            )
+            if not isinstance(self.publisher, FilePublisher) and (
+                self.worker_failed
+                or self.collection_failed
+                or session.shouldfail
+                or session.shouldstop
+                or session.exitstatus not in (ExitCode.OK, ExitCode.TESTS_FAILED)
+                or not results['tests']
+            ):
+                raise XrayError('Upload withheld: session incomplete, worker crashed, or no marked results')
             self.issue_id = self.publisher.publish(results)
         except XrayError as exc:
             self.exception = exc
+            if session.exitstatus == ExitCode.OK:
+                session.exitstatus = ExitCode.INTERNAL_ERROR
 
     def pytest_terminal_summary(self, terminalreporter: TerminalReporter, exitstatus: ExitCode, config: Config) -> None:
+        if self.truncated_comments:
+            terminalreporter.write_line(
+                f'XRAY: truncated {self.truncated_comments} comment(s) to '
+                f'{self.config.getoption("--xray-comment-limit")} UTF-8 bytes; complete payload saved to '
+                f'{self.config.getoption("--xray-full-report")}',
+                yellow=True,
+            )
         if self.exception:
             terminalreporter.ensure_newline()
             terminalreporter.section('Jira XRAY', sep='-', red=True, bold=True)
