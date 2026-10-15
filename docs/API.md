@@ -45,3 +45,13 @@ The offline baseline probe demonstrates this missing detail and explicitly
 checks failure-then-pass remains FAIL. No Jira-side last-write behavior has
 been reproduced. Issue [96](https://github.com/fundakol/pytest-jira-xray/issues/96)
 provides relevant historical API discussion, not proof of current API semantics.
+
+## Follow-up official documentation check (2026-10-15)
+
+Re-read the Server/DC JSON format and import REST pages linked above. The
+format still restricts parameter-bearing iterations/dataset creation to Manual
+tests and has a prose/schema discrepancy for iteration name. The REST page
+explicitly documents replacement of existing iteration and dataset information
+on Xray JSON reimport. These public pages are not a version-pinned 8.5.3-j10
+contract. Automatic's effective type and named Generic iteration behavior remain
+unverified. No live request was made; no native serializer was added.

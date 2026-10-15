@@ -5,14 +5,29 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12', '3.13', '3.14']
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          python-version: '3.12'
-      - run: python -m pip install -e . pytest-httpserver pytest-xdist pytest-rerunfailures build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0
-      - run: pytest -q
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e . -r requirements-tests.txt build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]'
+      - run: python -m pytest -q
       - run: python tools/reproduce.py src --details
       - run: python tools/validate_offline.py
       - run: python tools/build_release.py release-dist
       - run: python -m twine check release-dist/*
+      - name: Check installed wheel examples and full PyPI description
+        run: |
+          python -m venv /tmp/xray-wheel
+          /tmp/xray-wheel/bin/python -m pip install release-dist/*.whl
+          python tools/check_installed_usage.py /tmp/xray-wheel/bin/python release-dist/*.whl
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: readme-preview-python-${{ matrix.python }}
+          path: release-dist/README-preview.html

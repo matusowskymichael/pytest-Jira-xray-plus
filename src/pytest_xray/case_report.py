@@ -85,7 +85,7 @@ class CaseReportPlugin:
             return
         temporary = None
         try:
-            content = json.dumps(self.results.as_dict(int(exitstatus)), indent=2, ensure_ascii=True, allow_nan=False)
+            content = json.dumps(self.results.as_dict(int(session.exitstatus)), indent=2, ensure_ascii=True, allow_nan=False)
             with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=self.path.parent, delete=False) as stream:
                 temporary = Path(stream.name)
                 stream.write(content + '\n')

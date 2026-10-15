@@ -122,3 +122,13 @@
 0.1.0 [2021-02-12]
 ==================
 - First release
+
+Unreleased release-readiness hardening
+-------------------------------------
+
+* Bound HTTP connect/read waits; validate authentication and import responses.
+* Surface publishing failure with a nonzero exit; withhold incomplete remote imports.
+* Preserve failed retry phases in legacy aggregation and write local exports atomically.
+* Add failure, retry and worker regression coverage, installed-wheel CI checks,
+  and complete beginner usage documentation for the PyPI long description.
+* Keep native iterations unimplemented and stable publication blocked on target validation.

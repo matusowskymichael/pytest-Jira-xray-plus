@@ -1,4 +1,5 @@
 # Modified in the parameter-details prototype; see NOTICE.
+import os
 from pathlib import Path
 from typing import Union
 
@@ -111,7 +112,10 @@ def pytest_configure(config: pytest.Config) -> None:
         raise pytest.UsageError('--xray-case-values requires --xray-case-report')
     if case_path:
         xray_path = config.getoption(XRAYPATH)
-        if xray_path and Path(case_path).expanduser().resolve() == Path(xray_path).expanduser().resolve():
+        if (
+            xray_path
+            and Path(case_path).expanduser().resolve() == Path(os.path.expandvars(xray_path)).expanduser().resolve()
+        ):
             raise pytest.UsageError('--xray-case-report and --xraypath must use different files')
         config.pluginmanager.register(
             CaseReportPlugin(config, case_path, config.getoption('--xray-case-values'), redact_ids),
