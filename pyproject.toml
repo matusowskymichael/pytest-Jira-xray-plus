@@ -1,6 +1,6 @@
 [project]
 name = "pytest-jira-xray-plus"
-description = "Offline pytest case and attempt reporting with an optional Jira Xray comment fallback"
+description = "Integrate pytest results with Jira and Xray, with parameter comments and case audit reports"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "Apache-2.0"
@@ -15,9 +15,10 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
 ]
 dependencies = ["pytest>=9.1.1,<10", "requests>=2.34.2,<3"]
-version = "0.1.1"
+version = "0.1.2"
 
 [project.urls]
+Documentation = "https://matusowskymichael.github.io/pytest-Jira-xray-plus/"
 Repository = "https://github.com/matusowskymichael/pytest-Jira-xray-plus"
 Issues = "https://github.com/matusowskymichael/pytest-Jira-xray-plus/issues"
 Upstream = "https://github.com/fundakol/pytest-jira-xray"

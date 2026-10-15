@@ -1,4 +1,7 @@
-# Offline case report (schema version 1)
+# Case audit report for Jira/Xray integration (schema version 1)
+
+This report helps investigate the individual pytest cases behind aggregate Jira
+Test Run results. It is an audit/debugging facility within the integration.
 
 `pytest --xray-case-report=cases.json` writes a local JSON report without
 requiring Jira markers, credentials, `--jira-xray`, or duplicate-ID overrides.

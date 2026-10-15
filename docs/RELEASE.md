@@ -1,4 +1,7 @@
-# Experimental alpha release: 0.1.0a1
+# Historical experimental alpha release: 0.1.0a1
+
+For the current Jira/Xray integration workflow, use the [complete guide](../README.md).
+The notes below record the original alpha scope, not current product positioning.
 
 Distribution: `pytest-jira-xray-plus`. Native Xray iterations remain unverified.
 The alpha offers offline case/attempt JSON and an optional legacy comment

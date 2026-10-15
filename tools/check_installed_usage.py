@@ -102,20 +102,9 @@ with tempfile.TemporaryDirectory() as directory:
                 assert payload['info']['revision'] == 'tutorial-revision'
                 assert len(test['evidences']) == 2
     assert seen == [
-        'basic',
-        'local',
-        'inspect',
-        'values',
-        'redact',
-        'failure',
-        'xray',
-        'comments',
-        'archive',
-        'preupload',
-        'inspect_xray',
-        'parallel',
-        'retries',
-        'hooks',
+        'basic', 'xray', 'comments', 'preupload', 'inspect_xray',
+        'local', 'inspect', 'values', 'redact', 'failure', 'archive',
+        'parallel', 'retries', 'hooks',
     ], seen
     print(
         'PASS: all 14 README commands, JSON excerpt, intentional failure, restored passing cases, '

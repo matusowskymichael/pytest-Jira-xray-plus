@@ -1,9 +1,14 @@
-# Try it in two stages
+# Validate the Jira/Xray integration
 
-The implemented feature is **local case JSON and optional Xray comments**.
-It does not emit proven native iterations. Stage 1 needs no Jira. Stage 2 is an
-optional, experimental capability probe for a disposable Xray 8.5.3-j10 sandbox;
-it is not a working integration recipe or a prerequisite for trying the package.
+The product imports pytest results into Jira with Xray, using aggregate Test Runs
+and opt-in parameter comments. Start with the [integration guide](../README.md)
+for Jira/Xray prerequisites, mapping, authentication, preview and upload.
+
+Stage 1 below checks case retention and export logic with transport blocked; it
+is a diagnostic regression, not evidence of a successful Jira import. Stage 2 is
+separate experimental research into native iterations on a disposable Xray
+8.5.3-j10 sandbox. Native iterations are not implemented and this research is
+not required for the supported aggregate import workflow.
 
 ## 1. One-command offline demonstration
 

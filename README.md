@@ -1,33 +1,60 @@
 # pytest-Jira-xray-plus
 
-Run your tests with pytest. Keep each input case in a local report. When you are
-ready, send a summary and readable case details to Jira/Xray.
+Integrate pytest with **Jira and the Xray test management app for Jira**. Associate
+pytest tests with Jira Test issues, run parametrized cases, and publish their
+aggregate results into an Xray Test Execution. **Jira with Xray is required for
+the intended integration.**
 
-This tutorial takes you from two passing cases to an Xray-ready report using a
-single file. **You can complete steps 1–7 without Jira or credentials.**
+[Integration quick start](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/)
+· [Prerequisites](#jiraxray-prerequisites) · [Upload results](#4-authenticate-and-publish-to-jiraxray)
+· [Options](#all-package-options) · [Troubleshooting](#troubleshooting-and-migration)
 
-[Start the tutorial](#1-create-a-project) · [Send to Jira](#8-send-to-jira-optional) ·
-[Options](#all-package-options) · [Troubleshooting](#troubleshooting-and-migration)
+This guide maps two pytest cases to one existing Jira Test and publishes one
+aggregate Test Run. Parameter details can be included in its **comment** by
+explicit opt-in. Native Xray iteration rows and datasets are not supported.
+Offline Xray JSON is a preview before import; local case JSON and full-comment
+archives provide debugging and audit records for the integration.
 
-**What this package produces:** a local record for every observed pytest case,
-and optionally one Xray result per Jira Test key. Parameter details can appear
-in that result's **comment**. Native Xray iteration rows and datasets are not
-supported.
+This guide is prepared for the **0.1.2 documentation patch**, which corrects
+Jira/Xray positioning and the package description. Its examples also work with
+the published 0.1.1 package; installation selects the latest published version. Runtime behavior is unchanged from 0.1.0/0.1.1. No new network or
+credential requirement is imposed on offline preview commands.
 
-This guide accompanies the **0.1.1 documentation patch**. Runtime behavior is
-unchanged from 0.1.0. The complete tutorial below works with the installed package.
+## Jira/Xray prerequisites
+
+- A Jira Server/Data Center instance with the Xray app and permission to import
+  test results. The requested target is **Xray 8.5.3-j10**; this exact server/version
+  has not been independently validated. The implemented transport uses Xray's
+  Server/DC `/rest/raven/2.0/import/execution` API. Keep `--cloud` off for this target.
+- An existing **Test** issue and **Test Execution** in an authorized project.
+  This guide uses `DEMO-1` and `DEMO-100` as placeholders; replace them with your
+  own keys before uploading. A Test identifies what is tested; the Execution
+  holds its result. Both input cases share the Test key and produce one Test Run.
+- Confirm the Test's effective Xray type with the administrator. The custom
+  **Automatic** label has been reported to default to Generic, but that mapping
+  remains unverified. The label alone does not establish import compatibility.
+- An existing Jira personal access token (or administrator-enabled Basic auth),
+  the Jira base URL including any context path, and a trusted TLS certificate/CA.
+  Step 4 configures these through environment variables; never put secrets in tests.
+- Python 3.12+ and pytest 9.1.1–9.x. Use a fresh environment containing this fork
+  only; upstream `pytest-jira-xray` installs the same module and plugin name.
+
+Use an authorized disposable Test Execution for first validation. Confirm its
+aggregate result and comments in Jira before using this configuration in production.
+The preview commands deliberately perform no network requests and do not validate
+credentials, issue existence, permissions or the server's Test-type mapping.
 
 ## 1. Create a project
 
-You need Python 3.12 or newer and a terminal. Start in a folder where you keep
-small Python projects. These commands use Bash on Linux or macOS:
+First confirm the Jira/Xray prerequisites above. In a terminal, start in a folder
+where you keep small Python projects. These commands use Bash on Linux or macOS:
 
 ```sh
 mkdir xray-demo
 cd xray-demo
 python3.12 -m venv .venv
 . .venv/bin/activate
-python -m pip install pytest-jira-xray-plus==0.1.1
+python -m pip install pytest-jira-xray-plus
 ```
 
 Here is what each command does:
@@ -40,7 +67,7 @@ Here is what each command does:
 On Windows, create the environment with `py -3.12 -m venv .venv`. Activate it
 with `.venv\Scripts\Activate.ps1` in PowerShell or
 `.venv\Scripts\activate.bat` in Command Prompt. Use the same `python -m ...`
-commands for the rest of the local tutorial.
+commands for the rest of the integration tutorial.
 
 **Use a fresh environment.** Do not also install `pytest-jira-xray`: that upstream
 package and this fork share the `pytest_xray` module and `xray` plugin name.
@@ -49,9 +76,10 @@ Installing both can overwrite files. If that happened, recreate the environment.
 No repository clone or configuration file is needed. Package installation needs
 internet access; the local test commands below do not contact Jira.
 
+
 ## 2. Run two input cases
 
-Create **`test_example.py`** inside `xray-demo`, next to `.venv`.
+Map the example to your Jira Test (`DEMO-1` is a placeholder). Create **`test_example.py`** inside `xray-demo`, next to `.venv`.
 Paste this complete file:
 
 <!-- tutorial:basic -->
@@ -59,6 +87,7 @@ Paste this complete file:
 import pytest
 
 
+@pytest.mark.xray("DEMO-1")
 @pytest.mark.parametrize(
     "value, expected",
     [(1, 2), (2, 3)],
@@ -85,13 +114,15 @@ Here is how the file works:
 
 - `import pytest` lets us use pytest's test decorators.
 - The function name starts with `test_`, so pytest discovers it.
+- `@pytest.mark.xray("DEMO-1")` maps both cases to the existing Jira Test.
 - `parametrize` runs the function once for each input pair: first `1, 2`, then
   `2, 3`. These two runs are called **cases**.
 - `ids` gives those cases readable names. Use names without secrets.
 - `assert` checks that adding one gives the expected result.
 
 `python -m pytest` uses pytest from your active environment. `-q` keeps output
-short. You have not added a Jira marker or contacted any server.
+short. This first command checks the test itself. The Jira marker is in place,
+but uploading starts only when `--jira-xray` is enabled without `--xraypath`.
 
 Your folder contains:
 
@@ -103,138 +134,11 @@ xray-demo/
 
 Pytest may also create cache folders. You do not need to edit them.
 
-## 3. Save that result locally
 
-Keep the test file as it is. Add **one option** to the command:
+## 3. Preview the Jira/Xray import
 
-<!-- run:local -->
-```sh
-python -m pytest -q test_example.py --xray-case-report=cases.json
-```
-
-You still get `2 passed`. You also get **`cases.json`** in `xray-demo`.
-The new option tells this plugin where to write its local report. It does not
-enable Jira uploading.
-
-Open the file in your editor, or pretty-print it:
-
-<!-- run:inspect -->
-```sh
-python -m json.tool cases.json
-```
-
-Here is an excerpt from the report. It shows the actual case names and summaries;
-we have left out each case's `attempts` list to keep this first view short:
-
-<!-- json:local -->
-```json
-{
-  "schema_version": 1,
-  "pytest_exit_status": 0,
-  "cases": [
-    {
-      "nodeid": "test_example.py::test_add_one[one-plus-one]",
-      "status": "passed"
-    },
-    {
-      "nodeid": "test_example.py::test_add_one[two-plus-one]",
-      "status": "passed"
-    }
-  ]
-}
-```
-
-`pytest_exit_status: 0` means the test session succeeded. A `nodeid` identifies the
-file, function and input case. Each full case record also has an `attempts` list,
-with observed phases:
-
-| Phase | Meaning |
-| --- | --- |
-| `setup` | Prepare the test and any fixtures. |
-| `call` | Run the test function. |
-| `teardown` | Clean up after the test. |
-
-A **fixture** is pytest code that prepares or cleans up a test resource. Our
-example has no custom fixtures, but pytest still reports these phases.
-
-`cases.json` is replaced on each run. Use a different filename to keep an older
-run. Its parent folder must already exist. This file is the plugin's own format;
-**it is not an Xray import file**.
-
-## 4. Choose what the local report contains
-
-By default, the report includes readable case IDs but excludes input values and
-failure text. You can stop here and keep that default. The next two commands
-show **alternative choices**, not options to combine.
-
-To include scalar input values:
-
-<!-- run:values -->
-```sh
-python -m pytest -q test_example.py --xray-case-report=cases.json --xray-case-values
-```
-
-Expected: `2 passed`. Each attempt now has `parameter_values`, such as
-`{"value": 1, "expected": 2}` for the first case. This is useful when the values are
-safe to store; leave the option off otherwise.
-
-To hide the function and parameter identities instead:
-
-<!-- run:redact -->
-```sh
-python -m pytest -q test_example.py --xray-case-report=cases.json --xray-case-redact-identities
-```
-
-Expected: `2 passed`. The case names become aliases such as `case-1`, and input
-values remain absent. Aliases are assigned in arrival order and cannot be matched
-across separate runs. This affects only the local JSON, not console output or
-future Xray comments. It cannot be combined with `--xray-case-values`.
-
-The following steps return to the default reporting command, so readable case IDs
-will be present and values will be absent again.
-
-## 5. See what happens when one case fails
-
-Replace the file with this version. Only the second expected value has changed,
-from `3` to `99`:
-
-<!-- tutorial:failure -->
-```python
-import pytest
-
-
-@pytest.mark.parametrize(
-    "value, expected",
-    [(1, 2), (2, 99)],
-    ids=["one-plus-one", "two-plus-one"],
-)
-def test_add_one(value, expected):
-    assert value + 1 == expected
-```
-
-<!-- run:failure -->
-```sh
-python -m pytest -q test_example.py --xray-case-report=cases.json
-```
-
-Expected summary:
-
-```text
-1 failed, 1 passed
-```
-
-This is an intentional failure. Pytest exits with code **1**, rather than **0**
-for success. The report is still written. `one-plus-one` remains `passed`;
-`two-plus-one` is `failed`. Neither case disappears because another case has a
-different result.
-
-**Checkpoint:** you now have useful local reporting. You can apply
-`--xray-case-report=cases.json` to your own pytest suite without adding Jira
-markers or credentials. The remaining steps are optional.
-
-## 6. Prepare an Xray result without uploading
-
-Restore the passing inputs and add a Jira Test marker. Replace the whole file:
+Before importing results, review the Xray payload. Keep the passing test and
+its Jira Test marker; here is the complete file:
 
 <!-- tutorial:xray -->
 ```python
@@ -251,12 +155,12 @@ def test_add_one(value, expected):
     assert value + 1 == expected
 ```
 
-The new line, `@pytest.mark.xray("DEMO-1")`, associates both cases with one Jira
+The marker, `@pytest.mark.xray("DEMO-1")`, associates both cases with one Jira
 **Test** issue. `DEMO-1` is just a placeholder here; offline export does not look
 it up. A **Test Execution** is the Jira issue that holds a set of test results.
 A **Test Run** is the result of one Test inside that execution.
 
-Keep the local report and add three options:
+Generate the Xray preview and a case audit report:
 
 <!-- run:xray -->
 ```sh
@@ -299,48 +203,11 @@ passing cases usually have no comment text; failure details can still appear.
 selects uploading. This also applies when options are inherited from `pytest.ini`
 or `PYTEST_ADDOPTS`.
 
-## 7. Keep full comments when an export is shortened
 
-Large parametrized suites can produce long comments. The default client policy
-limits each exported comment to **32,000 UTF-8 bytes**. This is a configurable
-client choice, not a universal Jira/Xray server limit.
+## 4. Authenticate and publish to Jira/Xray
 
-To see the behavior with our small example, deliberately choose a tiny limit:
-
-<!-- run:archive -->
-```sh
-python -m pytest -q test_example.py --xray-case-report=cases.json --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details --xray-comment-limit=256 --xray-full-report=full-xray.json
-```
-
-Two new options work together:
-
-- `--xray-comment-limit=256` bounds each final exported comment to 256 UTF-8
-  bytes, including the truncation notice. It does not limit the entire request
-  or attached evidence. The minimum is 256.
-- `--xray-full-report=full-xray.json` saves the **complete original Xray
-  payload** before any comment is shortened.
-
-Expected: `2 passed` and a message containing `truncated 1 comment(s)`.
-
-| File | Result |
-| --- | --- |
-| `cases.json` | Both structured cases, unaffected by the comment limit. |
-| `full-xray.json` | Full original comment containing both case identities and values. |
-| `xray.json` | Shortened comment with an explicit `TRUNCATED` notice. |
-
-If an oversized comment has no full-report path, export stops instead of silently
-losing text. If the archive cannot be written, export also stops. An otherwise
-passing pytest session then exits with code 3. Statuses and evidence are not
-truncated. Use the default limit for ordinary evaluation, then validate the
-appropriate size with your server administrator.
-
-The full archive can contain values, failure text and evidence. Protect it like
-test data. All three report paths must differ. Files are replaced on each run;
-choose unique paths to retain history.
-
-## 8. Send to Jira (optional)
-
-Everything above was local. This step sends a request to a server. Start with an
+Publish the reviewed result into Jira/Xray. This step makes the integration
+request; the preceding payload preview did not contact the server. Start with an
 authorized disposable test project and existing credentials; no credentials or
 private test data need to be shared with the maintainer.
 
@@ -365,7 +232,7 @@ python -m json.tool xray.json
 
 Expect `2 passed`. Check `testExecutionKey` matches the intended execution,
 `tests[0].testKey` matches your Test marker, and `comment` contains the case details
-you intend to send. This uses the normal comment limit, not step 7's deliberately
+you intend to send. This uses the normal comment limit, not the archive recipe's deliberately
 small demonstration limit. No credentials are required for this file export.
 
 The two keys are not interchangeable: one identifies the Test; the other selects
@@ -427,12 +294,205 @@ with your administrator if your project uses a custom label such as **Automatic*
 A label alone does not establish Generic behavior or native iteration support.
 See the compatibility section below for the tested versions and limits.
 
+
+## 5. Audit cases behind a Jira Test Run
+
+Use `cases.json` to investigate the pytest cases behind an aggregate Jira Test
+Run. Keep the same marked test file. To reproduce only the local observations
+while debugging an integration result, run:
+
+<!-- run:local -->
+```sh
+python -m pytest -q test_example.py --xray-case-report=cases.json
+```
+
+You still get `2 passed`. You also get **`cases.json`** in `xray-demo`.
+The new option tells this plugin where to write its local report. It does not
+enable Jira uploading.
+
+Open the file in your editor, or pretty-print it:
+
+<!-- run:inspect -->
+```sh
+python -m json.tool cases.json
+```
+
+Here is an excerpt from the report. It shows the actual case names and summaries;
+we have left out each case's `attempts` list to keep this first view short:
+
+<!-- json:local -->
+```json
+{
+  "schema_version": 1,
+  "pytest_exit_status": 0,
+  "cases": [
+    {
+      "nodeid": "test_example.py::test_add_one[one-plus-one]",
+      "status": "passed"
+    },
+    {
+      "nodeid": "test_example.py::test_add_one[two-plus-one]",
+      "status": "passed"
+    }
+  ]
+}
+```
+
+`pytest_exit_status: 0` means the test session succeeded. A `nodeid` identifies the
+file, function and input case. Each full case record also has an `attempts` list,
+with observed phases:
+
+| Phase | Meaning |
+| --- | --- |
+| `setup` | Prepare the test and any fixtures. |
+| `call` | Run the test function. |
+| `teardown` | Clean up after the test. |
+
+A **fixture** is pytest code that prepares or cleans up a test resource. Our
+example has no custom fixtures, but pytest still reports these phases.
+
+`cases.json` is replaced on each run. Use a different filename to keep an older
+run. Its parent folder must already exist. This file is the plugin's own format;
+**it is not an Xray import file**.
+
+
+## 6. Choose audit report contents
+
+By default, the report includes readable case IDs but excludes input values and
+failure text. Keep that default unless your integration audit requires more detail. The next two commands
+show **alternative choices**, not options to combine.
+
+To include scalar input values:
+
+<!-- run:values -->
+```sh
+python -m pytest -q test_example.py --xray-case-report=cases.json --xray-case-values
+```
+
+Expected: `2 passed`. Each attempt now has `parameter_values`, such as
+`{"value": 1, "expected": 2}` for the first case. This is useful when the values are
+safe to store; leave the option off otherwise.
+
+To hide the function and parameter identities instead:
+
+<!-- run:redact -->
+```sh
+python -m pytest -q test_example.py --xray-case-report=cases.json --xray-case-redact-identities
+```
+
+Expected: `2 passed`. The case names become aliases such as `case-1`, and input
+values remain absent. Aliases are assigned in arrival order and cannot be matched
+across separate runs. This affects only the local JSON, not console output or
+future Xray comments. It cannot be combined with `--xray-case-values`.
+
+The following steps return to the default reporting command, so readable case IDs
+will be present and values will be absent again.
+
+
+## 7. Diagnose a failing case
+
+Replace the file with this version. Only the second expected value has changed,
+from `3` to `99`:
+
+<!-- tutorial:failure -->
+```python
+import pytest
+
+
+@pytest.mark.xray("DEMO-1")
+@pytest.mark.parametrize(
+    "value, expected",
+    [(1, 2), (2, 99)],
+    ids=["one-plus-one", "two-plus-one"],
+)
+def test_add_one(value, expected):
+    assert value + 1 == expected
+```
+
+<!-- run:failure -->
+```sh
+python -m pytest -q test_example.py --xray-case-report=cases.json
+```
+
+Expected summary:
+
+```text
+1 failed, 1 passed
+```
+
+This is an intentional failure. Pytest exits with code **1**, rather than **0**
+for success. The report is still written. `one-plus-one` remains `passed`;
+`two-plus-one` is `failed`. Neither case disappears because another case has a
+different result.
+
+**Checkpoint:** the audit report retains both input cases behind the Jira Test.
+This diagnostic run has not updated Jira. Restore passing inputs before the next
+recipe, and repeat the preview/upload workflow when you intend to update Xray.
+
+
+## 8. Archive complete Xray comments
+Restore the passing, marked test before trying this archive recipe:
+
+<!-- tutorial:restore -->
+```python
+import pytest
+
+
+@pytest.mark.xray("DEMO-1")
+@pytest.mark.parametrize(
+    "value, expected",
+    [(1, 2), (2, 3)],
+    ids=["one-plus-one", "two-plus-one"],
+)
+def test_add_one(value, expected):
+    assert value + 1 == expected
+```
+
+
+Large parametrized suites can produce long comments. The default client policy
+limits each exported comment to **32,000 UTF-8 bytes**. This is a configurable
+client choice, not a universal Jira/Xray server limit.
+
+To see the behavior with our small example, deliberately choose a tiny limit:
+
+<!-- run:archive -->
+```sh
+python -m pytest -q test_example.py --xray-case-report=cases.json --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details --xray-comment-limit=256 --xray-full-report=full-xray.json
+```
+
+Two new options work together:
+
+- `--xray-comment-limit=256` bounds each final exported comment to 256 UTF-8
+  bytes, including the truncation notice. It does not limit the entire request
+  or attached evidence. The minimum is 256.
+- `--xray-full-report=full-xray.json` saves the **complete original Xray
+  payload** before any comment is shortened.
+
+Expected: `2 passed` and a message containing `truncated 1 comment(s)`.
+
+| File | Result |
+| --- | --- |
+| `cases.json` | Both structured cases, unaffected by the comment limit. |
+| `full-xray.json` | Full original comment containing both case identities and values. |
+| `xray.json` | Shortened comment with an explicit `TRUNCATED` notice. |
+
+If an oversized comment has no full-report path, export stops instead of silently
+losing text. If the archive cannot be written, export also stops. An otherwise
+passing pytest session then exits with code 3. Statuses and evidence are not
+truncated. Use the default limit for ordinary evaluation, then validate the
+appropriate size with your server administrator.
+
+The full archive can contain values, failure text and evidence. Protect it like
+test data. All three report paths must differ. Files are replaced on each run;
+choose unique paths to retain history.
+
+
 ## Optional recipes
 
 Scalar values are strings, integers, finite floats, booleans or `None`. Other
 values get a placeholder instead of invoking arbitrary object serialization.
 Indirect fixtures record their input parameters, not the fixture's return value.
-Use step 4 to choose values or identity aliases for the local report.
+Use step 6 to choose values or identity aliases for the local report.
 
 ### Parallel tests and retries
 
@@ -461,9 +521,10 @@ is retained as two worker attempts.
 
 ### Associate one function with multiple Tests
 
-Replace the marker in step 6 with `@pytest.mark.xray("DEMO-1", "DEMO-2")`.
+Replace the marker in step 3 with `@pytest.mark.xray("DEMO-1", "DEMO-2")`.
 Each marked Test receives the combined result. Use this only when those Test
 issues are genuinely intended to share the result.
+
 
 ## Authentication and execution settings
 
@@ -498,6 +559,7 @@ These variables configure the legacy exporter; local case reporting does not
 need them. Secrets belong in your shell environment or protected CI settings,
 not test files or command-line arguments.
 
+
 ## All package options
 
 All on/off switches below default to off. Paths and issue keys are text values
@@ -506,7 +568,7 @@ The table describes the combinations required to make each option useful.
 
 | Option | Effect |
 | --- | --- |
-| `--xray-case-report=PATH` | Write observed cases locally. Parent folder must exist. No Jira required. |
+| `--xray-case-report=PATH` | Write observed cases locally. Parent folder must exist. Audit/debug output; does not upload. |
 | `--xray-case-values` | Include scalar input values in the case report; requires its path. |
 | `--xray-case-redact-identities` | Replace local names/IDs with per-run aliases; requires the case report and excludes case values. |
 | `--jira-xray` | Enable export of marked tests. Uploads unless `--xraypath` is set. |
@@ -524,6 +586,7 @@ The table describes the combinations required to make each option useful.
 
 Use `python -m pytest --help` for pytest's own options. `--collect-only` does not
 write reports. No option enables native iteration rows.
+
 
 ## Result rules and compatibility
 
@@ -566,6 +629,7 @@ per-iteration evidence are outside this release. Crashed-worker reports can lack
 parameter metadata or Jira keys. Native rows and datasets are unsupported even
 when a Test type's label is Automatic.
 
+
 ## Troubleshooting and migration
 
 | What happened | What to do |
@@ -588,9 +652,11 @@ The Python imports, marker and `xray` plugin name are retained. Check the depend
 requirements, add local reporting as needed, and compare an offline export before
 uploading. Do not install both distributions together.
 
-**From 0.1.0:** 0.1.1 is a documentation patch with unchanged runtime behavior.
+**From 0.1.0/0.1.1:** 0.1.2 corrects Jira/Xray positioning and documentation;
+runtime behavior is unchanged.
 **From 0.1.0a1:** later releases add bounded comments, meaningful publishing failures,
 atomic file export and failure-preserving rerun summaries; update CI expectations.
+
 
 ## Advanced: customize the export with hooks
 
@@ -633,6 +699,7 @@ bounds are applied. The report hook attaches evidence after pytest creates each
 call report. Hooks execute trusted local Python and can change correctness or
 expose data; use only the fields and content you intend to export. Delete this
 optional `conftest.py` when finished with the example.
+
 
 ## Project and development
 

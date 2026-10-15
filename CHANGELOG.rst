@@ -159,3 +159,11 @@
 * Execute tutorial commands and check actual report excerpts against installed
   wheels in CI. Replace obsolete README.rst guidance with a maintained-guide link.
 * No runtime feature changes or expanded compatibility claims.
+
+
+0.1.2 (2026-10-15)
+------------------
+- Correct Jira/Xray integration positioning: Jira with Xray is the required product foundation.
+- Lead the complete guide with prerequisites, Test/Execution mapping, authentication and import.
+- Retain offline preview, local case audit and archives as integration support facilities.
+- No runtime changes, network enforcement, credentials or publishing permission changes.

@@ -1,66 +1,69 @@
 <div class="hero" markdown>
 
-<div class="eyebrow">pytest Xray Plus · 0.1.1</div>
+<div class="eyebrow">pytest Xray Plus · Jira/Xray integration</div>
 
-# Every pytest case, clearly reported.
+# Publish pytest results to Jira and Xray.
 
-Keep each input case and retry in a local JSON report. When you are ready,
-export an aggregate result and readable case details to Jira Xray.
+Map pytest tests to Jira Test issues. Run your parametrized suite and import
+aggregate results into an Xray Test Execution, with case details in comments
+when you enable them.
 
-[Start the tutorial](tutorial/install.md){ .md-button .md-button--primary }
-[See all options](reference/options.md){ .md-button }
+[Start the integration guide](reference/prerequisites.md){ .md-button .md-button--primary }
+[Configure authentication](reference/settings.md){ .md-button }
 
-Python 3.12+ · pytest 9.1.1–9.x · Open source · Apache-2.0
+Jira with Xray required · Python 3.12+ · pytest 9.1.1–9.x
 
 </div>
 
-## Start locally. Add Jira when you need it.
+## Connect your tests to your Jira workflow
 
-```sh
-python -m pip install pytest-jira-xray-plus==0.1.1
-python -m pytest --xray-case-report=cases.json
-```
+You need Jira with the Xray app, existing Test and Test Execution issues, and
+credentials with permission to import results. The requested target is on-premises
+**Xray 8.5.3-j10**. Its exact configuration and custom **Automatic** Test-type mapping
+still require live validation; this guide does not claim verified native iterations.
 
-Use a fresh environment: this fork cannot be installed alongside `pytest-jira-xray`.
-The local report does not need Jira markers, credentials or a server connection.
+The guide takes you through installation, a marked parametrized test, an Xray
+payload preview, authentication and import. You then inspect the Test Run in Jira.
 
 <div class="grid cards" markdown>
 
-- **Learn with one file**
+- **Map and publish results**
 
-    Build from two passing input cases to a local report, an intentional failure,
-    and a reviewed Xray export. Copy complete examples and check the expected output.
+    Associate cases with an existing Jira Test and target an existing Test Execution.
+    Preview the payload, then send it using protected environment variables.
 
-    [Follow the tutorial →](tutorial/index.md)
+    [Follow the integration tutorial →](tutorial/index.md)
 
-- **Find the right command**
+- **Configure your integration**
 
-    Look up options, authentication settings and the exact rules for retries,
-    skips and combined Jira results.
+    Find Server/Data Center authentication, execution settings, status rules and
+    exact compatibility limits before applying the exporter to your project.
 
-    [Open the reference →](reference/options.md)
+    [Open the reference →](reference/settings.md)
 
-- **Understand your reports**
+- **Debug and audit an import**
 
-    Keep structured cases in `cases.json`, a bounded Xray payload in `xray.json`,
-    and complete comment text in an optional archive.
+    Inspect Xray JSON before sending, retain structured pytest cases and archive
+    full comments. These facilities support the Jira/Xray integration.
 
-    [Compare report formats →](tutorial/xray.md)
+    [Inspect the import preview →](tutorial/xray.md)
 
 </div>
 
-## What reaches Xray?
+## What reaches Jira/Xray?
 
-One aggregate Test Run per Jira Test key, with optional case details in its comment.
-**Native Xray iteration rows and datasets are not supported.** The local report
-preserves the individual pytest cases independently.
+One aggregate Test Run per Jira Test key, with opt-in case details in its comment.
+**Native Xray iteration rows and datasets are not supported.** The local audit
+report preserves individual pytest cases, but it is not an Xray import format.
 
-[Read the compatibility boundaries](reference/compatibility.md) before applying
-the exporter to a new server configuration.
+Offline previews deliberately make no network request. They help review data;
+they do not establish valid credentials, permissions, issue keys or server mapping.
 
-## Keep this guide close
+[Read the compatibility boundaries](reference/compatibility.md).
 
-The [full tutorial is also on PyPI](https://pypi.org/project/pytest-jira-xray-plus/0.1.1/)
-and in the [repository README](https://github.com/matusowskymichael/pytest-Jira-xray-plus#readme).
-Website tutorial and reference pages are generated from that tested source so the
-commands stay aligned across all three places.
+## Complete documentation
+
+The full guide is preserved in the
+[repository README](https://github.com/matusowskymichael/pytest-Jira-xray-plus#readme)
+and packaged for [PyPI](https://pypi.org/project/pytest-jira-xray-plus/).
+Website tutorial and reference pages use that same source.
