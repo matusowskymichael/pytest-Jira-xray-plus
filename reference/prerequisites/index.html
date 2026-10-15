@@ -1275,13 +1275,13 @@
   test results. The requested target is <strong>Xray 8.5.3-j10</strong>; this exact server/version
   has not been independently validated. The implemented transport uses Xray's
   Server/DC <code>/rest/raven/2.0/import/execution</code> API. Keep <code>--cloud</code> off for this target.</li>
-<li>An existing <strong>Test</strong> issue and <strong>Test Execution</strong> in an authorized project.
+<li>An existing <strong>Generic Test</strong> issue and <strong>Test Execution</strong> in an authorized project.
   This guide uses <code>DEMO-1</code> and <code>DEMO-100</code> as placeholders; replace them with your
   own keys before uploading. A Test identifies what is tested; the Execution
   holds its result. Both input cases share the Test key and produce one Test Run.</li>
-<li>Confirm the Test's effective Xray type with the administrator. The custom
-  <strong>Automatic</strong> label has been reported to default to Generic, but that mapping
-  remains unverified. The label alone does not establish import compatibility.</li>
+<li><strong>Generic</strong> is the confirmed target Xray Test type. Use an existing Generic
+  Test; the plugin imports results by issue key and does not create, select or
+  change the Test type. This confirmation does not establish native iteration support.</li>
 <li>An existing Jira personal access token (or administrator-enabled Basic auth),
   the Jira base URL including any context path, and a trusted TLS certificate/CA.
   Step 4 configures these through environment variables; never put secrets in tests.</li>
@@ -1291,7 +1291,7 @@
 <p>Use an authorized disposable Test Execution for first validation. Confirm its
 aggregate result and comments in Jira before using this configuration in production.
 The preview commands deliberately perform no network requests and do not validate
-credentials, issue existence, permissions or the server's Test-type mapping.</p>
+credentials, issue existence, permissions or server-side import behavior.</p>
 
 
 

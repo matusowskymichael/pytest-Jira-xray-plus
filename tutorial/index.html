@@ -1271,7 +1271,7 @@
 
 <h1 id="integrate-pytest-with-jira-and-xray">Integrate pytest with Jira and Xray<a class="headerlink" href="#integrate-pytest-with-jira-and-xray" title="Permanent link">&para;</a></h1>
 <p>Begin with the <a href="../reference/prerequisites/">Jira/Xray prerequisites</a>: your server,
-Test and Test Execution issues, effective Test type and existing credentials.
+existing Generic Test and Test Execution issues, and existing credentials.
 Install the plugin, map your test, preview the payload, then authenticate and import
 results. Debugging and audit recipes follow the core integration workflow.</p>
 <ul>
@@ -1286,7 +1286,8 @@ results. Debugging and audit recipes follow the core integration workflow.</p>
 </ul>
 <p>Preview commands do not contact Jira. CI executes these commands against an installed
 package with HTTP blocked; live imports require your authorized Jira/Xray environment.
-The target Xray 8.5.3-j10 and custom Automatic mapping remain unverified.</p>
+Generic is the confirmed Test type. Live import behavior on Xray 8.5.3-j10 remains
+unverified; native iteration rows and datasets are not implemented.</p>
 
 
 

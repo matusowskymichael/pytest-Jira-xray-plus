@@ -1390,7 +1390,7 @@ authorized disposable test project and existing credentials; no credentials or
 private test data need to be shared with the maintainer.</p>
 <h3 id="prepare-the-two-issue-keys">Prepare the two issue keys<a class="headerlink" href="#prepare-the-two-issue-keys" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Choose an existing sandbox Jira <strong>Test</strong> issue. Replace <code>DEMO-1</code> in the marker
+<li>Choose an existing sandbox Jira <strong>Generic Test</strong> issue. Replace <code>DEMO-1</code> in the marker
    with its key.</li>
 <li>Choose an existing sandbox <strong>Test Execution</strong>, for example <code>DEMO-100</code>.
    You will pass that key as <code>--execution</code>.</li>
@@ -1444,9 +1444,9 @@ including dataset/iteration information; inspect a run before retrying a timeout
 Imports are not retried automatically because the server might already have
 accepted the first request. This replacement behavior is documented in the
 <a href="https://getxraydocs.atlassian.net/wiki/spaces/XRAY/pages/301667997">official Server/DC import API</a>.</p>
-<p>This command uses the aggregate comment fallback. Confirm the effective Test type
-with your administrator if your project uses a custom label such as <strong>Automatic</strong>.
-A label alone does not establish Generic behavior or native iteration support.
+<p>This command targets an existing <strong>Generic Test</strong> using the aggregate comment
+fallback. It does not set or change the Test type, and Generic targeting does not
+enable native iteration rows or datasets.
 See the compatibility section below for the tested versions and limits.</p>
 
 
