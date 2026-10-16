@@ -15,10 +15,11 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide accompanies the **0.1.4 attachment-isolation candidate** (not yet published),
-which retains Generic as the target Xray Test type. The examples also work with
-0.1.2 and 0.1.3; the multi-key attachment isolation fix requires 0.1.4 once published.
-Installation currently selects the latest published version, 0.1.3.
+This guide covers **0.1.4 attachment isolation**, retaining Generic as the target
+Xray Test type. The examples also work with 0.1.2 and 0.1.3; the multi-key attachment
+isolation fix requires 0.1.4 or later. Installation selects the latest published
+version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
+for availability.
 Offline previews still require neither network access nor credentials.
 
 ## Jira/Xray prerequisites

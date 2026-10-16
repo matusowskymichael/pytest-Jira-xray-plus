@@ -1,5 +1,5 @@
-0.1.4 [Unreleased candidate]
-============================
+0.1.4 [2026-10-16]
+==================
 - Isolate evidence and defect list ownership per mapped Jira Test key. A later case
   for one key no longer changes another key's attachments or defects.
 - Prevent attachment inflation when parameter cases map to the same multiple keys;
