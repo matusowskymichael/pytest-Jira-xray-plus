@@ -1,28 +1,30 @@
-# Completed iteration — 0.1.6 published and verified
+# Independently accepted — collection lookup
 
-- Task XRAY-RELEASE-002 is independently accepted; PR #14 merged.
-- Published source: `b2c5b73bb771110129ede8b41cf5fb96447d81b3`; tree matches
-  accepted commit `0b707306b134b87abcf8af25ecbc415f3bdccb29`. Six acceptance-head
-  checks and all three main checks passed. No runtime/dependency/permission changes.
-- [PyPI 0.1.6](https://pypi.org/project/pytest-jira-xray-plus/0.1.6/): trusted
-  publish run 38912482897 after immediate unused-version/main-SHA verification.
-- [GitHub v0.1.6](https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.6):
-  automatic run 38912710605. Tag matches published commit; both downloaded assets
-  hash-match PyPI and publisher outputs. Exact version notes attached.
-- Fresh public installation: all 14 README commands and full README rendering pass.
-  Public PyPI JSON description exactly matches shared README and contains six badges;
-  image endpoints/links and GitHub renderer checked using normal TLS.
-- Clean-source measurement: 253 tests + 19 subtests; 714/745 lines (95.8%) and
-  211/240 branches (87.9%) across all 13 plugin files, including subprocesses.
-  Provenance explicitly identifies actual local measurement on the release commit.
-- Pages deployment 38912894000, branch commit `352e3cdf00fd714626a9aad540605a04889fcfb6`:
-  all 101 live files hash-match deployment. Docs, coverage and 0.1.6 metadata refreshed.
-- [Durable release proof](docs/agent/evidence/XRAY-RELEASE-002-release-0.1.6.json).
-- Limits: PyPI project HTML returns Client Challenge here. Live browser certificate
-  warning was not bypassed. Published metadata/normal-TLS checks and renderer previews
-  pass, but live visual confirmation requires a trusted user browser. No workplace
-  access/private data. Live Xray/custom Automatic mapping unverified; native iterations
-  unsupported. Existing explicit permission approval remains valid.
-- Next: `python tools/agent.py preflight`; confirm operational evidence commit CI,
-  then hand off the live visual check. Do not reuse 0.1.6 or open another iteration
-  without reconciling its authorized scope.
+- Task XRAY-PERF-001; branch perf/collection-key-lookup; baseline a18e361 (0.1.6).
+- [PR #15](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15).
+- Reconciled main instructions, completed ledger/progress, no checkout skills,
+  no open PRs/issues and latest public PyPI 0.1.6 before choosing this scoped task.
+- Two-line runtime change uses a set for membership only; diagnostic list/order,
+  first-offending-item behavior, validation and report grouping remain unchanged.
+- Before patch: six deterministic scaling tests failed, six behavior tests passed.
+  At 512 unique keys, old list lookup needed 130,816 equality comparisons.
+  [Before log](docs/agent/evidence/XRAY-PERF-001-before.log).
+- After patch: all 12 new tests pass, including serial/xdist output. Synthetic
+  benchmark at 1,024 unique keys: baseline 523,776 equality comparisons versus
+  candidate 0 equalities/3,072 hash calls in both duplicate modes. Deliberately
+  distinct hashes isolate lookup growth; no timing threshold or end-to-end claim.
+  [Benchmark](docs/agent/evidence/XRAY-PERF-001-benchmark.json).
+- All five profiles pass on source 8730f0e: 265 tests + 19 subtests, harness,
+  offline validation, package/Twine, all 14 installed README commands and full
+  README rendering, strict docs/link checks and local desktop/mobile browser.
+  Changed-file Ruff and mypy (32 files) pass. Full README/changelog updated.
+- Digest: 847466450908b5d2f2b32f206ddcc276b02e207993054dea0b47acde055d7ee8.
+- Independent reviewer /root/review_duplicate_lookup_optimization passed exact
+  head 7e2f468 and digest; all six exact-head CI runs passed. Review recorded in
+  [acceptance evidence](docs/agent/evidence/XRAY-PERF-001-independent-review.json).
+- Next: verify acceptance-commit CI, merge PR #15, then verify main CI. Keep under
+  Unreleased and PyPI 0.1.6 unchanged; no publication or permission change.
+  Existing authorization ends Oct 18 UAE.
+- Limits: synthetic validation only; Generic on-prem Xray 8.5.3-j10/custom Automatic
+  live mapping unverified; native iterations unsupported. No workplace/private data,
+  credentials, purchases, accounts, destructive cleanup or security bypass.

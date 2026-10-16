@@ -1,6 +1,8 @@
 Unreleased
 ==========
-- No unreleased changes.
+- Use set membership for duplicate Test-key collection validation, avoiding
+  quadratic list scans for large suites while retaining diagnostic order,
+  repeated-key handling and opt-in grouping. No new flags or default changes.
 
 0.1.6 [2026-10-16]
 ==================

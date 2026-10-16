@@ -1,0 +1,77 @@
+{
+  "task": "XRAY-PERF-001",
+  "profile": "package",
+  "digest": "847466450908b5d2f2b32f206ddcc276b02e207993054dea0b47acde055d7ee8",
+  "revision": "8730f0e237e430cd46111837331f889e557b5e76",
+  "timestamp": "2026-10-16T15:08:14.378291+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/build_release.py",
+      ".harness/dist"
+    ],
+    [
+      "{python}",
+      "-m",
+      "twine",
+      "check",
+      ".harness/dist/pytest_jira_xray_plus-0.1.6-py3-none-any.whl",
+      ".harness/dist/pytest_jira_xray_plus-0.1.6.tar.gz"
+    ],
+    [
+      "{python}",
+      "-m",
+      "venv",
+      "--clear",
+      ".harness/installed"
+    ],
+    [
+      "{root}/.harness/installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      ".harness/dist/pytest_jira_xray_plus-0.1.6-py3-none-any.whl",
+      "pytest-xdist==3.8.0",
+      "pytest-rerunfailures==16.7"
+    ],
+    [
+      "{python}",
+      "tools/check_installed_usage.py",
+      "{root}/.harness/installed/bin/python",
+      ".harness/dist/pytest_jira_xray_plus-0.1.6-py3-none-any.whl"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.213,
+      "log": "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401-0.log",
+      "log_sha256": "7e4d556aa7a1b8bcce30bfd04c20d8493037d8b77b47fba75d9e6c4fd6171eb1"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.329,
+      "log": "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401-1.log",
+      "log_sha256": "b1cbf814ed4c82cbc4b5fbb00f8b5d73c28d0e3bf3adeed781d7ddc84b0b4abe"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.547,
+      "log": "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401-2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 3.52,
+      "log": "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401-3.log",
+      "log_sha256": "4ecc00ca2dbb783810421a1320083e273ab7ffb4187d09dd4956a192fe8670b1"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 4.743,
+      "log": "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401-4.log",
+      "log_sha256": "45a8c58f6dbf60cdff31c588714aa2f6a2d5577de39e1b22ad75b25c1e7cad3d"
+    }
+  ],
+  "status": "passed"
+}

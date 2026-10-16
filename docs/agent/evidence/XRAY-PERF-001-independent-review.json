@@ -1,0 +1,19 @@
+{
+  "task": "XRAY-PERF-001",
+  "digest": "847466450908b5d2f2b32f206ddcc276b02e207993054dea0b47acde055d7ee8",
+  "revision": "7e2f468f655e66d7b2732308b0b57b068650a6c3",
+  "timestamp": "2026-10-16T15:19:30.608054+00:00",
+  "reviewer": "/root/review_duplicate_lookup_optimization",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Duplicate-key membership scales linearly in deterministic comparison-count tests; synthetic benchmark has no timing threshold",
+    "Preserve diagnostic order, first offending item, repeated-key deduplication, allowed grouping and later malformed-marker validation",
+    "Full beginner README and Unreleased changelog explain unchanged usage and scope; runtime privacy and Generic limitations remain",
+    "All five profiles, installed examples and exact-head CI pass before fresh independent review; no version, dependency, workflow or permission changes"
+  ],
+  "source": "Parent thread 01a12a8b-3ef6-705b-9250-4b8889b0701e relayed independent PASS for this exact head/digest. Builder transcription, not builder-authored review.",
+  "scope": "Static and evidence review confirms unchanged semantics and existing hashability requirement, twelve regressions, honest benchmark, docs/changelog, five profiles, 265 tests plus 19 subtests and 14 installed commands. Hosted merge ref db7b5bcf3c0ec1765156dd5b66d38a9d4a460e7e has identical tree and digest; three observed workflow runs passed.",
+  "limits": "No independent rerun or live Xray verification claimed. Parent authorizes merge after exact-head checks; keep Unreleased and PyPI 0.1.6 unchanged."
+}

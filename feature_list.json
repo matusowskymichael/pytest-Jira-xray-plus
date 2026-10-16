@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-RELEASE-002",
-      "title": "Publish shared status badges in 0.1.6",
-      "source": "docs/agent/task-release-016.md",
-      "source_sha256": "d5865f3844bbb69fcdef66456dc822ee19db4a2672e6043c459b4c8335092376",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/14",
+      "id": "XRAY-PERF-001",
+      "title": "Bound duplicate Test-key collection lookup cost",
+      "source": "docs/agent/task-collection-lookup.md",
+      "source_sha256": "f8d594ac4f299ba36a89db966d12205525b20de7d3bfba055ecf15f51ea4bf3f",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Prepare unused 0.1.6 with only version-literal changes to package metadata and trusted publisher; runtime and accepted automation remain unchanged",
-        "README, changelog and release/coverage documentation truthfully describe approved enabled automation, verified backfill and snapshot limits",
-        "All five profiles, installed tutorial commands, shared badge rendering/URLs and exact-head CI pass on the release content",
-        "Preserve independent-review and publication gates; document post-publication artifact, GitHub release and live-doc verification without claiming unperformed checks or bypassing security"
+        "Duplicate-key membership scales linearly in deterministic comparison-count tests; synthetic benchmark has no timing threshold",
+        "Preserve diagnostic order, first offending item, repeated-key deduplication, allowed grouping and later malformed-marker validation",
+        "Full beginner README and Unreleased changelog explain unchanged usage and scope; runtime privacy and Generic limitations remain",
+        "All five profiles, installed examples and exact-head CI pass before fresh independent review; no version, dependency, workflow or permission changes"
       ],
       "checks": [
         "harness",
@@ -54,7 +54,6 @@
         "src/pytest_xray/helper.py": "f780d53152971aa134e9a4d417563dc8e5560ecc349aa4fb9a7490f353399548",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "c6c45edaac19de5b4829af3e2ad3b656d8f8414777b2b1aad27997337a61ff1f",
-        "src/pytest_xray/xray_plugin.py": "4204674f31f35fafca8be451dbdb80f912774af1a6aef2121c9619ae831a189c",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/agent/test_harness.py": "37e8d0443ad4d064c7c9bc8ac0a94d224e46b5d59cd568ec364800e294a2eb1f",
@@ -87,17 +86,19 @@
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
         "tools/status_badges.py": "8dd904d10e291138096ed7d62cdbb8d2bfcdcbbd7a8254d20709fa4fe03b37ab",
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
-        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
+        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
+        "pyproject.toml": "3378166124cd0716255129f6b14fe6b062e131888f277b3f93067851fc73da08",
+        ".github/workflows/publish.yml": "f10a1f4ce17b0f26401bd3977eefd3d74e9be936ccd3a2751870cbe7d6fa892a"
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-RELEASE-002-docs-3a6608ccbe99.json",
-        "docs/agent/evidence/XRAY-RELEASE-002-harness-a759b5139c4c.json",
-        "docs/agent/evidence/XRAY-RELEASE-002-offline-ccef96a6e40a.json",
-        "docs/agent/evidence/XRAY-RELEASE-002-package-af2bbf80c1c5.json",
-        "docs/agent/evidence/XRAY-RELEASE-002-tests-5f49855c6656.json"
+        "docs/agent/evidence/XRAY-PERF-001-harness-2017a58e42e2.json",
+        "docs/agent/evidence/XRAY-PERF-001-tests-798a0f6c587d.json",
+        "docs/agent/evidence/XRAY-PERF-001-offline-e1badfcb96fa.json",
+        "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401.json",
+        "docs/agent/evidence/XRAY-PERF-001-docs-f08c9fcc339e.json"
       ],
-      "review": "docs/agent/evidence/XRAY-RELEASE-002-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-PERF-001-independent-review.json",
       "blocker": "",
       "next_action": "python tools/agent.py preflight"
     }

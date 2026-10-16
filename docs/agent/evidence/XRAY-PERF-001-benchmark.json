@@ -1,0 +1,117 @@
+{
+  "scope": "Synthetic unique-key validation; no timing or server claims",
+  "results": [
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": false,
+      "keys": 128,
+      "equality_comparisons": 8128,
+      "hash_calls": 128
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": false,
+      "keys": 128,
+      "equality_comparisons": 0,
+      "hash_calls": 384
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": false,
+      "keys": 256,
+      "equality_comparisons": 32640,
+      "hash_calls": 256
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": false,
+      "keys": 256,
+      "equality_comparisons": 0,
+      "hash_calls": 768
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": false,
+      "keys": 512,
+      "equality_comparisons": 130816,
+      "hash_calls": 512
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": false,
+      "keys": 512,
+      "equality_comparisons": 0,
+      "hash_calls": 1536
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": false,
+      "keys": 1024,
+      "equality_comparisons": 523776,
+      "hash_calls": 1024
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": false,
+      "keys": 1024,
+      "equality_comparisons": 0,
+      "hash_calls": 3072
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": true,
+      "keys": 128,
+      "equality_comparisons": 8128,
+      "hash_calls": 128
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": true,
+      "keys": 128,
+      "equality_comparisons": 0,
+      "hash_calls": 384
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": true,
+      "keys": 256,
+      "equality_comparisons": 32640,
+      "hash_calls": 256
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": true,
+      "keys": 256,
+      "equality_comparisons": 0,
+      "hash_calls": 768
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": true,
+      "keys": 512,
+      "equality_comparisons": 130816,
+      "hash_calls": 512
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": true,
+      "keys": 512,
+      "equality_comparisons": 0,
+      "hash_calls": 1536
+    },
+    {
+      "implementation": "0.1.6 list baseline",
+      "allow_duplicates": true,
+      "keys": 1024,
+      "equality_comparisons": 523776,
+      "hash_calls": 1024
+    },
+    {
+      "implementation": "candidate",
+      "allow_duplicates": true,
+      "keys": 1024,
+      "equality_comparisons": 0,
+      "hash_calls": 3072
+    }
+  ]
+}

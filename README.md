@@ -182,6 +182,19 @@ python -m pytest -q test_example.py --xray-case-report=cases.json --jira-xray --
 | `--xraypath=xray.json` | Writes the export to this file **instead of sending it**. |
 | `--allow-duplicate-ids` | Allows the two cases to share `DEMO-1`; their Xray results are combined. |
 
+Use `--allow-duplicate-ids` only when separate pytest cases intentionally map to
+one existing Jira Test. Without it, collection stops at the first test item that
+reuses a key; the diagnostic lists that item's duplicates in marker order.
+Repeating a key within one marker is deduplicated and does not create another
+Xray result. Even with the flag, malformed markers are still rejected.
+
+The unreleased collection optimization replaces growing-list scans with set
+membership. These commands and grouping rules are unchanged; it does not add
+native iterations or change Jira/Xray configuration. For a deterministic developer
+benchmark from a checkout with development dependencies installed, run
+`python tools/benchmark_collection.py`. It compares key-operation counts against
+the 0.1.6 list algorithm, not total pytest time or live server performance.
+
 Expected: `2 passed`, plus a message showing the generated Xray report file.
 You now have two reports with different purposes:
 
