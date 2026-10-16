@@ -91,10 +91,9 @@ coverage snapshots link to the relevant public source/report. The package build
 renders the complete README using PyPI's renderer and checks the installed tutorial.
 GitHub Markdown rendering and live image responses are also checked during review.
 
-An already-published PyPI distribution's README cannot be replaced. These README
-badges appear on PyPI with the **next independently reviewed, unused package
-version**, not by republishing 0.1.5. Until then, local PyPI-renderer verification is
-preview evidence; it is not a claim that the live 0.1.5 page contains the badges.
+An already-published PyPI distribution's README cannot be replaced. The **0.1.6** package README includes these badges. Publication requires review
+and an unused version; the 0.1.5 page remains unchanged. Local PyPI-renderer checks
+are preview evidence until the new public page is verified after publication.
 Live browser checks remain blocked by the recorded certificate warning. Never
 ignore TLS/security errors; use a trusted user browser for that final visual check.
 

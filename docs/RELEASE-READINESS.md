@@ -250,3 +250,25 @@ Publisher changes are version literals only. Candidate preparation does not
 merge or publish. Independent review, current receipts and exact-head CI remain
 required. Browser certificate/security errors must block browser verification
 and require user handoff; never bypass them. Normal HTTPS checks are separate.
+
+
+## 0.1.6 shared-status README candidate — 2026-10-16
+
+0.1.5 is published and verified. PR #13 enabled the independently reviewed,
+explicitly approved GitHub Release job. Backfill 38909839526 created v0.1.5 at
+its original published commit; both public GitHub assets matched PyPI hashes.
+Retry 38909920867 preserved release and asset identities, hashes and timestamps.
+
+Candidate 0.1.6 delivers the shared README's six relevant status badges to PyPI.
+Runtime, dependencies and accepted tag/coverage tooling are unchanged. Publisher
+changes are version literals only; SHA/artifact checks, opt-in, pypi environment
+and permissions remain unchanged. The currently published coverage snapshot is
+95.8% plugin lines / 87.9% branches at clean 0.1.5, with explicit provenance;
+new snapshots must be measured and verified, never inferred from a prior version.
+
+0.1.6 was unused at preparation; recheck immediately before publication. Required
+profiles, installed commands, badge rendering/URLs, exact-head CI and fresh
+independent review precede publication. Then verify public PyPI bytes and README,
+automatic GitHub tag/Release/assets and Pages. Never bypass a browser security
+warning; the existing certificate failure remains a user handoff. Native iterations
+remain unsupported; custom Automatic mapping and live Xray 8.5.3-j10 remain unverified.

@@ -1,15 +1,20 @@
 Unreleased
 ==========
+- No unreleased changes.
+
+0.1.6 [2026-10-16]
+==================
 - Recheck a draft's tag before publication and verify the returned published
   release identity/state and tag target; never report success for a retargeted draft.
 - Add relevant shared README badges and first-party measured coverage/metadata
   snapshots, with explicit scope, provenance and freshness. No external account.
 - Measure all plugin source files including Python subprocesses in the existing
   read-only Python 3.12 CI job; retain the full 3.13/3.14 matrix.
-- Propose automatic version tags and GitHub Releases after verified PyPI publication,
+- Enable automatic version tags and GitHub Releases after verified PyPI publication,
   with exact artifacts, version notes, safe retries and conflict protection.
-- Add beginner release/backfill instructions; enabling the new job requires
-  explicit permission confirmation and independent review. No package version bump.
+- Add beginner release/backfill instructions after explicit permission confirmation
+  and independent review; verify the 0.1.5 tag, artifacts and idempotent retry.
+- Publish shared README badges in PyPI metadata. No plugin runtime changes.
 
 0.1.5 [2026-10-16]
 ==================

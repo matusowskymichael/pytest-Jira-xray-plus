@@ -6,19 +6,19 @@ source distribution. Installing the package still uses PyPI.
 
 ## Status and permission approval
 
-This change is proposed in a separate PR. It is not enabled until independent
-review and permission confirmation, followed by merge. The already-published
+PR #13 passed independent review, received explicit permission approval and was
+merged on 2026-10-16. The workflow is enabled. The already-published
 0.1.5 came from commit `d007adeefe5057ed9dcbb6ce6c4d28ec7eff942e`, publisher run
 `38900871866`; do **not** publish that version again.
 
-The proposed **Tag verified PyPI release** job uses the existing short-lived
+The **Tag verified PyPI release** job uses the existing short-lived
 `GITHUB_TOKEN` with exactly:
 
 - `actions: read`, to inspect the successful publishing run and download its artifact.
 - `contents: write`, to create the version tag, draft Release, upload the two
   verified distribution assets and publish the matching draft.
 
-This is additional workflow authority and needs confirmation before enabling.
+The user explicitly approved these job-scoped permissions; no further scope is implied.
 No token/account is created, no persistent repository access or default permission
 is changed, and no `id-token: write` is added. The PyPI publisher and its `pypi`
 environment remain unchanged. GitHub's token cannot be restricted to tags/releases
@@ -26,7 +26,7 @@ alone: `contents: write` is the actual scope, although this script only performs
 the documented release operations. A repository policy that disallows this scope
 must be resolved by the maintainer; do not broaden permissions to work around it.
 
-## Normal release, once enabled
+## Normal release
 
 1. Prepare a new, unused stable `X.Y.Z` version. Update `pyproject.toml`, version
    literals in the existing publisher, and the version's dated section in
@@ -54,11 +54,15 @@ The tag is tied to the published commit, even if `main` has advanced. All
 GitHub writes happen after the PyPI checks. Failed/cancelled publication cannot
 create a tag or Release. The workflow never publishes to PyPI itself.
 
-## Retry or add the missing 0.1.5 Release
+## Retry an existing publication
 
-Once permission and review are complete and the workflow is on main, select
+The 0.1.5 backfill succeeded in run `38909839526`; a second run `38909920867`
+left the tag, Release identity/notes/timestamps and asset identities/hashes unchanged.
+Both public GitHub assets matched PyPI bytes.
+
+For a retry or another backfill, select
 **Actions → Tag verified PyPI release → Run workflow**, choose `main`, and enter
-`38900871866` as `publish_run_id` to backfill 0.1.5. For another version use its
+`38900871866` as `publish_run_id` to recheck 0.1.5 without republishing it. For another version use its
 successful **Publish release** run ID, not a test run or the tagging run ID.
 
 A matching completed Release is a no-op. An interrupted upload leaves a matching
@@ -83,8 +87,8 @@ not request extra Workflows permission or create a token to circumvent that rule
 
 Synthetic API tests exercise gating, conflict handling, exact-byte validation,
 partial retries and token redaction. They do not prove GitHub grants write access.
-The first enabled run still requires live verification of tag target, release
-notes, asset hashes and retry behavior. In the current builder environment,
+The enabled workflow has verified the 0.1.5 tag target, release notes, public asset
+hashes and no-op retry. Every later release still needs its own live verification. In the current builder environment,
 GitHub artifact storage returned proxy HTTP 403; CI artifact access is a separate
 live check. Public PyPI 0.1.5 files and publisher hashes were verified successfully.
 Live Pages browser validation is separately blocked by a certificate warning;
