@@ -1,0 +1,71 @@
+{
+  "task": "XRAY-HARNESS-001",
+  "digest": "53e91683d185163681cee4e69d28d8bdeefc57046491e077f28eafcaa96fc70c",
+  "revision": "8e3168e7e9f9ad1080e570f59cdd52dabad521cf",
+  "timestamp": "2026-10-16T05:35:21.272007+00:00",
+  "timestamp_meaning": "Time the supplied independent verdict was recorded; original reviewer timestamp was not supplied.",
+  "reviewer": "review_pytest_harness_pr",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Discoverable factual agent map and module boundaries",
+    "Executable preflight, resume, verification, checkpoint and drift",
+    "Validated ownership, scope provenance, prerequisites and single-task state",
+    "Missing, failed, stale and self-reviewed completion rejected",
+    "Positive and negative lifecycle tests plus existing package/docs checks",
+    "Source-linked course adoption with explicit deferrals",
+    "Runtime/dependencies/publisher preserved; draft PR only"
+  ],
+  "recorded_by": "codex-builder",
+  "provenance": {
+    "source_thread_id": "01a12a8b-3ef6-705b-9250-4b8889b0701e",
+    "transport": "parent codex_delegation",
+    "source_file": "docs/agent/evidence/XRAY-HARNESS-001-independent-review-source.txt",
+    "source_sha256": "45069f07aca364582c9e1846b06bf61f668aa2b0d835930f7d16422ee15239c5",
+    "task_source": "docs/agent/task.md",
+    "task_source_sha256": "98b36f796ce4f565228e93ddef9c68875885b32d3c1ef08b0aaf5c57d7b630e5",
+    "scope_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/10",
+    "attribution": "Independent verdict relayed by parent and transcribed by implementer; not a builder-authored review or signed GitHub approval."
+  },
+  "scope": "Independent static review of actual diff and fixtures, plus inspection of hosted execution evidence at the reviewed revision.",
+  "limitations": [
+    "Reviewer did not independently execute tests.",
+    "Reviewer did not independently recompute every hash.",
+    "No live Jira/Xray validation, native-iteration validation, model-performance benchmark or exhaustive course audit.",
+    "This records technical acceptance only; no merge, release or deployment authorization."
+  ],
+  "resolved_findings": [
+    "Historical evidence in shallow checkout: full-history CI and explicit shallow-clone recovery regression.",
+    "Stale prerequisite/dependent recovery: atomic invalidation and blocking without relaxing acceptance.",
+    "Build-input fingerprint coverage: omitted root files and examples, mutation/deletion coverage."
+  ],
+  "evidence": [
+    "docs/agent/evidence/XRAY-HARNESS-001-docs-d06d068f5ab3.json",
+    "docs/agent/evidence/XRAY-HARNESS-001-harness-767dd82a0bdd.json",
+    "docs/agent/evidence/XRAY-HARNESS-001-offline-fca158681973.json",
+    "docs/agent/evidence/XRAY-HARNESS-001-package-d2fd33c086dc.json",
+    "docs/agent/evidence/XRAY-HARNESS-001-tests-39dda859b9eb.json"
+  ],
+  "hosted_evidence": {
+    "reviewed_revision": "8e3168e7e9f9ad1080e570f59cdd52dabad521cf",
+    "pull_request_runs": [
+      38856142761,
+      38856142573,
+      38856142577
+    ],
+    "push_runs": [
+      38856138366,
+      38856138357,
+      38856138313
+    ],
+    "observations": [
+      "147 tests and 19 subtests",
+      "32 harness tests",
+      "Python 3.12, 3.13 and 3.14",
+      "All six push/PR workflows green",
+      "14 installed README commands",
+      "23 documentation pages and 1191 internal links; browser checks passed"
+    ]
+  }
+}

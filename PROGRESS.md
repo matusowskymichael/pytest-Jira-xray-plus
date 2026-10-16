@@ -14,9 +14,10 @@
   `53e91683d185163681cee4e69d28d8bdeefc57046491e077f28eafcaa96fc70c`.
 - **Static checks:** new files pass Ruff; mypy passes for 26 src/test files.
   Five pre-existing broad Ruff issues remain documented in the testing guide.
-- **CI:** fix commit `093dc64367850642c568098f3aa692303f2e0afc` passed harness,
-  documentation and Python 3.12/3.13/3.14 tests, on push and PR runs.
-  Verify the final evidence/handoff commit's checks on the draft PR before acceptance.
+- **CI reviewed:** `8e3168e7e9f9ad1080e570f59cdd52dabad521cf` passed all six
+  push/PR workflows: harness, documentation and the Python 3.12/3.13/3.14 matrix.
+  The subsequent acceptance record changes only evidence, progress and ledger state;
+  final-commit CI must also pass before handoff.
 - **Failure history:** initial `48c1fd3` run
   [38853027541](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38853027541)
   failed because the remote-drift fixture omitted `import json`; the downloaded
@@ -31,8 +32,14 @@
   Before the fix, the new regressions produced 15 failures and one error. All five
   profiles have fresh passing receipts on the corrected content. Older receipts
   remain history and are no longer the task's current evidence.
-- **Pending:** independent re-review of these fixes and final-commit hosted CI. State is `review_pending`,
-  never passing; no passing review has been fabricated.
+- **Independent acceptance:** `review_pytest_harness_pr` passed the reviewed head
+  with all three findings resolved. The [review record](docs/agent/evidence/XRAY-HARNESS-001-independent-review.json)
+  binds the exact source report, reviewer identity, revision, task scope and digest.
+  It records static review plus hosted execution evidence, not reviewer-executed
+  tests or independent recomputation of every hash. The implementer transcribed
+  the parent's supplied verdict; it is not a builder-authored passing review.
+- **State:** `passing` after the unchanged acceptance validator succeeds. This is
+  technical acceptance; user approval of the draft PR remains outstanding.
 - **Limits:** no live Jira validation, real model-performance benchmark, exhaustive
   course/exercise audit, new runtime, credential/permission/dependency/release changes.
 - **Next command:** `python tools/agent.py preflight`, then inspect PR checks and review
