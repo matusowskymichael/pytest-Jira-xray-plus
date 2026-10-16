@@ -1298,6 +1298,17 @@ create <strong><code>conftest.py</code></strong> beside <code>test_example.py</c
 and two evidence entries, one per case, on the combined Test result. The evidence
 text is encoded in the payload. These are Test Run attachments, not per-iteration
 attachments. <code>cases.json</code> is not written by this command.</p>
+<p>When a case maps to multiple Jira Test keys, each key keeps its own evidence and
+defect lists. For example, case 1 mapped to <code>SYN-1</code> and <code>SYN-2</code> with <code>BUG-1</code>, followed
+by case 2 mapped only to <code>SYN-1</code> with <code>BUG-2</code>, gives <code>SYN-1</code> both cases' attachments
+and defects; <code>SYN-2</code> receives only case 1's. Two parameter cases both mapped to both
+keys produce two attachment occurrences per key, even when their filenames and
+contents are identical. Defect identifiers are still de-duplicated per key.</p>
+<p>Version 0.1.4 fixes list sharing that could leak later attachments/defects into an
+unrelated key or inflate attachment counts. It changes neither status precedence
+nor comments, and needs no new flags. Use <code>--allow-duplicate-ids</code> when multiple
+cases reuse a key. The fix applies to serial and xdist file exports and the same
+payload used for upload; live server behavior has not been revalidated.</p>
 <p><code>pytest_xray_results</code> edits the final legacy payload before archival and comment
 bounds are applied. The report hook attaches evidence after pytest creates each
 call report. Hooks execute trusted local Python and can change correctness or
