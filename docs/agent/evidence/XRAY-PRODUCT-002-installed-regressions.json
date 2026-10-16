@@ -1,0 +1,12 @@
+{
+  "task": "XRAY-PRODUCT-002",
+  "digest": "76241e52190551b452db0807f64bf505baa156888ee49dc1f1bcfa9d1435d493",
+  "revision": "32ac25ed0ee8789b989ce3fc01799b7f420959ed",
+  "supplemental": true,
+  "command": "cd /tmp && /workspace/pytest-jira-xray-plus/.harness/installed/bin/python -m pytest -p pytester -q /tmp/xray-015-installed-regressions/test_defects_validation.py",
+  "test_source": "tests/test_defects_validation.py (copied outside checkout)",
+  "test_sha256": "a6c9154d06a71c4f494f2c57d68082d40d06fc21493a776d3938beb09a55e5ea",
+  "wheel_sha256": "0bf6495992607d228f9f1049472d829e1c066801f61adbe51aee712af5b5ae3f",
+  "result": "31 passed in 10.81s",
+  "log_sha256": "9340a5e45fcf0a118a8d2b776c671d067c23d4afce4ab3ccc62f5057848447cd"
+}

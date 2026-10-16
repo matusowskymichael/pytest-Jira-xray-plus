@@ -1,3 +1,13 @@
+0.1.5 [2026-10-16]
+==================
+- Validate malformed defects markers during collection when Xray reporting is on,
+  before fixtures or uploads, including xdist and continue-on-collection-errors.
+- Report a fixed collection error without displaying marker values or invoking
+  arbitrary repr. Valid lists, including empty lists, retain their string values;
+  no Jira-key format regex is imposed. Reporting-disabled runs remain unaffected.
+- Document beginner configuration fixes and retain the prohibition on bypassing
+  browser certificate/security warnings.
+
 0.1.4 [2026-10-16]
 ==================
 - Isolate evidence and defect list ownership per mapped Jira Test key. A later case

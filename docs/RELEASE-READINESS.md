@@ -229,3 +229,24 @@ reviewed-SHA checks, artifact hashes, pypi environment, permissions and opt-in
 remain intact. No publication, deployment or merge is part of candidate preparation.
 Independent review and exact-head CI are required before the standing maintainer
 authorization may be exercised. Current evidence and state are in the task ledger.
+
+
+## 0.1.5 defects-validation candidate — 2026-10-16
+
+Baseline release: 0.1.4. Candidate 0.1.5 was unused at preparation; recheck before
+publication. Malformed defects now generate a standard collection-failure report
+and clear runnable items before fixtures. This reaches the xdist controller and
+withholds uploads, even if collection errors are configured to continue. Raising
+UsageError in this hook alone caused an xdist worker-finish assertion during
+regression development, so the candidate uses pytest's collection-report hook.
+
+Only list shape and nonempty string elements are checked; valid empty lists,
+original values and aggregation remain unchanged. No Jira-key regex, server access
+or marker-value formatting is added. Serial/xdist, preview/upload, disabled-mode
+and collect-only compatibility regressions use synthetic data and forbidden transport.
+Collect-only still disables Xray reporting and does not validate defects markers.
+
+Publisher changes are version literals only. Candidate preparation does not
+merge or publish. Independent review, current receipts and exact-head CI remain
+required. Browser certificate/security errors must block browser verification
+and require user handoff; never bypass them. Normal HTTPS checks are separate.

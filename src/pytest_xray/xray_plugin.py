@@ -104,10 +104,9 @@ class XrayPlugin:
 
         defects = marker.kwargs.get('defects', [])
 
-        if isinstance(defects, list):
-            return defects
-
-        raise XrayError(f'xray marker can only accept list of defects but got {type(defects)}')
+        if not isinstance(defects, list) or any(not isinstance(value, str) or not value.strip() for value in defects):
+            raise XrayError('xray marker defects must be a list of nonempty strings (an empty list is allowed)')
+        return defects
 
     def _verify_jira_ids_for_items(self, items: list[Item]) -> None:
         """Verify duplicated jira ids."""
@@ -229,6 +228,23 @@ class XrayPlugin:
         return None
 
     def pytest_collection_modifyitems(self, config: Config, items: list[Item]) -> None:
+        # Validate before any fixture runs; do not include marker values in errors.
+        for item in items:
+            try:
+                self._get_defects(item)
+            except XrayError as exc:
+                # A collect report reaches the xdist controller; UsageError here
+                # can let workers announce runnable items before exiting.
+                items.clear()
+                config.hook.pytest_collectreport(
+                    report=pytest.CollectReport(
+                        nodeid='xray defects configuration',
+                        outcome='failed',
+                        longrepr=exc.message,
+                        result=[],
+                    )
+                )
+                return
         self._verify_jira_ids_for_items(items)
 
     def pytest_collectreport(self, report):

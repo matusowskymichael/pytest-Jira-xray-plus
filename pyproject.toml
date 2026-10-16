@@ -15,7 +15,7 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
 ]
 dependencies = ["pytest>=9.1.1,<10", "requests>=2.34.2,<3"]
-version = "0.1.4"
+version = "0.1.5"
 
 [project.urls]
 Documentation = "https://matusowskymichael.github.io/pytest-Jira-xray-plus/"

@@ -34,3 +34,8 @@ Historical harness acceptance: main commit
 [evidence/XRAY-HARNESS-001-completed-ledger.json](evidence/XRAY-HARNESS-001-completed-ledger.json).
 Its preservation map described that completed tooling task; the active product
 ledger now names the authorized runtime change and protects unrelated files.
+
+Browser security correction (2026-10-16): never bypass certificate/security errors,
+including isolated ignore-error contexts. Report browser checks blocked and hand
+off to the user. Normally validated HTTPS checks may continue separately. The
+0.1.4 bypass is historical evidence, not permission or precedent.

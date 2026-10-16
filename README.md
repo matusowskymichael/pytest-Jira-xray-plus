@@ -15,7 +15,7 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.4 attachment isolation**, retaining Generic as the target
+This guide covers **0.1.5 early defects validation**, retaining Generic as the target
 Xray Test type. The examples also work with 0.1.2 and 0.1.3; the multi-key attachment
 isolation fix requires 0.1.4 or later. Installation selects the latest published
 version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
@@ -633,6 +633,31 @@ for the confirmed Generic target.
 
 
 ## Troubleshooting and migration
+
+**Invalid `defects` marker (0.1.5+):** when `--jira-xray` is enabled, `defects`
+must be a list of nonempty strings. For example, change the marker on your test to:
+
+```python
+@pytest.mark.xray("DEMO-1", defects=["BUG-1", "BUG-2"])
+```
+
+Use `defects=[]` or omit it when there are no defects. Do not pass a bare string
+(`defects="BUG-1"`), tuple, `None`, numbers, empty strings or whitespace-only
+strings. Values are not trimmed or checked against a Jira-key regex; Jira/Xray
+still determines whether a supplied key exists and is usable.
+
+Run the same offline preview command from the tutorial. Malformed defects now
+produce a collection error before **any test fixtures run**, in serial and xdist.
+Uploads are withheld, even with `--continue-on-collection-errors`; a local preview
+may contain an empty `tests` list for diagnosis. The error describes the required
+shape without displaying defect values. Fix the marker and rerun. Ordinary pytest
+runs and local-case reporting without `--jira-xray` do not apply this validation.
+`--collect-only` retains its existing behavior of not configuring Xray reporting;
+it lists tests but does not validate these markers, run fixtures or upload.
+This validates marker configuration only; it does not contact Jira or validate
+credentials. Earlier versions could fail later inside report hooks or retain
+invalid values in export payloads.
+
 
 | What happened | What to do |
 | --- | --- |
