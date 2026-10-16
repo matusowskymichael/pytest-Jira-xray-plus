@@ -15,14 +15,17 @@
   all 14 installed README commands, strict docs/links and local desktop/mobile
   Chromium. An additional run outside the checkout against the installed 0.1.5
   wheel passes all 31 new regressions. Ruff on changed Python and mypy also pass.
-  Exact-head hosted CI and independent review are pending. No acceptance is claimed.
+  Exact-head hosted CI passed. Independent reviewer `/root/review_defects_validation`
+  passed the reviewed head/digest; the parent conveyed acceptance and release authorization.
+  Acceptance is recorded; release verification is in progress.
 - **Compatibility:** valid defect strings are preserved without key-format rules.
   Reporting disabled and `--collect-only` retain their existing behavior; collect-only
   does not validate Xray markers. No live Xray or native-iteration proof is claimed.
 - **History:** completed 0.1.4 ledger archived in
   [evidence](docs/agent/evidence/XRAY-PRODUCT-001-completed-ledger.json).
 - **Next:** `python tools/agent.py preflight`; check hosted CI on the final head,
-  then independent review before merge/release. Scheduled rounds resume this work.
+  then merge the accepted candidate and use the existing publisher for unused 0.1.5.
+  Scheduled rounds resume this work.
 
 **Binding security rule:** never bypass browser certificate/security errors.
 Report browser checks blocked and hand off to the user; normally validated HTTPS
