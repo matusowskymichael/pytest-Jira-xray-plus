@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-RELEASE-001",
+  "profile": "tests",
+  "digest": "8fcc167305af4a585cf7daf8b6ff5278dd1edc63d8913e5061b066b224688e74",
+  "revision": "9d9773d2c4dba65ef09d9e385be9a8f0cadb0051",
+  "timestamp": "2026-10-16T12:40:06.868552+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 43.506,
+      "log": "docs/agent/evidence/XRAY-RELEASE-001-tests-1cecb5f9b4e6-0.log",
+      "log_sha256": "7fd3bbd18ec6c4d9a9aa9428711e0d6496004c63ceea95f1c416a37ebb9ebb2a"
+    }
+  ],
+  "status": "passed"
+}

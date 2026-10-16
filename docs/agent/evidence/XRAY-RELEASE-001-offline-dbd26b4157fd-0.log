@@ -1,0 +1,32 @@
+..F.                                                                     [100%]
+=================================== FAILURES ===================================
+________________________________ test_mixed[0] _________________________________
+
+value = 0
+
+    @pytest.mark.xray('SYN-2')
+    @pytest.mark.parametrize('value', [0, 1])
+    def test_mixed(value):
+>       assert value == 1
+E       assert 0 == 1
+
+test_synthetic.py:10: AssertionError
+------- Generated XRAY execution report file: /tmp/tmpnuyjmb_t/xray.json -------
+=========================== short test summary info ============================
+FAILED test_synthetic.py::test_mixed[0] - assert 0 == 1
+1 failed, 3 passed in 0.02s
+
+[
+  {
+    "testKey": "SYN-1",
+    "status": "PASS",
+    "comment": "{noformat:borderWidth=0px|bgColor=transparent}pytest parameter case: {\"nodeid\": \"test_synthetic.py::test_case[10]\", \"parameters\": {\"value\": 10}, \"phase\": \"call\", \"pytest_outcome\": \"passed\", \"xray_status\": \"PASS\"}\n\n--------------------------------------------------------------------------------\npytest parameter case: {\"nodeid\": \"test_synthetic.py::test_case[20]\", \"parameters\": {\"value\": 20}, \"phase\": \"call\", \"pytest_outcome\": \"passed\", \"xray_status\": \"PASS\"}\n{noformat}"
+  },
+  {
+    "testKey": "SYN-2",
+    "status": "FAIL",
+    "comment": "{noformat:borderWidth=0px|bgColor=transparent}pytest parameter case: {\"nodeid\": \"test_synthetic.py::test_mixed[0]\", \"parameters\": {\"value\": 0}, \"phase\": \"call\", \"pytest_outcome\": \"failed\", \"xray_status\": \"FAIL\"}\nvalue = 0\n\n    @pytest.mark.xray('SYN-2')\n    @pytest.mark.parametrize('value', [0, 1])\n    def test_mixed(value):\n>       assert value == 1\nE       assert 0 == 1\n\ntest_synthetic.py:10: AssertionError\n--------------------------------------------------------------------------------\npytest parameter case: {\"nodeid\": \"test_synthetic.py::test_mixed[1]\", \"parameters\": {\"value\": 1}, \"phase\": \"call\", \"pytest_outcome\": \"passed\", \"xray_status\": \"PASS\"}\n{noformat}"
+  }
+]
+Confirmed: first failure survives later pass.
+Confirmed: both passing parameter cases are represented.
