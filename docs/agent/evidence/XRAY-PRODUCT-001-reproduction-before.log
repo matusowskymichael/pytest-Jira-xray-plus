@@ -1,0 +1,614 @@
+FFFFF.FFF                                                                [100%]
+=================================== FAILURES ===================================
+________ test_merge_owns_report_lists_without_deduplicating_attachments ________
+
+    def test_merge_owns_report_lists_without_deduplicating_attachments():
+        attachments = [evidence.text('shared', 'case.txt')]
+        defects = ['BUG-1']
+        first = TestCase('SYN-1', Status.PASS, 'first', evidences=attachments, defects=defects)
+        sibling = TestCase('SYN-2', Status.PASS, 'first', evidences=attachments, defects=defects)
+        second_attachments = [evidence.text('shared', 'case.txt')]
+        second_defects = ['BUG-1', 'BUG-2']
+        first.merge(TestCase('SYN-1', Status.FAIL, 'second', evidences=second_attachments, defects=second_defects))
+        assert len(first.evidences) == 2  # Equal attachment content remains two occurrences.
+        assert first.defects == ['BUG-1', 'BUG-2']
+>       assert sibling.evidences == attachments == second_attachments
+E       AssertionError: assert [{'data': 'c2...'text/plain'}] == [{'data': 'c2...'text/plain'}]
+E         
+E         Left contains one more item: {'data': 'c2hhcmVk', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E         Use -v to get more diff
+
+tests/test_attachment_ownership.py:21: AssertionError
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-False-0] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated0')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7d730e0>
+workers = 0, both_keys = False, reverse = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'Zm...'text/plain'}] == [{'data': 'Zm...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'c2Vjb25k', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated0/runpytest-0 -q -n 0 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated0
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1'])), pytest.param('second', marks=pytest.mark.xray(['SYN-1'], defects=['BUG-2']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated0/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.02s
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-False-2] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated1')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7dbc8c0>
+workers = 2, both_keys = False, reverse = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'Zm...'text/plain'}] == [{'data': 'Zm...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'c2Vjb25k', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated1/runpytest-0 -q -n 2 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated1
+bringing up nodes...
+bringing up nodes...
+
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+[gw1] linux -- Python 3.12.14 /tmp/xray-harness-env/bin/python
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1'])), pytest.param('second', marks=pytest.mark.xray(['SYN-1'], defects=['BUG-2']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated1/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.47s
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-True-0] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated2')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7dbefc0>
+workers = 0, both_keys = True, reverse = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'aW...'text/plain'}] == [{'data': 'aW...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'aWRlbnRpY2Fs', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated2/runpytest-0 -q -n 0 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated2
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1'])), pytest.param('second', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-2']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated2/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.02s
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-True-2] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated3')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7dbef00>
+workers = 2, both_keys = True, reverse = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'aW...'text/plain'}] == [{'data': 'aW...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'aWRlbnRpY2Fs', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated3/runpytest-0 -q -n 2 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated3
+bringing up nodes...
+bringing up nodes...
+
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+[gw1] linux -- Python 3.12.14 /tmp/xray-harness-env/bin/python
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1'])), pytest.param('second', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-2']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated3/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.47s
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[True-False-2] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated5')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7dcb260>
+workers = 2, both_keys = False, reverse = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'Zm...'text/plain'}] == [{'data': 'Zm...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'c2Vjb25k', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated5/runpytest-0 -q -n 2 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated5
+bringing up nodes...
+bringing up nodes...
+
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+[gw0] linux -- Python 3.12.14 /tmp/xray-harness-env/bin/python
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('second', marks=pytest.mark.xray(['SYN-1'], defects=['BUG-2'])), pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated5/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.45s
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[True-True-0] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated6')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7dc8350>
+workers = 0, both_keys = True, reverse = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'aW...'text/plain'}] == [{'data': 'aW...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'aWRlbnRpY2Fs', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated6/runpytest-0 -q -n 0 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated6
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('second', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-2'])), pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated6/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.02s
+_ test_multi_key_reports_keep_case_attachments_and_defects_isolated[True-True-2] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated7')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe0a7dc8ec0>
+workers = 2, both_keys = True, reverse = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('both_keys', [False, True])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_multi_key_reports_keep_case_attachments_and_defects_isolated(pytester, monkeypatch, workers, both_keys, reverse):
+        for key in list(__import__('os').environ):
+            if key.startswith(('XRAY_', 'PYTEST_')):
+                monkeypatch.delenv(key)
+        second_keys = ['SYN-1', 'SYN-2'] if both_keys else ['SYN-1']
+        params = [
+            "pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))",
+            f"pytest.param('second', marks=pytest.mark.xray({second_keys!r}, defects=['BUG-2']))",
+        ]
+        if reverse:
+            params.reverse()
+        pytester.makeconftest(f'''
+            import pytest
+            import requests
+            from pytest_xray import evidence
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden in attachment ownership regression')
+            requests.sessions.Session.request = blocked
+            @pytest.hookimpl(hookwrapper=True)
+            def pytest_runtest_makereport(item, call):
+                outcome = yield
+                report = outcome.get_result()
+                if report.when == 'call':
+                    value = 'identical' if {both_keys!r} else item.callspec.params['value']
+                    report.evidences = [evidence.text(value, 'case.txt')]
+        ''')
+        pytester.makepyfile(f'''
+            import pytest
+            @pytest.mark.parametrize('value', [{', '.join(params)}])
+            def test_case(value):
+                assert value == 'first', 'synthetic second-case failure'
+        ''')
+        result = pytester.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=xray.json',
+            '--allow-duplicate-ids', '--xray-parameter-details',
+        )
+        result.assert_outcomes(passed=1, failed=1)
+        tests = {t['testKey']: t for t in json.loads((pytester.path / 'xray.json').read_text())['tests']}
+        assert set(tests) == {'SYN-1', 'SYN-2'}
+        for key, test in tests.items():
+            values = ['first', 'second'] if key == 'SYN-1' or both_keys else ['first']
+            expected = [evidence.text('identical' if both_keys else value, 'case.txt') for value in values]
+>           assert sorted(test['evidences'], key=lambda item: item['data']) == sorted(expected, key=lambda item: item['data'])
+E           AssertionError: assert [{'data': 'aW...'text/plain'}] == [{'data': 'aW...'text/plain'}]
+E             
+E             Left contains one more item: {'data': 'aWRlbnRpY2Fs', 'filename': 'case.txt', 'contentType': 'text/plain'}
+E             Use -v to get more diff
+
+/workspace/pytest-jira-xray-plus/tests/test_attachment_ownership.py:79: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated7/runpytest-0 -q -n 2 --jira-xray --xraypath=xray.json --allow-duplicate-ids --xray-parameter-details
+     in: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated7
+bringing up nodes...
+bringing up nodes...
+
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_case[second] _______________________________
+[gw0] linux -- Python 3.12.14 /tmp/xray-harness-env/bin/python
+
+value = 'second'
+
+    @pytest.mark.parametrize('value', [pytest.param('second', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-2'])), pytest.param('first', marks=pytest.mark.xray(['SYN-1', 'SYN-2'], defects=['BUG-1']))])
+    def test_case(value):
+>       assert value == 'first', 'synthetic second-case failure'
+E       AssertionError: synthetic second-case failure
+E       assert 'second' == 'first'
+E         
+E         - first
+E         + second
+
+test_multi_key_reports_keep_case_attachments_and_defects_isolated.py:4: AssertionError
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-4/test_multi_key_reports_keep_case_attachments_and_defects_isolated7/xray.json -
+=========================== short test summary info ============================
+FAILED test_multi_key_reports_keep_case_attachments_and_defects_isolated.py::test_case[second]
+1 failed, 1 passed in 0.43s
+=========================== short test summary info ============================
+FAILED tests/test_attachment_ownership.py::test_merge_owns_report_lists_without_deduplicating_attachments
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-False-0]
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-False-2]
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-True-0]
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[False-True-2]
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[True-False-2]
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[True-True-0]
+FAILED tests/test_attachment_ownership.py::test_multi_key_reports_keep_case_attachments_and_defects_isolated[True-True-2]
+8 failed, 1 passed in 4.73s
