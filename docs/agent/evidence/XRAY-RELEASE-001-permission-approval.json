@@ -1,0 +1,11 @@
+{
+  "source_thread": "01a12a8b-3ef6-705b-9250-4b8889b0701e",
+  "question": "May I give just the release job GitHub Actions read access and repository contents write access, so it can verify the publishing run and create tags/releases? It uses GitHub temporary job token; no new personal token or account.",
+  "user_reply": "You may",
+  "scope": [
+    "release job actions: read",
+    "release job contents: write"
+  ],
+  "source": "Explicit reply relayed with transcript evidence by parent on 2026-10-16",
+  "limits": "No new account/token, persistent default permissions or additional PyPI publishing permissions."
+}

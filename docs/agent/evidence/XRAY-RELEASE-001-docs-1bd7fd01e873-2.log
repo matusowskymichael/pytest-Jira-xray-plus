@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/pytest-jira-xray-plus/tools/check_docs_links.py", line 45, in <module>
+    assert not errors, '\n'.join(errors)
+           ^^^^^^^^^^
+AssertionError: project/development/index.html: missing https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/

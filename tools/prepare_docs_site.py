@@ -66,8 +66,12 @@ schema = re.sub(r'\]\((?!https:|#)([^)]+)\)',
 write('reference/schema.md', 'Local JSON report schema', re.sub(r'^# .*\n', '', schema, count=1))
 changelog = (ROOT / 'CHANGELOG.rst').read_text()
 releases = re.findall(r'^(0\.1\.\S+ \(2026[^\n]*\))\n-+\n(.*?)(?=^0\.1\.|\Z)', changelog, re.M | re.S)
+recent = re.findall(
+    r'^(Unreleased|0\.1\.\S+ \[2026[^\n]*\])\n=+\n(.*?)(?=^\S[^\n]*\n[=-]+\n|\Z)',
+    changelog, re.M | re.S,
+)
 write('project/changelog.md', 'Changelog', '\n\n'.join(f'## {version}\n\n{body.strip()}'
-      for version, body in reversed(releases)) + '''
+      for version, body in [*recent, *reversed(releases)]) + '''
 
 ## Earlier upstream history
 

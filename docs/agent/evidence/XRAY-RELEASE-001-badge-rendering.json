@@ -1,0 +1,56 @@
+{
+  "readme_sha256": "af79a18cb3805d2fe977fbfe8b34fa20b5a93a7b346286363e05bdf007d18140",
+  "tls": "normal certificate verification",
+  "badges": [
+    {
+      "label": "PyPI version snapshot",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/pypi.svg",
+      "status": 200,
+      "sha256": "7413b8e46a16fe4bda87bd0c6aca39e0f5a8388cdfbdabaa67c8ada65367f19a"
+    },
+    {
+      "label": "Tested Python versions",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/python.svg",
+      "status": 200,
+      "sha256": "14d229d84377adf4c3aec738c755950c61a2b1859fc33a6de23c9159adf873e0"
+    },
+    {
+      "label": "Licence",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/license.svg",
+      "status": 200,
+      "sha256": "09f5d3a30608813be412137c399b3bd29f060b3160792ac1b9bed96670f96c08"
+    },
+    {
+      "label": "Tests",
+      "image": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml/badge.svg?branch=main&event=push",
+      "status": 200,
+      "sha256": "6b52945adbf8d9e421fe243515ae54cfbd3da263f16b1eabda37cdc0b797b8eb"
+    },
+    {
+      "label": "Documentation build",
+      "image": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/docs.yml/badge.svg?branch=main&event=push",
+      "status": 200,
+      "sha256": "168dcab3d67470c01625e1ada6a4ce05906b25f2f3b6566c1702ccb5172fd1ff"
+    },
+    {
+      "label": "Measured plugin line coverage",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/coverage/coverage.svg",
+      "status": 200,
+      "sha256": "3c9dedcfcba409a616ff307c69f898ea0db6d1709eeabb30dcd69ea0fadf9b3a"
+    }
+  ],
+  "renderers": [
+    {
+      "renderer": "PyPI",
+      "images": 6,
+      "html_sha256": "bd471ad4ad4d7f6ad2591b443d7ed96194df192d08a352bbe0b725b694b68b84"
+    },
+    {
+      "renderer": "GitHub",
+      "images": 6,
+      "html_sha256": "717e5ab3cdc337d5a7dc3905ff8c023dc494660feb20e30f45c69bec00be9e56"
+    }
+  ],
+  "github_emitted_image_urls": "all six HTTP 200 and valid SVG",
+  "limits": "PyPI renderer preview, not a change to the immutable live 0.1.5 description. Live browser verification remains blocked."
+}

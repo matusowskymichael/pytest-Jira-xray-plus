@@ -1,0 +1,48 @@
+test_acceptance_then_reopen_stale_state (test_harness.HarnessTests.test_acceptance_then_reopen_stale_state) ... ok
+test_accepted_history_in_fresh_shallow_clone (test_harness.HarnessTests.test_accepted_history_in_fresh_shallow_clone) ... ok
+test_all_skipped_suite_fails (test_harness.HarnessTests.test_all_skipped_suite_fails) ... ok
+test_block_requires_reason (test_harness.HarnessTests.test_block_requires_reason) ... ok
+test_builder_review_rejected (test_harness.HarnessTests.test_builder_review_rejected) ... ok
+test_changed_commands (test_harness.HarnessTests.test_changed_commands) ... ok
+test_checkpoint_resume_and_stale_recovery (test_harness.HarnessTests.test_checkpoint_resume_and_stale_recovery) ... ok
+test_concurrent_tasks (test_harness.HarnessTests.test_concurrent_tasks) ... ok
+test_cycles (test_harness.HarnessTests.test_cycles) ... ok
+test_digest_excludes_progress_evidence_and_state (test_harness.HarnessTests.test_digest_excludes_progress_evidence_and_state) ... ok
+test_empty_suite_fails (test_harness.HarnessTests.test_empty_suite_fails) ... ok
+test_environment_and_output_redaction (test_harness.HarnessTests.test_environment_and_output_redaction) ... ok
+test_failed_receipt (test_harness.HarnessTests.test_failed_receipt) ... ok
+test_interruption_and_timeout_record_failure (test_harness.HarnessTests.test_interruption_and_timeout_record_failure) ... ok
+test_missing_check_or_review (test_harness.HarnessTests.test_missing_check_or_review) ... ok
+test_missing_dependency (test_harness.HarnessTests.test_missing_dependency) ... ok
+test_missing_receipt (test_harness.HarnessTests.test_missing_receipt) ... ok
+test_missing_required_fields (test_harness.HarnessTests.test_missing_required_fields) ... ok
+test_modified_or_missing_log (test_harness.HarnessTests.test_modified_or_missing_log) ... ok
+test_package_inputs_mutation_and_deletion_change_digest (test_harness.HarnessTests.test_package_inputs_mutation_and_deletion_change_digest) ... ok
+test_path_traversal_and_symlink (test_harness.HarnessTests.test_path_traversal_and_symlink) ... ok
+test_preserved_source (test_harness.HarnessTests.test_preserved_source) ... ok
+test_pure_case_model_import_boundary (test_harness.HarnessTests.test_pure_case_model_import_boundary) ... ok
+test_remote_scope_changed_or_unavailable (test_harness.HarnessTests.test_remote_scope_changed_or_unavailable) ... ok
+test_remote_scope_unconfigured_fails (test_harness.HarnessTests.test_remote_scope_unconfigured_fails) ... ok
+test_reopen_failed_validation_does_not_write_partial_ledger (test_harness.HarnessTests.test_reopen_failed_validation_does_not_write_partial_ledger) ... ok
+test_reopen_shared_content_and_dependents_in_either_order (test_harness.HarnessTests.test_reopen_shared_content_and_dependents_in_either_order) ... ok
+test_scope_drift (test_harness.HarnessTests.test_scope_drift) ... ok
+test_stale_receipt (test_harness.HarnessTests.test_stale_receipt) ... ok
+test_unfinished_prerequisite (test_harness.HarnessTests.test_unfinished_prerequisite) ... ok
+test_unknown_profile (test_harness.HarnessTests.test_unknown_profile) ... ok
+test_valid_schema_and_preflight (test_harness.HarnessTests.test_valid_schema_and_preflight) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 2.211s
+
+OK
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-d4fe26a96039.json"}
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-e5c4c4e735d3.json"}
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-7923d6105096.json"}
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-6478722856d0.json"}
+{"profile": "harness", "status": "failed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-df0288c0b6f8.json"}
+{"profile": "harness", "status": "interrupted", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-ab4a8afc38a6.json"}
+{"profile": "harness", "status": "failed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-ea9ddf57c4f0.json"}
+{"profile": "harness", "status": "blocked", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-9b0b504e0255.json"}
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-0ac101adc919.json"}
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-ccc5112f3747.json"}
+{"profile": "harness", "status": "passed", "evidence": "docs/agent/evidence/XRAY-TEST-001-harness-c98bcfea807f.json"}
