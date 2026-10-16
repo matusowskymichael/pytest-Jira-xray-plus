@@ -1,7 +1,7 @@
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.3**; candidate: **0.1.4**. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.4**; candidate: **0.1.5**. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -23,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-product-001.md): active product iteration and acceptance criteria.
+- [Current scope](docs/agent/task-product-002.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -53,6 +53,9 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 - Prepare each candidate for independent review before merge/release. Keep one
   iteration active; scheduled rounds resume its branch/PR/ledger rather than create
   duplicate work. Review [maintainer policy](docs/agent/maintainer.md).
+- Never bypass browser certificate/security errors, including isolated ignore-error
+  settings. Report browser checks blocked and hand off to the user; normally
+  validated HTTPS checks may continue separately.
 - Do not create accounts/credentials, make purchases, change branch protection or
   expand permissions. Harness checks never merge, deploy or publish.
 - End with current progress, exact verification limits and an executable next step.

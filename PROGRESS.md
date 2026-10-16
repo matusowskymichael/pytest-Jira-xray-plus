@@ -1,46 +1,21 @@
-# Maintainer handoff — iteration complete
+# Current iteration — defects validation
 
-## Binding security correction for subsequent work
+- **Task:** XRAY-PRODUCT-002; branch `fix/validate-defects-during-collection`.
+- **Reconciled baseline:** main 57d43b2; PyPI 0.1.4; no open issues or PRs and no
+  active prior task. 0.1.5 was unused when checked. One iteration in flight.
+- **Scope:** [task](docs/agent/task-product-002.md), [ledger](feature_list.json).
+- **Status:** 31 focused regressions pass. Initial reproduction: 22 malformed-case
+  checks failed on the baseline, while eight compatibility checks passed. Fixed
+  list shape/element validation and standard collection-failure reporting; an
+  intermediate UsageError-only approach failed four xdist checks and was replaced.
+  Full profiles, installed examples and independent review are pending.
+- **History:** completed 0.1.4 ledger archived in
+  [evidence](docs/agent/evidence/XRAY-PRODUCT-001-completed-ledger.json).
+- **Next:** `python tools/agent.py check --profile tests`; prepare a focused PR
+  for independent review before merge/release. Scheduled rounds resume this work.
 
-Parent instruction received after the 0.1.4 handoff, 2026-10-16:
-**Never bypass browser certificate or security errors**, including isolated
-`ignore_https_errors`, `--ignore-certificate-errors`, or equivalent configurations.
-Such warnings require user handoff. Report browser checks as **blocked**; normally
-validated HTTPS checks may continue where appropriate, without claiming they
-replace the blocked browser verification. Do not repeat the 0.1.4 bypass.
-
-This supersedes any implied permission from the historical release evidence.
-Keep that history truthful; the earlier bypass is not an acceptable procedure or
-precedent. The release is delivered. This correction starts no new iteration and
-must be carried into the next scheduled task's instructions and handoff.
-
-## Completed release record
-
-- **Task:** XRAY-PRODUCT-001, `passing`; no iteration currently in flight.
-- **Released:** [0.1.4 on PyPI](https://pypi.org/project/pytest-jira-xray-plus/0.1.4/).
-  The earlier 0.1.3 baseline / candidate descriptions record pre-release history.
-- **Merged PR:** [#11](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/11).
-  Main release commit: `222fcef7c9461873780359d06733cfc9fc8644f1`; merge preserves
-  receipt history and exactly matches accepted source plus evidence-only records.
-- **Acceptance:** independent `review_evidence_isolation_fix` passed reviewed head
-  `78b7855`; supplied verdict, scope and limitations are recorded. Acceptance,
-  preflight, scope drift and main CI pass without weakening gates.
-- **Validation:** 156 tests and 19 subtests on Python 3.12–3.14; 32 harness tests;
-  all required profiles pass. Public PyPI install outside the checkout passes all
-  14 README commands and nine ownership regressions, with HTTP blocked in tests.
-- **Artifact integrity:** wheel and sdist public downloads match PyPI SHA-256
-  metadata and the exact trusted publisher artifacts. Publish run: 38868253334.
-- **Docs:** [live guide](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/)
-  updated from main CI artifact; Pages commit `afcca1b`, deployment 38868436585.
-  All 23 HTML pages plus search/assets (64 files total) match tested bytes over
-  normally validated HTTPS. Desktop/mobile navigation, search, highlighting and
-  theme checks pass. Chromium needed an isolated certificate-error bypass due to
-  the environment trust store; browser TLS validation is not claimed.
-- **Durable release evidence:** [record and hashes](docs/agent/evidence/XRAY-PRODUCT-001-release-0.1.4.json).
-- **Compatibility:** Generic-target aggregation only; no live workplace/Xray test,
-  native iterations, new credentials, accounts, purchases or permission changes.
-- **Next scheduled round:** reconcile main, PyPI and open PRs first. Do not repeat
-  this release. Select one useful new iteration, archive this completed ledger,
-  and retain independent review / exact-head checks under the October 16–18
-  standing authorization. No repeated user merge-permission prompt is needed.
-- **Next command:** `python tools/agent.py preflight`.
+**Binding security rule:** never bypass browser certificate/security errors.
+Report browser checks blocked and hand off to the user; normally validated HTTPS
+checks are separate. Do not repeat the historical 0.1.4 bypass. No workplace data,
+accounts/credentials, purchases or permission changes. Standing merge/release
+authorization for October 16–18 does not waive review, evidence or safety gates.
