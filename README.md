@@ -1,5 +1,12 @@
 # pytest-Jira-xray-plus
 
+[![PyPI version snapshot](https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/pypi.svg)](https://pypi.org/project/pytest-jira-xray-plus/)
+[![Tested Python versions](https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/python.svg)](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml)
+[![Licence](https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/license.svg)](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/LICENSE)
+[![Tests](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml/badge.svg?branch=main&event=push)](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml)
+[![Documentation build](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/docs.yml/badge.svg?branch=main&event=push)](https://matusowskymichael.github.io/pytest-Jira-xray-plus/)
+[![Measured plugin line coverage](https://matusowskymichael.github.io/pytest-Jira-xray-plus/coverage/coverage.svg)](https://matusowskymichael.github.io/pytest-Jira-xray-plus/coverage/)
+
 Integrate pytest with **Jira and the Xray test management app for Jira**. Associate
 pytest tests with Jira Test issues, run parametrized cases, and publish their
 aggregate results into an Xray Test Execution. **Jira with Xray is required for
@@ -773,3 +780,15 @@ successful PyPI publication, with the exact published wheel and source archive.
 It remains pending independent review and permission confirmation. Maintainers:
 see [tagged release setup and retry instructions](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASING.md).
 Package installation and Jira/Xray configuration are unchanged.
+
+
+The coverage badge is a measured **snapshot of plugin executable lines** in
+`src/pytest_xray`, from the full synthetic test suite including Python subprocesses.
+Its linked report identifies the exact commit, measurement time and line/branch
+counts; it can lag main and is not a live Xray compatibility claim. Tests and
+repository tools are outside this denominator. Python badges describe the tested
+3.12–3.14 matrix; installation requires Python 3.12+. See
+[coverage scope and report updates](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/COVERAGE.md).
+
+Version, tested Python and licence images are first-party [metadata snapshots](https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/), refreshed after releases.
+The test and documentation images show live main-branch workflow status.

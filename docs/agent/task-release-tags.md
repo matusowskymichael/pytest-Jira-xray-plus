@@ -18,3 +18,13 @@ merge. Keep the existing trusted publisher, package version and runtime unchange
 Add synthetic regression tests, beginner release instructions and an unreleased
 changelog note. Fix documentation generation only as needed to display these notes.
 Record verification and exact live limitations. No browser security bypass.
+
+
+Additional user scope: add truthful shared README badges for this project's PyPI
+version, tested Python versions, licence, actual tests/docs workflows and measured
+code coverage. Use existing GitHub/Pages; no new account/token/access expansion.
+Measure every plugin source file, including Python subprocesses; explain line vs
+branch scope, exact commit and snapshot freshness. Verify image URLs and both
+GitHub/PyPI renderer output. Published 0.1.5 metadata cannot be replaced; show the
+badges on live PyPI only via a later reviewed unused version. Keep one PR/iteration,
+renew evidence and independent review, and do not claim unperformed live checks.

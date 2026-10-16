@@ -1,0 +1,7 @@
+..................................................... [ 28%]
+........................................................................ [ 66%]
+..............................................................           [100%]
+187 passed, 19 subtests passed in 95.17s (0:01:35)
+Combined 78 files, skipped 75
+Wrote JSON report to /tmp/xray015-coverage-source/.harness/coverage/measurement-9pu1y5bo/public/coverage.json
+Wrote HTML report to /tmp/xray015-coverage-source/.harness/coverage/measurement-9pu1y5bo/public/html/index.html

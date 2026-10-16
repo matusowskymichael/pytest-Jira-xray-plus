@@ -3,9 +3,9 @@
   "tasks": [
     {
       "id": "XRAY-RELEASE-001",
-      "title": "Tag verified PyPI publications with matching GitHub Releases",
+      "title": "Verified GitHub releases and measured project status",
       "source": "docs/agent/task-release-tags.md",
-      "source_sha256": "1ecf5816164455b026ecd264b31ffd78149209ba99fd2d81cc7cace7624257b8",
+      "source_sha256": "5e3af66c8febd8ec54babb3c6259bd370d2d1d3ea2264902c316e31709637346",
       "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/13",
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -19,7 +19,8 @@
         "README.rst",
         "CHANGELOG.rst",
         "pyproject.toml",
-        ".github/workflows"
+        ".github/workflows",
+        ".coveragerc"
       ],
       "prerequisites": [],
       "acceptance": [
@@ -27,7 +28,8 @@
         "Artifact, PyPI metadata and public-byte hashes are verified before writes; exact assets and version notes are attached",
         "Retries resume matching partial state or no-op; conflicting tags/releases/assets and failed publication never overwrite state",
         "Existing runtime, package version and trusted publishing workflow remain unchanged; additional job permissions require confirmation before enabling",
-        "Synthetic regression tests, beginner release documentation, required profiles and exact-head CI pass before independent review"
+        "Synthetic regression tests, beginner release documentation, required profiles and exact-head CI pass before independent review",
+        "Shared status badges and complete subprocess-aware plugin coverage are measured, scoped and linked; GitHub/PyPI rendering and live image URLs are verified without invented percentages or extra access"
       ],
       "checks": [
         "harness",
@@ -40,10 +42,8 @@
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
         ".github/workflows/publish.yml": "3ef8bdc54fb1787c91859d3bac599371226b21c7a97e50d734146d41c119225f",
-        ".github/workflows/tests.yml": "3416ede2e775d5f114fa04bbf4376c233bb9f2786659065f6d7558b54ad57154",
         "pyproject.toml": "34c8fdfd889d39ca460bcfd469ee062b8fbe9981a84316c9b4f3cbd442141a95",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
-        "requirements-tests.txt": "9f18be7ae2665b5b4cba0c664c4932b63ce2e8814d0b36867cf9eac5559b5232",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "src/pytest_xray/case_report.py": "98d33dd3d41bdc935b8f6b6712e7de1ae1b58148b87aa5d5cbb00de2c1feba05",
         "src/pytest_xray/case_results.py": "4ec6cda504edde3288bdd67faa6c3d0388db48437209f73f786466ce572dfee4",
@@ -84,17 +84,11 @@
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "review_pending",
-      "evidence": [
-        "docs/agent/evidence/XRAY-RELEASE-001-docs-e2e1f7e656a9.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-harness-67a0f0ee2764.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-offline-dbd26b4157fd.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-package-9d34ef8e43d2.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-tests-1cecb5f9b4e6.json"
-      ],
+      "state": "in_progress",
+      "evidence": [],
       "review": null,
       "blocker": "",
-      "next_action": "python tools/agent.py preflight"
+      "next_action": "python tools/agent.py check --profile tests"
     }
   ]
 }

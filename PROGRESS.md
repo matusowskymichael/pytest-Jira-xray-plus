@@ -25,3 +25,23 @@
 
 Never bypass browser certificate/security errors; hand blocked browser checks to
 the user. No workplace server/data, new tokens/accounts, or persistent access changes.
+
+
+## Added user scope: measured coverage and status badges
+
+Evidence and review are reopened for the expanded PR; earlier receipts are
+historical, not acceptance for the new content. No new release is running.
+Coverage measurement of clean published 0.1.5 passed 187 tests + 19 subtests:
+714/745 plugin lines (95.8%), 211/240 branches (87.9%), all 13 files. First-party
+Pages snapshots avoid unavailable external badge endpoints. Existing CI gains
+measurement/artifact upload with its existing read-only permissions. Updated
+README requires a future unused PyPI version after independent review; 0.1.5
+will never be republished. Full checks and final-head review must be repeated.
+
+- Expanded-scope implementation: 57 focused tests, changed-file Ruff and mypy pass.
+  All six live badge URLs/targets are HTTP 200 with normal TLS. GitHub Markdown
+  and PyPI renderer both retain all six badges; GitHub-emitted URLs also pass.
+  Pages snapshot deployment 38903707244 succeeded; all 30 coverage/status files
+  match their source hashes. Snapshot files/provenance are recorded in evidence.
+- Current verification: refresh all five profiles and CI for the expanded content.
+  The earlier f88fb62 review head/digest is obsolete for this added scope.

@@ -1,0 +1,9 @@
+[run]
+branch = True
+parallel = True
+source = ${COVERAGE_SRC_ROOT}
+data_file = ${COVERAGE_FILE}
+patch = subprocess
+
+[report]
+precision = 1
