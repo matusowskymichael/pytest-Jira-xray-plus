@@ -1,0 +1,21 @@
+{
+  "task": "XRAY-RELEASE-001",
+  "digest": "86d6af06bc1a7a27a4036926905a1699415fa97cb389bcfd8dd85c4a8902becf",
+  "revision": "55385e23ea28abe831d4aaea4866091e0809a35b",
+  "timestamp": "2026-10-16T13:38:38.356948+00:00",
+  "reviewer": "/root/review_tagged_release_workflow",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Only successful trusted main PyPI publications can create version tags and Releases at the exact published commit",
+    "Artifact, PyPI metadata and public-byte hashes are verified before writes; exact assets and version notes are attached",
+    "Retries resume matching partial state or no-op; conflicting tags/releases/assets and failed publication never overwrite state",
+    "Existing runtime, package version and trusted publishing workflow remain unchanged; additional job permissions require confirmation before enabling",
+    "Synthetic regression tests, beginner release documentation, required profiles and exact-head CI pass before independent review",
+    "Shared status badges and complete subprocess-aware plugin coverage are measured, scoped and linked; GitHub/PyPI rendering and live image URLs are verified without invented percentages or extra access"
+  ],
+  "source": "Parent thread 01a12a8b-3ef6-705b-9250-4b8889b0701e explicitly relayed renewed PASS for this head/digest. Transcribed by builder, not builder-authored review.",
+  "scope": "Static/evidence review accepted retarget/publication-state fixes, nine regressions, 253 tests and 19 subtests, six CI runs, five receipts, coverage snapshot and badges.",
+  "limits": "No independent test rerun or live workflow execution claimed."
+}

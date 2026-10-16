@@ -40,3 +40,13 @@
   independent review and permission confirmation. Only then enable automation.
 
 Never bypass browser certificate/security errors. No workplace access or private data.
+
+
+## Acceptance and permission approval
+
+Parent relayed renewed independent PASS from `/root/review_tagged_release_workflow`
+for head 55385e2 / digest 86d6af06, static/evidence review only. User explicitly
+answered "You may" to the scoped release-job actions:read / contents:write request.
+Both records are in evidence. Acceptance is recorded; earlier pending statements
+above describe preparation. Merge/backfill verification is now authorized and active.
+No broader permissions or new credentials are authorized.
