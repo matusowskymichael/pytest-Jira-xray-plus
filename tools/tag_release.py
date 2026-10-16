@@ -239,7 +239,10 @@ def publish(client, run_id):
     require(resolve_tag(client, tag) == commit, 'Tag changed before publication')
     release = client.api(f'/releases/{release["id"]}')
     require(
-        release['body'] == body and release['name'] == tag and release['prerelease'] is False,
+        release['tag_name'] == tag
+        and release['body'] == body
+        and release['name'] == tag
+        and release['prerelease'] is False,
         'Release changed before publication',
     )
     final_assets = client.api(f'/releases/{release["id"]}/assets?per_page=100')
@@ -251,8 +254,19 @@ def publish(client, run_id):
             and asset.get('digest') == 'sha256:' + sha(files[asset['name']]),
             'Final asset verification failed',
         )
+    release_id = release['id']
     if release['draft']:
-        client.api(f'/releases/{release["id"]}', 'PATCH', {'draft': False, 'make_latest': 'legacy'})
+        release = client.api(f'/releases/{release_id}', 'PATCH', {'draft': False, 'make_latest': 'legacy'})
+    require(
+        release['id'] == release_id
+        and release['tag_name'] == tag
+        and release['name'] == tag
+        and release['body'] == body
+        and release['draft'] is False
+        and release['prerelease'] is False,
+        'Publication response does not confirm the expected published release',
+    )
+    require(resolve_tag(client, tag) == commit, 'Tag changed after publication')
     return {'status': 'published', 'tag': tag, 'commit': commit, 'url': f'https://github.com/{REPO}/releases/tag/{tag}'}
 
 

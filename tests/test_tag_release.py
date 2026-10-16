@@ -312,3 +312,69 @@ def test_workflow_is_post_publication_and_has_job_scoped_permissions():
     assert 'permissions: {}' in text and '      actions: read\n      contents: write' in text
     assert 'id-token:' not in text and 'pull_request' not in text
     assert 'ref: main' in text and 'persist-credentials: false' in text
+
+
+@pytest.mark.parametrize('stage', ['upload', 'final_get'])
+def test_retargeted_draft_never_reaches_publication_patch(stage):
+    client = Fake()
+    original_api, original_upload = client.api, client.upload
+
+    def upload(*args):
+        result = original_upload(*args)
+        client.existing['tag_name'] = 'v9.9.9'
+        return result
+
+    def api(path, method='GET', body=None, **kwargs):
+        result = original_api(path, method, body, **kwargs)
+        if path == '/releases/8' and method == 'GET':
+            result['tag_name'] = 'v9.9.9'
+        return result
+
+    if stage == 'upload':
+        client.upload = upload
+    else:
+        client.api = api
+    with pytest.raises(release.ReleaseError, match='Release changed before publication'):
+        release.publish(client, '123')
+    assert not any(method == 'PATCH' for method, _, _ in client.mutations)
+
+
+@pytest.mark.parametrize(
+    'field,value',
+    [
+        ('tag_name', 'v9.9.9'),
+        ('draft', True),
+        ('prerelease', True),
+        ('name', 'changed'),
+        ('body', 'changed'),
+        ('id', 9),
+    ],
+)
+def test_unexpected_publication_response_never_claims_success(field, value):
+    client = Fake()
+    original_api = client.api
+
+    def api(path, method='GET', body=None, **kwargs):
+        result = original_api(path, method, body, **kwargs)
+        if method == 'PATCH':
+            result[field] = value
+        return result
+
+    client.api = api
+    with pytest.raises(release.ReleaseError, match='Publication response'):
+        release.publish(client, '123')
+
+
+def test_tag_moved_during_publication_never_claims_success():
+    client = Fake()
+    original_api = client.api
+
+    def api(path, method='GET', body=None, **kwargs):
+        result = original_api(path, method, body, **kwargs)
+        if method == 'PATCH':
+            client.tag = 'b' * 40
+        return result
+
+    client.api = api
+    with pytest.raises(release.ReleaseError, match='Tag changed after publication'):
+        release.publish(client, '123')

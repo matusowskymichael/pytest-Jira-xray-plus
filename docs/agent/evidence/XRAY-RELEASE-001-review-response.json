@@ -1,0 +1,13 @@
+{
+  "source": "Parent relay of independent review on 2026-10-16, original head f88fb62a0e9c4979625dd77b9e29caced1953b58",
+  "finding": "P2: final draft reread did not check tag_name; retargeting during upload could publish against another tag. Publication response was not validated.",
+  "status": "fixed_pending_renewed_independent_review",
+  "changes": [
+    "Require final draft tag_name matches intended tag before publication PATCH",
+    "Validate returned release id, tag_name, name, body, draft=false and prerelease=false",
+    "Resolve the tag again after publication before reporting success"
+  ],
+  "regressions": "9 new tests fail on prior implementation; all 66 focused release/status/docs tests pass after fix",
+  "permission_status": "actions:read and contents:write unapproved; workflow not enabled",
+  "docs_failure": "38904074570 link check failed for separately published status route; README now points to public GitHub metadata provenance. Rerun required."
+}

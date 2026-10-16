@@ -1,5 +1,7 @@
 Unreleased
 ==========
+- Recheck a draft's tag before publication and verify the returned published
+  release identity/state and tag target; never report success for a retargeted draft.
 - Add relevant shared README badges and first-party measured coverage/metadata
   snapshots, with explicit scope, provenance and freshness. No external account.
 - Measure all plugin source files including Python subprocesses in the existing

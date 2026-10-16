@@ -45,3 +45,14 @@ will never be republished. Full checks and final-head review must be repeated.
   match their source hashes. Snapshot files/provenance are recorded in evidence.
 - Current verification: refresh all five profiles and CI for the expanded content.
   The earlier f88fb62 review head/digest is obsolete for this added scope.
+
+
+## Independent review correction
+
+Parent relayed P2 on the original f88fb62 head: final draft tag_name was unchecked.
+Added checks for the intended tag before publication, returned release identity
+and published state, and tag target after publication. Nine regression cases fail
+on the prior code; all 66 focused release/status/docs cases now pass. Mypy and
+changed-file Ruff pass. Renewed independent review is required. The docs failure
+38904074570 was the separate-snapshot metadata link; the corrected README points
+to the public GitHub provenance file. Full profiles/CI are being refreshed again.
