@@ -6,7 +6,7 @@
 - **Scope:** [request / PR body](docs/agent/task.md); [execution ledger](feature_list.json).
 - **Implemented:** short agent map, module boundaries, stdlib lifecycle/check CLI,
   protected-runtime/publisher drift checks, scope provenance and evidence acceptance.
-- **Local verification:** 147 tests and 3 subtests pass, including 32 harness tests;
+- **Local verification:** 147 tests and 19 subtests pass, including 32 harness tests;
   offline checks pass; fresh-wheel installation executes all 14 README commands with
   HTTP blocked; Twine passes; strict docs build, 23 HTML pages / 1191 internal links,
   desktop/mobile/search/highlighting/theme checks pass. Receipts and logs are in
