@@ -228,26 +228,25 @@ class XrayPlugin:
         return None
 
     def pytest_collection_modifyitems(self, config: Config, items: list[Item]) -> None:
-        # Validate before any fixture runs; do not include marker values in errors.
-        for item in items:
-            try:
+        # Validate marker configuration before any fixture runs.
+        try:
+            for item in items:
                 self._get_defects(item)
                 self._get_test_keys(item)
-            except XrayError as exc:
-                # A collect report reaches the xdist controller; UsageError here
-                # can let workers announce runnable items before exiting.
-                config.hook.pytest_deselected(items=items[:])
-                items.clear()
-                config.hook.pytest_collectreport(
-                    report=pytest.CollectReport(
-                        nodeid='xray marker configuration',
-                        outcome='failed',
-                        longrepr=exc.message,
-                        result=[],
-                    )
+            self._verify_jira_ids_for_items(items)
+        except XrayError as exc:
+            # A collect report reaches the xdist controller; UsageError here
+            # can let workers announce runnable items before exiting.
+            config.hook.pytest_deselected(items=items[:])
+            items.clear()
+            config.hook.pytest_collectreport(
+                report=pytest.CollectReport(
+                    nodeid='xray marker configuration',
+                    outcome='failed',
+                    longrepr=exc.message,
+                    result=[],
                 )
-                return
-        self._verify_jira_ids_for_items(items)
+            )
 
     def pytest_collectreport(self, report):
         if report.failed:

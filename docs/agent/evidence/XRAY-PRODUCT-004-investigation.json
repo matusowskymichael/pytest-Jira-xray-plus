@@ -1,0 +1,69 @@
+{
+  "duplicate_errors": [
+    {
+      "workers": 0,
+      "upload_mode": false,
+      "exit_code": 3,
+      "internal_error": true,
+      "diagnostic_order_preserved": true,
+      "fixture_executed": false,
+      "upload_attempted": false,
+      "worker_controller_keyerror": false
+    },
+    {
+      "workers": 0,
+      "upload_mode": true,
+      "exit_code": 3,
+      "internal_error": true,
+      "diagnostic_order_preserved": true,
+      "fixture_executed": false,
+      "upload_attempted": false,
+      "worker_controller_keyerror": false
+    },
+    {
+      "workers": 2,
+      "upload_mode": false,
+      "exit_code": 3,
+      "internal_error": true,
+      "diagnostic_order_preserved": true,
+      "fixture_executed": false,
+      "upload_attempted": false,
+      "worker_controller_keyerror": true
+    },
+    {
+      "workers": 2,
+      "upload_mode": true,
+      "exit_code": 3,
+      "internal_error": true,
+      "diagnostic_order_preserved": true,
+      "fixture_executed": false,
+      "upload_attempted": false,
+      "worker_controller_keyerror": true
+    }
+  ],
+  "aggregation_counts": [
+    {
+      "unique_results": 128,
+      "equality_comparisons": 8128
+    },
+    {
+      "unique_results": 256,
+      "equality_comparisons": 32640
+    },
+    {
+      "unique_results": 512,
+      "equality_comparisons": 130816
+    },
+    {
+      "unique_results": 1024,
+      "equality_comparisons": 523776
+    }
+  ],
+  "compatibility": {
+    "duplicate_returns_first": true,
+    "external_constructor_list_reorder_observed": true,
+    "mutable_key_change_observed": true,
+    "public_list_replacement_observed": true
+  },
+  "limits": "Read-only investigation of frozen review head; synthetic temporary files; no workplace or network calls; no implementation changes"
+}

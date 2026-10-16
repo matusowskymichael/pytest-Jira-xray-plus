@@ -391,7 +391,7 @@ def test_duplicated_ids(testdir):
         '-v',
     )
 
-    assert result.ret == 3
+    assert result.ret == pytest.ExitCode.INTERRUPTED
     assert 'Duplicated test case ids' in str(result.stdout)
 
     result = testdir.runpytest(

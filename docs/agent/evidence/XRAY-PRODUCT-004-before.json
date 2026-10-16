@@ -1,0 +1,8 @@
+{
+  "baseline": "0d4d05f12597b5ada72447497b9f887954b12f34",
+  "command": "/tmp/xray-harness-env/bin/python -m pytest -q tests/test_duplicate_policy.py",
+  "exit_code": 1,
+  "excerpt": "\n============================ no tests ran in 0.41s =============================\n=========================== short test summary info ============================\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[False-False-0]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[False-False-2]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[False-True-0]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[False-True-2]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[True-False-0]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[True-False-2]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[True-True-0]\nFAILED tests/test_duplicate_policy.py::test_disallowed_duplicates_are_controlled_collection_errors[True-True-2]\n8 failed, 5 passed in 6.35s",
+  "full_log_sha256": "406f88f5b987f1650cda74a02ae6a317906b26c762779c5d798a3df5021579dd",
+  "limits": "Synthetic temporary test suite, forbidden upload; no private data."
+}
