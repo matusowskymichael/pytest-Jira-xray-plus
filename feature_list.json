@@ -6,7 +6,7 @@
       "title": "Publish shared status badges in 0.1.6",
       "source": "docs/agent/task-release-016.md",
       "source_sha256": "d5865f3844bbb69fcdef66456dc822ee19db4a2672e6043c459b4c8335092376",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/14",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [

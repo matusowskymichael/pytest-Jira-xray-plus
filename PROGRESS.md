@@ -5,6 +5,7 @@
   Approved release-job permissions are enabled. Backfill 38909839526 and retry
   38909920867 verified the original 0.1.5 tag/Release/public assets and no-op behavior.
   [Backfill evidence](docs/agent/evidence/XRAY-RELEASE-001-backfill-verified.json).
+- **PR:** https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/14 (draft).
 - **Scope:** [task](docs/agent/task-release-016.md). One iteration; no parallel release.
 - **Candidate:** 0.1.6 was unused. Version literals only in metadata/publisher;
   no runtime, dependency, permission or accepted automation changes. Finalize
