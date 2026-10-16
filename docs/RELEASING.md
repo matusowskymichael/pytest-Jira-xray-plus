@@ -43,6 +43,12 @@ must be resolved by the maintainer; do not broaden permissions to work around it
    wheel and sdist from the verified artifact, checks their GitHub hashes, then
    publishes the draft. Visit GitHub **Releases** to inspect the notes and assets.
 
+Immediately before publication, the draft is reread and must still identify the
+intended tag, name, notes and non-prerelease state. The returned published release
+identity/state and the tag's commit are checked again before success is reported.
+A retargeted draft therefore stops before publication; unexpected publication
+responses never produce a success claim.
+
 The source is read as data; downloaded source and artifacts are never executed.
 The tag is tied to the published commit, even if `main` has advanced. All
 GitHub writes happen after the PyPI checks. Failed/cancelled publication cannot
