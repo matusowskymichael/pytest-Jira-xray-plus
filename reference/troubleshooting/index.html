@@ -1270,6 +1270,25 @@
 
 
 <h1 id="troubleshooting-and-migration">Troubleshooting and migration<a class="headerlink" href="#troubleshooting-and-migration" title="Permanent link">&para;</a></h1>
+<p><strong>Invalid <code>defects</code> marker (0.1.5+):</strong> when <code>--jira-xray</code> is enabled, <code>defects</code>
+must be a list of nonempty strings. For example, change the marker on your test to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xray</span><span class="p">(</span><span class="s2">"DEMO-1"</span><span class="p">,</span> <span class="n">defects</span><span class="o">=</span><span class="p">[</span><span class="s2">"BUG-1"</span><span class="p">,</span> <span class="s2">"BUG-2"</span><span class="p">])</span>
+</code></pre></div>
+<p>Use <code>defects=[]</code> or omit it when there are no defects. Do not pass a bare string
+(<code>defects="BUG-1"</code>), tuple, <code>None</code>, numbers, empty strings or whitespace-only
+strings. Values are not trimmed or checked against a Jira-key regex; Jira/Xray
+still determines whether a supplied key exists and is usable.</p>
+<p>Run the same offline preview command from the tutorial. Malformed defects now
+produce a collection error before <strong>any test fixtures run</strong>, in serial and xdist.
+Uploads are withheld, even with <code>--continue-on-collection-errors</code>; a local preview
+may contain an empty <code>tests</code> list for diagnosis. The error describes the required
+shape without displaying defect values. Fix the marker and rerun. Ordinary pytest
+runs and local-case reporting without <code>--jira-xray</code> do not apply this validation.
+<code>--collect-only</code> retains its existing behavior of not configuring Xray reporting;
+it lists tests but does not validate these markers, run fixtures or upload.
+This validates marker configuration only; it does not contact Jira or validate
+credentials. Earlier versions could fail later inside report hooks or retain
+invalid values in export payloads.</p>
 <table>
 <thead>
 <tr>
