@@ -1,0 +1,88 @@
+{
+  "version": "0.1.4",
+  "status": "published_and_verified",
+  "timestamp": "2026-10-16T07:41:36.936844+00:00",
+  "verified_by": "codex-builder",
+  "task": "XRAY-PRODUCT-001",
+  "digest": "6963095b04d990f7b5c3b6d862cc4da9d4da56359aadde79c42bec1effe7e76c",
+  "review": "docs/agent/evidence/XRAY-PRODUCT-001-independent-review.json",
+  "pr": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/11",
+  "reviewed_source_head": "78b7855d464d888b136bccb8d68e33c96562e628",
+  "acceptance_commit": "3885c12a7640b54076ed22c68d75e453a69c14af",
+  "release_main": "222fcef7c9461873780359d06733cfc9fc8644f1",
+  "main_ci": [
+    38868084803,
+    38868084886,
+    38868084800
+  ],
+  "publish_run": 38868253334,
+  "publish_artifact_id": 12032341446,
+  "publish_artifact_zip_sha256": "a842d6a0422477384cb2d2e392d7877eaf57d2e0b44ebe5caeef65751a9034a6",
+  "public_artifacts": {
+    "version": "0.1.4",
+    "files": [
+      {
+        "filename": "pytest_jira_xray_plus-0.1.4-py3-none-any.whl",
+        "sha256": "c5e73ec00802d1856c0eaea183f51d8040acf9233f8d440e35ec2b5b0cfae69f",
+        "url": "https://files.pythonhosted.org/packages/f5/87/7b98212783c5cf38d0865a393bd5a13dcb98199ce7d0b49caae11107180b/pytest_jira_xray_plus-0.1.4-py3-none-any.whl",
+        "upload_time": "2026-10-16T07:37:26.424685Z"
+      },
+      {
+        "filename": "pytest_jira_xray_plus-0.1.4.tar.gz",
+        "sha256": "7bcffb1308122869627a08a3ccc6686c0dab4e719ad128283c4989e942958f43",
+        "url": "https://files.pythonhosted.org/packages/87/4d/cd3c8b24cebe91f9d14259f8475bddafc5febaabc01153f80ccdeae21b58/pytest_jira_xray_plus-0.1.4.tar.gz",
+        "upload_time": "2026-10-16T07:37:27.584370Z"
+      }
+    ],
+    "hashes_match": "PyPI metadata, public downloads and verified publisher artifacts"
+  },
+  "public_install": {
+    "index": "https://pypi.org/simple",
+    "version": "0.1.4",
+    "isolated_venv": true,
+    "outside_checkout": true,
+    "readme_commands": 14,
+    "ownership_regressions": 9,
+    "http_blocked_for_tests": true
+  },
+  "pages": {
+    "source_main": "222fcef7c9461873780359d06733cfc9fc8644f1",
+    "docs_ci": 38868084886,
+    "artifact_id": 12031863465,
+    "artifact_zip_sha256": "ecd55665fe73329edede53cd5b16c4e35956dde0ca14da076b08d2cab3639351",
+    "branch_commit": "afcca1b7b2bb955e77a9cb5d04910032b2becc41",
+    "deployment_run": 38868436585,
+    "site": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/",
+    "live_html_pages": 23,
+    "live_files_hash_verified": 64,
+    "https_content_verification": "Python urllib with normal certificate validation",
+    "browser_checks": "desktop/mobile/navigation/search/highlighting/theme passed",
+    "browser_limit": "Chromium environment certificate trust failed; isolated public-site contexts used ignore_https_errors=True. This does not claim browser TLS validation. Normal HTTPS validation was retained for all 64 content/hash checks."
+  },
+  "limits": [
+    "No live Jira/Xray testing or native-iteration validation.",
+    "Independent reviewer did not independently execute tests; public checks here were executed by the implementer."
+  ],
+  "evidence_files": [
+    {
+      "path": "docs/agent/evidence/XRAY-PRODUCT-001-release-public-install.log",
+      "sha256": "4c2a8094b5cb95c3a192354f29facd34bb196b64f27ed309543ef1497a621be8"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-PRODUCT-001-release-public-examples.log",
+      "sha256": "45a8c58f6dbf60cdff31c588714aa2f6a2d5577de39e1b22ad75b25c1e7cad3d"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-PRODUCT-001-release-public-regressions.log",
+      "sha256": "154d265f2d75809bfb45921b8dad2dc4cb6901ad7750f070bc6aba67456f8171"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-PRODUCT-001-release-live-browser.json",
+      "sha256": "cd74bff0ec6ace75a44fa667ba732f5ba8c6cf520d285bbc92d100ebdd1ac521"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-PRODUCT-001-release-live-files.json",
+      "sha256": "75a5ebd3fe3128eae5e0c6707b084b81ae2b19915ed7dc81ac59a2a0c65a0c81"
+    }
+  ]
+}
