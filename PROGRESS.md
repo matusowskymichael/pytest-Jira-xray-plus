@@ -1,4 +1,4 @@
-# Review pending — malformed Test-key validation
+# Independently accepted — malformed Test-key validation
 
 - Task XRAY-PRODUCT-003; baseline 3e5f083; PR15 remains Unreleased, PyPI 0.1.6.
 - [Draft PR #16](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/16).
@@ -19,8 +19,12 @@
   strict docs/links and local desktop/mobile browser. Changed-file Ruff and mypy
   (33 files) pass. Full README and Unreleased changelog explain recovery.
 - Digest: 582a39b7cce5efe3aa1f031b2d44b66be3cc078ac614e36b38c51fcdd65c3516.
-- Next: verify final evidence-head CI, then parent-arranged independent review
-  before merging. No version bump, publication, credentials or permissions change.
+- Independent review /root/review_test_key_errors PASS supplied by parent at
+  2026-10-16T19:38:47Z, recorded unchanged. Read-only source/CI evidence review,
+  not live Jira validation. All six reviewed-head CI runs passed.
+- Next: verify acceptance-head CI, merge PR16, verify main, then implement
+  reproduced duplicate-policy collection errors. Group related changes into a
+  later reviewed release; no version bump/publication/permission change now.
 - Continuous maintenance continues after this review/milestone boundary, one task
   in flight. Next candidate: investigate disallowed duplicate collection errors;
   then benchmark aggregation lookup without breaking public mutable-list semantics.

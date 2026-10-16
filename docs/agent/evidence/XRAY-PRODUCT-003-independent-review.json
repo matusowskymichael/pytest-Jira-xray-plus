@@ -1,0 +1,16 @@
+{
+  "task": "XRAY-PRODUCT-003",
+  "digest": "582a39b7cce5efe3aa1f031b2d44b66be3cc078ac614e36b38c51fcdd65c3516",
+  "revision": "23b26bdbe0d20c8484e01ebc85be9da7edb49029",
+  "timestamp": "2026-10-16T19:38:47+00:00",
+  "reviewer": "/root/review_test_key_errors",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Malformed Test-key markers yield controlled collection errors before fixtures/tests/upload, including xdist and continue-on-collection-errors",
+    "Preserve accepted key forms, ordering, repeated-key deduplication, duplicate policy, disabled reporting and collect-only behavior",
+    "Beginner README and Unreleased changelog explain recovery and compatibility/privacy limits; prioritized audit backlog is recorded",
+    "All five profiles, installed tutorial and exact-head CI pass before independent review; no version, dependency, workflow or permission changes"
+  ]
+}
