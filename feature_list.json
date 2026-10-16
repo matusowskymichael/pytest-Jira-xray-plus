@@ -90,7 +90,7 @@
         "pyproject.toml": "3378166124cd0716255129f6b14fe6b062e131888f277b3f93067851fc73da08",
         ".github/workflows/publish.yml": "f10a1f4ce17b0f26401bd3977eefd3d74e9be936ccd3a2751870cbe7d6fa892a"
       },
-      "state": "review_pending",
+      "state": "passing",
       "evidence": [
         "docs/agent/evidence/XRAY-PERF-001-harness-2017a58e42e2.json",
         "docs/agent/evidence/XRAY-PERF-001-tests-798a0f6c587d.json",
@@ -98,7 +98,7 @@
         "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401.json",
         "docs/agent/evidence/XRAY-PERF-001-docs-f08c9fcc339e.json"
       ],
-      "review": null,
+      "review": "docs/agent/evidence/XRAY-PERF-001-independent-review.json",
       "blocker": "",
       "next_action": "python tools/agent.py preflight"
     }

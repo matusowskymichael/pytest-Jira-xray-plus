@@ -1,7 +1,7 @@
-# Review pending — collection lookup
+# Independently accepted — collection lookup
 
 - Task XRAY-PERF-001; branch perf/collection-key-lookup; baseline a18e361 (0.1.6).
-- [Draft PR #15](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15).
+- [PR #15](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15).
 - Reconciled main instructions, completed ledger/progress, no checkout skills,
   no open PRs/issues and latest public PyPI 0.1.6 before choosing this scoped task.
 - Two-line runtime change uses a set for membership only; diagnostic list/order,
@@ -19,10 +19,12 @@
   README rendering, strict docs/link checks and local desktop/mobile browser.
   Changed-file Ruff and mypy (32 files) pass. Full README/changelog updated.
 - Digest: 847466450908b5d2f2b32f206ddcc276b02e207993054dea0b47acde055d7ee8.
-- Final evidence-head hosted CI and fresh independent review remain required.
-  No version bump, merge, release, workflow/permission/dependency change.
-- Next: `python tools/agent.py preflight`; inspect exact-head CI and request
-  independent review with head/digest. Existing authorization ends Oct 18 UAE.
+- Independent reviewer /root/review_duplicate_lookup_optimization passed exact
+  head 7e2f468 and digest; all six exact-head CI runs passed. Review recorded in
+  [acceptance evidence](docs/agent/evidence/XRAY-PERF-001-independent-review.json).
+- Next: verify acceptance-commit CI, merge PR #15, then verify main CI. Keep under
+  Unreleased and PyPI 0.1.6 unchanged; no publication or permission change.
+  Existing authorization ends Oct 18 UAE.
 - Limits: synthetic validation only; Generic on-prem Xray 8.5.3-j10/custom Automatic
   live mapping unverified; native iterations unsupported. No workplace/private data,
   credentials, purchases, accounts, destructive cleanup or security bypass.
