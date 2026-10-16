@@ -82,7 +82,7 @@
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "review_pending",
+      "state": "passing",
       "evidence": [
         "docs/agent/evidence/XRAY-PRODUCT-001-docs-62af8000e9a0.json",
         "docs/agent/evidence/XRAY-PRODUCT-001-harness-a6f2ab601a46.json",
@@ -90,7 +90,7 @@
         "docs/agent/evidence/XRAY-PRODUCT-001-package-e4ceb528e4f7.json",
         "docs/agent/evidence/XRAY-PRODUCT-001-tests-e37efc0b0aad.json"
       ],
-      "review": null,
+      "review": "docs/agent/evidence/XRAY-PRODUCT-001-independent-review.json",
       "blocker": "",
       "next_action": "python tools/agent.py preflight"
     }

@@ -1,0 +1,5 @@
+Source: parent codex_delegation, thread 01a12a8b-3ef6-705b-9250-4b8889b0701e.
+Independent reviewer identity: review_evidence_isolation_fix.
+Verbatim supplied review report:
+Independent review by review_evidence_isolation_fix passed exact head 78b7855d464d888b136bccb8d68e33c96562e628, digest 6963095b04d990f7b5c3b6d862cc4da9d4da56359aadde79c42bec1effe7e76c. Review was static plus hosted evidence and all 13 log hashes, not independent execution or live Xray testing.
+Recording and release authorization: parent instructed recording this verdict accurately, final acceptance/CI, history-preserving merge, publication of unused 0.1.4 through existing trusted publishing, Pages update and public verification. User authorization applies to this repository October 16–18, without credential/access expansion.
