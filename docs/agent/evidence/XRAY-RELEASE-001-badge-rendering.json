@@ -1,5 +1,5 @@
 {
-  "readme_sha256": "2da4407f29955e5958db5bc08eb86e0db4a2631174f83d2310bb3cfebbacc71c",
+  "readme_sha256": "af79a18cb3805d2fe977fbfe8b34fa20b5a93a7b346286363e05bdf007d18140",
   "tls": "normal certificate verification",
   "badges": [
     {
@@ -43,12 +43,12 @@
     {
       "renderer": "PyPI",
       "images": 6,
-      "html_sha256": "5a89c83ccd0be7654cd6073baa597cd2ba8674df0e13b77529aef9dc96c1bdee"
+      "html_sha256": "bd471ad4ad4d7f6ad2591b443d7ed96194df192d08a352bbe0b725b694b68b84"
     },
     {
       "renderer": "GitHub",
       "images": 6,
-      "html_sha256": "f048ed30514c9eac9fe6490fe237d24df26b53b40949e8eef9b2ec79a8c280ee"
+      "html_sha256": "717e5ab3cdc337d5a7dc3905ff8c023dc494660feb20e30f45c69bec00be9e56"
     }
   ],
   "github_emitted_image_urls": "all six HTTP 200 and valid SVG",

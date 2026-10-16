@@ -790,5 +790,5 @@ repository tools are outside this denominator. Python badges describe the tested
 3.12–3.14 matrix; installation requires Python 3.12+. See
 [coverage scope and report updates](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/COVERAGE.md).
 
-Version, tested Python and licence images are first-party [metadata snapshots](https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/), refreshed after releases.
+Version, tested Python and licence images are first-party [metadata snapshots](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/gh-pages/status/metadata.json), refreshed after releases.
 The test and documentation images show live main-branch workflow status.
