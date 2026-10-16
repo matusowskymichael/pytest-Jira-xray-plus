@@ -1,33 +1,9 @@
-# Merged, unreleased — collection lookup
+# Active — malformed Test-key validation
 
-- Task XRAY-PERF-001; branch perf/collection-key-lookup; baseline a18e361 (0.1.6).
-- [PR #15](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15).
-- Reconciled main instructions, completed ledger/progress, no checkout skills,
-  no open PRs/issues and latest public PyPI 0.1.6 before choosing this scoped task.
-- Two-line runtime change uses a set for membership only; diagnostic list/order,
-  first-offending-item behavior, validation and report grouping remain unchanged.
-- Before patch: six deterministic scaling tests failed, six behavior tests passed.
-  At 512 unique keys, old list lookup needed 130,816 equality comparisons.
-  [Before log](docs/agent/evidence/XRAY-PERF-001-before.log).
-- After patch: all 12 new tests pass, including serial/xdist output. Synthetic
-  benchmark at 1,024 unique keys: baseline 523,776 equality comparisons versus
-  candidate 0 equalities/3,072 hash calls in both duplicate modes. Deliberately
-  distinct hashes isolate lookup growth; no timing threshold or end-to-end claim.
-  [Benchmark](docs/agent/evidence/XRAY-PERF-001-benchmark.json).
-- All five profiles pass on source 8730f0e: 265 tests + 19 subtests, harness,
-  offline validation, package/Twine, all 14 installed README commands and full
-  README rendering, strict docs/link checks and local desktop/mobile browser.
-  Changed-file Ruff and mypy (32 files) pass. Full README/changelog updated.
-- Digest: 847466450908b5d2f2b32f206ddcc276b02e207993054dea0b47acde055d7ee8.
-- Independent reviewer /root/review_duplicate_lookup_optimization passed exact
-  head 7e2f468 and digest; all six exact-head CI runs passed. Review recorded in
-  [acceptance evidence](docs/agent/evidence/XRAY-PERF-001-independent-review.json).
-- PR #15 merged at `8ced785c86aef3da57f68174884c9a481fbf3c3c`; tree exactly
-  matches accepted commit `0ad82d5e59837c5431fd925585e440598ed48aea`. All six
-  acceptance-commit CI runs passed. Main CI is being verified after merge.
-- Next: verify final main CI and remote SHA; retain Unreleased and PyPI 0.1.6
-  unchanged. No publication or permission change.
-  Existing authorization ends Oct 18 UAE.
-- Limits: synthetic validation only; Generic on-prem Xray 8.5.3-j10/custom Automatic
-  live mapping unverified; native iterations unsupported. No workplace/private data,
-  credentials, purchases, accounts, destructive cleanup or security bypass.
+- Task XRAY-PRODUCT-003, baseline 3e5f083; PR15 remains Unreleased, PyPI 0.1.6.
+- [Prioritized audit](docs/agent/BACKLOG.md); [scope](docs/agent/task-test-key-validation.md).
+- Reconciled current main, instructions, ledger, progress, open work and PyPI.
+- Next: reproduce malformed-key INTERNALERROR, implement controlled collection
+  failure, run five profiles/installed examples and submit exact head for review.
+- One task in flight; no release/version change yet. Continuous authority ends
+  2026-10-18 23:59 Asia/Dubai. No workplace/private data or security bypass.

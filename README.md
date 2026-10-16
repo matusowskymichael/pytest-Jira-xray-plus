@@ -654,6 +654,25 @@ for the confirmed Generic target.
 
 ## Troubleshooting and migration
 
+**Invalid Test-key marker (Unreleased fix):** use nonempty strings, for example
+`@pytest.mark.xray("DEMO-1")`, `@pytest.mark.xray("DEMO-1", "DEMO-2")`, or
+`@pytest.mark.xray(["DEMO-1", "DEMO-2"])`. Do not omit the arguments or pass
+empty/whitespace-only strings, an empty list, `None`, numbers, or other objects.
+Keys retain their supplied spelling and order; there is no new Jira-key regex.
+Repeating a key in one marker is still deduplicated. Separate cases sharing a key
+still require `--allow-duplicate-ids`.
+
+With this fix, malformed Test keys produce a normal collection error before any
+test fixtures run when `--jira-xray` is enabled. This also works with xdist and
+`--continue-on-collection-errors`: no tests execute and uploads are withheld;
+an offline `--xraypath` preview can contain an empty `tests` list. Correct the
+marker, then rerun the same offline preview command from the tutorial before
+uploading. Without `--jira-xray`, ordinary pytest and local-case reports keep
+working without validating Xray markers. `--collect-only` still only lists tests.
+The published 0.1.6 package can instead show `INTERNALERROR` for these malformed
+markers; this fix is not published yet. It does not check whether Jira keys exist
+or validate credentials, and it does not change duplicate-key diagnostics.
+
 **Invalid `defects` marker (0.1.5+):** when `--jira-xray` is enabled, `defects`
 must be a list of nonempty strings. For example, change the marker on your test to:
 

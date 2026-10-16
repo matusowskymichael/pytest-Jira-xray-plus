@@ -232,13 +232,15 @@ class XrayPlugin:
         for item in items:
             try:
                 self._get_defects(item)
+                self._get_test_keys(item)
             except XrayError as exc:
                 # A collect report reaches the xdist controller; UsageError here
                 # can let workers announce runnable items before exiting.
+                config.hook.pytest_deselected(items=items[:])
                 items.clear()
                 config.hook.pytest_collectreport(
                     report=pytest.CollectReport(
-                        nodeid='xray defects configuration',
+                        nodeid='xray marker configuration',
                         outcome='failed',
                         longrepr=exc.message,
                         result=[],

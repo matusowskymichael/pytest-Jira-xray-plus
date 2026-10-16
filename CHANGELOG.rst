@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Report malformed Test-key markers as collection errors before fixtures or
+  uploads, including xdist and continue-on-collection-errors, instead of
+  internal errors. Preserve valid marker forms and duplicate-key policy.
 - Use set membership for duplicate Test-key collection validation, avoiding
   quadratic list scans for large suites while retaining diagnostic order,
   repeated-key handling and opt-in grouping. No new flags or default changes.
