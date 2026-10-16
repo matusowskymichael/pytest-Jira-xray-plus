@@ -6,7 +6,7 @@
       "title": "Validate defects markers before fixtures and upload",
       "source": "docs/agent/task-product-002.md",
       "source_sha256": "901ea84ee4f50c3bcbf0d0144f5fe01bbe72b7d9175ab3edefb97437e6fe07ba",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/12",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
