@@ -1,5 +1,21 @@
 # Maintainer handoff — iteration complete
 
+## Binding security correction for subsequent work
+
+Parent instruction received after the 0.1.4 handoff, 2026-10-16:
+**Never bypass browser certificate or security errors**, including isolated
+`ignore_https_errors`, `--ignore-certificate-errors`, or equivalent configurations.
+Such warnings require user handoff. Report browser checks as **blocked**; normally
+validated HTTPS checks may continue where appropriate, without claiming they
+replace the blocked browser verification. Do not repeat the 0.1.4 bypass.
+
+This supersedes any implied permission from the historical release evidence.
+Keep that history truthful; the earlier bypass is not an acceptable procedure or
+precedent. The release is delivered. This correction starts no new iteration and
+must be carried into the next scheduled task's instructions and handoff.
+
+## Completed release record
+
 - **Task:** XRAY-PRODUCT-001, `passing`; no iteration currently in flight.
 - **Released:** [0.1.4 on PyPI](https://pypi.org/project/pytest-jira-xray-plus/0.1.4/).
   The earlier 0.1.3 baseline / candidate descriptions record pre-release history.
