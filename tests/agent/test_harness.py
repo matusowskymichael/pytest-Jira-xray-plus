@@ -4,6 +4,7 @@ import ast
 import copy
 import hashlib
 import io
+import json
 import subprocess
 import sys
 import tempfile

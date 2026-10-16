@@ -6,7 +6,7 @@
       "title": "Repository-native harness for stable Generic-target plugin",
       "source": "docs/agent/task.md",
       "source_sha256": "98b36f796ce4f565228e93ddef9c68875885b32d3c1ef08b0aaf5c57d7b630e5",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/10",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
