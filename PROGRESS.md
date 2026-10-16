@@ -1,0 +1,50 @@
+# Current handoff
+
+- **Task:** XRAY-HARNESS-001, repository-native harness; owner: Michael.
+- **Baseline:** stable 0.1.3 at `8160bec9fb777fc86c28985040f8e4a46253dc6f`.
+- **Draft PR:** [#10](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/10).
+- **Scope:** [request / PR body](docs/agent/task.md); [execution ledger](feature_list.json).
+- **Implemented:** short agent map, module boundaries, stdlib lifecycle/check CLI,
+  protected-runtime/publisher drift checks, scope provenance and evidence acceptance.
+- **Local verification:** 147 tests and 19 subtests pass, including 32 harness tests;
+  offline checks pass; fresh-wheel installation executes all 14 README commands with
+  HTTP blocked; Twine passes; strict docs build, 23 HTML pages / 1191 internal links,
+  desktop/mobile/search/highlighting/theme checks pass. Receipts and logs are in
+  [evidence](docs/agent/evidence), bound to content digest
+  `53e91683d185163681cee4e69d28d8bdeefc57046491e077f28eafcaa96fc70c`.
+- **Static checks:** new files pass Ruff; mypy passes for 26 src/test files.
+  Five pre-existing broad Ruff issues remain documented in the testing guide.
+- **CI reviewed:** `8e3168e7e9f9ad1080e570f59cdd52dabad521cf` passed all six
+  push/PR workflows: harness, documentation and the Python 3.12/3.13/3.14 matrix.
+  The subsequent acceptance record changes only evidence, progress and ledger state;
+  final-commit CI must also pass before handoff.
+- **Failure history:** initial `48c1fd3` run
+  [38853027541](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38853027541)
+  failed because the remote-drift fixture omitted `import json`; the downloaded
+  artifact confirms that traceback. Fixed in `093dc64`. The other two annotations
+  concern Node 20 / Ubuntu runner migrations; they are not this test failure.
+- **Review fixes:** `fe3b0a3` addresses all three independent findings. Harness CI
+  fetches full history; fresh shallow-clone acceptance is tested through explicit
+  unshallow recovery. Reopen atomically blocks stale tasks and transitive dependents,
+  in either order, without partial writes or bypassing acceptance. Package digests
+  now cover the complete builder input set, including Git-ignored copied inputs;
+  mutation/deletion regressions cover the previously omitted files and examples.
+  Before the fix, the new regressions produced 15 failures and one error. All five
+  profiles have fresh passing receipts on the corrected content. Older receipts
+  remain history and are no longer the task's current evidence.
+- **Independent acceptance:** `review_pytest_harness_pr` passed the reviewed head
+  with all three findings resolved. The [review record](docs/agent/evidence/XRAY-HARNESS-001-independent-review.json)
+  binds the exact source report, reviewer identity, revision, task scope and digest.
+  It records static review plus hosted execution evidence, not reviewer-executed
+  tests or independent recomputation of every hash. The implementer transcribed
+  the parent's supplied verdict; it is not a builder-authored passing review.
+- **State:** `passing` after the unchanged acceptance validator succeeds. This is
+  technical acceptance; user approval of the draft PR remains outstanding.
+- **Limits:** no live Jira validation, real model-performance benchmark, exhaustive
+  course/exercise audit, new runtime, credential/permission/dependency/release changes.
+- **Next command:** `python tools/agent.py preflight`, then inspect PR checks and review
+  [scope](docs/agent/task.md), diff and evidence using [completion](docs/agent/completion.md).
+
+Use `python tools/agent.py resume` after reading this file. Local checkpoints and
+working logs live in ignored `.harness/`; checked-in progress is the cross-session
+handoff. Do not merge, publish or deploy as part of this task.
