@@ -1,0 +1,100 @@
+FFFFFF......                                                             [100%]
+=================================== FAILURES ===================================
+______________ test_unique_key_comparisons_are_bounded[128-False] ______________
+
+allow = False, size = 128
+
+    @pytest.mark.parametrize('allow', [False, True])
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    def test_unique_key_comparisons_are_bounded(allow, size):
+        items = [item(CountedKey(f'DEMO-{n}')) for n in range(size)]
+        CountedKey.comparisons = 0
+        plugin(allow)._verify_jira_ids_for_items(items)
+>       assert CountedKey.comparisons <= size * 4
+E       assert 8128 <= (128 * 4)
+E        +  where 8128 = CountedKey.comparisons
+
+tests/test_collection_lookup.py:40: AssertionError
+______________ test_unique_key_comparisons_are_bounded[128-True] _______________
+
+allow = True, size = 128
+
+    @pytest.mark.parametrize('allow', [False, True])
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    def test_unique_key_comparisons_are_bounded(allow, size):
+        items = [item(CountedKey(f'DEMO-{n}')) for n in range(size)]
+        CountedKey.comparisons = 0
+        plugin(allow)._verify_jira_ids_for_items(items)
+>       assert CountedKey.comparisons <= size * 4
+E       assert 8128 <= (128 * 4)
+E        +  where 8128 = CountedKey.comparisons
+
+tests/test_collection_lookup.py:40: AssertionError
+______________ test_unique_key_comparisons_are_bounded[256-False] ______________
+
+allow = False, size = 256
+
+    @pytest.mark.parametrize('allow', [False, True])
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    def test_unique_key_comparisons_are_bounded(allow, size):
+        items = [item(CountedKey(f'DEMO-{n}')) for n in range(size)]
+        CountedKey.comparisons = 0
+        plugin(allow)._verify_jira_ids_for_items(items)
+>       assert CountedKey.comparisons <= size * 4
+E       assert 32640 <= (256 * 4)
+E        +  where 32640 = CountedKey.comparisons
+
+tests/test_collection_lookup.py:40: AssertionError
+______________ test_unique_key_comparisons_are_bounded[256-True] _______________
+
+allow = True, size = 256
+
+    @pytest.mark.parametrize('allow', [False, True])
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    def test_unique_key_comparisons_are_bounded(allow, size):
+        items = [item(CountedKey(f'DEMO-{n}')) for n in range(size)]
+        CountedKey.comparisons = 0
+        plugin(allow)._verify_jira_ids_for_items(items)
+>       assert CountedKey.comparisons <= size * 4
+E       assert 32640 <= (256 * 4)
+E        +  where 32640 = CountedKey.comparisons
+
+tests/test_collection_lookup.py:40: AssertionError
+______________ test_unique_key_comparisons_are_bounded[512-False] ______________
+
+allow = False, size = 512
+
+    @pytest.mark.parametrize('allow', [False, True])
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    def test_unique_key_comparisons_are_bounded(allow, size):
+        items = [item(CountedKey(f'DEMO-{n}')) for n in range(size)]
+        CountedKey.comparisons = 0
+        plugin(allow)._verify_jira_ids_for_items(items)
+>       assert CountedKey.comparisons <= size * 4
+E       assert 130816 <= (512 * 4)
+E        +  where 130816 = CountedKey.comparisons
+
+tests/test_collection_lookup.py:40: AssertionError
+______________ test_unique_key_comparisons_are_bounded[512-True] _______________
+
+allow = True, size = 512
+
+    @pytest.mark.parametrize('allow', [False, True])
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    def test_unique_key_comparisons_are_bounded(allow, size):
+        items = [item(CountedKey(f'DEMO-{n}')) for n in range(size)]
+        CountedKey.comparisons = 0
+        plugin(allow)._verify_jira_ids_for_items(items)
+>       assert CountedKey.comparisons <= size * 4
+E       assert 130816 <= (512 * 4)
+E        +  where 130816 = CountedKey.comparisons
+
+tests/test_collection_lookup.py:40: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_collection_lookup.py::test_unique_key_comparisons_are_bounded[128-False]
+FAILED tests/test_collection_lookup.py::test_unique_key_comparisons_are_bounded[128-True]
+FAILED tests/test_collection_lookup.py::test_unique_key_comparisons_are_bounded[256-False]
+FAILED tests/test_collection_lookup.py::test_unique_key_comparisons_are_bounded[256-True]
+FAILED tests/test_collection_lookup.py::test_unique_key_comparisons_are_bounded[512-False]
+FAILED tests/test_collection_lookup.py::test_unique_key_comparisons_are_bounded[512-True]
+6 failed, 6 passed in 0.63s

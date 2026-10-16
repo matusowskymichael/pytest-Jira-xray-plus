@@ -110,7 +110,7 @@ class XrayPlugin:
 
     def _verify_jira_ids_for_items(self, items: list[Item]) -> None:
         """Verify duplicated jira ids."""
-        jira_ids: list[str] = []
+        jira_ids: set[str] = set()
         duplicated_jira_ids: list[str] = []
 
         for item in items:
@@ -122,7 +122,7 @@ class XrayPlugin:
                 if test_key in jira_ids:
                     duplicated_jira_ids.append(test_key)
                 else:
-                    jira_ids.append(test_key)
+                    jira_ids.add(test_key)
 
             if duplicated_jira_ids and not self.allow_duplicate_ids:
                 raise XrayError(f'Duplicated test case ids: {duplicated_jira_ids}')
