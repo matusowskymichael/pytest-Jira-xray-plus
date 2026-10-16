@@ -1,0 +1,55 @@
+{
+  "task": "XRAY-HARNESS-001",
+  "profile": "docs",
+  "digest": "2f12089cb95d95ec2ccb54bcc550477f068d351e7c4e5e10c2f66cff018f23c4",
+  "revision": "093dc64367850642c568098f3aa692303f2e0afc",
+  "timestamp": "2026-10-16T04:55:07.114004+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/prepare_docs_site.py"
+    ],
+    [
+      "{python}",
+      "-m",
+      "mkdocs",
+      "build",
+      "--strict"
+    ],
+    [
+      "{python}",
+      "tools/check_docs_links.py"
+    ],
+    [
+      "{python}",
+      "tools/check_docs_browser.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.035,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-docs-6eca74112b04-0.log",
+      "log_sha256": "bd5b1923a0ed1d6c10e40c62bb69c1d224b4201056a4dfc2a8db1fa37e8573fb"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.571,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-docs-6eca74112b04-1.log",
+      "log_sha256": "8865ffa5b5cd0d12ae5629ead9052e2a5aa618ea159d0b45dc5e24d419faa23b"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.121,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-docs-6eca74112b04-2.log",
+      "log_sha256": "942c4630c4a5d9d63cb90863cecb34f1496e1b7dfb2743f0441005bb89dfaaa7"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 6.599,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-docs-6eca74112b04-3.log",
+      "log_sha256": "cc7458dd474597154772382393a4438e323fc9ea1e287a5e687403045eb456b3"
+    }
+  ],
+  "status": "passed"
+}

@@ -73,11 +73,17 @@
         "tests/test_xray_plugin.py": "e294d3fcaf7323cc11d83f17a21c5df973020d66fdc361a09797886d4193373d",
         "tools/build_release.py": "d4f190ee00865e8327af57ae6b3ed99dd30209c5da6ad58f4c1f30544c07fb34"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-HARNESS-001-docs-6eca74112b04.json",
+        "docs/agent/evidence/XRAY-HARNESS-001-harness-1f594ecbbea5.json",
+        "docs/agent/evidence/XRAY-HARNESS-001-offline-bcd5f882fff7.json",
+        "docs/agent/evidence/XRAY-HARNESS-001-package-332bd2292eac.json",
+        "docs/agent/evidence/XRAY-HARNESS-001-tests-86ef65f36db7.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "python tools/agent.py check --profile harness"
+      "next_action": "python tools/agent.py preflight"
     }
   ]
 }
