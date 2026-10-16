@@ -50,3 +50,14 @@ answered "You may" to the scoped release-job actions:read / contents:write reque
 Both records are in evidence. Acceptance is recorded; earlier pending statements
 above describe preparation. Merge/backfill verification is now authorized and active.
 No broader permissions or new credentials are authorized.
+
+
+## Enabled and verified
+
+PR #13 merged at 6c9d46b with reviewed files unchanged. Backfill workflow
+38909839526 created v0.1.5 at the original published commit d007ade and uploaded
+the exact wheel/sdist. Public GitHub downloads match PyPI hashes. Retry 38909920867
+passed without changing release identity/notes/timestamps or asset identities/hashes.
+[Verification](docs/agent/evidence/XRAY-RELEASE-001-backfill-verified.json).
+Next authorized iteration: prepare unused 0.1.6 for the live PyPI badge README,
+then obtain independent review before publication. No parallel release.

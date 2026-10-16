@@ -1,0 +1,51 @@
+{
+  "task": "XRAY-RELEASE-001",
+  "status": "enabled_backfill_and_retry_verified",
+  "timestamp": "2026-10-16T13:43:44.767777+00:00",
+  "reviewed_head": "55385e23ea28abe831d4aaea4866091e0809a35b",
+  "digest": "86d6af06bc1a7a27a4036926905a1699415fa97cb389bcfd8dd85c4a8902becf",
+  "merge_main": "6c9d46b5486f12746baceaae6a1986aca075cf8e",
+  "permission_approval": "XRAY-RELEASE-001-permission-approval.json",
+  "original_publish_run": 38900871866,
+  "backfill_run": 38909839526,
+  "idempotency_run": 38909920867,
+  "verification": {
+    "release_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.5",
+    "tag_commit": "d007adeefe5057ed9dcbb6ce6c4d28ec7eff942e",
+    "assets": [
+      {
+        "name": "pytest_jira_xray_plus-0.1.5-py3-none-any.whl",
+        "sha256": "44bc3887cdf38218dbadc8461b536a3513d1a0c1d9eea9ca95e1b52f21e748e5",
+        "download_verification": "public GitHub download matches PyPI digest"
+      },
+      {
+        "name": "pytest_jira_xray_plus-0.1.5.tar.gz",
+        "sha256": "5b16bab30bce7e06700405f9eedf1afcf2058c8d6622c3d2c5f7e073beb78514",
+        "download_verification": "public GitHub download matches PyPI digest"
+      }
+    ]
+  },
+  "release_id": 415008060,
+  "release_created_at": "2026-10-16T12:27:47Z",
+  "assets": [
+    {
+      "id": 647461190,
+      "name": "pytest_jira_xray_plus-0.1.5-py3-none-any.whl",
+      "size": 35805,
+      "digest": "sha256:44bc3887cdf38218dbadc8461b536a3513d1a0c1d9eea9ca95e1b52f21e748e5",
+      "created_at": "2026-10-16T13:41:57Z",
+      "updated_at": "2026-10-16T13:41:57Z"
+    },
+    {
+      "id": 647461218,
+      "name": "pytest_jira_xray_plus-0.1.5.tar.gz",
+      "size": 117536,
+      "digest": "sha256:5b16bab30bce7e06700405f9eedf1afcf2058c8d6622c3d2c5f7e073beb78514",
+      "created_at": "2026-10-16T13:41:57Z",
+      "updated_at": "2026-10-16T13:41:58Z"
+    }
+  ],
+  "idempotency": "Second successful run preserved release id, tag name, name, body, draft/prerelease flags, creation/publication/update timestamps and asset ids/names/hashes/sizes/timestamps.",
+  "pypi": "No republishing; existing 0.1.5 publication reused.",
+  "browser": "No browser security bypass; HTTPS API/content checks use normal TLS."
+}
