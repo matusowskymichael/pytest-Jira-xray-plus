@@ -1,0 +1,6 @@
+{
+  "status": "blocked",
+  "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://matusowskymichael.github.io/pytest-Jira-xray-plus/\nCall log:\n  - navigating to \"https://matusowskymichael.github.io/pytest-Jira-xray-plus/\", waiting until \"networkidle\"\n",
+  "certificate_validation": "default; no bypass",
+  "handoff": "User must validate live Pages in a trusted browser if certificate verification fails."
+}

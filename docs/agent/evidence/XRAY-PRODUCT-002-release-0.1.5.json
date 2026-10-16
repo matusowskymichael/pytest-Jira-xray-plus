@@ -1,0 +1,88 @@
+{
+  "version": "0.1.5",
+  "status": "published_and_verified_with_browser_handoff",
+  "timestamp": "2026-10-16T12:32:15.929845+00:00",
+  "task": "XRAY-PRODUCT-002",
+  "digest": "76241e52190551b452db0807f64bf505baa156888ee49dc1f1bcfa9d1435d493",
+  "review": "docs/agent/evidence/XRAY-PRODUCT-002-independent-review.json",
+  "pr": 12,
+  "reviewed_head": "8d70772a0d48d77a225273cfd9b1e869ef6f9c36",
+  "acceptance_commit": "da5548d888d1dbb392a471059b4254bb74884812",
+  "release_main": "d007adeefe5057ed9dcbb6ce6c4d28ec7eff942e",
+  "main_ci": [
+    38900678340,
+    38900678283,
+    38900678248
+  ],
+  "publish_run": 38900871866,
+  "publish_artifacts": [
+    {
+      "id": 12045783489,
+      "node_id": "MDg6QXJ0aWZhY3QxMjA0NTc4MzQ4OQ==",
+      "name": "verified-distributions",
+      "size_in_bytes": 151656,
+      "url": "https://api.github.com/repos/matusowskymichael/pytest-Jira-xray-plus/actions/artifacts/12045783489",
+      "archive_download_url": "https://api.github.com/repos/matusowskymichael/pytest-Jira-xray-plus/actions/artifacts/12045783489/zip",
+      "expired": false,
+      "digest": "sha256:fd5d15599dd4d0fe1548d75720d3ac2e0571fc028e4fadda44973962d642bb8f",
+      "created_at": "2026-10-16T12:30:23Z",
+      "updated_at": "2026-10-16T12:30:23Z",
+      "expires_at": "2026-10-23T12:30:22Z",
+      "workflow_run": {
+        "id": 38900871866,
+        "repository_id": 1420554943,
+        "head_repository_id": 1420554943,
+        "head_branch": "main",
+        "head_sha": "d007adeefe5057ed9dcbb6ce6c4d28ec7eff942e"
+      }
+    }
+  ],
+  "public_artifacts": {
+    "version": "0.1.5",
+    "files": [
+      {
+        "filename": "pytest_jira_xray_plus-0.1.5-py3-none-any.whl",
+        "sha256": "44bc3887cdf38218dbadc8461b536a3513d1a0c1d9eea9ca95e1b52f21e748e5",
+        "url": "https://files.pythonhosted.org/packages/dc/96/2ea1122d1cac6a5366c9a447854361f6b552977636a5b7b71ebc7033544f/pytest_jira_xray_plus-0.1.5-py3-none-any.whl",
+        "upload_time": "2026-10-16T12:30:44.194247Z"
+      },
+      {
+        "filename": "pytest_jira_xray_plus-0.1.5.tar.gz",
+        "sha256": "5b16bab30bce7e06700405f9eedf1afcf2058c8d6622c3d2c5f7e073beb78514",
+        "url": "https://files.pythonhosted.org/packages/43/a7/72b5a66634e1c8bbf34f3548da29f5ee16c322e7314c86ac806217d8e431/pytest_jira_xray_plus-0.1.5.tar.gz",
+        "upload_time": "2026-10-16T12:30:45.957104Z"
+      }
+    ],
+    "hashes_match": "PyPI metadata, public downloads and verified publisher artifact hashes recorded in the successful workflow log",
+    "tls": "default certificate validation"
+  },
+  "public_install": {
+    "index": "https://pypi.org/simple",
+    "version": "0.1.5",
+    "isolated_venv": true,
+    "outside_checkout": true,
+    "readme_commands": 14,
+    "defects_regressions": 31,
+    "test_transport": "blocked"
+  },
+  "pages": {
+    "commit": "fd085dc9be49f87987b45940de6b5ea58d2edff6",
+    "deployment_run": 38900998093,
+    "source": "local strict docs build at release_main; local desktop/mobile check passed",
+    "live_files_hash_verified": 71,
+    "https_validation": "default TLS certificate validation",
+    "browser_status": "blocked ERR_CERT_AUTHORITY_INVALID; no bypass; user handoff required"
+  },
+  "limits": [
+    "Artifact storage downloads returned proxy HTTP 403; public package hashes matched successful publisher verification logs, not downloaded artifact archives.",
+    "No live Jira/Xray test or native iteration proof.",
+    "Live browser precheck blocked; no postdeployment browser pass claimed."
+  ],
+  "evidence_sha256": {
+    "docs/agent/evidence/XRAY-PRODUCT-002-release-public-install.log": "1ffbcb4562a7c60888981803a9e0cebf12b69f8c050f2eff4031a283f458bb9b",
+    "docs/agent/evidence/XRAY-PRODUCT-002-release-public-examples.log": "45a8c58f6dbf60cdff31c588714aa2f6a2d5577de39e1b22ad75b25c1e7cad3d",
+    "docs/agent/evidence/XRAY-PRODUCT-002-release-public-regressions.log": "cf2a9bd3fb4b8c33ef74b2a93b48362d30f1b30f240425ce5f24bfc9288a7513",
+    "docs/agent/evidence/XRAY-PRODUCT-002-release-live-files.json": "5d127276ac771c2229c78aeb5dadfa079e8dbe1d5f89a7510546b95fedce65c7",
+    "docs/agent/evidence/XRAY-PRODUCT-002-release-live-browser.json": "a780cb4c94511522dfe21ef59c221bafd6b4023ed5829a27cb7f73cc33221fe6"
+  }
+}
