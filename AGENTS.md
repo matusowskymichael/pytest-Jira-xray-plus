@@ -1,7 +1,7 @@
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Stable release: **0.1.3**. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.3**; candidate: **0.1.4**. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -23,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task.md): authorized harness change and acceptance criteria.
+- [Current scope](docs/agent/task-product-001.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -45,7 +45,15 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
   A local pass does not prove live Xray compatibility or native iteration support.
 - Do not weaken tests, scope, or evidence validation to mark a task passing. Changed
   relevant content invalidates old evidence; reopen work explicitly.
-- Do not merge, release, deploy Pages, change credentials or expand permissions unless
-  authorized for that action. Harness checks never perform those operations.
+- Michael grants standing maintainer authorization for this repository's three-day
+  iterative maintenance window beginning 2026-10-16: after independent acceptance
+  and green exact-head checks, merge without asking again and release an unused
+  stable version through the existing trusted publishing/Pages workflows. This
+  replaces repeated user merge-approval prompts for this repository only.
+- Prepare each candidate for independent review before merge/release. Keep one
+  iteration active; scheduled rounds resume its branch/PR/ledger rather than create
+  duplicate work. Review [maintainer policy](docs/agent/maintainer.md).
+- Do not create accounts/credentials, make purchases, change branch protection or
+  expand permissions. Harness checks never merge, deploy or publish.
 - End with current progress, exact verification limits and an executable next step.
   A checkpoint or draft PR is not independent acceptance.

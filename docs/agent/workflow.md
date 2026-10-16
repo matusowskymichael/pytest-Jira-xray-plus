@@ -66,9 +66,17 @@ cannot satisfy acceptance after relevant content changes. Full validation preced
 the single ledger write, so failure cannot persist partial recovery. No automatic
 rollback or unattended repair.
 
-Commit reviewed source and handoff records, push only when authorized, and cite
-actual hosted CI for that head. This task ends with a draft PR and independent
-review pending, not a merge, package release or Pages deployment.
+Commit reviewed source and handoff records and cite actual hosted CI for that head.
+Prepare each candidate PR for independent review first. During the standing
+maintainer window, independently accepted iterations with green exact-head checks
+may merge and release without another user merge-permission prompt. Preserve
+receipt history with merge commits; follow the existing manual trusted publisher
+and Pages workflows. Do not weaken gates or change access settings.
+
+At a new authorized product iteration, archive the completed ledger under evidence
+with its accepted commit provenance and replace the current ledger with the new
+task. Historical evidence stays tied to its old digest/commit, not asserted passing
+on new product content. Reopen handles regressions within the current task graph.
 
 Accepted receipts/reviews may identify earlier commits. Harness CI fetches full
 history (`fetch-depth: 0`). In a shallow local clone, missing evidence history

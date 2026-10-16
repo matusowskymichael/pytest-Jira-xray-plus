@@ -208,3 +208,24 @@ Runtime source is unchanged from 0.1.2. The existing manual Trusted Publisher wo
 retains its permissions and pypi environment; only exact version/filename checks advance
 to 0.1.3. Publication must be verified against the reviewed remote commit, CI artifact
 hashes, public package metadata and a fresh public-PyPI installation.
+
+
+## 0.1.4 attachment ownership candidate — 2026-10-16
+
+Unpublished candidate; 0.1.3 remains the published baseline. PyPI's public JSON
+reported 0.1.4 unused when preparing this iteration; recheck immediately before
+publication. The only runtime change copies the incoming evidence/defect list
+containers in TestCase. Evidence dictionaries are not deep-copied; aggregation
+appends entries and does not mutate their fields. Identical attachment occurrences
+remain distinct. Defects still de-duplicate and statuses/comments are unchanged.
+
+Synthetic tests cover a shared-key case followed by a single-key case, and two
+parameter cases sharing both keys, in both orders and serial/xdist execution.
+Requests transport is blocked and results are written locally. Native iterations,
+custom Test-type mapping and live Xray 8.5.3-j10 behavior remain unverified.
+
+The candidate updates only version literals/artifact filenames in publish.yml;
+reviewed-SHA checks, artifact hashes, pypi environment, permissions and opt-in
+remain intact. No publication, deployment or merge is part of candidate preparation.
+Independent review and exact-head CI are required before the standing maintainer
+authorization may be exercised. Current evidence and state are in the task ledger.

@@ -3,7 +3,8 @@
 A task is not passing because code was generated, a checkpoint exists or old CI
 was green. Every required profile must have passed on the current relevant content,
 and a fresh independent reviewer must cover every acceptance criterion with no
-unresolved findings. Hosted CI and the human scope review remain PR requirements.
+unresolved findings. Hosted CI and independent scope review remain PR requirements. Standing maintainer
+authorization removes repeated user merge permission, not these acceptance gates.
 
 Use `check --profile NAME --record-dir docs/agent/evidence` to prepare versioned
 receipts and logs for acceptance. Default `.harness/evidence` is local working

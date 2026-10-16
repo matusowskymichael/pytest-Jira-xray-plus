@@ -77,8 +77,9 @@ class TestCase:
         self.status = status
         self.comment = comment or ''
         self.status_str_mapper = status_str_mapper or STATUS_STR_MAPPER_JIRA
-        self.evidences = evidences or []
-        self.defects = defects or []
+        # One report can map to multiple Test keys; each aggregate owns its lists.
+        self.evidences = list(evidences or [])
+        self.defects = list(defects or [])
 
     def merge(self, other: 'TestCase') -> None:
         """
