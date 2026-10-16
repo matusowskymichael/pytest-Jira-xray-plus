@@ -15,7 +15,9 @@
   and local desktop/mobile browser. Mypy and changed-file Ruff pass. Six badge
   image URLs/targets and GitHub/PyPI renderer output reverified with normal TLS.
 - **Digest:** `e4f37e5a3fe166c5455083334d45a2e109cc038d531552fc433192d503e701df`.
-- **Gate:** final-head CI and fresh independent review are required before merge
+- **Gate:** independent reviewer /root/review_badged_package_release passed head
+  850c4c9 and the recorded digest; all six exact-head CI runs passed. Acceptance
+  is recorded. Evidence-only acceptance commit CI remains required before merge
   and publication. Existing scoped permission approval remains valid; do not ask
   again. Recheck 0.1.6 availability immediately before publishing.
 - **Next:** `python tools/agent.py preflight`; obtain independent review and verify final CI.
