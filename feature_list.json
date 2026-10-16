@@ -84,11 +84,17 @@
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-RELEASE-001-docs-c0c1118fae62.json",
+        "docs/agent/evidence/XRAY-RELEASE-001-harness-ef37767e54b0.json",
+        "docs/agent/evidence/XRAY-RELEASE-001-offline-4d87336a0fd9.json",
+        "docs/agent/evidence/XRAY-RELEASE-001-package-f76d42af777b.json",
+        "docs/agent/evidence/XRAY-RELEASE-001-tests-0bbbac8b16a1.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "python tools/agent.py check --profile tests"
+      "next_action": "python tools/agent.py preflight"
     }
   ]
 }
