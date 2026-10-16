@@ -1,4 +1,4 @@
-# Independently accepted — collection lookup
+# Merged, unreleased — collection lookup
 
 - Task XRAY-PERF-001; branch perf/collection-key-lookup; baseline a18e361 (0.1.6).
 - [PR #15](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15).
@@ -22,8 +22,11 @@
 - Independent reviewer /root/review_duplicate_lookup_optimization passed exact
   head 7e2f468 and digest; all six exact-head CI runs passed. Review recorded in
   [acceptance evidence](docs/agent/evidence/XRAY-PERF-001-independent-review.json).
-- Next: verify acceptance-commit CI, merge PR #15, then verify main CI. Keep under
-  Unreleased and PyPI 0.1.6 unchanged; no publication or permission change.
+- PR #15 merged at `8ced785c86aef3da57f68174884c9a481fbf3c3c`; tree exactly
+  matches accepted commit `0ad82d5e59837c5431fd925585e440598ed48aea`. All six
+  acceptance-commit CI runs passed. Main CI is being verified after merge.
+- Next: verify final main CI and remote SHA; retain Unreleased and PyPI 0.1.6
+  unchanged. No publication or permission change.
   Existing authorization ends Oct 18 UAE.
 - Limits: synthetic validation only; Generic on-prem Xray 8.5.3-j10/custom Automatic
   live mapping unverified; native iterations unsupported. No workplace/private data,
