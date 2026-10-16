@@ -83,11 +83,17 @@
         "pyproject.toml": "34c8fdfd889d39ca460bcfd469ee062b8fbe9981a84316c9b4f3cbd442141a95",
         ".github/workflows/publish.yml": "3ef8bdc54fb1787c91859d3bac599371226b21c7a97e50d734146d41c119225f"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-PRODUCT-002-docs-dffe07196c30.json",
+        "docs/agent/evidence/XRAY-PRODUCT-002-harness-1550532cf213.json",
+        "docs/agent/evidence/XRAY-PRODUCT-002-offline-618055a1c2fb.json",
+        "docs/agent/evidence/XRAY-PRODUCT-002-package-b14a23f4cc2e.json",
+        "docs/agent/evidence/XRAY-PRODUCT-002-tests-2f8f2ef20d0f.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "python tools/agent.py check --profile tests"
+      "next_action": "python tools/agent.py preflight"
     }
   ]
 }
