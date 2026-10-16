@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-RELEASE-001",
-      "title": "Verified GitHub releases and measured project status",
-      "source": "docs/agent/task-release-tags.md",
-      "source_sha256": "5e3af66c8febd8ec54babb3c6259bd370d2d1d3ea2264902c316e31709637346",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/13",
+      "id": "XRAY-RELEASE-002",
+      "title": "Publish shared status badges in 0.1.6",
+      "source": "docs/agent/task-release-016.md",
+      "source_sha256": "d5865f3844bbb69fcdef66456dc822ee19db4a2672e6043c459b4c8335092376",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/14",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,12 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Only successful trusted main PyPI publications can create version tags and Releases at the exact published commit",
-        "Artifact, PyPI metadata and public-byte hashes are verified before writes; exact assets and version notes are attached",
-        "Retries resume matching partial state or no-op; conflicting tags/releases/assets and failed publication never overwrite state",
-        "Existing runtime, package version and trusted publishing workflow remain unchanged; additional job permissions require confirmation before enabling",
-        "Synthetic regression tests, beginner release documentation, required profiles and exact-head CI pass before independent review",
-        "Shared status badges and complete subprocess-aware plugin coverage are measured, scoped and linked; GitHub/PyPI rendering and live image URLs are verified without invented percentages or extra access"
+        "Prepare unused 0.1.6 with only version-literal changes to package metadata and trusted publisher; runtime and accepted automation remain unchanged",
+        "README, changelog and release/coverage documentation truthfully describe approved enabled automation, verified backfill and snapshot limits",
+        "All five profiles, installed tutorial commands, shared badge rendering/URLs and exact-head CI pass on the release content",
+        "Preserve independent-review and publication gates; document post-publication artifact, GitHub release and live-doc verification without claiming unperformed checks or bypassing security"
       ],
       "checks": [
         "harness",
@@ -41,9 +39,10 @@
       "preserve": {
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
-        ".github/workflows/publish.yml": "3ef8bdc54fb1787c91859d3bac599371226b21c7a97e50d734146d41c119225f",
-        "pyproject.toml": "34c8fdfd889d39ca460bcfd469ee062b8fbe9981a84316c9b4f3cbd442141a95",
+        ".github/workflows/github-release.yml": "c09e3684b29abe7b73f00473503cc184ffe9d1d83772f1baa1941e0c2b7edd07",
+        ".github/workflows/tests.yml": "2a63f790d2de782cdfad6c635816d8824cb6fdd01b46e494a48ef7e09d8a860e",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
+        "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "src/pytest_xray/case_report.py": "98d33dd3d41bdc935b8f6b6712e7de1ae1b58148b87aa5d5cbb00de2c1feba05",
         "src/pytest_xray/case_results.py": "4ec6cda504edde3288bdd67faa6c3d0388db48437209f73f786466ce572dfee4",
@@ -67,6 +66,7 @@
         "tests/test_case_report.py": "ca3c585b525cdb3621add01ef79bb575c1e76dddb315fc1fddfc81eefbf4fc70",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
         "tests/test_comment_limits.py": "d1fec794d9873897932984f257187325b7f3faeec9541e40c4fbd65bc6af1e30",
+        "tests/test_coverage_report.py": "4a9a1e1c933da4c10c6ba7f0494526b1bb62bc64357aceb5a9b3656841e60a43",
         "tests/test_defects_validation.py": "a6c9154d06a71c4f494f2c57d68082d40d06fc21493a776d3938beb09a55e5ea",
         "tests/test_evidence.py": "3efbe44be7d6beb64473c274361841c71364c29b39d9048934e5b3b7cbf62d9d",
         "tests/test_evidence_with_duplicated_ids.py": "32600d1fa02d2cef060d5dea34cb67d5d20209c806fd9490c8cf83a479e8ddb8",
@@ -74,6 +74,7 @@
         "tests/test_model.py": "ac7c1cc9c26a7929e4b38207e5bc90cf7b9ff9e7efed434581eb7856883ee337",
         "tests/test_parameter_details.py": "d856da3c5ada94d7edd5a94d0e8d4fcf8bf6d41daf6a52b9438cdbc09584c1e2",
         "tests/test_release_readiness.py": "c901fb1cae5e2293ab2cdad54a8c3132092c73922e746826b3d5dee42ff00c59",
+        "tests/test_tag_release.py": "ffcacd1d121c3b08d8ca6ef3e74a8743fca6b7c3a189aee0217f59b331b1448a",
         "tests/test_xray_plugin.py": "e294d3fcaf7323cc11d83f17a21c5df973020d66fdc361a09797886d4193373d",
         "tools/agent.py": "66468bee1753996dc0f44ec7162ba7e2593263da731feb69bb35470298bdc1af",
         "tools/build_release.py": "d4f190ee00865e8327af57ae6b3ed99dd30209c5da6ad58f4c1f30544c07fb34",
@@ -81,18 +82,22 @@
         "tools/check_docs_links.py": "e59e0e721adedb7d8d39b92c51cb20efb7c15fe129cc419e5b360768542f49a7",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
         "tools/check_installed_usage.py": "653413c4ee4fc39f5482b8db69b8a9e23a71320215536e508b45f9a06dcc88d1",
+        "tools/measure_coverage.py": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
+        "tools/prepare_docs_site.py": "0452ebe778f4fb61398aaa264ef495ce1c093a226e177193513a47ab24407d2c",
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
+        "tools/status_badges.py": "8dd904d10e291138096ed7d62cdbb8d2bfcdcbbd7a8254d20709fa4fe03b37ab",
+        "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-RELEASE-001-docs-c0c1118fae62.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-harness-ef37767e54b0.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-offline-4d87336a0fd9.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-package-f76d42af777b.json",
-        "docs/agent/evidence/XRAY-RELEASE-001-tests-0bbbac8b16a1.json"
+        "docs/agent/evidence/XRAY-RELEASE-002-docs-3a6608ccbe99.json",
+        "docs/agent/evidence/XRAY-RELEASE-002-harness-a759b5139c4c.json",
+        "docs/agent/evidence/XRAY-RELEASE-002-offline-ccef96a6e40a.json",
+        "docs/agent/evidence/XRAY-RELEASE-002-package-af2bbf80c1c5.json",
+        "docs/agent/evidence/XRAY-RELEASE-002-tests-5f49855c6656.json"
       ],
-      "review": "docs/agent/evidence/XRAY-RELEASE-001-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-RELEASE-002-independent-review.json",
       "blocker": "",
       "next_action": "python tools/agent.py preflight"
     }

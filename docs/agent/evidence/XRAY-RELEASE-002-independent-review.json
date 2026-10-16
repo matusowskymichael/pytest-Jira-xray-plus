@@ -1,0 +1,19 @@
+{
+  "task": "XRAY-RELEASE-002",
+  "digest": "e4f37e5a3fe166c5455083334d45a2e109cc038d531552fc433192d503e701df",
+  "revision": "850c4c9fd98d0884fd86cddffaae658a5d3c4c35",
+  "timestamp": "2026-10-16T13:55:42.640247+00:00",
+  "reviewer": "/root/review_badged_package_release",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Prepare unused 0.1.6 with only version-literal changes to package metadata and trusted publisher; runtime and accepted automation remain unchanged",
+    "README, changelog and release/coverage documentation truthfully describe approved enabled automation, verified backfill and snapshot limits",
+    "All five profiles, installed tutorial commands, shared badge rendering/URLs and exact-head CI pass on the release content",
+    "Preserve independent-review and publication gates; document post-publication artifact, GitHub release and live-doc verification without claiming unperformed checks or bypassing security"
+  ],
+  "source": "Parent thread 01a12a8b-3ef6-705b-9250-4b8889b0701e relayed independent PASS for this exact head/digest. Builder transcription, not builder-authored review.",
+  "scope": "Static/evidence review: narrow version/docs changes, preserved runtime/dependencies/permissions/tooling, six badges, README/changelog, five profiles, 253 tests/19 subtests, 14 installed commands and matching synthetic merge tree. Verified CI runs 38910755264/38910755443/38910755671.",
+  "limits": "No independent live Xray or browser verification claimed. Public PyPI version availability must be rechecked immediately before publishing."
+}
