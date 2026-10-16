@@ -93,3 +93,6 @@ dmypy.json
 
 # Generated documentation site sources
 .docs-source/
+
+# Repository harness working evidence and owned check environments
+.harness/

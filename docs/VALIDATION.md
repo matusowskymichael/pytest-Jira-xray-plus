@@ -1,4 +1,7 @@
-# Validation and focused review
+# Historical alpha validation and focused review
+
+This records the original alpha baseline, not current release/harness verification.
+See [release evidence](RELEASE-READINESS.md) and [current checks](agent/testing.md).
 
 Local validation: Python 3.12, pytest 9.1.1, pytest-xdist 3.8.0,
 pytest-rerunfailures 16.7. **69 tests passed** in a fresh environment installed
