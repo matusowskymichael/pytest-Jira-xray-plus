@@ -1,3 +1,13 @@
+0.1.4 [2026-10-16]
+==================
+- Isolate evidence and defect list ownership per mapped Jira Test key. A later case
+  for one key no longer changes another key's attachments or defects.
+- Prevent attachment inflation when parameter cases map to the same multiple keys;
+  retain legitimate identical attachment occurrences, status precedence and comments.
+- Add serial/xdist offline regressions for mixed/shared mappings in both orders.
+- Document repository-specific standing maintenance authorization without weakening
+  independent review, evidence, CI or trusted-publishing safeguards.
+
 0.9.4 [2026-04-24]
 ==================
 - Fixed missing test evidences for tests with same Jira XRAY ID

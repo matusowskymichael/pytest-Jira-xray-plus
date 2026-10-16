@@ -1,0 +1,48 @@
+{
+  "task": "XRAY-PRODUCT-001",
+  "digest": "6963095b04d990f7b5c3b6d862cc4da9d4da56359aadde79c42bec1effe7e76c",
+  "revision": "78b7855d464d888b136bccb8d68e33c96562e628",
+  "timestamp": "2026-10-16T07:32:33.353713+00:00",
+  "timestamp_meaning": "Time the parent-supplied verdict was recorded; original review timestamp not supplied.",
+  "reviewer": "review_evidence_isolation_fix",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Minimal ownership fix preserves duplicate attachments, defect deduplication, statuses and comments",
+    "Serial and xdist offline regressions cover mixed and shared mappings in both orders",
+    "Usage guide, changelog and repository-only maintainer authorization are current",
+    "Dependencies, unrelated runtime, publishing permissions and safety gates preserved",
+    "All required profiles and exact-head CI pass; independent review before merge or release"
+  ],
+  "recorded_by": "codex-builder",
+  "scope": "Independent static review plus hosted execution evidence and verification of all 13 log hashes.",
+  "limitations": [
+    "No independent test execution by reviewer.",
+    "No live Xray testing.",
+    "Parent-relayed verdict transcribed by implementer, not a builder-authored review or signed GitHub approval."
+  ],
+  "provenance": {
+    "source_thread_id": "01a12a8b-3ef6-705b-9250-4b8889b0701e",
+    "source_file": "docs/agent/evidence/XRAY-PRODUCT-001-review-source.txt",
+    "source_sha256": "712ffa90f0baa1d5d51c99548cd52cbc99893d0b4c748aa953abf6491a04d86b",
+    "task_source": "docs/agent/task-product-001.md",
+    "task_source_sha256": "d775ffacd062c0e9fa0e124cfaf093a3ec587cf865a8aa71cad818ab5c0b075a",
+    "scope_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/11"
+  },
+  "evidence": [
+    "docs/agent/evidence/XRAY-PRODUCT-001-docs-62af8000e9a0.json",
+    "docs/agent/evidence/XRAY-PRODUCT-001-harness-a6f2ab601a46.json",
+    "docs/agent/evidence/XRAY-PRODUCT-001-offline-4a38b5bf27fc.json",
+    "docs/agent/evidence/XRAY-PRODUCT-001-package-e4ceb528e4f7.json",
+    "docs/agent/evidence/XRAY-PRODUCT-001-tests-e37efc0b0aad.json"
+  ],
+  "hosted_runs": [
+    38858334539,
+    38858334371,
+    38858334361,
+    38858329042,
+    38858328970,
+    38858329089
+  ]
+}

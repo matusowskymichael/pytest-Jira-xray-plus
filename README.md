@@ -15,9 +15,11 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide accompanies the **0.1.3 documentation patch**, which confirms Generic
-as the target Xray Test type. Runtime behavior is unchanged from 0.1.2; the examples
-also work with that version. Installation selects the latest published version.
+This guide covers **0.1.4 attachment isolation**, retaining Generic as the target
+Xray Test type. The examples also work with 0.1.2 and 0.1.3; the multi-key attachment
+isolation fix requires 0.1.4 or later. Installation selects the latest published
+version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
+for availability.
 Offline previews still require neither network access nor credentials.
 
 ## Jira/Xray prerequisites
@@ -693,6 +695,19 @@ Expected: `2 passed`. `xray.json` contains `info.revision: "tutorial-revision"`
 and two evidence entries, one per case, on the combined Test result. The evidence
 text is encoded in the payload. These are Test Run attachments, not per-iteration
 attachments. `cases.json` is not written by this command.
+
+When a case maps to multiple Jira Test keys, each key keeps its own evidence and
+defect lists. For example, case 1 mapped to `SYN-1` and `SYN-2` with `BUG-1`, followed
+by case 2 mapped only to `SYN-1` with `BUG-2`, gives `SYN-1` both cases' attachments
+and defects; `SYN-2` receives only case 1's. Two parameter cases both mapped to both
+keys produce two attachment occurrences per key, even when their filenames and
+contents are identical. Defect identifiers are still de-duplicated per key.
+
+Version 0.1.4 fixes list sharing that could leak later attachments/defects into an
+unrelated key or inflate attachment counts. It changes neither status precedence
+nor comments, and needs no new flags. Use `--allow-duplicate-ids` when multiple
+cases reuse a key. The fix applies to serial and xdist file exports and the same
+payload used for upload; live server behavior has not been revalidated.
 
 `pytest_xray_results` edits the final legacy payload before archival and comment
 bounds are applied. The report hook attaches evidence after pytest creates each
