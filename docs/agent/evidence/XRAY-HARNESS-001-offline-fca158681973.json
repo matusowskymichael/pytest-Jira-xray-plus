@@ -1,0 +1,34 @@
+{
+  "task": "XRAY-HARNESS-001",
+  "profile": "offline",
+  "digest": "53e91683d185163681cee4e69d28d8bdeefc57046491e077f28eafcaa96fc70c",
+  "revision": "fe3b0a33882c6aea05521065208e8a33356be78e",
+  "timestamp": "2026-10-16T05:29:22.520847+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/reproduce.py",
+      "src",
+      "--details"
+    ],
+    [
+      "{python}",
+      "tools/validate_offline.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.382,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-offline-fca158681973-0.log",
+      "log_sha256": "a130c5cbcd0ff00ea6ad6c5cb53e67a8e94941b56054026d76a4b01f75193341"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.626,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-offline-fca158681973-1.log",
+      "log_sha256": "f3a6c7bb9eff35d7c632f4845321534f28230400005fa8ebf4ef100588df7a24"
+    }
+  ],
+  "status": "passed"
+}

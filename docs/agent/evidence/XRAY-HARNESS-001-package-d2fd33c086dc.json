@@ -1,0 +1,77 @@
+{
+  "task": "XRAY-HARNESS-001",
+  "profile": "package",
+  "digest": "53e91683d185163681cee4e69d28d8bdeefc57046491e077f28eafcaa96fc70c",
+  "revision": "fe3b0a33882c6aea05521065208e8a33356be78e",
+  "timestamp": "2026-10-16T05:29:39.132312+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/build_release.py",
+      ".harness/dist"
+    ],
+    [
+      "{python}",
+      "-m",
+      "twine",
+      "check",
+      ".harness/dist/pytest_jira_xray_plus-0.1.3-py3-none-any.whl",
+      ".harness/dist/pytest_jira_xray_plus-0.1.3.tar.gz"
+    ],
+    [
+      "{python}",
+      "-m",
+      "venv",
+      "--clear",
+      ".harness/installed"
+    ],
+    [
+      "{root}/.harness/installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      ".harness/dist/pytest_jira_xray_plus-0.1.3-py3-none-any.whl",
+      "pytest-xdist==3.8.0",
+      "pytest-rerunfailures==16.7"
+    ],
+    [
+      "{python}",
+      "tools/check_installed_usage.py",
+      "{root}/.harness/installed/bin/python",
+      ".harness/dist/pytest_jira_xray_plus-0.1.3-py3-none-any.whl"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.126,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-package-d2fd33c086dc-0.log",
+      "log_sha256": "7d7f166ce15db9794100691ef4735d719d6b035016d47f90836d9cccb3049a4d"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.214,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-package-d2fd33c086dc-1.log",
+      "log_sha256": "b71f6c9c0df403689255399c4807ca37a05f9e4830f8486ddc547d270f9f4f5b"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.843,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-package-d2fd33c086dc-2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 3.168,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-package-d2fd33c086dc-3.log",
+      "log_sha256": "d356717f8e8cd1a3ae4b477e4a28fbd1bb8d4990a4c4ec969587990ea8a38d4b"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 4.246,
+      "log": "docs/agent/evidence/XRAY-HARNESS-001-package-d2fd33c086dc-4.log",
+      "log_sha256": "45a8c58f6dbf60cdff31c588714aa2f6a2d5577de39e1b22ad75b25c1e7cad3d"
+    }
+  ],
+  "status": "passed"
+}
