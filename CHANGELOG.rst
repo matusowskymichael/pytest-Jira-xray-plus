@@ -1,3 +1,10 @@
+Unreleased
+==========
+- Propose automatic version tags and GitHub Releases after verified PyPI publication,
+  with exact artifacts, version notes, safe retries and conflict protection.
+- Add beginner release/backfill instructions; enabling the new job requires
+  explicit permission confirmation and independent review. No package version bump.
+
 0.1.5 [2026-10-16]
 ==================
 - Validate malformed defects markers during collection when Xray reporting is on,

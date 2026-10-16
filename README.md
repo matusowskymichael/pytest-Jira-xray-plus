@@ -766,3 +766,10 @@ distinguishes independent checks from user-reported validation.
 The [sandbox capability procedure](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/MINIMAL-SANDBOX-CHECK.md)
 is optional research, not implemented native support. It requests no private data.
 Publishing uses the existing manual workflow, reviewed commit and artifact hashes.
+
+
+Proposed version tagging adds `vX.Y.Z` and a matching GitHub Release after a
+successful PyPI publication, with the exact published wheel and source archive.
+It remains pending independent review and permission confirmation. Maintainers:
+see [tagged release setup and retry instructions](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASING.md).
+Package installation and Jira/Xray configuration are unchanged.

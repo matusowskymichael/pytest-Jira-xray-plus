@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PRODUCT-002",
-      "title": "Validate defects markers before fixtures and upload",
-      "source": "docs/agent/task-product-002.md",
-      "source_sha256": "901ea84ee4f50c3bcbf0d0144f5fe01bbe72b7d9175ab3edefb97437e6fe07ba",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/12",
+      "id": "XRAY-RELEASE-001",
+      "title": "Tag verified PyPI publications with matching GitHub Releases",
+      "source": "docs/agent/task-release-tags.md",
+      "source_sha256": "1ecf5816164455b026ecd264b31ffd78149209ba99fd2d81cc7cace7624257b8",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -23,11 +23,11 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Malformed defects fail during collection when Xray reporting is enabled, without leaking values",
-        "Invalid configuration prevents fixtures and upload in serial/xdist and preview/upload modes",
-        "Valid lists including empty lists retain original values; disabled reporting remains unaffected",
-        "Beginner usage, changelog and security instructions updated; only scoped runtime/version changes",
-        "All required profiles, installed examples and exact-head CI pass before independent acceptance"
+        "Only successful trusted main PyPI publications can create version tags and Releases at the exact published commit",
+        "Artifact, PyPI metadata and public-byte hashes are verified before writes; exact assets and version notes are attached",
+        "Retries resume matching partial state or no-op; conflicting tags/releases/assets and failed publication never overwrite state",
+        "Existing runtime, package version and trusted publishing workflow remain unchanged; additional job permissions require confirmation before enabling",
+        "Synthetic regression tests, beginner release documentation, required profiles and exact-head CI pass before independent review"
       ],
       "checks": [
         "harness",
@@ -39,7 +39,9 @@
       "preserve": {
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
+        ".github/workflows/publish.yml": "3ef8bdc54fb1787c91859d3bac599371226b21c7a97e50d734146d41c119225f",
         ".github/workflows/tests.yml": "3416ede2e775d5f114fa04bbf4376c233bb9f2786659065f6d7558b54ad57154",
+        "pyproject.toml": "34c8fdfd889d39ca460bcfd469ee062b8fbe9981a84316c9b4f3cbd442141a95",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "9f18be7ae2665b5b4cba0c664c4932b63ce2e8814d0b36867cf9eac5559b5232",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -53,6 +55,7 @@
         "src/pytest_xray/helper.py": "f780d53152971aa134e9a4d417563dc8e5560ecc349aa4fb9a7490f353399548",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "c6c45edaac19de5b4829af3e2ad3b656d8f8414777b2b1aad27997337a61ff1f",
+        "src/pytest_xray/xray_plugin.py": "4204674f31f35fafca8be451dbdb80f912774af1a6aef2121c9619ae831a189c",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/agent/test_harness.py": "37e8d0443ad4d064c7c9bc8ac0a94d224e46b5d59cd568ec364800e294a2eb1f",
@@ -64,6 +67,7 @@
         "tests/test_case_report.py": "ca3c585b525cdb3621add01ef79bb575c1e76dddb315fc1fddfc81eefbf4fc70",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
         "tests/test_comment_limits.py": "d1fec794d9873897932984f257187325b7f3faeec9541e40c4fbd65bc6af1e30",
+        "tests/test_defects_validation.py": "a6c9154d06a71c4f494f2c57d68082d40d06fc21493a776d3938beb09a55e5ea",
         "tests/test_evidence.py": "3efbe44be7d6beb64473c274361841c71364c29b39d9048934e5b3b7cbf62d9d",
         "tests/test_evidence_with_duplicated_ids.py": "32600d1fa02d2cef060d5dea34cb67d5d20209c806fd9490c8cf83a479e8ddb8",
         "tests/test_helper.py": "e77a9f50542a3f1c5af29d36d63bbdc38b97406c0845be02b54893a6de371950",
@@ -77,23 +81,14 @@
         "tools/check_docs_links.py": "e59e0e721adedb7d8d39b92c51cb20efb7c15fe129cc419e5b360768542f49a7",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
         "tools/check_installed_usage.py": "653413c4ee4fc39f5482b8db69b8a9e23a71320215536e508b45f9a06dcc88d1",
-        "tools/prepare_docs_site.py": "913feddee1d71ce0b4c782eba9eac2019624f1785e77635273ff1b48f1ca501a",
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
-        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
-        "pyproject.toml": "34c8fdfd889d39ca460bcfd469ee062b8fbe9981a84316c9b4f3cbd442141a95",
-        ".github/workflows/publish.yml": "3ef8bdc54fb1787c91859d3bac599371226b21c7a97e50d734146d41c119225f"
+        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-PRODUCT-002-docs-dffe07196c30.json",
-        "docs/agent/evidence/XRAY-PRODUCT-002-harness-1550532cf213.json",
-        "docs/agent/evidence/XRAY-PRODUCT-002-offline-618055a1c2fb.json",
-        "docs/agent/evidence/XRAY-PRODUCT-002-package-b14a23f4cc2e.json",
-        "docs/agent/evidence/XRAY-PRODUCT-002-tests-2f8f2ef20d0f.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-PRODUCT-002-independent-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "python tools/agent.py preflight"
+      "next_action": "python tools/agent.py check --profile tests"
     }
   ]
 }
