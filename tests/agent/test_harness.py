@@ -102,6 +102,126 @@ class HarnessTests(unittest.TestCase):
         )
         return name
 
+    def accept_fixture(self, task):
+        """Produce actual successful command receipts, with synthetic review data."""
+        command = [[sys.executable, '-c', 'print("fixture check")']]
+        with patch.object(agent, 'commands', return_value=command), redirect_stdout(io.StringIO()):
+            self.assertEqual(agent.check(self.root, task, 'harness', 'docs/agent/evidence'), 0)
+        name = next((self.root / 'docs/agent/evidence').glob(task['id'] + '-harness-*.json'))
+        review_name = 'docs/agent/evidence/' + task['id'] + '-review.json'
+        agent.write(
+            self.root / review_name,
+            dict(
+                task=task['id'],
+                digest=agent.fingerprint(self.root, task),
+                revision=agent.git(self.root, 'rev-parse', 'HEAD'),
+                timestamp=agent.stamp(),
+                independent=True,
+                reviewer='independent-fixture',
+                verdict='pass',
+                findings=[],
+                acceptance=task['acceptance'],
+            ),
+        )
+        task.update(state='passing', evidence=[name.relative_to(self.root).as_posix()], review=review_name)
+        return command
+
+    def test_accepted_history_in_fresh_shallow_clone(self):
+        command = self.accept_fixture(self.task)
+        self.save()
+        agent.git(self.root, 'add', '.')
+        agent.git(self.root, 'commit', '-qm', 'accepted evidence only')
+        with tempfile.TemporaryDirectory() as directory:
+            clone = Path(directory) / 'clone'
+            subprocess.run(['git', 'clone', '-q', '--depth=1', self.root.as_uri(), str(clone)], check=True)
+            data = agent.read(clone / 'feature_list.json')
+            with patch.object(agent, 'commands', return_value=command):
+                with self.assertRaisesRegex(ValueError, 'fetch --unshallow'):
+                    agent.validate(clone, data)
+                agent.git(clone, 'fetch', '--unshallow')
+                agent.validate(clone, data)
+                self.assertEqual(agent.fingerprint(clone, data['tasks'][0]), agent.fingerprint(self.root, self.task))
+        workflow = (REPOSITORY / '.github/workflows/agent.yml').read_text()
+        self.assertIn('fetch-depth: 0', workflow)
+
+    def test_reopen_shared_content_and_dependents_in_either_order(self):
+        for dependent_state in ('passing', 'in_progress'):
+            for first in ('XRAY-TEST-001', 'XRAY-TEST-002'):
+                with self.subTest(dependent_state=dependent_state, first=first):
+                    # All task proofs cover shared src; C is unrelated to the A -> B dependency.
+                    tasks = [copy.deepcopy(self.task) for _ in range(3)]
+                    for i, task in enumerate(tasks):
+                        task.update(id=f'XRAY-TEST-{i + 1:03}', state='not_started', evidence=[], review=None)
+                    tasks[1]['prerequisites'] = [tasks[0]['id']]
+                    self.data['tasks'] = tasks
+                    for task in tasks:
+                        command = self.accept_fixture(task)
+                    tasks[1]['state'] = dependent_state
+                    with patch.object(agent, 'commands', return_value=command):
+                        agent.validate(self.root, self.data)
+                        (self.root / 'src/model.py').write_text(first + dependent_state)
+                        self.assertEqual(self.cli('preflight', '--task', first), 1)
+                        self.assertEqual(self.cli('reopen', '--task', first, '--summary', 'shared source changed'), 0)
+                        self.data = agent.read(self.root / 'feature_list.json')
+                        agent.validate(self.root, self.data)
+                        current = {t['id']: t for t in self.data['tasks']}
+                        self.assertEqual(current['XRAY-TEST-002']['state'], 'blocked')
+                        self.assertEqual(current['XRAY-TEST-003']['state'], 'blocked')
+                        self.assertNotEqual(current['XRAY-TEST-001']['state'], 'passing')
+                        self.assertEqual(
+                            self.cli('reopen', '--task', 'XRAY-TEST-001', '--summary', 'repair prerequisite'), 0
+                        )
+                        self.data = agent.read(self.root / 'feature_list.json')
+                        self.assertEqual(self.data['tasks'][0]['state'], 'regression')
+                        self.assertEqual(self.cli('start', '--task', 'XRAY-TEST-002'), 1)
+                        # Old evidence cannot establish acceptance after invalidation.
+                        with self.assertRaisesRegex(ValueError, 'stale'):
+                            agent.validate_acceptance(self.root, tasks[0], tasks[0]['evidence'], tasks[0]['review'])
+                    for path in (self.root / 'docs/agent/evidence').iterdir():
+                        path.unlink()
+
+    def test_reopen_failed_validation_does_not_write_partial_ledger(self):
+        self.task['preserve'] = {'src/model.py': agent.file_hash(self.root / 'src/model.py')}
+        self.save()
+        before = (self.root / 'feature_list.json').read_bytes()
+        (self.root / 'src/model.py').write_text('protected change')
+        self.assertEqual(self.cli('reopen', '--summary', 'cannot bypass preservation'), 1)
+        self.assertEqual(before, (self.root / 'feature_list.json').read_bytes())
+
+    def test_package_inputs_mutation_and_deletion_change_digest(self):
+        self.task['checks'].append('package')
+        names = [
+            'MANIFEST.in',
+            'LICENSE',
+            'NOTICE',
+            'README.rst',
+            'CHANGELOG.rst',
+            'examples/extra.py',
+            'tools/build_release.py',
+            'docs/build-input.txt',
+            'tests/fixture.txt',
+            'src/model.py',
+            'README.md',
+            'pyproject.toml',
+        ]
+        for name in names:
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('original')
+        agent.git(self.root, 'add', '.')
+        baseline = agent.fingerprint(self.root, self.task)
+        for name in names:
+            with self.subTest(name=name):
+                path = self.root / name
+                path.write_text('mutation')
+                self.assertNotEqual(baseline, agent.fingerprint(self.root, self.task))
+                path.unlink()
+                self.assertNotEqual(baseline, agent.fingerprint(self.root, self.task))
+                path.write_text('original')
+        (self.root / '.gitignore').write_text('examples/ignored.txt\n')
+        (self.root / 'examples/ignored.txt').write_text('copied by build_release despite gitignore')
+        self.assertNotEqual(baseline, agent.fingerprint(self.root, self.task))
+
     def test_valid_schema_and_preflight(self):
         self.assertEqual(self.cli('preflight'), 0)
 

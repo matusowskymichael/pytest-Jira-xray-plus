@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import hashlib
 import json
 import os
@@ -19,6 +20,9 @@ PROFILES = ('harness', 'tests', 'offline', 'package', 'docs', 'lint-baseline', '
 STATES = {'not_started', 'in_progress', 'blocked', 'review_pending', 'passing', 'regression'}
 ACTIVE = {'in_progress', 'review_pending', 'regression'}
 COMMON = ('AGENTS.md', 'tools/agent.py', 'docs/agent', 'pyproject.toml', '.github/workflows')
+PACKAGE_FILES = ('pyproject.toml', 'MANIFEST.in', 'LICENSE', 'NOTICE', 'README.md', 'README.rst', 'CHANGELOG.rst')
+PACKAGE_DIRS = ('src', 'docs', 'tests', 'tools', 'examples')
+BUILD_IGNORES = ('__pycache__', '*.pyc', '*.egg-info', '.pytest_cache')
 EXCLUDED = ('feature_list.json', 'PROGRESS.md', 'docs/agent/evidence', '.harness')
 
 
@@ -99,17 +103,28 @@ def fingerprint(root, task):
         .decode()
         .split('\0')
     )
-    selected = sorted(
-        {
+    prefixes = (*COMMON, *task['scope'])
+    if 'package' in task['checks']:
+        prefixes += (*PACKAGE_FILES, *PACKAGE_DIRS)
+        paths.extend((*PACKAGE_FILES, *PACKAGE_DIRS))
+        # build_release copies the filesystem, including Git-ignored build inputs.
+        for directory in PACKAGE_DIRS:
+            base = safe_path(root, directory)
+            paths.extend(
+                path.relative_to(root).as_posix() for path in base.rglob('*') if path.is_file() or path.is_symlink()
+            )
+        paths = [
             p
             for p in paths
-            if p and any(under(p, x) for x in (*COMMON, *task['scope'])) and not any(under(p, x) for x in EXCLUDED)
-        }
+            if not any(fnmatch.fnmatch(part, pattern) for part in Path(p).parts for pattern in BUILD_IGNORES)
+        ]
+    selected = sorted(
+        {p for p in paths if p and any(under(p, x) for x in prefixes) and not any(under(p, x) for x in EXCLUDED)}
     )
     payload = {'contract': contract(task), 'files': {}}
     for name in selected:
         path = safe_path(root, name)
-        payload['files'][name] = file_hash(path) if path.is_file() else 'MISSING'
+        payload['files'][name] = file_hash(path) if path.is_file() else ('DIRECTORY' if path.is_dir() else 'MISSING')
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
 
 
@@ -241,6 +256,20 @@ def command_contract(root, profile):
     ]
 
 
+def require_revision(root, revision):
+    require(isinstance(revision, str) and re.fullmatch(r'[a-f0-9]{40}', revision), 'invalid evidence revision')
+    result = subprocess.run(
+        ['git', 'cat-file', '-e', revision + '^{commit}'],
+        cwd=root,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    if result.returncode:
+        shallow = git(root, 'rev-parse', '--is-shallow-repository') == 'true'
+        remedy = 'run git fetch --unshallow, then retry' if shallow else 'fetch the recorded history, then retry'
+        raise ValueError(f'evidence revision unavailable: {revision}; {remedy}')
+
+
 def validate_receipt(root, task, name):
     path = safe_path(root, name)
     require(under(name, 'docs/agent/evidence'), 'accepted evidence must be versioned under docs/agent/evidence')
@@ -249,7 +278,7 @@ def validate_receipt(root, task, name):
     require(receipt['status'] == 'passed' and receipt['profile'] in task['checks'], 'failed/unknown check evidence')
     require(re.fullmatch(r'[a-f0-9]{40}', receipt['revision']), 'invalid tested revision')
     timestamp(receipt['timestamp'])
-    git(root, 'cat-file', '-e', receipt['revision'] + '^{commit}')
+    require_revision(root, receipt['revision'])
     expected = command_contract(root, receipt['profile'])
     require(receipt['commands'] == expected, 'verification commands changed')
     require(len(receipt['results']) == len(expected), 'missing command results')
@@ -270,7 +299,7 @@ def validate_acceptance(root, task, evidence, review_name):
     )
     review = read(safe_path(root, review_name))
     require(re.fullmatch(r'[a-f0-9]{40}', review['revision']), 'invalid reviewed revision')
-    git(root, 'cat-file', '-e', review['revision'] + '^{commit}')
+    require_revision(root, review['revision'])
     require(review['task'] == task['id'] and review['digest'] == fingerprint(root, task), 'stale/wrong-task review')
     require(
         review['independent'] is True
@@ -308,6 +337,35 @@ def validate(root, data):
                 target.is_relative_to(root.resolve()) and target.exists(), f'broken local documentation link: {link}'
             )
     return tasks
+
+
+def reopen(root, tasks, selected, reason):
+    """Invalidate stale proofs and dependents together; never manufacture acceptance."""
+    affected = {selected['id']}
+    for task in tasks.values():
+        if task['state'] == 'passing':
+            try:
+                validate_acceptance(root, task, task['evidence'], task['review'])
+            except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError):
+                affected.add(task['id'])
+    while True:
+        dependents = {task['id'] for task in tasks.values() if set(task['prerequisites']) & affected}
+        expanded = affected | dependents
+        if expanded == affected:
+            break
+        affected = expanded
+    for key in sorted(affected):
+        task = tasks[key]
+        task.update(
+            state='blocked',
+            blocker=f'Reopened {selected["id"]}: {reason}; reverify prerequisites and evidence',
+            next_action=f'python tools/agent.py reopen --task {key} --summary "ready for revalidation"',
+        )
+    if all(tasks[key]['state'] == 'passing' for key in selected['prerequisites']) and not any(
+        task['state'] in ACTIVE for task in tasks.values()
+    ):
+        selected['state'] = 'regression'
+    # Caller performs complete validation before one atomic ledger write.
 
 
 def select(tasks, task_id):
@@ -491,7 +549,10 @@ def main(argv=None):
             elif args.action in ('block', 'reopen'):
                 require(args.summary, 'state change needs --summary')
                 require(args.action != 'block' or task['state'] != 'passing', 'reopen passing work explicitly')
-                task['state'], task['blocker'] = ('blocked' if args.action == 'block' else 'regression'), args.summary
+                if args.action == 'reopen':
+                    reopen(root, tasks, task, args.summary)
+                else:
+                    task['state'], task['blocker'] = 'blocked', args.summary
             else:
                 validate_acceptance(root, task, args.evidence, args.review)
                 task.update(state='passing', evidence=args.evidence, review=args.review, blocker='')

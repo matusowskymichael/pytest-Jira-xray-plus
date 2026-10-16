@@ -57,10 +57,20 @@ changes, preserve useful work, reverify as needed and checkpoint again. Never
 recreate an old absolute directory or reset Git to satisfy a checkpoint.
 
 Passing evidence becomes stale when relevant source, scope or check definitions
-change. `reopen --task ID --summary 'reason'` records regression; revalidate before
-another acceptance. Preserve old receipts as history. Dependencies whose passing
-proof is stale also block validation. No automatic rollback or unattended repair.
+change. `reopen --task ID --summary 'reason'` atomically invalidates the selected
+task, all other stale passing proofs, and their transitive dependents. Affected
+tasks become blocked; the selected task becomes regression only if its prerequisites
+pass and no unrelated task is active. Reopening a dependent first is safe: reopen
+and repair its prerequisite next. Old receipts remain historical references and
+cannot satisfy acceptance after relevant content changes. Full validation precedes
+the single ledger write, so failure cannot persist partial recovery. No automatic
+rollback or unattended repair.
 
 Commit reviewed source and handoff records, push only when authorized, and cite
 actual hosted CI for that head. This task ends with a draft PR and independent
 review pending, not a merge, package release or Pages deployment.
+
+Accepted receipts/reviews may identify earlier commits. Harness CI fetches full
+history (`fetch-depth: 0`). In a shallow local clone, missing evidence history
+blocks validation with `git fetch --unshallow` as the next command. Fetch history
+explicitly, then retry preflight; do not discard revision checks or rewrite proof.

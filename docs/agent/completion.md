@@ -41,3 +41,11 @@ The current task stays in progress/review pending until that real review happens
 
 No local check proves live Xray 8.5.3-j10 behavior. Generic is confirmed; native
 iterations/datasets are still unsupported. No harness result changes release scope.
+
+Package-profile digests include the complete fixed file/directory input set of
+`build_release.py`, including MANIFEST.in, license/notice, both READMEs, changelog
+and examples. Filesystem enumeration includes Git-ignored inputs copied by that
+builder and applies the same cache exclusions. Evidence/progress remain excluded
+intentionally; archived evidence bytes are not a claim of reproducible release bytes.
+Missing historical evidence commits require fetching history, never accepting an
+unresolvable revision. Reopened dependents must meet the same acceptance checks.
