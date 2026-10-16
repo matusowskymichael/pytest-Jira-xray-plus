@@ -6,7 +6,7 @@
       "title": "Isolate evidence and defects across mapped Test keys",
       "source": "docs/agent/task-product-001.md",
       "source_sha256": "d775ffacd062c0e9fa0e124cfaf093a3ec587cf865a8aa71cad818ab5c0b075a",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/11",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [

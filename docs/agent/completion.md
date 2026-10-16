@@ -31,7 +31,7 @@ authorized fresh reviewer reads scope, diff, receipts and limits without relying
 on the builder's conversation. Then the operator can run:
 
 ```sh
-python tools/agent.py accept --task XRAY-HARNESS-001 --evidence docs/agent/evidence/RECEIPT.json --review docs/agent/evidence/REVIEW.json
+python tools/agent.py accept --task XRAY-PRODUCT-001 --evidence docs/agent/evidence/RECEIPT.json --review docs/agent/evidence/REVIEW.json
 ```
 
 Supply all required profile receipts, not the illustrative single filename above.

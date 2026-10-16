@@ -1,6 +1,7 @@
 # Current maintainer iteration
 
 - **Active task:** XRAY-PRODUCT-001, isolate attachments/defects between mapped Test keys.
+- **Candidate PR:** [#11](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/11).
 - **Branch:** `fix/isolated-test-key-attachments`; one iteration in flight. Scheduled
   rounds must resume this task and its PR, not create a duplicate.
 - **Baseline:** main `a0d92ec86e88f3f82914f7e58d9dd501d123d564`; published 0.1.3.
