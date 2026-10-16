@@ -1,33 +1,34 @@
-# Merged, unreleased — collection lookup
+# Independently accepted — malformed Test-key validation
 
-- Task XRAY-PERF-001; branch perf/collection-key-lookup; baseline a18e361 (0.1.6).
-- [PR #15](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15).
-- Reconciled main instructions, completed ledger/progress, no checkout skills,
-  no open PRs/issues and latest public PyPI 0.1.6 before choosing this scoped task.
-- Two-line runtime change uses a set for membership only; diagnostic list/order,
-  first-offending-item behavior, validation and report grouping remain unchanged.
-- Before patch: six deterministic scaling tests failed, six behavior tests passed.
-  At 512 unique keys, old list lookup needed 130,816 equality comparisons.
-  [Before log](docs/agent/evidence/XRAY-PERF-001-before.log).
-- After patch: all 12 new tests pass, including serial/xdist output. Synthetic
-  benchmark at 1,024 unique keys: baseline 523,776 equality comparisons versus
-  candidate 0 equalities/3,072 hash calls in both duplicate modes. Deliberately
-  distinct hashes isolate lookup growth; no timing threshold or end-to-end claim.
-  [Benchmark](docs/agent/evidence/XRAY-PERF-001-benchmark.json).
-- All five profiles pass on source 8730f0e: 265 tests + 19 subtests, harness,
-  offline validation, package/Twine, all 14 installed README commands and full
-  README rendering, strict docs/link checks and local desktop/mobile browser.
-  Changed-file Ruff and mypy (32 files) pass. Full README/changelog updated.
-- Digest: 847466450908b5d2f2b32f206ddcc276b02e207993054dea0b47acde055d7ee8.
-- Independent reviewer /root/review_duplicate_lookup_optimization passed exact
-  head 7e2f468 and digest; all six exact-head CI runs passed. Review recorded in
-  [acceptance evidence](docs/agent/evidence/XRAY-PERF-001-independent-review.json).
-- PR #15 merged at `8ced785c86aef3da57f68174884c9a481fbf3c3c`; tree exactly
-  matches accepted commit `0ad82d5e59837c5431fd925585e440598ed48aea`. All six
-  acceptance-commit CI runs passed. Main CI is being verified after merge.
-- Next: verify final main CI and remote SHA; retain Unreleased and PyPI 0.1.6
-  unchanged. No publication or permission change.
-  Existing authorization ends Oct 18 UAE.
+- Task XRAY-PRODUCT-003; baseline 3e5f083; PR15 remains Unreleased, PyPI 0.1.6.
+- [Draft PR #16](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/16).
+- [Prioritized audit](docs/agent/BACKLOG.md); [scope](docs/agent/task-test-key-validation.md).
+- Reconciled clean main, current instructions/ledger/progress, no open work, PyPI
+  latest 0.1.6 and all prior main checks before selecting this real failure gap.
+- Before fix: 20 new malformed-key tests failed with INTERNALERROR, seven valid/
+  disabled compatibility checks passed. Durable baseline summary records log hash.
+- Runtime fix extends existing guarded collection validation to Test keys and
+  notifies pytest_deselected before clearing items, per official hook documentation.
+  Does not change duplicate-key policy or valid marker forms. No new key regex.
+- 27 new regressions cover malformed shapes, serial/xdist, no fixtures/uploads,
+  continue-on-collection-errors, deselection notifications, valid forms/order,
+  same-marker deduplication, disabled reporting and collect-only behavior.
+  Focused keys/defects/duplicate suite: 70 passed.
+- All five profiles pass on source a41558c: 292 tests + 19 subtests, harness,
+  offline checks, build/Twine, 14 installed README commands/full metadata rendering,
+  strict docs/links and local desktop/mobile browser. Changed-file Ruff and mypy
+  (33 files) pass. Full README and Unreleased changelog explain recovery.
+- Digest: 582a39b7cce5efe3aa1f031b2d44b66be3cc078ac614e36b38c51fcdd65c3516.
+- Independent review /root/review_test_key_errors PASS supplied by parent at
+  2026-10-16T19:38:47Z, recorded unchanged. Read-only source/CI evidence review,
+  not live Jira validation. All six reviewed-head CI runs passed.
+- Next: verify acceptance-head CI, merge PR16, verify main, then implement
+  reproduced duplicate-policy collection errors. Group related changes into a
+  later reviewed release; no version bump/publication/permission change now.
+- Continuous maintenance continues after this review/milestone boundary, one task
+  in flight. Next candidate: investigate disallowed duplicate collection errors;
+  then benchmark aggregation lookup without breaking public mutable-list semantics.
+  Stop at 2026-10-18 23:59 Asia/Dubai (19:59 UTC), or real blocker/exhausted work.
 - Limits: synthetic validation only; Generic on-prem Xray 8.5.3-j10/custom Automatic
-  live mapping unverified; native iterations unsupported. No workplace/private data,
-  credentials, purchases, accounts, destructive cleanup or security bypass.
+  mapping remains unverified live; native iterations unsupported. No workplace/private
+  data, new access, purchases/accounts, destructive cleanup or security bypass.

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PERF-001",
-      "title": "Bound duplicate Test-key collection lookup cost",
-      "source": "docs/agent/task-collection-lookup.md",
-      "source_sha256": "f8d594ac4f299ba36a89db966d12205525b20de7d3bfba055ecf15f51ea4bf3f",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15",
+      "id": "XRAY-PRODUCT-003",
+      "title": "Controlled collection failures for malformed Test-key markers",
+      "source": "docs/agent/task-test-key-validation.md",
+      "source_sha256": "13fe7a56c34f59a3645a799ca86abbfc1a2059f677ea0aacb046d71ab57957f3",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/16",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Duplicate-key membership scales linearly in deterministic comparison-count tests; synthetic benchmark has no timing threshold",
-        "Preserve diagnostic order, first offending item, repeated-key deduplication, allowed grouping and later malformed-marker validation",
-        "Full beginner README and Unreleased changelog explain unchanged usage and scope; runtime privacy and Generic limitations remain",
-        "All five profiles, installed examples and exact-head CI pass before fresh independent review; no version, dependency, workflow or permission changes"
+        "Malformed Test-key markers yield controlled collection errors before fixtures/tests/upload, including xdist and continue-on-collection-errors",
+        "Preserve accepted key forms, ordering, repeated-key deduplication, duplicate policy, disabled reporting and collect-only behavior",
+        "Beginner README and Unreleased changelog explain recovery and compatibility/privacy limits; prioritized audit backlog is recorded",
+        "All five profiles, installed tutorial and exact-head CI pass before independent review; no version, dependency, workflow or permission changes"
       ],
       "checks": [
         "harness",
@@ -88,17 +88,19 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
         "pyproject.toml": "3378166124cd0716255129f6b14fe6b062e131888f277b3f93067851fc73da08",
-        ".github/workflows/publish.yml": "f10a1f4ce17b0f26401bd3977eefd3d74e9be936ccd3a2751870cbe7d6fa892a"
+        ".github/workflows/publish.yml": "f10a1f4ce17b0f26401bd3977eefd3d74e9be936ccd3a2751870cbe7d6fa892a",
+        "tests/test_collection_lookup.py": "8cd42797ed6f4e44e36624eb2140c53f6d4d7ec0777bc418e34b4d1f1251e14d",
+        "tools/benchmark_collection.py": "73db491e7dc06e039d4d41e7be694ea495992e3ede67a14c2f6eb8375aca021f"
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-PERF-001-harness-2017a58e42e2.json",
-        "docs/agent/evidence/XRAY-PERF-001-tests-798a0f6c587d.json",
-        "docs/agent/evidence/XRAY-PERF-001-offline-e1badfcb96fa.json",
-        "docs/agent/evidence/XRAY-PERF-001-package-3a5fb7a70401.json",
-        "docs/agent/evidence/XRAY-PERF-001-docs-f08c9fcc339e.json"
+        "docs/agent/evidence/XRAY-PRODUCT-003-harness-ddf5bd0e6185.json",
+        "docs/agent/evidence/XRAY-PRODUCT-003-tests-53b292265345.json",
+        "docs/agent/evidence/XRAY-PRODUCT-003-offline-7d33b2ffb01c.json",
+        "docs/agent/evidence/XRAY-PRODUCT-003-package-73bd5c107ca0.json",
+        "docs/agent/evidence/XRAY-PRODUCT-003-docs-1f6a6c6cb6f1.json"
       ],
-      "review": "docs/agent/evidence/XRAY-PERF-001-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-PRODUCT-003-independent-review.json",
       "blocker": "",
       "next_action": "python tools/agent.py preflight"
     }
