@@ -6,7 +6,7 @@
       "title": "Bound duplicate Test-key collection lookup cost",
       "source": "docs/agent/task-collection-lookup.md",
       "source_sha256": "f8d594ac4f299ba36a89db966d12205525b20de7d3bfba055ecf15f51ea4bf3f",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/15",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
