@@ -1289,6 +1289,20 @@ distinguishes independent checks from user-reported validation.
 The <a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/MINIMAL-SANDBOX-CHECK.md">sandbox capability procedure</a>
 is optional research, not implemented native support. It requests no private data.
 Publishing uses the existing manual workflow, reviewed commit and artifact hashes.</p>
+<p>Version tagging adds <code>vX.Y.Z</code> and a matching GitHub Release after a verified
+PyPI publication, with the exact published wheel and source archive. The approved
+workflow is enabled; the 0.1.5 backfill and no-op retry were verified. Maintainers:
+see <a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASING.md">tagged release setup and retry instructions</a>.
+Package installation and Jira/Xray configuration are unchanged.</p>
+<p>The coverage badge is a measured <strong>snapshot of plugin executable lines</strong> in
+<code>src/pytest_xray</code>, from the full synthetic test suite including Python subprocesses.
+Its linked report identifies the exact commit, measurement time and line/branch
+counts; it can lag main and is not a live Xray compatibility claim. Tests and
+repository tools are outside this denominator. Python badges describe the tested
+3.12–3.14 matrix; installation requires Python 3.12+. See
+<a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/COVERAGE.md">coverage scope and report updates</a>.</p>
+<p>Version, tested Python and licence images are first-party <a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/gh-pages/status/metadata.json">metadata snapshots</a>, refreshed after releases.
+The test and documentation images show live main-branch workflow status.</p>
 
 
 

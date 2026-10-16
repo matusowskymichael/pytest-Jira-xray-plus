@@ -1,7 +1,7 @@
 {
-  "verified_utc": "2026-10-16T12:51:03.622204+00:00",
-  "pypi_source": "https://pypi.org/pypi/pytest-jira-xray-plus/json",
-  "published_version": "0.1.5",
+  "verified_utc": "2026-10-16T14:04:42.383799+00:00",
+  "pypi_source": "https://pypi.org/pypi/pytest-jira-xray-plus/json?release_verification=1792159482306336325",
+  "published_version": "0.1.6",
   "tested_python": [
     "3.12",
     "3.13",
