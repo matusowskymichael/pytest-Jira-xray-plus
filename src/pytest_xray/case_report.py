@@ -90,6 +90,7 @@ class CaseReportPlugin:
                 content = json.dumps(
                     self.results.as_dict(int(session.exitstatus)), indent=2, ensure_ascii=True, allow_nan=False
                 )
+                self.path.parent.mkdir(parents=True, exist_ok=True)
                 with tempfile.NamedTemporaryFile(
                     mode='w', encoding='utf-8', dir=self.path.parent, delete=False
                 ) as stream:

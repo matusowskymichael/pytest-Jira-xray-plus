@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Create missing parent folders for requested local case reports at write time,
+  matching preview/archive exports. Preserve genuine filesystem errors, atomic
+  replacement and prior files; newly created folders can remain after failure.
 - Avoid repeated linear Test-key scans during plugin result aggregation. Preserve
   first-observed ordering, grouping contents/statuses, public model APIs and final
   payload hooks, at the cost of one index entry per unique Test key.

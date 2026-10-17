@@ -1,0 +1,86 @@
+{
+  "task": "XRAY-PRODUCT-010",
+  "digest": "ece223a592051d19e1ce3b8cabf42bdedef44560c0e5171f452bfcb33108a2c8",
+  "revision": "c08fc8439b7ee9f9e6f03ca747a2b99b484c8909",
+  "timestamp": "2026-10-17T06:44:10.856Z",
+  "reviewer": "independent-review-case-report-directories",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Requested local case reports create missing parent directories at controller session finish after serialization, supporting nested relative/absolute paths and preserving passing/failing serial/xdist results",
+    "Preserve atomic replacement, prior files, error/cleanup diagnostics, privacy/schema and path semantics; no directory creation for failed serialization, workers, collect-only or unused options; real directory errors remain visible",
+    "Full beginner guide, schema guide, options, troubleshooting/migration and Unreleased changelog/readiness distinguish candidate behavior from 0.1.8 and explain normal permissions and nontransactional directory creation",
+    "Fresh installed wheel verifies all original fourteen commands plus the new nested-path example; all five profiles, changed static checks and exact-head CI pass before independent review with no immediate publication"
+  ],
+  "evidence": {
+    "pull_request": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/25",
+    "content_binding": [
+      "Independently recomputed declared digest from111selectedblobs,fivepackage directoryentries andledgercontract.",
+      "Allpreservationmaphashesverified includingrequirements outside digest.",
+      "Tasksource0ece12a64191c4dd86ff1b4bf0c8e5886e26a27c4ba4e82160fd096c92d3d02c andtrimmedPRbodymatch.",
+      "Testedec95e5dbf870ef1f4d7da0d8f4b66a3b777d2c5a toheadonly excluded evidence/progress/executionfields,contractunchanged.",
+      "Headrecheckedatcompletion."
+    ],
+    "runtime_review": [
+      "Solechange mkdirparents/existok afterJSONserialization beforetempcreation.",
+      "Worker/collect-only/unusedoptions skipwriter,no pretestwrite.",
+      "Parentfilesnotreplaced,permissionerrorsretainwarning/INTERNAL_ERROR.",
+      "Atomic/samedirectorytemp/priorfile/cleanup/primarysecondaryerrors unchanged.",
+      "Path/symlinkresolution unchanged,notracefree/nofollow; documentedlimitation.",
+      "Schema/redaction/valueoptin/transport/order/exitcapture unchanged.",
+      "16newcases,strengthenedblockingparentfile plus existingcleanup/pathtests reviewed."
+    ],
+    "profiles": {
+      "receipt_revision": "ec95e5dbf870ef1f4d7da0d8f4b66a3b777d2c5a",
+      "required_profiles": [
+        "harness",
+        "tests",
+        "offline",
+        "package",
+        "docs"
+      ],
+      "receipt_commands_match_harness": true,
+      "all_13_profile_log_hashes_verified": true,
+      "static_log_hashes_verified": true,
+      "results": [
+        "32harness",
+        "445tests19subtests",
+        "Bothofflinechecks",
+        "Build/Twine/freshwheel/all15installedcommands/fullmetadata/render",
+        "Strict23pages1211references/localbrowser",
+        "ChangedRuff/mypy39files pass"
+      ]
+    },
+    "exact_head_ci": [
+      39010518327,
+      39010518320,
+      39010518452,
+      39010515214,
+      39010515247,
+      39010515139
+    ],
+    "hosted_verification": [
+      "Sixrunsexacthead.",
+      "Python3.12/3.13/3.14testjobs/build/offline/installedstepspass.",
+      "All15commands/fullmetadata explicitlypassallthree.",
+      "3.13/3.14explicit445tests19subtests;3.12coveragewrapperpasses."
+    ],
+    "documentation": [
+      "Nestedexamplecandidateonly;0.1.8needsparents.",
+      "Options/troubleshooting/migration/schema/changelog/readiness retainpermissions/priorfile/nontransactional/liveboundaries.",
+      "Installedcheckerkeeps14commands/adds15th checksabsentparents then schema/status/phases/privacy."
+    ]
+  },
+  "observations": [
+    "Nonblocking PROGRESS says1210 references; currentverifiedlog1211."
+  ],
+  "limits": [
+    "Read-only source/hash/CI review,no localtests/browserrerun.",
+    "SyntheticPermissionError not arbitraryACL/racecertification.",
+    "Parentcreationnontransactional/existingresolution mayleavefolders.",
+    "LinuxCIverified,notWindowsmacOSexecution.",
+    "No liveXray/customAutomatic/nativeiterations.",
+    "No mutation/externalreview/merge/publish/permissions/credentials."
+  ]
+}

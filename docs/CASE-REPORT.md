@@ -67,8 +67,12 @@ Two-worker and local failed-then-passed reruns exercise this mode in tests.
 
 Cases are sorted by node ID. Attempts/phases retain arrival order. With xdist,
 arrival order across workers may vary. Output uses a temporary file and atomic
-replacement; an unwritable destination is reported and exits nonzero. Parent
-directories must exist. A previous complete file can remain after a write
+replacement; an unwritable destination is reported and exits nonzero. Published
+0.1.8 requires parent directories to exist. The unreleased candidate creates
+missing parents after successful serialization, on the controller at write time.
+Normal permissions still apply; a file blocking a parent path is not replaced.
+New directories may remain after a later write failure. Collect-only and workers
+do not create report directories. A previous complete file can remain after a write
 failure: callers must check exit status. Reusing a path replaces the previous
 session report, not appends to it; choose separate paths for separate runs.
 
