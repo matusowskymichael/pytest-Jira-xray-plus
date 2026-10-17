@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "xray",
+    "raised": "PermissionError",
+    "message": "secondary cleanup failure",
+    "warnings": [],
+    "exitstatus": 0,
+    "destination": "previous",
+    "temporary_count": 1
+  },
+  {
+    "kind": "case",
+    "raised": "PermissionError",
+    "message": "secondary cleanup failure",
+    "warnings": [
+      "Could not write offline case report /tmp/tmpjuc4vp4_/report.json: primary replacement failure"
+    ],
+    "exitstatus": 3,
+    "destination": "previous",
+    "temporary_count": 1
+  }
+]

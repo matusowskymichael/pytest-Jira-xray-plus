@@ -1,0 +1,247 @@
+.F.FFF...                                                                [100%]
+=================================== FAILURES ===================================
+____ test_replace_failure_preserves_primary_and_previous_report[xray-True] _____
+
+self = <pytest_xray.file_publisher.FilePublisher object at 0x7f1058227560>
+data = {'tests': []}
+
+    def publish(self, data: dict) -> str:
+        temporary = None
+        try:
+            content = json.dumps(data, indent=2, allow_nan=False)
+            self.filepath.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(
+                mode='w', encoding='utf-8', dir=self.filepath.parent, delete=False
+            ) as file:
+                temporary = Path(file.name)
+                file.write(content + '\n')
+>           os.replace(temporary, self.filepath)
+
+src/pytest_xray/file_publisher.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1139: in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1143: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Mock id='139708174857760'>
+args = (PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/tmpgeie8kbw'), PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/report.json'))
+kwargs = {}
+
+    def _execute_mock_call(self, /, *args, **kwargs):
+        # separate from _increment_mock_call so that awaited functions are
+        # executed separately from their call, also AsyncMock overrides this method
+    
+        effect = self.side_effect
+        if effect is not None:
+            if _is_exception(effect):
+>               raise effect
+E               PermissionError: primary replacement failure
+
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1198: PermissionError
+
+The above exception was the direct cause of the following exception:
+
+self = <pytest_xray.file_publisher.FilePublisher object at 0x7f1058227560>
+data = {'tests': []}
+
+    def publish(self, data: dict) -> str:
+        temporary = None
+        try:
+            content = json.dumps(data, indent=2, allow_nan=False)
+            self.filepath.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(
+                mode='w', encoding='utf-8', dir=self.filepath.parent, delete=False
+            ) as file:
+                temporary = Path(file.name)
+                file.write(content + '\n')
+            os.replace(temporary, self.filepath)
+        except (OSError, TypeError, ValueError) as exc:
+>           raise XrayError(f'Cannot export Xray results to file: {exc}') from exc
+E           pytest_xray.exceptions.XrayError: Cannot export Xray results to file: primary replacement failure
+
+src/pytest_xray/file_publisher.py:27: XrayError
+
+During handling of the above exception, another exception occurred:
+
+writer = ('xray', PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/report.json'), namespace(exitstatus=<ExitCode.OK: 0>), <function writer.<locals>.<lambda> at 0x7f1053f03c40>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1058b88bf0>
+cleanup_fails = True
+
+    @pytest.mark.parametrize('cleanup_fails', [False, True])
+    def test_replace_failure_preserves_primary_and_previous_report(writer, monkeypatch, cleanup_fails):
+        _, destination, _, _ = writer
+        unrelated = destination.parent / 'unrelated.txt'
+        unrelated.write_text('untouched')
+        monkeypatch.setattr('os.replace', Mock(side_effect=PermissionError('primary replacement failure')))
+        original_unlink = Path.unlink
+        removed = []
+    
+        def unlink(path, **kwargs):
+            removed.append(path)
+            if cleanup_fails:
+                raise PermissionError('secondary cleanup failure')
+            return original_unlink(path, **kwargs)
+    
+        with monkeypatch.context() as context:
+            context.setattr(Path, 'unlink', unlink)
+>           message = capture_failure(writer)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+
+/tmp/test_report_cleanup.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:32: in capture_failure
+    invoke()
+/tmp/test_report_cleanup.py:21: in <lambda>
+    invoke = lambda: FilePublisher(str(destination)).publish({'tests': []})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/pytest_xray/file_publisher.py:30: in publish
+    temporary.unlink(missing_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/tmpgeie8kbw')
+kwargs = {'missing_ok': True}
+
+    def unlink(path, **kwargs):
+        removed.append(path)
+        if cleanup_fails:
+>           raise PermissionError('secondary cleanup failure')
+E           PermissionError: secondary cleanup failure
+
+/tmp/test_report_cleanup.py:55: PermissionError
+____ test_replace_failure_preserves_primary_and_previous_report[case-True] _____
+
+writer = ('case', PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves3/report.json'), namespace(exitstatus=<ExitCode.INTERNAL_ERROR: 3>), <function writer.<locals>.<lambda> at 0x7f1053f18a40>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f105822c530>
+cleanup_fails = True
+
+    @pytest.mark.parametrize('cleanup_fails', [False, True])
+    def test_replace_failure_preserves_primary_and_previous_report(writer, monkeypatch, cleanup_fails):
+        _, destination, _, _ = writer
+        unrelated = destination.parent / 'unrelated.txt'
+        unrelated.write_text('untouched')
+        monkeypatch.setattr('os.replace', Mock(side_effect=PermissionError('primary replacement failure')))
+        original_unlink = Path.unlink
+        removed = []
+    
+        def unlink(path, **kwargs):
+            removed.append(path)
+            if cleanup_fails:
+                raise PermissionError('secondary cleanup failure')
+            return original_unlink(path, **kwargs)
+    
+        with monkeypatch.context() as context:
+            context.setattr(Path, 'unlink', unlink)
+>           message = capture_failure(writer)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+
+/tmp/test_report_cleanup.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:37: in capture_failure
+    invoke()
+/tmp/test_report_cleanup.py:24: in <lambda>
+    invoke = lambda: plugin.pytest_sessionfinish(session, session.exitstatus)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/pytest_xray/case_report.py:98: in pytest_sessionfinish
+    temporary.unlink(missing_ok=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves3/tmpl1uo1mg7')
+kwargs = {'missing_ok': True}
+
+    def unlink(path, **kwargs):
+        removed.append(path)
+        if cleanup_fails:
+>           raise PermissionError('secondary cleanup failure')
+E           PermissionError: secondary cleanup failure
+
+/tmp/test_report_cleanup.py:55: PermissionError
+__________ test_success_does_not_unlink_replaced_temporary_name[xray] __________
+
+writer = ('xray', PosixPath('/tmp/pytest-of-agent/pytest-7/test_success_does_not_unlink_r0/report.json'), namespace(exitstatus=<ExitCode.OK: 0>), <function writer.<locals>.<lambda> at 0x7f1053f18b80>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f105822c5f0>
+
+    def test_success_does_not_unlink_replaced_temporary_name(writer, monkeypatch):
+        _, destination, session, invoke = writer
+        unlink = Mock(side_effect=PermissionError('unexpected cleanup'))
+        with monkeypatch.context() as context:
+            context.setattr(Path, 'unlink', unlink)
+>           invoke()
+
+/tmp/test_report_cleanup.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:21: in <lambda>
+    invoke = lambda: FilePublisher(str(destination)).publish({'tests': []})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/pytest_xray/file_publisher.py:30: in publish
+    temporary.unlink(missing_ok=True)
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1139: in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1143: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Mock id='139708174887888'>, args = (), kwargs = {'missing_ok': True}
+
+    def _execute_mock_call(self, /, *args, **kwargs):
+        # separate from _increment_mock_call so that awaited functions are
+        # executed separately from their call, also AsyncMock overrides this method
+    
+        effect = self.side_effect
+        if effect is not None:
+            if _is_exception(effect):
+>               raise effect
+E               PermissionError: unexpected cleanup
+
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1198: PermissionError
+__________ test_success_does_not_unlink_replaced_temporary_name[case] __________
+
+writer = ('case', PosixPath('/tmp/pytest-of-agent/pytest-7/test_success_does_not_unlink_r1/report.json'), namespace(exitstatus=<ExitCode.OK: 0>), <function writer.<locals>.<lambda> at 0x7f1053f18720>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f105822dfd0>
+
+    def test_success_does_not_unlink_replaced_temporary_name(writer, monkeypatch):
+        _, destination, session, invoke = writer
+        unlink = Mock(side_effect=PermissionError('unexpected cleanup'))
+        with monkeypatch.context() as context:
+            context.setattr(Path, 'unlink', unlink)
+>           invoke()
+
+/tmp/test_report_cleanup.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:24: in <lambda>
+    invoke = lambda: plugin.pytest_sessionfinish(session, session.exitstatus)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/pytest_xray/case_report.py:98: in pytest_sessionfinish
+    temporary.unlink(missing_ok=True)
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1139: in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1143: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Mock id='139708174882752'>, args = (), kwargs = {'missing_ok': True}
+
+    def _execute_mock_call(self, /, *args, **kwargs):
+        # separate from _increment_mock_call so that awaited functions are
+        # executed separately from their call, also AsyncMock overrides this method
+    
+        effect = self.side_effect
+        if effect is not None:
+            if _is_exception(effect):
+>               raise effect
+E               PermissionError: unexpected cleanup
+
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1198: PermissionError
+=========================== short test summary info ============================
+FAILED ../../tmp/test_report_cleanup.py::test_replace_failure_preserves_primary_and_previous_report[xray-True]
+FAILED ../../tmp/test_report_cleanup.py::test_replace_failure_preserves_primary_and_previous_report[case-True]
+FAILED ../../tmp/test_report_cleanup.py::test_success_does_not_unlink_replaced_temporary_name[xray]
+FAILED ../../tmp/test_report_cleanup.py::test_success_does_not_unlink_replaced_temporary_name[case]
+4 failed, 5 passed in 0.21s

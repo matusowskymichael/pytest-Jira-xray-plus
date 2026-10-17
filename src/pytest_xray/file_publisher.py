@@ -14,18 +14,24 @@ class FilePublisher:
 
     def publish(self, data: dict) -> str:
         temporary = None
+        cleanup_detail = ''
         try:
-            content = json.dumps(data, indent=2, allow_nan=False)
-            self.filepath.parent.mkdir(parents=True, exist_ok=True)
-            with tempfile.NamedTemporaryFile(
-                mode='w', encoding='utf-8', dir=self.filepath.parent, delete=False
-            ) as file:
-                temporary = Path(file.name)
-                file.write(content + '\n')
-            os.replace(temporary, self.filepath)
+            try:
+                content = json.dumps(data, indent=2, allow_nan=False)
+                self.filepath.parent.mkdir(parents=True, exist_ok=True)
+                with tempfile.NamedTemporaryFile(
+                    mode='w', encoding='utf-8', dir=self.filepath.parent, delete=False
+                ) as file:
+                    temporary = Path(file.name)
+                    file.write(content + '\n')
+                os.replace(temporary, self.filepath)
+                temporary = None
+            finally:
+                if temporary is not None:
+                    try:
+                        temporary.unlink(missing_ok=True)
+                    except OSError as cleanup_error:
+                        cleanup_detail = f'; could not remove temporary report {temporary}: {cleanup_error}'
         except (OSError, TypeError, ValueError) as exc:
-            raise XrayError(f'Cannot export Xray results to file: {exc}') from exc
-        finally:
-            if temporary is not None:
-                temporary.unlink(missing_ok=True)
+            raise XrayError(f'Cannot export Xray results to file: {exc}{cleanup_detail}') from exc
         return str(self.filepath)

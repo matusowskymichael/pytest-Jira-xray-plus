@@ -84,15 +84,28 @@ class CaseReportPlugin:
         if hasattr(self.config, 'workerinput'):
             return
         temporary = None
+        cleanup_detail = ''
         try:
-            content = json.dumps(self.results.as_dict(int(session.exitstatus)), indent=2, ensure_ascii=True, allow_nan=False)
-            with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=self.path.parent, delete=False) as stream:
-                temporary = Path(stream.name)
-                stream.write(content + '\n')
-            os.replace(temporary, self.path)
+            try:
+                content = json.dumps(
+                    self.results.as_dict(int(session.exitstatus)), indent=2, ensure_ascii=True, allow_nan=False
+                )
+                with tempfile.NamedTemporaryFile(
+                    mode='w', encoding='utf-8', dir=self.path.parent, delete=False
+                ) as stream:
+                    temporary = Path(stream.name)
+                    stream.write(content + '\n')
+                os.replace(temporary, self.path)
+                temporary = None
+            finally:
+                if temporary is not None:
+                    try:
+                        temporary.unlink(missing_ok=True)
+                    except OSError as cleanup_error:
+                        cleanup_detail = f'; could not remove temporary report {temporary}: {cleanup_error}'
         except (OSError, ValueError) as exc:
             session.exitstatus = pytest.ExitCode.INTERNAL_ERROR
-            warnings.warn(pytest.PytestWarning(f'Could not write offline case report {self.path}: {exc}'), stacklevel=2)
-        finally:
-            if temporary is not None:
-                temporary.unlink(missing_ok=True)
+            warnings.warn(
+                pytest.PytestWarning(f'Could not write offline case report {self.path}: {exc}{cleanup_detail}'),
+                stacklevel=2,
+            )

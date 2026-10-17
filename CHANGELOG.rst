@@ -1,6 +1,8 @@
 Unreleased
 ==========
-- No unreleased changes.
+- Preserve report-writing errors when temporary-file cleanup also fails, keeping
+  the existing Xray error or offline warning/exit handling and identifying the
+  leftover temporary path. Skip cleanup after successful atomic replacement.
 
 0.1.7 [2026-10-17]
 ==================
