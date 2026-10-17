@@ -17,15 +17,15 @@ data = {'tests': []}
                 file.write(content + '\n')
 >           os.replace(temporary, self.filepath)
 
-src/pytest_xray/file_publisher.py:25: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/pytest_xray/file_publisher.py:25:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1139: in __call__
     return self._mock_call(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1143: in _mock_call
     return self._execute_mock_call(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 self = <Mock id='139708174857760'>
 args = (PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/tmpgeie8kbw'), PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/report.json'))
@@ -34,7 +34,7 @@ kwargs = {}
     def _execute_mock_call(self, /, *args, **kwargs):
         # separate from _increment_mock_call so that awaited functions are
         # executed separately from their call, also AsyncMock overrides this method
-    
+
         effect = self.side_effect
         if effect is not None:
             if _is_exception(effect):
@@ -79,20 +79,20 @@ cleanup_fails = True
         monkeypatch.setattr('os.replace', Mock(side_effect=PermissionError('primary replacement failure')))
         original_unlink = Path.unlink
         removed = []
-    
+
         def unlink(path, **kwargs):
             removed.append(path)
             if cleanup_fails:
                 raise PermissionError('secondary cleanup failure')
             return original_unlink(path, **kwargs)
-    
+
         with monkeypatch.context() as context:
             context.setattr(Path, 'unlink', unlink)
 >           message = capture_failure(writer)
                       ^^^^^^^^^^^^^^^^^^^^^^^
 
-/tmp/test_report_cleanup.py:60: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:60:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 /tmp/test_report_cleanup.py:32: in capture_failure
     invoke()
 /tmp/test_report_cleanup.py:21: in <lambda>
@@ -100,7 +100,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 src/pytest_xray/file_publisher.py:30: in publish
     temporary.unlink(missing_ok=True)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 path = PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves1/tmpgeie8kbw')
 kwargs = {'missing_ok': True}
@@ -126,20 +126,20 @@ cleanup_fails = True
         monkeypatch.setattr('os.replace', Mock(side_effect=PermissionError('primary replacement failure')))
         original_unlink = Path.unlink
         removed = []
-    
+
         def unlink(path, **kwargs):
             removed.append(path)
             if cleanup_fails:
                 raise PermissionError('secondary cleanup failure')
             return original_unlink(path, **kwargs)
-    
+
         with monkeypatch.context() as context:
             context.setattr(Path, 'unlink', unlink)
 >           message = capture_failure(writer)
                       ^^^^^^^^^^^^^^^^^^^^^^^
 
-/tmp/test_report_cleanup.py:60: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:60:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 /tmp/test_report_cleanup.py:37: in capture_failure
     invoke()
 /tmp/test_report_cleanup.py:24: in <lambda>
@@ -147,7 +147,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 src/pytest_xray/case_report.py:98: in pytest_sessionfinish
     temporary.unlink(missing_ok=True)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 path = PosixPath('/tmp/pytest-of-agent/pytest-7/test_replace_failure_preserves3/tmpl1uo1mg7')
 kwargs = {'missing_ok': True}
@@ -171,8 +171,8 @@ monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f105822c5f0>
             context.setattr(Path, 'unlink', unlink)
 >           invoke()
 
-/tmp/test_report_cleanup.py:82: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:82:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 /tmp/test_report_cleanup.py:21: in <lambda>
     invoke = lambda: FilePublisher(str(destination)).publish({'tests': []})
                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,14 +184,14 @@ src/pytest_xray/file_publisher.py:30: in publish
 /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1143: in _mock_call
     return self._execute_mock_call(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 self = <Mock id='139708174887888'>, args = (), kwargs = {'missing_ok': True}
 
     def _execute_mock_call(self, /, *args, **kwargs):
         # separate from _increment_mock_call so that awaited functions are
         # executed separately from their call, also AsyncMock overrides this method
-    
+
         effect = self.side_effect
         if effect is not None:
             if _is_exception(effect):
@@ -211,8 +211,8 @@ monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f105822dfd0>
             context.setattr(Path, 'unlink', unlink)
 >           invoke()
 
-/tmp/test_report_cleanup.py:82: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/test_report_cleanup.py:82:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 /tmp/test_report_cleanup.py:24: in <lambda>
     invoke = lambda: plugin.pytest_sessionfinish(session, session.exitstatus)
                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -224,14 +224,14 @@ src/pytest_xray/case_report.py:98: in pytest_sessionfinish
 /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py:1143: in _mock_call
     return self._execute_mock_call(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 self = <Mock id='139708174882752'>, args = (), kwargs = {'missing_ok': True}
 
     def _execute_mock_call(self, /, *args, **kwargs):
         # separate from _increment_mock_call so that awaited functions are
         # executed separately from their call, also AsyncMock overrides this method
-    
+
         effect = self.side_effect
         if effect is not None:
             if _is_exception(effect):
