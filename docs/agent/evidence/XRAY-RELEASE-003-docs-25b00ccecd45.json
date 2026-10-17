@@ -1,0 +1,55 @@
+{
+  "task": "XRAY-RELEASE-003",
+  "profile": "docs",
+  "digest": "8ad23e6a8453152edcabc7f0286e12cda71c7fe50aed69d602f6a46a05810a85",
+  "revision": "5967e86c6024df63ccb746b70a61583cf915f5fc",
+  "timestamp": "2026-10-17T03:54:10.054944+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/prepare_docs_site.py"
+    ],
+    [
+      "{python}",
+      "-m",
+      "mkdocs",
+      "build",
+      "--strict"
+    ],
+    [
+      "{python}",
+      "tools/check_docs_links.py"
+    ],
+    [
+      "{python}",
+      "tools/check_docs_browser.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.035,
+      "log": "docs/agent/evidence/XRAY-RELEASE-003-docs-25b00ccecd45-0.log",
+      "log_sha256": "bd5b1923a0ed1d6c10e40c62bb69c1d224b4201056a4dfc2a8db1fa37e8573fb"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.785,
+      "log": "docs/agent/evidence/XRAY-RELEASE-003-docs-25b00ccecd45-1.log",
+      "log_sha256": "5e27a3a7179cfb0bedc312f8001773e580c69927da8334e066ab748d07283156"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.149,
+      "log": "docs/agent/evidence/XRAY-RELEASE-003-docs-25b00ccecd45-2.log",
+      "log_sha256": "f03003cc7bf596a079d70f6bd36537692952465ec18281449b2914b8ed018d6e"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 7.277,
+      "log": "docs/agent/evidence/XRAY-RELEASE-003-docs-25b00ccecd45-3.log",
+      "log_sha256": "cc7458dd474597154772382393a4438e323fc9ea1e287a5e687403045eb456b3"
+    }
+  ],
+  "status": "passed"
+}
