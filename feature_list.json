@@ -98,11 +98,17 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-PRODUCT-008-harness-3021a8215374.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-tests-f6ab82268562.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-offline-0be0e00267b3.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-package-d4dee9a30963.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-docs-5a44de56bbe9.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "Implement bounded guard/regressions/docs, verify all profiles and freeze PR for independent review"
+      "next_action": "Exact frozen-head CI, then fresh independent review of PR23; do not merge before acceptance"
     }
   ]
 }

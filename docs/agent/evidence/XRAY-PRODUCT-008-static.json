@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-10-17T05:51:26.652218+00:00",
+  "revision": "f1f508ed2ca97b4d86e22d895a4926e607446ccd",
+  "checks": [
+    {
+      "argv": [
+        "/tmp/xray-harness-env/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/pytest_xray/helper.py",
+        "tests/test_auth_configuration.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-008-ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "argv": [
+        "/tmp/xray-harness-env/bin/python",
+        "-m",
+        "mypy"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-008-mypy.log",
+      "sha256": "34df9cf38736563d4bb02e64b66effac851acb546ad0a3c3761547e25bbe3570"
+    }
+  ],
+  "scope": "Changed-file Ruff; existing mypy configuration. No claim that full repository Ruff baseline passes."
+}
