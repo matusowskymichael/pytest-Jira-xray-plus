@@ -6,7 +6,7 @@
       "title": "Classify authentication configuration failures as usage errors",
       "source": "docs/agent/task-auth-configuration.md",
       "source_sha256": "b8801b55e994cc52ad0c5c51a47916c4c0f2a5ac57aa97d10682c73484a28010",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/20",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
