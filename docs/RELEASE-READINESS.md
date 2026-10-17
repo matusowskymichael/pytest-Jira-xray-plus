@@ -445,3 +445,29 @@ All five profiles, exact-head CI and fresh independent review are required befor
 merge. No version, dependency, workflow, permission or live Xray changes. Group
 this with other accepted work for a later release. Existing live-browser and
 Generic/custom Automatic validation limits remain; native iterations unsupported.
+
+
+## Unreleased oversized integer parameters — 2026-10-17
+
+PR25 independently accepted and merged at caac2bc32644f7a8cf31d4281e9bc17f8c04c2e9
+with identical accepted tree. The progress reference count was corrected to
+1,211. Six acceptance-head workflows and main 39011482800/39011482798/39011482785
+passed. No publication; baseline remains 0.1.8.
+
+A blocked-transport installed 0.1.8 reproduction with explicit parameter IDs shows
+10**5000 loses the whole local report after two passing tests with case-values,
+and aborts after one test with an internal error in legacy parameter-details.
+The candidate changes only the shared scalar_values helper: probe exact builtin
+integers with decimal conversion and substitute the existing placeholder on
+ValueError. It never changes the interpreter limit or invokes subclass methods;
+representable integers retain their value and type. Four boundary regressions
+fail on baseline; full subprocess coverage checks both reports and default-off
+privacy with positive/negative integers in serial/xdist.
+
+The guarantee is limited to capture time; pytest collection, later hook data and
+subsequent interpreter-policy changes are not preflighted. Full documentation
+explains explicit descriptive IDs and intentional omission of unsupported values.
+All five profiles, fifteen installed commands, static checks and exact-head CI
+plus fresh independent review are required before merge. No version, dependencies,
+workflows, permissions, transport or live Xray capabilities change. Group with
+other accepted changes for a later milestone; do not publish now.

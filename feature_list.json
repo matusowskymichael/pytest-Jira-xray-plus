@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PRODUCT-010",
-      "title": "Create parent folders for local case reports",
-      "source": "docs/agent/task-case-parent.md",
-      "source_sha256": "0ece12a64191c4dd86ff1b4bf0c8e5886e26a27c4ba4e82160fd096c92d3d02c",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/25",
+      "id": "XRAY-PRODUCT-011",
+      "title": "Preserve reports for oversized integer parameters",
+      "source": "docs/agent/task-integer-parameters.md",
+      "source_sha256": "a50bd4708e3376c736056632b9a44069fb96ec206b9597ef01cfd202483e31a4",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Requested local case reports create missing parent directories at controller session finish after serialization, supporting nested relative/absolute paths and preserving passing/failing serial/xdist results",
-        "Preserve atomic replacement, prior files, error/cleanup diagnostics, privacy/schema and path semantics; no directory creation for failed serialization, workers, collect-only or unused options; real directory errors remain visible",
-        "Full beginner guide, schema guide, options, troubleshooting/migration and Unreleased changelog/readiness distinguish candidate behavior from 0.1.8 and explain normal permissions and nontransactional directory creation",
-        "Fresh installed wheel verifies all original fourteen commands plus the new nested-path example; all five profiles, changed static checks and exact-head CI pass before independent review with no immediate publication"
+        "Exact builtin integers rejected by decimal conversion at capture time use the existing unsupported-value placeholder so local values and legacy parameter comments retain all cases in serial/xdist",
+        "Preserve representable integer values/types, active interpreter settings, existing scalar/subclass/container privacy rules and input data; no arbitrary conversion methods, new cap, traversal or unrelated error suppression",
+        "Full beginner README, schema, troubleshooting/migration and Unreleased changelog/readiness distinguish candidate behavior from 0.1.8 and explain explicit IDs and capture-time limits without recommending safeguard removal",
+        "All five profiles, fifteen installed README commands/full metadata, changed-file static checks and exact-head CI pass; independent review before merge and no immediate publication"
       ],
       "checks": [
         "harness",
@@ -67,6 +67,8 @@
         "tests/test_aggregation_index.py": "52262503048c3a536e7343630109eeadb043dac7c46ed2d66fb17709df396594",
         "tests/test_attachment_ownership.py": "d85d13668f992c205fbc0ce851df2b35619ec981ee3cd8c984002c466543e635",
         "tests/test_auth_configuration.py": "5d2f218190414a788d086513d5da38be6ca64c648e68ee7e213cbe58af9f6e2a",
+        "tests/test_case_parent_paths.py": "9a09ab0f87d32d9d120c3c697648db833ff6cc4e40d1467930b58303ef3d1d3c",
+        "tests/test_case_report.py": "e677634a60778ba328631796c137e2809e4cafbf64939ac4f07bf1256166c364",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
         "tests/test_collection_lookup.py": "8cd42797ed6f4e44e36624eb2140c53f6d4d7ec0777bc418e34b4d1f1251e14d",
         "tests/test_comment_limits.py": "d1fec794d9873897932984f257187325b7f3faeec9541e40c4fbd65bc6af1e30",
@@ -91,6 +93,7 @@
         "tools/check_docs_browser.py": "ad12e477d344fb9b1e35f09674fbb8333c2167fe2bbfb19a0f001153474fa6e0",
         "tools/check_docs_links.py": "e59e0e721adedb7d8d39b92c51cb20efb7c15fe129cc419e5b360768542f49a7",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
+        "tools/check_installed_usage.py": "5ff38252da7d1ef2cd7aab7f9adeedbdce2d416633924b0bfb985a1e903e48b3",
         "tools/measure_coverage.py": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
         "tools/prepare_docs_site.py": "0452ebe778f4fb61398aaa264ef495ce1c093a226e177193513a47ab24407d2c",
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
@@ -98,17 +101,11 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-PRODUCT-010-harness-c30af1e5a577.json",
-        "docs/agent/evidence/XRAY-PRODUCT-010-tests-afb783222f1b.json",
-        "docs/agent/evidence/XRAY-PRODUCT-010-offline-e987128dae86.json",
-        "docs/agent/evidence/XRAY-PRODUCT-010-package-0c820cd67564.json",
-        "docs/agent/evidence/XRAY-PRODUCT-010-docs-7ad64a0fd037.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-PRODUCT-010-independent-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "Exact frozen-head CI then fresh independent review of PR25; no merge or publication before acceptance"
+      "next_action": "Validate safe integer capture and docs; freeze PR after all profiles and CI for independent review"
     }
   ]
 }

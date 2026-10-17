@@ -14,12 +14,18 @@ from pytest_xray.case_results import CaseResults, PhaseResult
 
 def scalar_values(params):
     """Do not traverse containers or invoke user serialization/repr methods."""
-    return {
-        name: value
-        if type(value) in (str, int, bool, type(None)) or (type(value) is float and math.isfinite(value))
-        else '<unsupported value: use a descriptive pytest id>'
-        for name, value in params.items()
-    }
+    values = {}
+    for name, value in params.items():
+        value_type = type(value)
+        supported = value_type in (str, int, bool, type(None)) or (value_type is float and math.isfinite(value))
+        if value_type is int:
+            try:
+                # JSON also converts integers to decimal under Python's digit limit.
+                str(value)
+            except ValueError:
+                supported = False
+        values[name] = value if supported else '<unsupported value: use a descriptive pytest id>'
+    return values
 
 
 def phase_outcome(report):

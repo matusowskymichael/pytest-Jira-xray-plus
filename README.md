@@ -532,6 +532,21 @@ values get a placeholder instead of invoking arbitrary object serialization.
 Indirect fixtures record their input parameters, not the fixture's return value.
 Use step 6 to choose values or identity aliases for the local report.
 
+**Unreleased candidate:** when Python refuses to format an integer in decimal at
+value-capture time, that value becomes
+`<unsupported value: use a descriptive pytest id>`. This applies to both
+`--xray-case-values` and `--xray-parameter-details`; other cases and representable
+integers retain their normal data. Python's conversion limit is unchanged.
+Published 0.1.8 can lose the local report or stop with an internal error for such
+inputs (for example `10**5000` under the default limit).
+
+Give unusually large inputs explicit IDs, such as
+`pytest.param(10**5000, id="huge-integer")`, so pytest does not try to format the
+value while generating a case name. This guard operates during value capture;
+collection errors, later custom-hook data and later interpreter-policy changes
+are outside it. The placeholder intentionally omits the number; full-report
+archival does not recover a value omitted during capture.
+
 ### Parallel tests and retries
 
 Install the optional plugins separately:
@@ -772,6 +787,7 @@ invalid values in export payloads.
 | What happened | What to do |
 | --- | --- |
 | `unrecognized arguments` | Activate the intended environment and use `python -m pytest`. Check `python -m pip show pytest-jira-xray-plus`. If plugin autoload is disabled, add `-p pytest_xray.plugin`. |
+| Integer string conversion limit error | Use explicit descriptive pytest IDs. The unreleased candidate substitutes the unsupported-value placeholder when opt-in value capture cannot format an integer. It does not change Python's limit or fix earlier collection errors. |
 | Large suites spend time grouping many Test keys | The unreleased candidate avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
@@ -786,6 +802,11 @@ invalid values in export payloads.
 | Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**Unreleased integer-value migration:** oversized integers rejected by Python
+during opt-in value capture now use the existing placeholder. Valid integers
+remain numbers; no privacy flag or interpreter setting changes. Use explicit
+pytest IDs for these inputs.
 
 **Unreleased directory migration:** local reports now create missing parents
 when writing. No extra option is needed. Existing files still require an atomic
