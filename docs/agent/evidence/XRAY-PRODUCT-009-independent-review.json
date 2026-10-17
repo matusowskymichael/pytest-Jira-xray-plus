@@ -1,0 +1,75 @@
+{
+  "task": "XRAY-PRODUCT-009",
+  "digest": "90abc0150e299529f5e788dba04d459871f01a76353d1058a01a34ddafddf110",
+  "revision": "ab2bb20acd6e0079bfa58b0643b097798df82bb6",
+  "timestamp": "2026-10-17T06:20:14+00:00",
+  "reviewer": "independent-review-aggregation-index",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Plugin-owned Test-key lookup avoids repeated linear scans with deterministic scaling regressions and measured synthetic before/after evidence without timing thresholds",
+    "Preserve first-observed output order, status mappings and precedence, comment order, defects/evidence, multi-key reports, reruns/phases/xdist, public model APIs and final payload hooks",
+    "Full beginner guide, migration/troubleshooting and Unreleased changelog/readiness explain scoped performance benefit and memory/ownership limits while retaining privacy and live compatibility boundaries",
+    "All five profiles, installed README commands/full metadata, changed-file static checks and exact-head CI pass; independent review before merge with no immediate publication"
+  ],
+  "code_review": [
+    "Runtime only XrayPlugin instance dictionary/new case registration; existing list preserves first-observed order.",
+    "Same TestCase merge logic retains statuses/comments/defects/evidence/per-key ownership.",
+    "Public TestExecution/TestCase APIs unchanged including firstmatch,reordered/replaced lists,mutablekeys,appenddict.",
+    "Plugin live accumulator mutation not tracked, explicit documented scope; final dictionary hook unchanged.",
+    "Hook afterserialization beforearchive/bounding/uploadwithholding, independent ofindex.",
+    "Collection already validates strings and usesdict/set, no new supportedinput hashability requirement.",
+    "Fresh per-instance index,worker/controller suppression unchanged.",
+    "15regressions:6comparisoncount,4semanticstreams,publicmutablemodels,4serialxdistServerCloudrerun/hook exports;existing marker dedup/order tests."
+  ],
+  "evidence": {
+    "pull_request": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/24",
+    "tested_revision": "0b4e2ed3fdb6be351e4b5894c96bc97ab1e2e397",
+    "source_to_reviewed_head": "One evidence/progress/ledgerbookkeeping commit; contract unchanged.",
+    "scope_sha256": "6e86abdad4191cbfdf19785aeaa9b5559d9c7d46430ac88fc72c6528249115e1",
+    "scope_verification": "Tasksource and livePRbody independently hashed matchledger.",
+    "profile_receipts": [
+      "docs/agent/evidence/XRAY-PRODUCT-009-harness-e42b74df52a0.json",
+      "docs/agent/evidence/XRAY-PRODUCT-009-tests-e4d42230e484.json",
+      "docs/agent/evidence/XRAY-PRODUCT-009-offline-7307a148fc0e.json",
+      "docs/agent/evidence/XRAY-PRODUCT-009-package-1bbe3aa016b3.json",
+      "docs/agent/evidence/XRAY-PRODUCT-009-docs-5c01f89d0d42.json"
+    ],
+    "profile_verification": "Fivecorrectreceipts/commands/success;all13loghashes independentlymatch.",
+    "recorded_results": [
+      "429tests19subtests",
+      "32harness",
+      "offline",
+      "build/Twine",
+      "14installedcommands/fullmetadata/renderHTTPblocked",
+      "23HTML1210references/docs/localbrowser",
+      "ChangedRuff/mypy pass,staticloghashesmatch"
+    ],
+    "benchmark": {
+      "script_hash_verified": true,
+      "candidate_runtime_hash_verified": true,
+      "baseline_8000_seconds": 0.6054073459999927,
+      "candidate_8000_seconds": 0.014914848001353675,
+      "assessment": "Same unique-key empty-comment passed-call stream including reportconstruction/ingestion; bothPython3.12.14. Six deterministic operationcount regressions failbaseline. Single-sample timings narrowly supportlookupgain, not thresholds."
+    },
+    "exact_head_ci": [
+      39009159480,
+      39009159588,
+      39009160069,
+      39009156329,
+      39009156371,
+      39009156303
+    ],
+    "ci_detail": "Sixruns exactreviewedhead success;Python3.12/3.13/3.14 pushjobs independentlysuccess.",
+    "documentation": "FullREADME/changelog/readiness distinguishcandidate0.1.8, extraindexmemory/pluginownership/publicmodels/hooks and no testbody/boundedmemory guarantees."
+  },
+  "limits": [
+    "Read-only GitHub review,no localtest/profile/benchmarkrerun.",
+    "Independent evidencehashes but no complete localfingerprint; receipts/unchangedcontent/CI corroborate.",
+    "Builderreceipts not cryptographic executionproof;hostedCI independentlycorroborates.",
+    "Expected-case dictionarylookup,not adversarialhashguarantee;largecomment concatenation outside scope.",
+    "Synthetic/localbrowser not liveXray/customAutomatic;nativeiterationsunsupported.",
+    "No mutation,externalreview,merge,publish,liveserver."
+  ]
+}
