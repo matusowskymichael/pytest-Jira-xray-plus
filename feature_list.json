@@ -6,7 +6,7 @@
       "title": "Scale result aggregation by Test key",
       "source": "docs/agent/task-aggregation-index.md",
       "source_sha256": "6e86abdad4191cbfdf19785aeaa9b5559d9c7d46430ac88fc72c6528249115e1",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/24",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
