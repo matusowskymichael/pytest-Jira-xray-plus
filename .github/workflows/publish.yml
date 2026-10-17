@@ -7,7 +7,7 @@ on:
         required: true
         type: string
       publish:
-        description: Publish 0.1.7 to PyPI after validation (explicit opt-in)
+        description: Publish 0.1.8 to PyPI after validation (explicit opt-in)
         type: boolean
         default: false
 permissions: {}
@@ -54,11 +54,11 @@ jobs:
           python - <<'PY'
           import email.parser, hashlib, os, tarfile, tomllib, zipfile
           from pathlib import Path
-          name, version = 'pytest-jira-xray-plus', '0.1.7'
+          name, version = 'pytest-jira-xray-plus', '0.1.8'
           metadata = tomllib.loads(Path('pyproject.toml').read_text())['project']
           assert (metadata['name'], metadata['version']) == (name, version)
-          wheel = 'pytest_jira_xray_plus-0.1.7-py3-none-any.whl'
-          sdist = 'pytest_jira_xray_plus-0.1.7.tar.gz'
+          wheel = 'pytest_jira_xray_plus-0.1.8-py3-none-any.whl'
+          sdist = 'pytest_jira_xray_plus-0.1.8.tar.gz'
           root = Path('release-dist')
           assert {p.name for p in root.iterdir()} == {wheel, sdist}
           with zipfile.ZipFile(root / wheel) as z:
@@ -68,7 +68,7 @@ jobs:
               assert any(n.endswith('/LICENSE') for n in z.namelist())
               assert any(n.endswith('/NOTICE') for n in z.namelist())
           with tarfile.open(root / sdist) as t:
-              prefix = 'pytest_jira_xray_plus-0.1.7/'
+              prefix = 'pytest_jira_xray_plus-0.1.8/'
               records.append(t.extractfile(prefix + 'PKG-INFO').read())
               assert prefix + 'LICENSE' in t.getnames()
               assert prefix + 'NOTICE' in t.getnames()
@@ -134,8 +134,8 @@ jobs:
           import hashlib, os
           from pathlib import Path
           expected = {
-              'pytest_jira_xray_plus-0.1.7-py3-none-any.whl': os.environ['WHEEL_SHA'],
-              'pytest_jira_xray_plus-0.1.7.tar.gz': os.environ['SDIST_SHA'],
+              'pytest_jira_xray_plus-0.1.8-py3-none-any.whl': os.environ['WHEEL_SHA'],
+              'pytest_jira_xray_plus-0.1.8.tar.gz': os.environ['SDIST_SHA'],
           }
           root = Path('dist')
           assert {p.name for p in root.iterdir()} == set(expected)

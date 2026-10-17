@@ -1,0 +1,55 @@
+{
+  "base_commit": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84",
+  "main_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 39005629276,
+      "headSha": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39005629265,
+      "headSha": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39005629267,
+      "headSha": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84",
+      "status": "completed"
+    }
+  ],
+  "pull_requests": [
+    {
+      "headRefOid": "a4356fd95a7c6cea88932c8190aa4087372ff5b5",
+      "mergeCommit": {
+        "oid": "3f144256ca910e37a64fb0542c16d6d7faa685f7"
+      },
+      "mergedAt": "2026-10-17T04:38:47Z",
+      "number": 19,
+      "state": "MERGED",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/19"
+    },
+    {
+      "headRefOid": "b6116b81a18115cab4d47f9875b23a97c94433d1",
+      "mergeCommit": {
+        "oid": "0d3c5f0086771eccb898f8b509839c4f725778a3"
+      },
+      "mergedAt": "2026-10-17T04:56:52Z",
+      "number": 20,
+      "state": "MERGED",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/20"
+    },
+    {
+      "headRefOid": "ac26805547531d5ee99bf3dfd6937bed4811a58f",
+      "mergeCommit": {
+        "oid": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84"
+      },
+      "mergedAt": "2026-10-17T05:16:01Z",
+      "number": 21,
+      "state": "MERGED",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/21"
+    }
+  ]
+}

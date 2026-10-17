@@ -1,11 +1,7 @@
-# Independently accepted — report path configuration errors
+# In progress — 0.1.8 error-handling release candidate
 
-- PR20 independently accepted and merged at 0d3c5f0086771eccb898f8b509839c4f725778a3; tree identical to acceptance commit b6116b8. Six acceptance-head workflows and main CI 39004455946/39004455979/39004455999 passed. Accepted ledger archived.
-- XRAY-PRODUCT-007: no open issues returned. Synthetic unresolved home paths, Python 3.12 symlink loops and injected resolution failures reproduce internal configuration errors. Initial 28-case matrix: 21 expected failures, seven passes; two additional preservation cases pass before edits.
-- Focused plugin normalization boundary maps only OSError/RuntimeError to option-specific UsageError. Non-strict resolution and writer boundaries unchanged; Python 3.13+ symlink loops may still fail later during writing.
-- PR21: https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/21. Full beginner README, troubleshooting/migration, Unreleased changelog and readiness updated. Thirty new regressions pass, including collect-only and unexpected-exception preservation.
-- All five profiles passed on 860ffd94cc1936c801d2680e68d2747bf851227a: 383 tests + 19 subtests, 32 harness tests, offline assertions, build/Twine, all 14 installed README commands/full metadata, strict docs with 23 HTML pages/1207 references and local desktop/mobile/search/highlighting/theme. Changed-file Ruff and mypy (37 files) pass. Receipt log hashes verified.
-- Digest: dd4aad7934f1036833a7cb0d732e652e32de1ec981786321c43d06b98dbea630.
-- Connection checked after parent notification: shell/GitHub healthy at 04:55:54 UTC; PR20 subsequently merged at 04:56:52 UTC. No duplicate actions.
-- Independent PASS from /root/review_report_path_errors recorded with supplied assessment/evidence/limits unchanged. Six reviewed-head workflows passed. Next: acceptance-head CI, merge/main CI, then unused 0.1.8 release candidate grouping PR19–21. Freeze release for fresh independent review before publication. Existing browser certificate/PyPI HTML challenge limits remain.
-- No workplace/private data, new credentials/permissions or browser bypass. Live Xray/custom Automatic mapping unverified, native iterations unsupported. Continue one iteration at a time through 2026-10-18 23:59 Asia/Dubai.
+- PR21 independently accepted and merged at a9279d81e674ceb5bdfa8f72d3cf713a96d49f84; identical accepted tree. Six acceptance-head workflows and main CI39005629276/39005629265/39005629267 passed. Accepted ledger archived.
+- XRAY-RELEASE-004 groups reviewed PR19–21. PyPI latest0.1.7, candidate0.1.8 and GitHub tag/release unused; refreshed availability and merge provenance retained.
+- Runtime/tooling/dependencies/permissions frozen; package/publisher version literals only. Full beginner guide, dated changelog, release-doc regression and readiness updated.
+- Next: all five profiles, badge checks, final exact-head CI and fresh independent release review before merge/publication. No publication now.
+- Public status/coverage remain0.1.7 snapshots. Existing certificate/PyPI HTML challenge limits remain; no live visual or server claims. No workplace/private data, new credentials/permissions or security bypass. Native iterations unsupported. Continue maintenance after verified milestone through2026-10-18 23:59 Asia/Dubai.

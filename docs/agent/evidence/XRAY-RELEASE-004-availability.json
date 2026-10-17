@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-10-17T05:11:07.646494+00:00",
+  "source": "https://pypi.org/pypi/pytest-jira-xray-plus/json",
+  "latest": "0.1.7",
+  "candidate": "0.1.8",
+  "candidate_unused": true,
+  "tls": "normal certificate verification",
+  "candidate_json_status": 404,
+  "github_checks": {
+    "https://api.github.com/repos/matusowskymichael/pytest-Jira-xray-plus/git/ref/tags/v0.1.8": 404,
+    "https://api.github.com/repos/matusowskymichael/pytest-Jira-xray-plus/releases/tags/v0.1.8": 404
+  },
+  "rechecked_utc": "2026-10-17T05:20:14.232776+00:00",
+  "latest_on_recheck": "0.1.7"
+}

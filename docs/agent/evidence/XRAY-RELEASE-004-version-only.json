@@ -1,0 +1,16 @@
+{
+  "base": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84",
+  "files": {
+    "pyproject.toml": {
+      "change": "0.1.7-to-0.1.8 literals only",
+      "old_sha256": "4a1686b43bd5008f8c9dfb4fde263a177642500d1244413e8d168c8c5222e832",
+      "new_sha256": "fd81f574cd8777623235693e37c04b2fda0d89bccc419ce899d2e1a8eb9b9b1a"
+    },
+    ".github/workflows/publish.yml": {
+      "change": "0.1.7-to-0.1.8 literals only",
+      "old_sha256": "44632834259a06d9d0c93ec0c2ba6a39071f06e963e3147a0f749d06b585a3c9",
+      "new_sha256": "8ea35076d4d27944c292f74491d9561b5ac059a18e843b95695ce48d03b4638e"
+    }
+  },
+  "runtime_tooling_dependencies": "unchanged"
+}

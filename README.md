@@ -22,7 +22,7 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.7 collection validation and lookup improvements**, retaining Generic as the target
+This guide covers **0.1.8 error-handling improvements**, retaining Generic as the target
 Xray Test type. The examples also work with 0.1.2 and 0.1.3; the multi-key attachment
 isolation fix requires 0.1.4 or later. Installation selects the latest published
 version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
@@ -567,10 +567,10 @@ TLS certificate verification is enabled by default. Set `XRAY_API_VERIFY_SSL`
 to `True` or to a trusted CA bundle path for an internal CA. `False` disables
 verification and should not be used with real credentials.
 
-The unreleased configuration fix reports missing required authentication variables
+Version 0.1.8 reports missing required authentication variables
 and a nonexistent CA bundle path as `ERROR` with pytest exit code 4. Correct the
 named setting and rerun. These checks happen before test collection or HTTP
-requests; they do not prove credentials are accepted by Jira/Xray. Published
+requests; they do not prove credentials are accepted by Jira/Xray. Version
 0.1.7 reports these same setup failures as `INTERNALERROR` with exit code 3.
 Offline previews, local-only reports and `--collect-only` do not require credentials.
 
@@ -644,10 +644,10 @@ that never ran. Hard process termination can prevent any final file from being w
 Requests use a 10-second connect timeout and a 60-second read-inactivity timeout,
 not a total deadline. Redirects are rejected. Authentication and response shapes
 are checked. The plugin does not dump raw server responses to shared temporary files.
-The unreleased path-configuration fix reports errors raised while expanding or
+Version 0.1.8 reports errors raised while expanding or
 resolving report paths as `Cannot resolve <option>` with pytest exit code 4,
 before tests run. Check the named option, home-directory spelling and filesystem
-access. Published 0.1.7 can report these failures as `INTERNALERROR`/exit 3.
+access. Version 0.1.7 can report these failures as `INTERNALERROR`/exit 3.
 This is not a filesystem preflight: a path accepted during configuration may still
 fail when written. Python 3.12 raises on symlink loops during non-strict resolution;
 Python 3.13+ can leave those loops unresolved, so they fail later through the
@@ -655,11 +655,11 @@ existing report-writing error handling. No guarantee against filesystem changes
 between configuration and writing is provided.
 
 Local file replacement is atomic; failed writes retain any prior report.
-The unreleased cleanup fix preserves the original write error if removing its
+Version 0.1.8 preserves the original write error if removing its
 temporary file also fails. That diagnostic includes the temporary path and cleanup
 error; the file may contain report data. After the run, inspect that specific path
 and remove it when permissions allow. Do not treat an older retained report as a
-new result. Published 0.1.7 can instead surface the secondary cleanup exception.
+new result. Version 0.1.7 can instead surface the secondary cleanup exception.
 
 Python metadata requires `>=3.12`, pytest `>=9.1.1,<10` and requests `>=2.34.2,<3`.
 CI checks Linux on Python 3.12, 3.13 and 3.14; the tested baseline uses pytest 9.1.1,
@@ -745,22 +745,22 @@ invalid values in export payloads.
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
-| `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. The unreleased path fix uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
-| Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With the unreleased cleanup fix, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
+| `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
+| Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |
-| Missing authentication variable | Set the named variables for your selected auth method in the same shell/CI job. The unreleased configuration fix uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials. |
+| Missing authentication variable | Set the named variables for your selected auth method in the same shell/CI job. Version 0.1.8 uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials. |
 | HTTP 401/403 | Check existing credentials and permissions with the sandbox administrator. Do not paste secrets into issue reports. |
 | HTTP 404 or redirect | Check the base URL, context path and Server/DC versus Cloud mode. |
-| Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 with the unreleased configuration fix). A server TLS failure happens later and retains existing publishing-failure handling. |
+| Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
 
-**From 0.1.7 to the unreleased configuration fix:** update any CI checks that expect
+**From 0.1.7 to 0.1.8:** update any CI checks that expect
 exit 3 for missing authentication variables or nonexistent CA files to expect
 exit 4. Post-run HTTP/upload failures keep their existing exit behavior. The
 change does not add credential validation or alter authentication/TLS settings.
 
-**From 0.1.7 to the unreleased path fix:** errors raised during report-path
+Errors raised during report-path
 expansion/resolution use exit 4 rather than internal-error exit 3. Existing
 write-time failures keep their current handling. Home expansion stays enabled for
 all report options; environment-variable expansion applies to `--xraypath` and
