@@ -1,0 +1,38 @@
+{
+  "task": "XRAY-PRODUCT-011",
+  "revision": "add48b45728805dcf30cdbf00509ba07fdc4ee49",
+  "digest": "4c07d02879dbc3c971e58d3be12ddfc26fde465f91a87ef7ccdc4091c9a194ed",
+  "timestamp": "2026-10-17T07:10:26+00:00",
+  "reviewer": "independent-review-large-integer-reports",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Exact builtin integers rejected by decimal conversion at capture time use the existing unsupported-value placeholder so local values and legacy parameter comments retain all cases in serial/xdist",
+    "Preserve representable integer values/types, active interpreter settings, existing scalar/subclass/container privacy rules and input data; no arbitrary conversion methods, new cap, traversal or unrelated error suppression",
+    "Full beginner README, schema, troubleshooting/migration and Unreleased changelog/readiness distinguish candidate behavior from 0.1.8 and explain explicit IDs and capture-time limits without recommending safeguard removal",
+    "All five profiles, fifteen installed README commands/full metadata, changed-file static checks and exact-head CI pass; independent review before merge and no immediate publication"
+  ],
+  "source": "Parent-supplied independent acceptance, source thread 01a12a8b-3ef6-705b-9250-4b8889b0701e",
+  "evidence": {
+    "tested_revision": "5e8182257734a1dea271cebe735c3e465e7513d7",
+    "verified": "All 13 receipt log hashes and both static log hashes, task-contract and PR-body hashes verified independently. Tested revision to frozen head changes only evidence, progress and excluded execution-state fields. Push harness job 117336963746 reports exact frozen revision and digest.",
+    "workflow_runs": [
+      39012214589,
+      39012214594,
+      39012214604,
+      39012212318,
+      39012212287,
+      39012212280
+    ],
+    "results": "468 tests plus 19 subtests; 32 harness tests; 23 pages and 1211 references; all fifteen installed commands and full metadata; mypy across 40 files; Python 3.12\u20133.14 hosted jobs.",
+    "regressions": "Twenty-three new regressions cover signed thresholds at two limits, scalar preservation, hostile subclasses, unsupported values and four reporting modes with serial and two workers."
+  },
+  "limits": [
+    "Reviewer performed read-only source, receipt, log and hosted CI review without rerunning tests.",
+    "Safeguard applies at capture time, not earlier pytest formatting, later custom-hook data or subsequent interpreter-policy changes.",
+    "No live Jira/Xray or custom Automatic validation; native iterations remain unsupported.",
+    "Local browser evidence does not resolve live certificate or PyPI challenge limitations.",
+    "Any substantive follow-on change requires refreshed evidence and independent review."
+  ]
+}
