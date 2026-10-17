@@ -1,6 +1,8 @@
 Unreleased
 ==========
-- No unreleased changes.
+- Reject empty or whitespace-only upload base URLs as configuration usage errors
+  (exit 4) before tests run, instead of failing later while preparing an upload
+  (exit 3). Preserve nonblank values and credential-free offline/collect-only modes.
 
 0.1.8 [2026-10-17]
 ==================

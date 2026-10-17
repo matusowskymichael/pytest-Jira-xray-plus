@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-RELEASE-004",
-      "title": "Prepare 0.1.8 error-handling milestone",
-      "source": "docs/agent/task-release-018.md",
-      "source_sha256": "7a920e7e83431fe84e5c06eee9cfb2564eae3ddd0e0ff0cb46bcce74de0ac517",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/22",
+      "id": "XRAY-PRODUCT-008",
+      "title": "Reject blank upload base URLs before tests run",
+      "source": "docs/agent/task-blank-base-url.md",
+      "source_sha256": "be5f1c89a97d5c22135ca8752e00fd6867df7424218cd139981f1ac2a563bd18",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/23",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Prepare unused 0.1.8 bundling accepted PR19\u201321 with version-literal-only package/publisher changes and unchanged runtime, dependencies, tooling and permissions",
-        "Full beginner guide and dated changelog accurately explain 0.1.8 cleanup/configuration behavior, migration exit codes and Python path-version boundary while retaining all usage/privacy/live compatibility limits",
-        "All five profiles, fresh installed tutorial/full metadata, shared badge checks and exact-head CI pass on frozen release content; provenance identifies reviewed merged source and current public snapshots truthfully",
-        "Fresh independent release review precedes merge/publication; preserve trusted publishing safeguards and specify required public artifact/install/tag/Pages/coverage verification without claiming unperformed checks"
+        "Empty and whitespace-only upload base URLs become concise configuration usage errors before collection, fixtures, reports or transport across all auth modes and serial/xdist",
+        "Preserve missing-variable diagnostics, all nonblank URL bytes, credentials/TLS/auth behavior, offline/collect-only modes and later HTTP failure handling without broader URL validation",
+        "Full README, troubleshooting/migration and Unreleased readiness notes distinguish candidate behavior from published 0.1.8 and retain all privacy/live compatibility limits",
+        "All five profiles, installed README commands/full metadata, changed-file static checks and exact-head CI pass; fresh independent review is required before merge"
       ],
       "checks": [
         "harness",
@@ -41,7 +41,9 @@
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
         ".github/workflows/github-release.yml": "c09e3684b29abe7b73f00473503cc184ffe9d1d83772f1baa1941e0c2b7edd07",
+        ".github/workflows/publish.yml": "8ea35076d4d27944c292f74491d9561b5ac059a18e843b95695ce48d03b4638e",
         ".github/workflows/tests.yml": "2a63f790d2de782cdfad6c635816d8824cb6fdd01b46e494a48ef7e09d8a860e",
+        "pyproject.toml": "fd81f574cd8777623235693e37c04b2fda0d89bccc419ce899d2e1a8eb9b9b1a",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -52,7 +54,6 @@
         "src/pytest_xray/evidence.py": "3eaa2ef05a6f6f41fd0f81c7fc7395ab5f8eda50ec2574bb6890d2cb84397580",
         "src/pytest_xray/exceptions.py": "212fbfdb49145f7ad44dd83fdb6c798ad9f6aeaf898295d73b5af904cab8d97a",
         "src/pytest_xray/file_publisher.py": "4d114749361ac41f2e2e0fbc6ff0ab24050e9d9da2169bee047b274a8948f202",
-        "src/pytest_xray/helper.py": "f780d53152971aa134e9a4d417563dc8e5560ecc349aa4fb9a7490f353399548",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "2342d8411bab086b03ec9dd467c07dcc155ef55cf2457b846a52256e12f9ddd5",
         "src/pytest_xray/xray_plugin.py": "a440982ff9b2e09ef7d0d7a40a0916495bb098d9e32ac08636f2953604f8ab44",
@@ -64,7 +65,6 @@
         "tests/resources/screenshot.png": "33142adb062c55436042da46cc766f869fb720c9052c98b49ad2b63e45ff17e4",
         "tests/resources/test.zip": "baddcbe9ab5402618ed527995775af077c1ce8a97127608f1ce8c97c0befdcab",
         "tests/test_attachment_ownership.py": "d85d13668f992c205fbc0ce851df2b35619ec981ee3cd8c984002c466543e635",
-        "tests/test_auth_configuration.py": "1f1b7a96b731937e56e32de30e51e47d11ee512e01998e3b49cd5cc35a96d050",
         "tests/test_case_report.py": "ca3c585b525cdb3621add01ef79bb575c1e76dddb315fc1fddfc81eefbf4fc70",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
         "tests/test_collection_lookup.py": "8cd42797ed6f4e44e36624eb2140c53f6d4d7ec0777bc418e34b4d1f1251e14d",
@@ -79,6 +79,7 @@
         "tests/test_model.py": "ac7c1cc9c26a7929e4b38207e5bc90cf7b9ff9e7efed434581eb7856883ee337",
         "tests/test_parameter_details.py": "d856da3c5ada94d7edd5a94d0e8d4fcf8bf6d41daf6a52b9438cdbc09584c1e2",
         "tests/test_path_configuration.py": "449dd786c19dcfd3e90b0f2843528ec98f30d0d98c2a5d7ec5e833f4db90703b",
+        "tests/test_release_docs.py": "15622bba5e32b6a344b8f929c1f1d69789c2ab9b93a48f2cbc0972a67770fd36",
         "tests/test_release_readiness.py": "c901fb1cae5e2293ab2cdad54a8c3132092c73922e746826b3d5dee42ff00c59",
         "tests/test_report_cleanup.py": "c30f2de667f7080e14d2b07cf0a56819de228dfed131c822cad77e4f0fb0d507",
         "tests/test_tag_release.py": "ffcacd1d121c3b08d8ca6ef3e74a8743fca6b7c3a189aee0217f59b331b1448a",
@@ -99,15 +100,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-RELEASE-004-harness-9ce38dc8cbb1.json",
-        "docs/agent/evidence/XRAY-RELEASE-004-tests-07752e65ac26.json",
-        "docs/agent/evidence/XRAY-RELEASE-004-offline-88228beff0e5.json",
-        "docs/agent/evidence/XRAY-RELEASE-004-package-4ad4ea087966.json",
-        "docs/agent/evidence/XRAY-RELEASE-004-docs-bc22b5dcfb30.json"
+        "docs/agent/evidence/XRAY-PRODUCT-008-harness-3021a8215374.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-tests-f6ab82268562.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-offline-0be0e00267b3.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-package-d4dee9a30963.json",
+        "docs/agent/evidence/XRAY-PRODUCT-008-docs-5a44de56bbe9.json"
       ],
-      "review": "docs/agent/evidence/XRAY-RELEASE-004-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-PRODUCT-008-independent-review.json",
       "blocker": "",
-      "next_action": "Release verified; check operational evidence CI then begin next bounded independently reviewed improvement"
+      "next_action": "Exact frozen-head CI, then fresh independent review of PR23; do not merge before acceptance"
     }
   ]
 }

@@ -217,6 +217,8 @@ def get_base_options() -> dict[str, Any]:
         base_url = environ[ENV_XRAY_API_BASE_URL]
     except KeyError:
         raise XrayError(f'pytest-jira-xray plugin requires environment variable: {ENV_XRAY_API_BASE_URL}') from None
+    if not base_url.strip():
+        raise XrayError(f'{ENV_XRAY_API_BASE_URL} must be a nonblank Jira/Xray base URL')
 
     verify = os.environ.get(ENV_XRAY_API_VERIFY_SSL, 'True')
 
