@@ -1,0 +1,76 @@
+{
+  "task": "XRAY-RELEASE-004",
+  "reviewer": "/root/review_release_018",
+  "independent": true,
+  "revision": "0e558fc0477f7275500136e5ec91c0fffa1275b2",
+  "digest": "0f94455e808ba8fb269c40f05c690d43b26ec31f37e3a34a793fa0f1736aa111",
+  "timestamp": "2026-10-17T05:29:55+00:00",
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Prepare unused 0.1.8 bundling accepted PR19–21 with version-literal-only package/publisher changes and unchanged runtime, dependencies, tooling and permissions",
+    "Full beginner guide and dated changelog accurately explain 0.1.8 cleanup/configuration behavior, migration exit codes and Python path-version boundary while retaining all usage/privacy/live compatibility limits",
+    "All five profiles, fresh installed tutorial/full metadata, shared badge checks and exact-head CI pass on frozen release content; provenance identifies reviewed merged source and current public snapshots truthfully",
+    "Fresh independent release review precedes merge/publication; preserve trusted publishing safeguards and specify required public artifact/install/tag/Pages/coverage verification without claiming unperformed checks"
+  ],
+  "assessment": [
+    "Reviewed complete34-file diff,AGENTS,harness,testing/workflow/maintainer instructions,ledger,fullREADME,changelog,readiness,receipts. No blocking defects.",
+    "Fetched base/head pyproject.toml and publish.yml: replacing all0.1.7 literals with0.1.8 exactly produces head; independent hashes match receipt. No runtime/dependency/tooling/otherworkflowchanges.",
+    "Verified PR19–21 merged exact provenance; baselinea9279d81e674ceb5bdfa8f72d3cf713a96d49f84 three main workflows pass.",
+    "Five receipts have correct task/digest/testedrevision/commands/pass; all13loghashes independently matched.",
+    "Testedc82da155fc652bf38122cd9b4bbffec950e2c723 to reviewedhead only evidence/progress/ledgerstate; contractunchanged. Exactheadpushharness reportsdigest/revision.",
+    "Six exactheadworkflows pass; PRjobs coverPython3.12–3.14/package/tutorial/offline/docs/browser/harness. PRsyntheticmerge and separate actualheadpushharness distinguished.",
+    "FullREADME preserves progressive installation/examples/auth/preview/upload/privacy/retries/hooks/troubleshooting/migration. Newexit4vs3/cleanup/pathversion explanations accurate.",
+    "Datedchangelog groups3improvements; regressionextended preservingassertions.",
+    "Badge receipt READMEhash matches; HTTP/previews distinguished fromlivevisual, publicstatus/coverage correctly0.1.7snapshots.",
+    "Publisher safeguards unchanged:main/repo/fullSHA/explicitoptin/pinnedactions/readonlybuild/exactartifactsmetadata/hashesartifactID/pypienvironment/scopedOIDC/no-skipexisting/attestations."
+  ],
+  "evidence": {
+    "pull_request": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/22",
+    "base_revision": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84",
+    "tested_source_revision": "c82da155fc652bf38122cd9b4bbffec950e2c723",
+    "scope_body_sha256": "7a920e7e83431fe84e5c06eee9cfb2564eae3ddd0e0ff0cb46bcce74de0ac517",
+    "readme_sha256": "5fd04e94327fd46beced314be559f95c8a6cd58e655d8b16129b35c8c4b06b39",
+    "receipts": [
+      "docs/agent/evidence/XRAY-RELEASE-004-harness-9ce38dc8cbb1.json",
+      "docs/agent/evidence/XRAY-RELEASE-004-tests-07752e65ac26.json",
+      "docs/agent/evidence/XRAY-RELEASE-004-offline-88228beff0e5.json",
+      "docs/agent/evidence/XRAY-RELEASE-004-package-4ad4ea087966.json",
+      "docs/agent/evidence/XRAY-RELEASE-004-docs-bc22b5dcfb30.json"
+    ],
+    "verified_receipt_log_count": 13,
+    "recorded_results": {
+      "tests": "383passed19subtests",
+      "harness": "32passed",
+      "package": "Build/Twine/freshwheel/all14commands/fullmetadata pass",
+      "offline": "Bothorders/comments/failureaggregation noJira pass",
+      "docs": "23pages1210references strictbuild/localbrowser pass",
+      "static": "ChangedRuff/mypy37files pass"
+    },
+    "exact_head_workflows": [
+      39006054816,
+      39006054800,
+      39006054818,
+      39006051850,
+      39006051848,
+      39006051869
+    ],
+    "exact_head_digest_job": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39006051850/job/117318652102",
+    "merged_provenance": {
+      "19": "3f144256ca910e37a64fb0542c16d6d7faa685f7",
+      "20": "0d3c5f0086771eccb898f8b509839c4f725778a3",
+      "21": "a9279d81e674ceb5bdfa8f72d3cf713a96d49f84"
+    },
+    "availability": "Preparation receipt livePyPI0.1.7 and unused0.1.8 at05:20:14UTC; independentGitHub no0.1.8tag/release."
+  },
+  "limits": [
+    "Read-only connector review,no localrerun/mutation/reviewsubmission/merge/dispatch/publication.",
+    "Digest via exactheadhostedharness/sourcecomparison,not complete localfingerprint.",
+    "IndependentPyPIJSONfetch failed; recheck unused liveversion before publication.",
+    "Badges/static inspectedrecorded,not independently repeated externalvisual.",
+    "No liveXray/customAutomatic/WindowsmacOS/nativeiteration validation.",
+    "Certificatehandoff/PyPIHTMLchallenge limits remain,no bypass.",
+    "Exacthead/digestbound; acceptancecommit/finalCI/mainCI/unusedversion required.",
+    "Publication not complete; verify artifacts/tag/publicinstall/tutorial/Pages/status/newmeasuredcoverage afterward."
+  ]
+}
