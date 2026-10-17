@@ -6,7 +6,7 @@
       "title": "Reject blank upload base URLs before tests run",
       "source": "docs/agent/task-blank-base-url.md",
       "source_sha256": "be5f1c89a97d5c22135ca8752e00fd6867df7424218cd139981f1ac2a563bd18",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/23",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
