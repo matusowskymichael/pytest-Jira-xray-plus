@@ -6,7 +6,7 @@
       "title": "Create parent folders for local case reports",
       "source": "docs/agent/task-case-parent.md",
       "source_sha256": "0ece12a64191c4dd86ff1b4bf0c8e5886e26a27c4ba4e82160fd096c92d3d02c",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/25",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
