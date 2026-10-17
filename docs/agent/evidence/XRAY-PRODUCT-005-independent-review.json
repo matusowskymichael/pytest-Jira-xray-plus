@@ -1,0 +1,42 @@
+{
+  "task": "XRAY-PRODUCT-005",
+  "digest": "55254d10f7b8fcc8dfcd88b433a2f6522dee37b71e5405a222adf9e22025f5b0",
+  "revision": "aedaceda72e604af8721821d4f96f4c8f8c9052a",
+  "timestamp": "2026-10-17T04:33:23Z",
+  "reviewer": "/root/review_report_cleanup_fix",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Both report writers preserve primary write failure and existing error boundary when owned temporary cleanup raises OSError; report secondary error and leftover path",
+    "Successful replacement does not unlink the consumed temporary name; failures preserve existing destination and unrelated files, including warning-as-error and unexpected-exception cleanup",
+    "Synthetic regression tests reproduce the old defect and verify corrected behavior; all five profiles, installed tutorial, static checks and exact-head CI pass",
+    "Full beginner guide, troubleshooting and Unreleased changelog accurately distinguish the candidate fix from published 0.1.7 and retain live compatibility/privacy limits; independent review precedes merge"
+  ],
+  "assessment": [
+    "Read AGENTS.md, task scope, ledger, completion policy, complete runtime diff, new regressions, surrounding plugin/session-finish/archive paths and relevant existing tests. Only the two intended runtime files change. Dependencies, version, workflows, upload implementation, aggregation, privacy switches and unrelated tests/tooling remain unchanged.",
+    "Both writers perform owned temporary cleanup in an inner finally and suppress only cleanup OSError. Expected primary exceptions reach their original outer handling: XrayError with the primary exception chained for FilePublisher; PytestWarning and INTERNAL_ERROR for CaseReportPlugin. Secondary cleanup errors append the owned temporary path without serializing report contents into the diagnostic. KeyboardInterrupt is not broadly caught or converted; cleanup still runs.",
+    "Successful os.replace immediately clears temporary ownership, preventing a subsequent unlink of the consumed name. Failed writes/replacements leave the existing destination untouched. Failure before temporary creation performs no unlink. FilePublisher still creates missing parent directories; CaseReportPlugin still requires its parent to exist.",
+    "Case-report cleanup occurs before warning emission, so warning-as-error cannot interrupt cleanup or mask the primary diagnostic with cleanup OSError. Its existing unconditional INTERNAL_ERROR assignment remains unchanged. XrayPlugin continues preserving existing nonzero session status and changes only an otherwise successful session to INTERNAL_ERROR after publishing failure.",
+    "Full-report archival uses FilePublisher inside bound_comments before publisher.publish. Archive failure therefore prevents upload through the existing XrayError boundary. CaseReportPlugin retains trylast session-finish ordering: its local report can fail after an upload has already occurred; this change does not imply upload rollback or pre-upload gating.",
+    "Reviewed all 23 new parametrized regression cases: replacement failure with successful/failed cleanup, destination/unrelated-file preservation, no post-success unlink, temporary-creation failure, warning-as-error cleanup, write/close failures, KeyboardInterrupt preservation and both subprocess reporting boundaries. Baseline evidence records four expected failures and five passes before the fix. Final test receipt records 328 passed plus 19 subtests.",
+    "All five durable profile receipts bind to the requested digest and source revision 61486e91e3517ed13658add4be75aafcae640f93. Reviewed associated logs: 32 harness tests, offline assertions, build/Twine, all14 installed README commands and complete wheel metadata rendering, strict docs build,23 HTML pages/1207 references and local desktop/mobile/search/theme checks. Ruff and mypy35files pass.",
+    "Source-to-reviewed-head changes only evidence,progress,ledger execution state. Exact-head push harness reports requested digest and preflight/drift success. Six exact-head workflows pass.",
+    "README/troubleshooting identify fix as unreleased, distinguish published0.1.7, warn leftover temporary files may contain report data, advise inspecting/removing only named file when permitted and not treating retained older reports as new results. Changelog/readiness preserve release and live-compatibility boundaries."
+  ],
+  "ci_runs": [
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39002647645",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39002647644",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39002647664",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39002644844",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39002644857",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39002644856"
+  ],
+  "limits": [
+    "Independent read-only GitHub review; no local execution,mutation,external review,merge or release.",
+    "Receipt/log contents and hostedCI inspected; log hashes not independently recomputed. Hosted harness corroborated digest.",
+    "Dedicated warning-as-error regression covers successful cleanup; combined cleanupOSError case supported by control flow and separate double-failure regressions rather than dedicated combined test.",
+    "Synthetic validation, not liveXray/customAutomatic/nativeiterations validation. Local docs rendering not live browser verification.",
+    "Bound to stated revision/digest. Acceptance-record commit requires normal validation and exactheadCI. Release requires separately reviewed version candidate."
+  ]
+}
