@@ -6,7 +6,7 @@
       "title": "Avoid worker-header-only comments",
       "source": "docs/agent/task-worker-comments.md",
       "source_sha256": "e0100f68e9b5ac545b6fdcbd53bb401616b4aadb98cada469bd48d06c67aafef",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/27",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
