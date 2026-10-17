@@ -1,11 +1,11 @@
-# Independently accepted — authentication configuration errors
+# Independently accepted — report path configuration errors
 
-- PR19 independently accepted, merged at 3f144256ca910e37a64fb0542c16d6d7faa685f7 with identical accepted tree. Acceptance-head six workflows and main CI 39003343509/39003343499/39003343482 passed. Accepted ledger/review retained and archived.
-- Task XRAY-PRODUCT-006: no open issues returned; code investigation reproduced missing auth configuration as INTERNALERROR/exit 3. Draft matrix on unchanged code: 22 expected failures, three offline/collection cases pass. Baseline excerpt/hash retained.
-- Focused plugin configuration boundary converts existing auth helper XrayError to pytest.UsageError; no helper/HTTP/selection/TLS/version/workflow changes.
-- PR20: https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/20. Full beginner README/auth/troubleshooting/migration and Unreleased changelog updated. Added 25 synthetic regressions; all pass.
-- All five profiles passed on b80af58fe55bc9017106746ecb44f9564ca710c9: 353 tests + 19 subtests, 32 harness tests, offline checks, build/Twine, all 14 installed README commands/full metadata rendering, strict docs (23 HTML pages, 1207 references), local desktop/mobile/search/theme checks. Changed-file Ruff and mypy (36 files) pass.
-- Digest: 34aaea7a71b23a9cefc44a72cabb89d4d24a2e93c1be83f27c6955a8c0bb10ac.
-- Connection checked at 2026-10-17 04:44:45 UTC after parent notification: shell/GitHub healthy, PR19 merge and PR20 pushed head confirmed; no duplicate actions.
-- Independent PASS from /root/review_auth_configuration_errors recorded with supplied assessment/evidence/limits unchanged. All six reviewed-head workflows passed. Next: acceptance-head CI, merge preserving history, main CI, then next bounded improvement. No release for version count. Existing browser certificate/PyPI HTML challenge limits remain.
-- Published version remains 0.1.7. No workplace/private data or security bypass; live Generic 8.5.3-j10/custom Automatic mapping unverified, native iterations unsupported. One task at a time through 2026-10-18 23:59 Asia/Dubai.
+- PR20 independently accepted and merged at 0d3c5f0086771eccb898f8b509839c4f725778a3; tree identical to acceptance commit b6116b8. Six acceptance-head workflows and main CI 39004455946/39004455979/39004455999 passed. Accepted ledger archived.
+- XRAY-PRODUCT-007: no open issues returned. Synthetic unresolved home paths, Python 3.12 symlink loops and injected resolution failures reproduce internal configuration errors. Initial 28-case matrix: 21 expected failures, seven passes; two additional preservation cases pass before edits.
+- Focused plugin normalization boundary maps only OSError/RuntimeError to option-specific UsageError. Non-strict resolution and writer boundaries unchanged; Python 3.13+ symlink loops may still fail later during writing.
+- PR21: https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/21. Full beginner README, troubleshooting/migration, Unreleased changelog and readiness updated. Thirty new regressions pass, including collect-only and unexpected-exception preservation.
+- All five profiles passed on 860ffd94cc1936c801d2680e68d2747bf851227a: 383 tests + 19 subtests, 32 harness tests, offline assertions, build/Twine, all 14 installed README commands/full metadata, strict docs with 23 HTML pages/1207 references and local desktop/mobile/search/highlighting/theme. Changed-file Ruff and mypy (37 files) pass. Receipt log hashes verified.
+- Digest: dd4aad7934f1036833a7cb0d732e652e32de1ec981786321c43d06b98dbea630.
+- Connection checked after parent notification: shell/GitHub healthy at 04:55:54 UTC; PR20 subsequently merged at 04:56:52 UTC. No duplicate actions.
+- Independent PASS from /root/review_report_path_errors recorded with supplied assessment/evidence/limits unchanged. Six reviewed-head workflows passed. Next: acceptance-head CI, merge/main CI, then unused 0.1.8 release candidate grouping PR19–21. Freeze release for fresh independent review before publication. Existing browser certificate/PyPI HTML challenge limits remain.
+- No workplace/private data, new credentials/permissions or browser bypass. Live Xray/custom Automatic mapping unverified, native iterations unsupported. Continue one iteration at a time through 2026-10-18 23:59 Asia/Dubai.

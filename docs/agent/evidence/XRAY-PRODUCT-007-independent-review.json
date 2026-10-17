@@ -1,0 +1,50 @@
+{
+  "task": "XRAY-PRODUCT-007",
+  "digest": "dd4aad7934f1036833a7cb0d732e652e32de1ec981786321c43d06b98dbea630",
+  "revision": "f01231291ba513b2402e4540e1bc93c73d42dae4",
+  "timestamp": "2026-10-17T05:09:28+00:00",
+  "reviewer": "/root/review_report_path_errors",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Expected OSError and RuntimeError from initial report-path expansion/resolution become concise option-specific usage errors before test execution or transport, without masking unexpected programming exceptions",
+    "Preserve non-strict path semantics, option-specific environment expansion, valid home paths, normalized collision checks, collect-only and writer failure handling; explicitly retain Python 3.12 versus 3.13+ symlink-loop behavior",
+    "Synthetic regressions reproduce baseline failures and cover all three report options, serial/xdist failures, side-effect boundaries and valid paths; all five profiles, installed tutorial, static checks and exact-head CI pass",
+    "Full beginner guide, troubleshooting/migration and Unreleased changelog distinguish candidate behavior from 0.1.7 and explain no filesystem preflight guarantee; independent review precedes merge, no version/dependency/workflow/permission changes"
+  ],
+  "assessment": [
+    "Reviewed AGENTS.md, ledger/task, harness fingerprint/acceptance, completion/testing/maintainer policy, runtime/regression diff, docs, archived ledger, receipts and writer implementations.",
+    "Runtime only changes initial normalization loop: OSError/RuntimeError to option-specific UsageError without chaining, TypeError remains INTERNAL_ERROR. Failure before registration/auth/collection/transport.",
+    "Normalization order, truthiness filtering, expanduser, non-strict resolve, environment expansion and normalized collision semantics unchanged. Case-report env vars stay literal; Xray/full-report paths expand.",
+    "Collect-only returns before normalization; disabled upload retains existing validation. No configured paths adds no filesystem action. Local reporting/preview remain transport-free.",
+    "No new file mutation/permissions. Writers and atomic cleanup unchanged; valid symlink/collision behavior preserved.",
+    "30 regressions cover three options, unresolved homes, injected PermissionError/RuntimeError, serial/xdist boundaries, version-aware loops, valid paths, collisions,collect-only,unexpected errors.",
+    "Python3.12 loops fail normalization; Python3.13/3.14 non-strict loops defer to writer, all three versions pass CI.",
+    "No auth,payload,privacy,dependency,version,workflow,permission changes. Existing underlying path error shown, no new credentials/report payload read/log.",
+    "Docs accurately distinguish candidate and published0.1.7, env-expansion distinction and no preflight/race guarantee.",
+    "PR body/task-source SHA2562d40ac4f0eea728e46f80c1de72785a12ec8c29558069e581dfbe8a319751678 matches ledger.",
+    "Five receipts bind supplied digest and tested860ffd94cc1936c801d2680e68d2747bf851227a, expected commands zeroexits; all13loghashes independently match.",
+    "Tested-to-reviewedhead only evidence/progress/ledgerstate; no relevantcontent changes.",
+    "383tests19subtests,32harness,offline,build/Twine,14installedcommands/fullmetadata,strict23page1207reference docs/localbrowser,changedRuff/mypy pass. Prior ledger archived unchanged."
+  ],
+  "evidence": [
+    "docs/agent/evidence/XRAY-PRODUCT-007-harness-abc95f586270.json",
+    "docs/agent/evidence/XRAY-PRODUCT-007-tests-c13c58aa900a.json",
+    "docs/agent/evidence/XRAY-PRODUCT-007-offline-9918161d3c44.json",
+    "docs/agent/evidence/XRAY-PRODUCT-007-package-2f8fa485e17f.json",
+    "docs/agent/evidence/XRAY-PRODUCT-007-docs-ee5135283472.json",
+    "docs/agent/evidence/XRAY-PRODUCT-007-static.log",
+    "docs/agent/evidence/XRAY-PRODUCT-007-baseline.json",
+    "docs/agent/evidence/XRAY-PRODUCT-007-baseline.log"
+  ],
+  "ci": [39004845225,39004845230,39004845253,39004842021,39004841946,39004841934],
+  "limits": [
+    "Read-only GitHub review; no local rerun/full fingerprint/artifact reproduction.",
+    "Digest corroborated receipts,unchanged relevantcontent and exactheadCI; normal acceptance validation still needed.",
+    "Static/baseline builder evidence; omitted full baseline log not authenticated.",
+    "Initial normalization cannot prevent later filesystem changes/repeated constructor resolution/hardlink aliases/write failures.",
+    "No liveXray/customAutomatic/nativeiterations/publicvisual/release/reproducibility claims.",
+    "Bound to exact revision/digest; material changes need renewed review."
+  ]
+}

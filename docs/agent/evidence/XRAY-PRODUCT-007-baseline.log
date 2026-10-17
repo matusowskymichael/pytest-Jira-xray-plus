@@ -1,0 +1,28 @@
+Baseline runtime: b6116b81a18115cab4d47f9875b23a97c94433d1, identical to merged 0d3c5f0086771eccb898f8b509839c4f725778a3.
+Initial matrix: python -m pytest -q -p pytester /tmp/test_path_configuration.py
+Summary excerpt; complete local log SHA256: cdee963c5d2c8d6fa0ac0d4699fca08c38c597faee65b4ec61d0146e262c00e4
+=========================== short test summary info ============================
+FAILED ../../tmp/test_path_configuration.py::test_unresolvable_home_is_usage_error[0---xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_unresolvable_home_is_usage_error[0---xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_unresolvable_home_is_usage_error[0---xray-full-report]
+FAILED ../../tmp/test_path_configuration.py::test_unresolvable_home_is_usage_error[2---xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_unresolvable_home_is_usage_error[2---xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_unresolvable_home_is_usage_error[2---xray-full-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[0-PermissionError---xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[0-PermissionError---xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[0-PermissionError---xray-full-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[0-RuntimeError---xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[0-RuntimeError---xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[0-RuntimeError---xray-full-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[2-PermissionError---xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[2-PermissionError---xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[2-PermissionError---xray-full-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[2-RuntimeError---xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[2-RuntimeError---xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_resolution_failure_stops_before_execution[2-RuntimeError---xray-full-report]
+FAILED ../../tmp/test_path_configuration.py::test_real_symlink_loop_retains_python_version_boundary[--xray-case-report]
+FAILED ../../tmp/test_path_configuration.py::test_real_symlink_loop_retains_python_version_boundary[--xraypath]
+FAILED ../../tmp/test_path_configuration.py::test_real_symlink_loop_retains_python_version_boundary[--xray-full-report]
+21 failed, 7 passed in 9.07s
+
+Additional collect-only/unexpected-exception preservation checks: 2 passed, 28 deselected.

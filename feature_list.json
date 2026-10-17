@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PRODUCT-006",
-      "title": "Classify authentication configuration failures as usage errors",
-      "source": "docs/agent/task-auth-configuration.md",
-      "source_sha256": "b8801b55e994cc52ad0c5c51a47916c4c0f2a5ac57aa97d10682c73484a28010",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/20",
+      "id": "XRAY-PRODUCT-007",
+      "title": "Classify report path normalization errors as usage errors",
+      "source": "docs/agent/task-path-configuration.md",
+      "source_sha256": "2d40ac4f0eea728e46f80c1de72785a12ec8c29558069e581dfbe8a319751678",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/21",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Missing authentication environment variables and absent CA files produce concise pytest usage errors (exit 4), not internal tracebacks, before test collection/fixtures or HTTP/report writing",
-        "Preserve helper API exceptions, auth precedence, TLS settings, valid publisher setup and runtime HTTP failures; offline preview/local-only and collect-only stay credential-free",
-        "Synthetic serial/xdist subprocess regressions reproduce old failures and verify diagnostics, secret-output avoidance and pre-execution boundaries; all five profiles, installed commands, static checks and exact-head CI pass",
-        "Full beginner README, troubleshooting/migration and Unreleased changelog explain changed configuration exits and distinguish candidate from 0.1.7; independent review before merge, no version or publishing changes"
+        "Expected OSError and RuntimeError from initial report-path expansion/resolution become concise option-specific usage errors before test execution or transport, without masking unexpected programming exceptions",
+        "Preserve non-strict path semantics, option-specific environment expansion, valid home paths, normalized collision checks, collect-only and writer failure handling; explicitly retain Python 3.12 versus 3.13+ symlink-loop behavior",
+        "Synthetic regressions reproduce baseline failures and cover all three report options, serial/xdist failures, side-effect boundaries and valid paths; all five profiles, installed tutorial, static checks and exact-head CI pass",
+        "Full beginner guide, troubleshooting/migration and Unreleased changelog distinguish candidate behavior from 0.1.7 and explain no filesystem preflight guarantee; independent review precedes merge, no version/dependency/workflow/permission changes"
       ],
       "checks": [
         "harness",
@@ -65,6 +65,7 @@
         "tests/resources/screenshot.png": "33142adb062c55436042da46cc766f869fb720c9052c98b49ad2b63e45ff17e4",
         "tests/resources/test.zip": "baddcbe9ab5402618ed527995775af077c1ce8a97127608f1ce8c97c0befdcab",
         "tests/test_attachment_ownership.py": "d85d13668f992c205fbc0ce851df2b35619ec981ee3cd8c984002c466543e635",
+        "tests/test_auth_configuration.py": "1f1b7a96b731937e56e32de30e51e47d11ee512e01998e3b49cd5cc35a96d050",
         "tests/test_case_report.py": "ca3c585b525cdb3621add01ef79bb575c1e76dddb315fc1fddfc81eefbf4fc70",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
         "tests/test_collection_lookup.py": "8cd42797ed6f4e44e36624eb2140c53f6d4d7ec0777bc418e34b4d1f1251e14d",
@@ -99,15 +100,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-PRODUCT-006-harness-a353fb949498.json",
-        "docs/agent/evidence/XRAY-PRODUCT-006-tests-f0785ae5fc61.json",
-        "docs/agent/evidence/XRAY-PRODUCT-006-offline-b10c5bf6ebab.json",
-        "docs/agent/evidence/XRAY-PRODUCT-006-package-21b26898878e.json",
-        "docs/agent/evidence/XRAY-PRODUCT-006-docs-e16917d56617.json"
+        "docs/agent/evidence/XRAY-PRODUCT-007-harness-abc95f586270.json",
+        "docs/agent/evidence/XRAY-PRODUCT-007-tests-c13c58aa900a.json",
+        "docs/agent/evidence/XRAY-PRODUCT-007-offline-9918161d3c44.json",
+        "docs/agent/evidence/XRAY-PRODUCT-007-package-2f8fa485e17f.json",
+        "docs/agent/evidence/XRAY-PRODUCT-007-docs-ee5135283472.json"
       ],
-      "review": "docs/agent/evidence/XRAY-PRODUCT-006-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-PRODUCT-007-independent-review.json",
       "blocker": "",
-      "next_action": "Final exact-head CI then fresh parent-arranged independent review of PR20"
+      "next_action": "Final exact-head CI then fresh parent-arranged independent review of PR21"
     }
   ]
 }

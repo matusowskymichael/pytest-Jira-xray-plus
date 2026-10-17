@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- Report expected path expansion/resolution failures as option-specific pytest
+  usage errors (exit 4). Preserve non-strict resolution, expansion conventions,
+  collision checks and write-time failures, including Python's symlink-loop
+  behavior difference between 3.12 and 3.13+.
 - Report missing authentication environment variables and nonexistent CA bundle
   paths as concise pytest usage errors (exit 4), avoiding configuration internal
   tracebacks/exit 3. Offline/collect-only and runtime HTTP handling are unchanged.

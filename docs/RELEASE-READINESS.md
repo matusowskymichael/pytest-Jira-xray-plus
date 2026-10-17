@@ -329,3 +329,22 @@ All five profiles, installed tutorial and exact-head CI plus independent review
 gate merge. A later milestone needs separately reviewed release preparation.
 Published 0.1.7 and its verified public evidence remain the release baseline.
 No live Xray or browser validation is implied.
+
+
+## Report path configuration candidate — 2026-10-17
+
+PR20 merged at 0d3c5f0086771eccb898f8b509839c4f725778a3 after independent acceptance,
+six acceptance-head workflows and three main workflows passed. Its authentication
+fix and PR19 cleanup handling remain unreleased for a meaningful later milestone.
+
+This candidate converts OSError/RuntimeError raised during initial report-path
+normalization into option-specific usage errors. It preserves non-strict resolve,
+valid expansion/collision behavior and writer semantics. Python3.12 raises on
+symlink loops during normalization; Python3.13+ can defer that failure to writing.
+This is not filesystem preflight or protection against filesystem races. Initial
+synthetic matrix reproduced 21 failures and seven passes; additional collect-only
+and unexpected-exception preservation cases passed before edits.
+
+All five profiles, installed guide, exact-head CI and independent review gate
+merge. No version/dependency/workflow/permission changes or live-server claims.
+Published0.1.7 and existing browser-security/PyPI HTML limits remain the baseline.
