@@ -97,9 +97,15 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "review_pending",
-      "evidence": [],
-      "review": "",
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-PRODUCT-006-harness-a353fb949498.json",
+        "docs/agent/evidence/XRAY-PRODUCT-006-tests-f0785ae5fc61.json",
+        "docs/agent/evidence/XRAY-PRODUCT-006-offline-b10c5bf6ebab.json",
+        "docs/agent/evidence/XRAY-PRODUCT-006-package-21b26898878e.json",
+        "docs/agent/evidence/XRAY-PRODUCT-006-docs-e16917d56617.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-PRODUCT-006-independent-review.json",
       "blocker": "",
       "next_action": "Final exact-head CI then fresh parent-arranged independent review of PR20"
     }
