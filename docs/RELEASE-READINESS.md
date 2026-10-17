@@ -496,3 +496,31 @@ the grouped fixes as a meaningful milestone. No version/dependency/workflow or
 permission changes, publishing or live Xray access in this task. Generic/custom
 Automatic live validation and browser limitations remain; native iterations are
 unsupported.
+
+
+## 0.1.9 reporting reliability release candidate — 2026-10-17
+
+This milestone groups independently reviewed PR23–27: blank base-URL usage
+errors before tests; indexed aggregation; automatic local report parent folders;
+safe oversized integer capture; and omission of header-only xdist comments.
+Final accepted runtime merge: 45ae374410b14992c741788168036dd786e6b52a. Main CI passed before release preparation;
+its receipt is XRAY-RELEASE-005-base-ci.json. No new runtime behavior is introduced
+by this release task. Twenty-four final worker-comment regressions brought the
+product suite to 492 tests plus 19 subtests; release profiles will rerun it.
+
+PyPI JSON over normal TLS reports latest 0.1.8, with no 0.1.9 release or v0.1.9
+Git tag at preparation. See XRAY-RELEASE-005-version-check.json. Recheck immediately
+before any publication. Package/manual publisher changes are version literals
+only; reviewed-SHA checks, explicit opt-in, exact artifact hashes, pypi environment
+and permissions remain. Full beginner guide/reference/changelog describe 0.1.9
+behavior and preserve fifteen executable commands. Runtime, dependencies and
+build/verification tooling are frozen. Public metadata/coverage snapshots remain
+verified 0.1.8; no 0.1.9 publication or new coverage measurement is claimed here.
+
+Fresh independent release review, final exact-head checks and main CI precede
+publication. After approval, use only the existing trusted publisher, compare
+publisher/PyPI/GitHub artifact hashes and exact source tag, install from public
+PyPI and run the full guide, measure actual clean-source coverage, refresh existing
+Pages/status and compare live files. Do not substitute renderer/HTTP checks for
+live browser evidence: prior certificate/PyPI challenge limits remain. No live
+workplace Xray/custom Automatic validation; native iterations/datasets unsupported.

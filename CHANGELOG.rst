@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- No additional changes queued.
+
+0.1.9 [2026-10-17]
+==================
 - Omit xdist worker-header-only comments when a report has no diagnostic
   representation, preventing otherwise passing grouped exports from exhausting
   comment limits. Preserve actual/custom diagnostics, privacy opt-ins and limits.
