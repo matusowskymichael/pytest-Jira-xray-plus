@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-PRODUCT-009",
+  "profile": "tests",
+  "digest": "90abc0150e299529f5e788dba04d459871f01a76353d1058a01a34ddafddf110",
+  "revision": "0b4e2ed3fdb6be351e4b5894c96bc97ab1e2e397",
+  "timestamp": "2026-10-17T06:13:51.976826+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 79.729,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-009-tests-e4d42230e484-0.log",
+      "log_sha256": "26dbdf77ff482c24b331ab319612b681cb085fd9039599a370283b463ada75c2"
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-10-17T06:12:03.100356+00:00",
+  "baseline": [
+    {
+      "unique_keys": 2000,
+      "elapsed_seconds": 0.042731638000987004
+    },
+    {
+      "unique_keys": 4000,
+      "elapsed_seconds": 0.1596296120005718
+    },
+    {
+      "unique_keys": 8000,
+      "elapsed_seconds": 0.6054073459999927
+    }
+  ],
+  "candidate_base_commit": "2b8a4f29567bc612a758635975da09e1c1439f15",
+  "candidate_runtime_sha256": "cd365ad0a031cd7636b052b698e1c7032cc27e142b2f81752dc1fa4b37c08d5d",
+  "script": "docs/agent/evidence/XRAY-PRODUCT-009-benchmark-script.txt",
+  "script_sha256": "39a973738c4f35baa6dc528fb8e71a97f642877b750f3567102c50b772587bc4",
+  "method": "One run per size/environment; synthetic passed call reports, unique keys, empty comments; no network; elapsed report ingestion including report construction. Not a universal speed guarantee.",
+  "candidate": [
+    {
+      "unique_keys": 2000,
+      "elapsed_seconds": 0.0038188079997780733
+    },
+    {
+      "unique_keys": 4000,
+      "elapsed_seconds": 0.008083206999799586
+    },
+    {
+      "unique_keys": 8000,
+      "elapsed_seconds": 0.014914848001353675
+    }
+  ],
+  "baseline_environment": "Fresh installed PyPI 0.1.8; Python 3.12.14",
+  "candidate_environment": "Editable candidate; Python 3.12.14"
+}

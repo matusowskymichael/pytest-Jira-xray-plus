@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PRODUCT-008",
-      "title": "Reject blank upload base URLs before tests run",
-      "source": "docs/agent/task-blank-base-url.md",
-      "source_sha256": "be5f1c89a97d5c22135ca8752e00fd6867df7424218cd139981f1ac2a563bd18",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/23",
+      "id": "XRAY-PRODUCT-009",
+      "title": "Scale result aggregation by Test key",
+      "source": "docs/agent/task-aggregation-index.md",
+      "source_sha256": "6e86abdad4191cbfdf19785aeaa9b5559d9c7d46430ac88fc72c6528249115e1",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/24",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Empty and whitespace-only upload base URLs become concise configuration usage errors before collection, fixtures, reports or transport across all auth modes and serial/xdist",
-        "Preserve missing-variable diagnostics, all nonblank URL bytes, credentials/TLS/auth behavior, offline/collect-only modes and later HTTP failure handling without broader URL validation",
-        "Full README, troubleshooting/migration and Unreleased readiness notes distinguish candidate behavior from published 0.1.8 and retain all privacy/live compatibility limits",
-        "All five profiles, installed README commands/full metadata, changed-file static checks and exact-head CI pass; fresh independent review is required before merge"
+        "Plugin-owned Test-key lookup avoids repeated linear scans with deterministic scaling regressions and measured synthetic before/after evidence without timing thresholds",
+        "Preserve first-observed output order, status mappings and precedence, comment order, defects/evidence, multi-key reports, reruns/phases/xdist, public model APIs and final payload hooks",
+        "Full beginner guide, migration/troubleshooting and Unreleased changelog/readiness explain scoped performance benefit and memory/ownership limits while retaining privacy and live compatibility boundaries",
+        "All five profiles, installed README commands/full metadata, changed-file static checks and exact-head CI pass; independent review before merge with no immediate publication"
       ],
       "checks": [
         "harness",
@@ -54,9 +54,9 @@
         "src/pytest_xray/evidence.py": "3eaa2ef05a6f6f41fd0f81c7fc7395ab5f8eda50ec2574bb6890d2cb84397580",
         "src/pytest_xray/exceptions.py": "212fbfdb49145f7ad44dd83fdb6c798ad9f6aeaf898295d73b5af904cab8d97a",
         "src/pytest_xray/file_publisher.py": "4d114749361ac41f2e2e0fbc6ff0ab24050e9d9da2169bee047b274a8948f202",
+        "src/pytest_xray/helper.py": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "2342d8411bab086b03ec9dd467c07dcc155ef55cf2457b846a52256e12f9ddd5",
-        "src/pytest_xray/xray_plugin.py": "a440982ff9b2e09ef7d0d7a40a0916495bb098d9e32ac08636f2953604f8ab44",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/agent/test_harness.py": "37e8d0443ad4d064c7c9bc8ac0a94d224e46b5d59cd568ec364800e294a2eb1f",
@@ -65,6 +65,7 @@
         "tests/resources/screenshot.png": "33142adb062c55436042da46cc766f869fb720c9052c98b49ad2b63e45ff17e4",
         "tests/resources/test.zip": "baddcbe9ab5402618ed527995775af077c1ce8a97127608f1ce8c97c0befdcab",
         "tests/test_attachment_ownership.py": "d85d13668f992c205fbc0ce851df2b35619ec981ee3cd8c984002c466543e635",
+        "tests/test_auth_configuration.py": "5d2f218190414a788d086513d5da38be6ca64c648e68ee7e213cbe58af9f6e2a",
         "tests/test_case_report.py": "ca3c585b525cdb3621add01ef79bb575c1e76dddb315fc1fddfc81eefbf4fc70",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
         "tests/test_collection_lookup.py": "8cd42797ed6f4e44e36624eb2140c53f6d4d7ec0777bc418e34b4d1f1251e14d",
@@ -100,15 +101,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-PRODUCT-008-harness-3021a8215374.json",
-        "docs/agent/evidence/XRAY-PRODUCT-008-tests-f6ab82268562.json",
-        "docs/agent/evidence/XRAY-PRODUCT-008-offline-0be0e00267b3.json",
-        "docs/agent/evidence/XRAY-PRODUCT-008-package-d4dee9a30963.json",
-        "docs/agent/evidence/XRAY-PRODUCT-008-docs-5a44de56bbe9.json"
+        "docs/agent/evidence/XRAY-PRODUCT-009-harness-e42b74df52a0.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-tests-e4d42230e484.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-offline-7307a148fc0e.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-package-1bbe3aa016b3.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-docs-5c01f89d0d42.json"
       ],
-      "review": "docs/agent/evidence/XRAY-PRODUCT-008-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-PRODUCT-009-independent-review.json",
       "blocker": "",
-      "next_action": "Exact frozen-head CI, then fresh independent review of PR23; do not merge before acceptance"
+      "next_action": "Exact frozen-head CI, then fresh independent review of PR24; no merge or release before acceptance"
     }
   ]
 }
