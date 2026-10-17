@@ -22,7 +22,7 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.6 status badges and 0.1.5 early defects validation**, retaining Generic as the target
+This guide covers **0.1.7 collection validation and lookup improvements**, retaining Generic as the target
 Xray Test type. The examples also work with 0.1.2 and 0.1.3; the multi-key attachment
 isolation fix requires 0.1.4 or later. Installation selects the latest published
 version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
@@ -188,7 +188,7 @@ reuses a key; the diagnostic lists that item's duplicates in marker order.
 Repeating a key within one marker is deduplicated and does not create another
 Xray result. Even with the flag, malformed markers are still rejected.
 
-The unreleased collection optimization replaces growing-list scans with set
+The 0.1.7 collection optimization replaces growing-list scans with set
 membership. These commands and grouping rules are unchanged; it does not add
 native iterations or change Jira/Xray configuration. For a deterministic developer
 benchmark from a checkout with development dependencies installed, run
@@ -654,14 +654,14 @@ for the confirmed Generic target.
 
 ## Troubleshooting and migration
 
-**Duplicate Test keys (Unreleased fix):** if separate pytest cases intentionally
+**Duplicate Test keys (0.1.7+):** if separate pytest cases intentionally
 map to one existing Jira Test, add `--allow-duplicate-ids` to the same preview or
 upload command. Otherwise give the cases their correct distinct Test keys.
 Do not add the flag just to hide an accidental mapping mistake. Repeating a key
 within one marker remains harmless and is deduplicated.
 
 Without that flag, the diagnostic still lists duplicates from the first offending
-item in marker order. The unreleased fix reports this as a collection error,
+item in marker order. Version 0.1.7 reports this as a collection error,
 not `INTERNALERROR`, in serial and xdist. No test fixtures run, and no upload is
 attempted, including with `--continue-on-collection-errors`. An offline preview
 can contain an empty `tests` list. Fix the mapping or intentionally enable grouping,
@@ -671,9 +671,9 @@ CI scripts should treat every nonzero pytest exit as a failed run: duplicate-pol
 violations now use pytest's collection-failure classification (typically exit 2
 in serial, or exit 1 with xdist/continue-on-collection-errors), rather than the old
 internal-error exit 3. Normal pytest/local-case-only runs and `--collect-only` keep
-their existing behavior. The published 0.1.6 package does not contain this fix yet.
+their existing behavior. Version 0.1.6 and earlier do not contain this fix.
 
-**Invalid Test-key marker (Unreleased fix):** use nonempty strings, for example
+**Invalid Test-key marker (0.1.7+):** use nonempty strings, for example
 `@pytest.mark.xray("DEMO-1")`, `@pytest.mark.xray("DEMO-1", "DEMO-2")`, or
 `@pytest.mark.xray(["DEMO-1", "DEMO-2"])`. Do not omit the arguments or pass
 empty/whitespace-only strings, an empty list, `None`, numbers, or other objects.
@@ -688,8 +688,8 @@ an offline `--xraypath` preview can contain an empty `tests` list. Correct the
 marker, then rerun the same offline preview command from the tutorial before
 uploading. Without `--jira-xray`, ordinary pytest and local-case reports keep
 working without validating Xray markers. `--collect-only` still only lists tests.
-The published 0.1.6 package can instead show `INTERNALERROR` for these malformed
-markers; this fix is not published yet. It does not check whether Jira keys exist
+Version 0.1.6 and earlier can instead show `INTERNALERROR` for these malformed
+markers. It does not check whether Jira keys exist
 or validate credentials, and it does not change the duplicate-key diagnostic text.
 
 **Invalid `defects` marker (0.1.5+):** when `--jira-xray` is enabled, `defects`

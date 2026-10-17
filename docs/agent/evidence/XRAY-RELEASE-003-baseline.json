@@ -1,0 +1,14 @@
+{
+  "main": "bd231e13702fec4153499aa59a9f815f5d74f475",
+  "main_ci_success": [
+    39000212953,
+    39000213057,
+    39000213054
+  ],
+  "pr17_accepted_head": "1573a6be6b8089c3faab4189f46a35f4bbad96ba",
+  "merge_tree_identical": true,
+  "pypi_latest": "0.1.6",
+  "candidate_unused": "0.1.7",
+  "checked_utc": "2026-10-17T03:53:08.441477+00:00",
+  "tls": "normal certificate verification"
+}
