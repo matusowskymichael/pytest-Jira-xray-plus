@@ -1,0 +1,35 @@
+{
+  "task": "XRAY-PRODUCT-004",
+  "digest": "51ac24165a6cfd2f539b1a1ae676a12bb0569f62c5e893233ba47347ef99871e",
+  "revision": "11a39fcc527b3da6c40616d9c88b95619ce8887f",
+  "timestamp": "2026-10-16T19:55:36Z",
+  "reviewer": "/root/review_duplicate_collection_errors",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Disallowed duplicate keys fail collection without internal/worker errors or fixtures/uploads in serial/xdist, including continue-on-collection-errors",
+    "Preserve ordered duplicate diagnostics, first offending item, same-marker deduplication, opt-in grouping, disabled and collect-only behavior",
+    "Document collection-error exit classification and recovery in full beginner README/changelog, retaining privacy and compatibility limits",
+    "All five profiles, installed commands and exact-head CI pass before independent review; no version, dependencies, workflow or permission changes"
+  ],
+  "assessment": [
+    "Reviewed the complete runtime change and its surrounding collection, report and session-finish paths. The same XrayError handler now includes duplicate-policy validation, emits a failed CollectReport, notifies deselection and clears items before execution. Existing collection-failed and empty-results guards prevent remote publishing.",
+    "Reviewed new subprocess regressions and preserved key-validation/collection-lookup tests. Diagnostic formatting and duplicate traversal are unchanged. Coverage includes eight disallowed-duplicate combinations, two allowed-grouping cases, two reporting-disabled cases and collect-only behavior.",
+    "Reviewed README troubleshooting and compatibility sections plus the Unreleased changelog. They explain intentional collection-error exit classification, distinct-key versus explicit grouping recovery, offline preview, fixture/upload safety, and the unpublished status of this change.",
+    "Reviewed all five durable profile receipts and associated logs. Verified source-to-head comparison contains only digest-excluded evidence/progress/execution-state changes. Exact-head push harness logs independently report the requested digest. Six exact-head workflows are successful, including test matrices, offline checks, builds, Twine, installed README commands and documentation checks. PR diff contains no version, dependency, workflow or permission changes."
+  ],
+  "ci_runs": [
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38957827589",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38957827585",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38957827621",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38957821499",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38957821495",
+    "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/38957821426"
+  ],
+  "limits": [
+    "Independent read-only review through GitHub connector; no local execution, implementation changes, external review submission or merge performed.",
+    "Validation is synthetic and does not establish live Jira/Xray 8.5.3-j10 compatibility, custom Automatic mapping, native iterations or datasets.",
+    "Acceptance is bound to the reviewed revision and digest. Any acceptance-record commit still requires the repository's normal validation and exact-head CI before merge."
+  ]
+}

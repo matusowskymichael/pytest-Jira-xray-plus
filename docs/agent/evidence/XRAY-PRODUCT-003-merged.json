@@ -1,0 +1,12 @@
+{
+  "merge": "0d4d05f12597b5ada72447497b9f887954b12f34",
+  "accepted_commit": "7b95760b3f2e49617f55a7c057757f395e51ac53",
+  "tree_matches": true,
+  "main_ci_success": [
+    38957025021,
+    38957025178,
+    38957025016
+  ],
+  "review_record": "XRAY-PRODUCT-003-independent-review.json",
+  "release": "Unreleased; no publication"
+}

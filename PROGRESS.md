@@ -1,34 +1,30 @@
-# Independently accepted — malformed Test-key validation
+# Independently accepted — duplicate-key policy collection errors
 
-- Task XRAY-PRODUCT-003; baseline 3e5f083; PR15 remains Unreleased, PyPI 0.1.6.
-- [Draft PR #16](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/16).
-- [Prioritized audit](docs/agent/BACKLOG.md); [scope](docs/agent/task-test-key-validation.md).
-- Reconciled clean main, current instructions/ledger/progress, no open work, PyPI
-  latest 0.1.6 and all prior main checks before selecting this real failure gap.
-- Before fix: 20 new malformed-key tests failed with INTERNALERROR, seven valid/
-  disabled compatibility checks passed. Durable baseline summary records log hash.
-- Runtime fix extends existing guarded collection validation to Test keys and
-  notifies pytest_deselected before clearing items, per official hook documentation.
-  Does not change duplicate-key policy or valid marker forms. No new key regex.
-- 27 new regressions cover malformed shapes, serial/xdist, no fixtures/uploads,
-  continue-on-collection-errors, deselection notifications, valid forms/order,
-  same-marker deduplication, disabled reporting and collect-only behavior.
-  Focused keys/defects/duplicate suite: 70 passed.
-- All five profiles pass on source a41558c: 292 tests + 19 subtests, harness,
-  offline checks, build/Twine, 14 installed README commands/full metadata rendering,
+- Task XRAY-PRODUCT-004; [draft PR17](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/17).
+- Baseline main 0d4d05f: PR16 independently accepted and merged; tree matches
+  acceptance commit, final remote SHA and all three main CI runs verified.
+  [Merge evidence](docs/agent/evidence/XRAY-PRODUCT-003-merged.json).
+- PR15 optimization and PR16 fixes remain Unreleased; PyPI is unchanged at 0.1.6.
+- Before: eight duplicate-policy regressions failed with internal error/exit 3;
+  five compatibility cases passed. No unsafe upload/fixtures observed.
+- Fix extends guarded collection validation to duplicate-policy errors while
+  retaining exact message/order and first-offending-item behavior. Collection
+  errors intentionally replace internal-error classification; README documents
+  nonzero exits (serial usually 2, xdist/continue usually 1) and safe recovery.
+- 13 new regressions cover serial/xdist × preview/upload × continue, no execution/
+  upload, deselection notifications, empty preview, opt-in grouping, disabled
+  reporting and collect-only. Focused collection/plugin suites: 104 passed.
+- All five profiles pass on source 046361c: 305 tests + 19 subtests, harness,
+  offline checks, build/Twine, 14 installed README commands/full description,
   strict docs/links and local desktop/mobile browser. Changed-file Ruff and mypy
-  (33 files) pass. Full README and Unreleased changelog explain recovery.
-- Digest: 582a39b7cce5efe3aa1f031b2d44b66be3cc078ac614e36b38c51fcdd65c3516.
-- Independent review /root/review_test_key_errors PASS supplied by parent at
-  2026-10-16T19:38:47Z, recorded unchanged. Read-only source/CI evidence review,
-  not live Jira validation. All six reviewed-head CI runs passed.
-- Next: verify acceptance-head CI, merge PR16, verify main, then implement
-  reproduced duplicate-policy collection errors. Group related changes into a
-  later reviewed release; no version bump/publication/permission change now.
-- Continuous maintenance continues after this review/milestone boundary, one task
-  in flight. Next candidate: investigate disallowed duplicate collection errors;
-  then benchmark aggregation lookup without breaking public mutable-list semantics.
-  Stop at 2026-10-18 23:59 Asia/Dubai (19:59 UTC), or real blocker/exhausted work.
-- Limits: synthetic validation only; Generic on-prem Xray 8.5.3-j10/custom Automatic
-  mapping remains unverified live; native iterations unsupported. No workplace/private
-  data, new access, purchases/accounts, destructive cleanup or security bypass.
+  (34 files) pass. No version/dependency/workflow/permission change.
+- Digest: 51ac24165a6cfd2f539b1a1ae676a12bb0569f62c5e893233ba47347ef99871e.
+- Independent acceptance supplied by /root/review_duplicate_collection_errors,
+  bound to head 11a39fc and recorded unchanged with assessment/CI/limits.
+- Next: verify acceptance-head CI, merge and verify main CI. Group this with PR15/16 into the next coherent reviewed stable milestone;
+  do not publish each tiny change separately. One task in flight.
+- Then continue justified backlog: aggregation lookup is quadratic but public-list
+  mutation/first-match compatibility needs careful design and tests. Do not add
+  an invalid cache. Authority ends Oct18 2026 at 23:59 Asia/Dubai.
+- Limits: synthetic tests only; Generic on-prem 8.5.3-j10/custom Automatic mapping
+  unverified live; no native iterations/workplace/private data/security bypass.

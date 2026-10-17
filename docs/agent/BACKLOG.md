@@ -6,16 +6,17 @@ reviewed collection lookup optimization is merged but Unreleased. Read current
 AGENTS, ledger, progress, architecture/testing/completion and maintainer policy;
 no checkout skill files found. No workplace or private data used.
 
-1. **Selected: controlled malformed Test-key collection errors.**
+1. **Completed: controlled malformed Test-key collection errors (PR16).**
    xray_plugin.py validates defects inside a caught XrayError path, but key parsing
    in _verify_jira_ids_for_items escapes the collection hook. Reproduce missing,
    empty and wrong-type markers in serial/xdist, then extend the existing safe path.
    This is a user-facing failure-handling gap, ahead of further speed work.
    Reproduced before patch: 20 new cases fail with INTERNALERROR; seven valid/disabled
    compatibility cases pass (see XRAY-PRODUCT-003-before evidence).
-2. **Investigate duplicate-policy collection errors.** Existing disallowed duplicate
-   keys still raise outside the safe collection path. Preserve exact diagnostic
-   order and grouping; any changed exit classification needs explicit regression
+2. **Selected: duplicate-policy collection errors.** Existing disallowed duplicate
+   keys raised outside the safe collection path on merged PR16. Eight regression
+   scenarios reproduce INTERNALERROR/exit 3; five compatibility scenarios pass. Preserve exact diagnostic
+   order and grouping; changed exit classification needs explicit regression
    evidence and docs. Separate from malformed-key validation.
 3. **Investigate result aggregation lookup cost.** TestExecution.find_test_case
    linearly scans public mutable tests. Unlike collection membership, indexing may

@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Classify disallowed duplicate Test keys as collection failures, avoiding internal
+  errors and xdist worker/controller errors while preserving diagnostic order and
+  opt-in grouping. Nonzero collection-error exits replace internal-error exit 3.
 - Report malformed Test-key markers as collection errors before fixtures or
   uploads, including xdist and continue-on-collection-errors, instead of
   internal errors. Preserve valid marker forms and duplicate-key policy.

@@ -654,6 +654,25 @@ for the confirmed Generic target.
 
 ## Troubleshooting and migration
 
+**Duplicate Test keys (Unreleased fix):** if separate pytest cases intentionally
+map to one existing Jira Test, add `--allow-duplicate-ids` to the same preview or
+upload command. Otherwise give the cases their correct distinct Test keys.
+Do not add the flag just to hide an accidental mapping mistake. Repeating a key
+within one marker remains harmless and is deduplicated.
+
+Without that flag, the diagnostic still lists duplicates from the first offending
+item in marker order. The unreleased fix reports this as a collection error,
+not `INTERNALERROR`, in serial and xdist. No test fixtures run, and no upload is
+attempted, including with `--continue-on-collection-errors`. An offline preview
+can contain an empty `tests` list. Fix the mapping or intentionally enable grouping,
+then rerun the tutorial's offline preview before uploading.
+
+CI scripts should treat every nonzero pytest exit as a failed run: duplicate-policy
+violations now use pytest's collection-failure classification (typically exit 2
+in serial, or exit 1 with xdist/continue-on-collection-errors), rather than the old
+internal-error exit 3. Normal pytest/local-case-only runs and `--collect-only` keep
+their existing behavior. The published 0.1.6 package does not contain this fix yet.
+
 **Invalid Test-key marker (Unreleased fix):** use nonempty strings, for example
 `@pytest.mark.xray("DEMO-1")`, `@pytest.mark.xray("DEMO-1", "DEMO-2")`, or
 `@pytest.mark.xray(["DEMO-1", "DEMO-2"])`. Do not omit the arguments or pass
@@ -671,7 +690,7 @@ uploading. Without `--jira-xray`, ordinary pytest and local-case reports keep
 working without validating Xray markers. `--collect-only` still only lists tests.
 The published 0.1.6 package can instead show `INTERNALERROR` for these malformed
 markers; this fix is not published yet. It does not check whether Jira keys exist
-or validate credentials, and it does not change duplicate-key diagnostics.
+or validate credentials, and it does not change the duplicate-key diagnostic text.
 
 **Invalid `defects` marker (0.1.5+):** when `--jira-xray` is enabled, `defects`
 must be a list of nonempty strings. For example, change the marker on your test to:
