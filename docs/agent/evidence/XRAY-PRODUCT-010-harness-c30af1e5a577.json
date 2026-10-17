@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-PRODUCT-010",
+  "profile": "harness",
+  "digest": "ece223a592051d19e1ce3b8cabf42bdedef44560c0e5171f452bfcb33108a2c8",
+  "revision": "ec95e5dbf870ef1f4d7da0d8f4b66a3b777d2c5a",
+  "timestamp": "2026-10-17T06:34:16.733740+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.189,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-010-harness-c30af1e5a577-0.log",
+      "log_sha256": "a48d638167ac6e281c540857ba2a6382946dec1d3768d8c56109b9faa007f00a"
+    }
+  ],
+  "status": "passed"
+}
