@@ -1,0 +1,53 @@
+{
+  "task": "XRAY-PRODUCT-008",
+  "digest": "ba8a48ef301ecf621caa7ecd6a4157fc54d1d0597bf9fdc2cc43c6ffd3e2f48a",
+  "revision": "eaf48ff1864e5adba3e1067653ca8f3d2d0b569a",
+  "timestamp": "2026-10-17T05:59:00+00:00",
+  "reviewer": "independent-review-blank-upload-urls",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Empty and whitespace-only upload base URLs become concise configuration usage errors before collection, fixtures, reports or transport across all auth modes and serial/xdist",
+    "Preserve missing-variable diagnostics, all nonblank URL bytes, credentials/TLS/auth behavior, offline/collect-only modes and later HTTP failure handling without broader URL validation",
+    "Full README, troubleshooting/migration and Unreleased readiness notes distinguish candidate behavior from published 0.1.8 and retain all privacy/live compatibility limits",
+    "All five profiles, installed README commands/full metadata, changed-file static checks and exact-head CI pass; fresh independent review is required before merge"
+  ],
+  "evidence": {
+    "review_scope": "Read AGENTS,completionrules,task,ledger,harness,helper/pluginconfiguration,regressions,PRdiff,fiveprofiles/logs,staticreceipts andCI.",
+    "runtime": "Only two lines in get_base_options: strip emptiness check and fixed XrayError naming XRAY_API_BASE_URL. Original nonblank bytes retained. Missingvariable behavior unchanged. Threeauthhelpers validate beforeauth/publisher; existingconfigure converts toUsageError. No URL/credential interpolation.",
+    "compatibility": "No defaults changed. NonblankHTTPScontext/HTTPlocalhost/surroundingwhitespace/invalidsyntax unchanged. TLS/auth/endpoints/payload/runtimeHTTP unchanged. Collect-only/offline/local-only credential-free.",
+    "regressions": "31cases:18blank combinations3authmodesserial/xdistemptyASCIIUnicode;3helper;4nonblank;6credentialfreemodes. Assert exit4,diagnostic,nointernaltraceback/no syntheticcredentials/no collectionfixturesHTTP/report markers.",
+    "documentation": "Full guide retained; auth/troubleshooting/migration/changelog/readiness distinguish unpublishedguard from0.1.8; disclaim format/reachability/credential validation/trimming. Version/dependencies/workflows/permissions unchanged.",
+    "receipts": {
+      "tested_revision": "f1f508ed2ca97b4d86e22d895a4926e607446ccd",
+      "results": "Fiveprofiles pass:414tests19subtests,32harness,offline,build/Twine,14installedcommandsHTTPblocked,fullmetadata,23HTML1210refs/localbrowser.",
+      "hash_verification": "All13profilelogs+2staticlogs independently hashed match.",
+      "static_checks": "ChangedRuffhelper/testauth and mypy37files pass."
+    },
+    "provenance": "Testedrevision ancestor one evidence-onlycommit behind; evidence/progress/executionstate only,ledgercontractunchanged. Taskhashbe5f1c89a97d5c22135ca8752e00fd6867df7424218cd139981f1ac2a563bd18 matches; PRbodymatch. Pushharness independentlybindshead/digest.",
+    "ci": {
+      "status": "Tenjobs/sixruns success",
+      "push_runs": [
+        39007869736,
+        39007869769,
+        39007869972
+      ],
+      "pull_request_runs": [
+        39007872629,
+        39007872627,
+        39007872672
+      ],
+      "coverage": "Harness/docs/Python3.12–3.14. Pushactualhead,PRsynthetic23d7e3f1a914de06c2df3e88a6cfe996e7b48c6f same digest."
+    },
+    "source": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/23"
+  },
+  "limits": [
+    "Read-only review,no mutations/externalreview/merge/publish.",
+    "No reviewerlocalreruns; hashverifiedlogs/hostedCI.",
+    "Digest corroborated exactheadharness,not full localreconstruction.",
+    "Synthetic/localpreview not liveXray/customAutomatic;nativeiterationsunsupported.",
+    "No repositorywideRuff/livebrowserfix/publishedcandidate claims.",
+    "Bound head/digest; materialchanges require renewedreview."
+  ]
+}
