@@ -23,6 +23,7 @@ from pytest_xray.constant import (
     XRAY_TEST_PLAN_ID,
     XRAYPATH,
 )
+from pytest_xray.exceptions import XrayError
 from pytest_xray.file_publisher import FilePublisher
 from pytest_xray.helper import get_api_key_auth, get_basic_auth, get_bearer_auth
 from pytest_xray.xray_plugin import Publisher, XrayPlugin
@@ -154,17 +155,20 @@ def pytest_configure(config: pytest.Config) -> None:
     else:
         endpoint = TEST_EXECUTION_ENDPOINT_CLOUD if config.getoption(JIRA_CLOUD) else TEST_EXECUTION_ENDPOINT
 
-        if config.getoption(JIRA_CLIENT_SECRET_AUTH):
-            options = get_bearer_auth()
-            auth: Union[AuthBase, tuple[str, str]] = ClientSecretAuth(
-                options['BASE_URL'], options['CLIENT_ID'], options['CLIENT_SECRET'], options['VERIFY']
-            )
-        elif config.getoption(JIRA_API_KEY):
-            options = get_api_key_auth()
-            auth = ApiKeyAuth(options['API_KEY'])
-        else:
-            options = get_basic_auth()
-            auth = (options['USER'], options['PASSWORD'])
+        try:
+            if config.getoption(JIRA_CLIENT_SECRET_AUTH):
+                options = get_bearer_auth()
+                auth: Union[AuthBase, tuple[str, str]] = ClientSecretAuth(
+                    options['BASE_URL'], options['CLIENT_ID'], options['CLIENT_SECRET'], options['VERIFY']
+                )
+            elif config.getoption(JIRA_API_KEY):
+                options = get_api_key_auth()
+                auth = ApiKeyAuth(options['API_KEY'])
+            else:
+                options = get_basic_auth()
+                auth = (options['USER'], options['PASSWORD'])
+        except XrayError as exc:
+            raise pytest.UsageError(exc.message) from None
 
         publisher = XrayPublisher(base_url=options['BASE_URL'], endpoint=endpoint, auth=auth, verify=options['VERIFY'])
 

@@ -1,0 +1,53 @@
+{
+  "task": "XRAY-PRODUCT-006",
+  "digest": "34aaea7a71b23a9cefc44a72cabb89d4d24a2e93c1be83f27c6955a8c0bb10ac",
+  "revision": "01f88d8037f9a19c26053465100ffcd6258da113",
+  "timestamp": "2026-10-17T04:50:45+00:00",
+  "reviewer": "/root/review_auth_configuration_errors",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Missing authentication environment variables and absent CA files produce concise pytest usage errors (exit 4), not internal tracebacks, before test collection/fixtures or HTTP/report writing",
+    "Preserve helper API exceptions, auth precedence, TLS settings, valid publisher setup and runtime HTTP failures; offline preview/local-only and collect-only stay credential-free",
+    "Synthetic serial/xdist subprocess regressions reproduce old failures and verify diagnostics, secret-output avoidance and pre-execution boundaries; all five profiles, installed commands, static checks and exact-head CI pass",
+    "Full beginner README, troubleshooting/migration and Unreleased changelog explain changed configuration exits and distinguish candidate from 0.1.7; independent review before merge, no version or publishing changes"
+  ],
+  "assessment": [
+    "The only runtime change imports XrayError and translates that specific exception during existing authentication setup into pytest.UsageError(exc.message), suppressing exception chaining. No broad exception catch was introduced.",
+    "Client-secret, token and basic authentication precedence is unchanged. Authentication constructors do not perform HTTP. XrayPublisher construction and runtime authentication/import requests remain outside the catch. Existing runtime-failure tests retain exit 3.",
+    "Helpers and their public exception behavior are unchanged. Missing-variable diagnostics contain setting names rather than credential values. The existing missing-CA diagnostic retains the configured path. TLS verification defaults, supplied CA paths, timeouts and redirect behavior are unchanged.",
+    "Collect-only returns before authentication. Local-only reporting returns before upload setup, and file preview selects FilePublisher without reading credentials.",
+    "The new matrix covers 11 configuration failures in serial and xdist commands, plus three credential-free modes. Assertions cover exit 4, actionable diagnostics, absence of internal traceback, synthetic-secret exclusion, and collection/fixture/transport/report sentinels.",
+    "README authentication guidance, troubleshooting, migration notes and Unreleased changelog accurately distinguish candidate exit 4 from published 0.1.7 exit 3. They retain runtime-upload and live-compatibility limitations.",
+    "Repository comparison shows no changes to dependencies, version, workflows, permissions, unrelated runtime modules or existing tests. The archived PR19 ledger exactly matches the base ledger."
+  ],
+  "evidence": {
+    "pull_request": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/20",
+    "base_revision": "3f144256ca910e37a64fb0542c16d6d7faa685f7",
+    "tested_source_revision": "b80af58fe55bc9017106746ecb44f9564ca710c9",
+    "source_to_head": "Only PROGRESS.md,new evidence and ledger state/next_action; acceptance contract unchanged.",
+    "digest_binding": "Hosted harness preflight/drift on PR merge 1b37a17092546724dc768de4e82da81a9cfa4792 report supplied digest; GitHub comparison confirms no file differences to frozen head.",
+    "receipt_integrity": "All five receipts read, commands checked against harness; every referenced log SHA256 independently recomputed and matched.",
+    "results": [
+      "Baseline excerpt:22 expected failures,3 passing credential-free cases.",
+      "353 tests and19subtests; hosted Python3.13 confirms.",
+      "32harness tests.",
+      "Offline both execution orders pass without Jira requests.",
+      "Build,Twine,all14 installed README commands,complete metadata rendering,blockedHTTP pass.",
+      "Strict docs23HTML/1207references and desktop/mobile/search/highlighting/theme pass.",
+      "Ruff and mypy36files pass."
+    ],
+    "ci": [39003732418,39003732417,39003732419,39003729090,39003729085,39003729128],
+    "ci_binding": "All six workflow records identify exact head01f88d8037f9a19c26053465100ffcd6258da113 and succeed. PR jobs include Python3.12/3.13/3.14."
+  },
+  "limits": [
+    "Read-only connector review, no local application tests.",
+    "Full baseline failure log not committed; excerpt/hash inspected, not reproduced.",
+    "Static checks from committed evidence; hosted harness lint does not independently attest full local mypy.",
+    "Synthetic credential-output assurance not universal arbitrary-secret redaction, CA path retained.",
+    "No realcredentials/workplace/private/liveXray used. Generic8.5.3-j10/customAutomatic not liveverified; nativeiterations unsupported.",
+    "Local browser checks not live hosted visual verification; certificate/PyPIchallenge limits remain.",
+    "No mutation/externalreview/merge/release performed. Acceptance bound to exact head/digest."
+  ]
+}

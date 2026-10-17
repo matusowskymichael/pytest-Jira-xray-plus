@@ -312,3 +312,20 @@ masking primary failures in 0.1.7. No version bump, workflow or dependency chang
 All five profiles and exact-head CI plus independent review gate merge; release
 requires a separate reviewed version candidate. No live server proof is implied.
 Existing browser certificate handoff and PyPI HTML client challenge remain.
+
+
+## Authentication configuration candidate — 2026-10-17
+
+PR19 cleanup handling merged at 3f144256ca910e37a64fb0542c16d6d7faa685f7 after
+independent acceptance and six green acceptance-head workflows; all three main
+workflows passed. It remains unreleased alongside this next bounded improvement.
+
+Missing authentication settings currently raise internal configuration errors.
+The candidate changes plugin.py to translate expected helper XrayError into pytest
+UsageError with its existing diagnostic. No helper, HTTP, TLS, auth-selection,
+version, dependency, workflow or permission changes. Synthetic baseline matrix:
+22 expected failures and three passing credential-free modes before the fix.
+All five profiles, installed tutorial and exact-head CI plus independent review
+gate merge. A later milestone needs separately reviewed release preparation.
+Published 0.1.7 and its verified public evidence remain the release baseline.
+No live Xray or browser validation is implied.
