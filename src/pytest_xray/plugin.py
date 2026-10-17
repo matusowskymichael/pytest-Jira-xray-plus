@@ -121,8 +121,16 @@ def pytest_configure(config: pytest.Config) -> None:
         raise pytest.UsageError('--xray-comment-limit must be at least 256 bytes')
     if full_path and not config.getoption(JIRA_XRAY_FLAG):
         raise pytest.UsageError('--xray-full-report requires --jira-xray')
-    paths = [(config.getoption('--xray-case-report'), False), (config.getoption(XRAYPATH), True), (full_path, True)]
-    normalized = [Path(os.path.expandvars(p) if expand else p).expanduser().resolve() for p, expand in paths if p]
+    paths = [('--xray-case-report', False), (XRAYPATH, True), ('--xray-full-report', True)]
+    normalized = []
+    for option, expand in paths:
+        path = config.getoption(option)
+        if not path:
+            continue
+        try:
+            normalized.append(Path(os.path.expandvars(path) if expand else path).expanduser().resolve())
+        except (OSError, RuntimeError) as exc:
+            raise pytest.UsageError(f'Cannot resolve {option}: {exc}') from None
     if len(set(normalized)) != len(normalized):
         raise pytest.UsageError('Report paths must be different: --xray-case-report, --xraypath, --xray-full-report')
     case_path = config.getoption('--xray-case-report')

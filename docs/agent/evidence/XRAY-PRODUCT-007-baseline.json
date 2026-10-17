@@ -1,0 +1,26 @@
+[
+  {
+    "option": "--xray-case-report",
+    "exit": 3,
+    "internalerror": true,
+    "diagnostic": [
+      "INTERNALERROR> RuntimeError: Symlink loop from '/tmp/tmpfay4ecop/loop/report.json'"
+    ]
+  },
+  {
+    "option": "--xraypath",
+    "exit": 3,
+    "internalerror": true,
+    "diagnostic": [
+      "INTERNALERROR> RuntimeError: Symlink loop from '/tmp/tmpfay4ecop/loop/report.json'"
+    ]
+  },
+  {
+    "option": "--xray-full-report",
+    "exit": 3,
+    "internalerror": true,
+    "diagnostic": [
+      "INTERNALERROR> RuntimeError: Symlink loop from '/tmp/tmpfay4ecop/loop/report.json'"
+    ]
+  }
+]
