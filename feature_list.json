@@ -6,7 +6,7 @@
       "title": "Preserve reports for oversized integer parameters",
       "source": "docs/agent/task-integer-parameters.md",
       "source_sha256": "a50bd4708e3376c736056632b9a44069fb96ec206b9597ef01cfd202483e31a4",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/26",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
