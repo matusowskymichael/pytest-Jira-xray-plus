@@ -638,6 +638,11 @@ Requests use a 10-second connect timeout and a 60-second read-inactivity timeout
 not a total deadline. Redirects are rejected. Authentication and response shapes
 are checked. The plugin does not dump raw server responses to shared temporary files.
 Local file replacement is atomic; failed writes retain any prior report.
+The unreleased cleanup fix preserves the original write error if removing its
+temporary file also fails. That diagnostic includes the temporary path and cleanup
+error; the file may contain report data. After the run, inspect that specific path
+and remove it when permissions allow. Do not treat an older retained report as a
+new result. Published 0.1.7 can instead surface the secondary cleanup exception.
 
 Python metadata requires `>=3.12`, pytest `>=9.1.1,<10` and requests `>=2.34.2,<3`.
 CI checks Linux on Python 3.12, 3.13 and 3.14; the tested baseline uses pytest 9.1.1,
@@ -723,7 +728,7 @@ invalid values in export payloads.
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
-| Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. |
+| Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With the unreleased cleanup fix, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |
 | Missing authentication variable | Set the variables for your selected auth method. Offline file exports do not need credentials. |
 | HTTP 401/403 | Check existing credentials and permissions with the sandbox administrator. Do not paste secrets into issue reports. |

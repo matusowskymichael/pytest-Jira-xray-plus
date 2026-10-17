@@ -295,3 +295,20 @@ provenance. Current public snapshots describe 0.1.6, not a measurement of 0.1.7.
 Browser certificate warnings must not be bypassed; prior PyPI HTML client challenge
 and live visual gaps require truthful reporting. Generic Xray 8.5.3-j10/custom
 Automatic mapping remains unverified live; native iterations/datasets unsupported.
+
+
+## 0.1.7 published; cleanup-failure candidate — 2026-10-17
+
+0.1.7 publication and public installation are verified in
+[release evidence](agent/evidence/XRAY-RELEASE-003-release-0.1.7.json): reviewed
+source98b56da, matching PyPI/publisher/GitHub files, all 14 installed commands and
+101 live Pages files. Clean source coverage measured 96.2% lines and 89.2% branches;
+public metadata explicitly identifies local measurement. These supersede the
+preparation-time 0.1.6 snapshots above.
+
+The next unreleased candidate changes only the two report writers' temporary
+cleanup handling. Synthetic permission failures reproduced raw cleanup exceptions
+masking primary failures in 0.1.7. No version bump, workflow or dependency changes.
+All five profiles and exact-head CI plus independent review gate merge; release
+requires a separate reviewed version candidate. No live server proof is implied.
+Existing browser certificate handoff and PyPI HTML client challenge remain.
