@@ -1270,6 +1270,39 @@
 
 
 <h1 id="troubleshooting-and-migration">Troubleshooting and migration<a class="headerlink" href="#troubleshooting-and-migration" title="Permanent link">&para;</a></h1>
+<p><strong>Duplicate Test keys (0.1.7+):</strong> if separate pytest cases intentionally
+map to one existing Jira Test, add <code>--allow-duplicate-ids</code> to the same preview or
+upload command. Otherwise give the cases their correct distinct Test keys.
+Do not add the flag just to hide an accidental mapping mistake. Repeating a key
+within one marker remains harmless and is deduplicated.</p>
+<p>Without that flag, the diagnostic still lists duplicates from the first offending
+item in marker order. Version 0.1.7 reports this as a collection error,
+not <code>INTERNALERROR</code>, in serial and xdist. No test fixtures run, and no upload is
+attempted, including with <code>--continue-on-collection-errors</code>. An offline preview
+can contain an empty <code>tests</code> list. Fix the mapping or intentionally enable grouping,
+then rerun the tutorial's offline preview before uploading.</p>
+<p>CI scripts should treat every nonzero pytest exit as a failed run: duplicate-policy
+violations now use pytest's collection-failure classification (typically exit 2
+in serial, or exit 1 with xdist/continue-on-collection-errors), rather than the old
+internal-error exit 3. Normal pytest/local-case-only runs and <code>--collect-only</code> keep
+their existing behavior. Version 0.1.6 and earlier do not contain this fix.</p>
+<p><strong>Invalid Test-key marker (0.1.7+):</strong> use nonempty strings, for example
+<code>@pytest.mark.xray("DEMO-1")</code>, <code>@pytest.mark.xray("DEMO-1", "DEMO-2")</code>, or
+<code>@pytest.mark.xray(["DEMO-1", "DEMO-2"])</code>. Do not omit the arguments or pass
+empty/whitespace-only strings, an empty list, <code>None</code>, numbers, or other objects.
+Keys retain their supplied spelling and order; there is no new Jira-key regex.
+Repeating a key in one marker is still deduplicated. Separate cases sharing a key
+still require <code>--allow-duplicate-ids</code>.</p>
+<p>With this fix, malformed Test keys produce a normal collection error before any
+test fixtures run when <code>--jira-xray</code> is enabled. This also works with xdist and
+<code>--continue-on-collection-errors</code>: no tests execute and uploads are withheld;
+an offline <code>--xraypath</code> preview can contain an empty <code>tests</code> list. Correct the
+marker, then rerun the same offline preview command from the tutorial before
+uploading. Without <code>--jira-xray</code>, ordinary pytest and local-case reports keep
+working without validating Xray markers. <code>--collect-only</code> still only lists tests.
+Version 0.1.6 and earlier can instead show <code>INTERNALERROR</code> for these malformed
+markers. It does not check whether Jira keys exist
+or validate credentials, and it does not change the duplicate-key diagnostic text.</p>
 <p><strong>Invalid <code>defects</code> marker (0.1.5+):</strong> when <code>--jira-xray</code> is enabled, <code>defects</code>
 must be a list of nonempty strings. For example, change the marker on your test to:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xray</span><span class="p">(</span><span class="s2">"DEMO-1"</span><span class="p">,</span> <span class="n">defects</span><span class="o">=</span><span class="p">[</span><span class="s2">"BUG-1"</span><span class="p">,</span> <span class="s2">"BUG-2"</span><span class="p">])</span>

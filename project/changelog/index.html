@@ -1208,6 +1208,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#017-2026-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.7 [2026-10-17]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#016-2026-10-16" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1416,6 +1427,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#017-2026-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.7 [2026-10-17]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#016-2026-10-16" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1538,6 +1560,18 @@
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <ul>
 <li>No unreleased changes.</li>
+</ul>
+<h2 id="017-2026-10-17">0.1.7 [2026-10-17]<a class="headerlink" href="#017-2026-10-17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Classify disallowed duplicate Test keys as collection failures, avoiding internal
+  errors and xdist worker/controller errors while preserving diagnostic order and
+  opt-in grouping. Nonzero collection-error exits replace internal-error exit 3.</li>
+<li>Report malformed Test-key markers as collection errors before fixtures or
+  uploads, including xdist and continue-on-collection-errors, instead of
+  internal errors. Preserve valid marker forms and duplicate-key policy.</li>
+<li>Use set membership for duplicate Test-key collection validation, avoiding
+  quadratic list scans for large suites while retaining diagnostic order,
+  repeated-key handling and opt-in grouping. No new flags or default changes.</li>
 </ul>
 <h2 id="016-2026-10-16">0.1.6 [2026-10-16]<a class="headerlink" href="#016-2026-10-16" title="Permanent link">&para;</a></h2>
 <ul>
