@@ -1,0 +1,2 @@
+PASS: all 14 README commands, JSON excerpt, intentional failure, restored passing cases, values/redaction, Xray comments/archive, parallel/retries and hooks; HTTP blocked
+PASS: complete tutorial in wheel metadata and PyPI Markdown rendering

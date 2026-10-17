@@ -97,11 +97,11 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
+      "state": "review_pending",
       "evidence": [],
       "review": "",
       "blocker": "",
-      "next_action": "python tools/agent.py check --profile package"
+      "next_action": "Final exact-head CI then fresh independent release review of PR22"
     }
   ]
 }
