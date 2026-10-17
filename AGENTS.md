@@ -1,7 +1,7 @@
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.8**. Active work: preserve reports for oversized integer parameters. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.8**. Active work: avoid worker-header-only comments. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -23,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-integer-parameters.md): active product iteration and acceptance criteria.
+- [Current scope](docs/agent/task-worker-comments.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.

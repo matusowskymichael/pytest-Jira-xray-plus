@@ -572,6 +572,15 @@ see the status table below. The main process writes one report. Results can arri
 in a different order. With `--dist=each`, the same node observed on two workers
 is retained as two worker attempts.
 
+**Unreleased candidate:** ordinary passing Xray results with no diagnostic text
+no longer add xdist worker headers to comments. Published 0.1.8 can repeat these
+headers for every passing case; a large group may exceed the comment limit even
+with captures and parameter details disabled. The candidate preserves actual
+failure, skip, retry and custom diagnostic text, plus explicitly requested
+captures and parameter details. Such text can still contain worker paths or
+sensitive data: this change is not a general redaction guarantee. Local case
+reports and configured comment limits are unchanged.
+
 ### Associate one function with multiple Tests
 
 Replace the marker in step 3 with `@pytest.mark.xray("DEMO-1", "DEMO-2")`.
@@ -788,6 +797,7 @@ invalid values in export payloads.
 | --- | --- |
 | `unrecognized arguments` | Activate the intended environment and use `python -m pytest`. Check `python -m pip show pytest-jira-xray-plus`. If plugin autoload is disabled, add `-p pytest_xray.plugin`. |
 | Integer string conversion limit error | Use explicit descriptive pytest IDs. The unreleased candidate substitutes the unsupported-value placeholder when opt-in value capture cannot format an integer. It does not change Python's limit or fix earlier collection errors. |
+| Passing parallel tests hit the comment limit | Published 0.1.8 may fill comments with worker headers alone. The unreleased candidate omits headers when diagnostic text is absent. Real diagnostics and opted-in details still count toward the configured limit; use the full-report archive when needed. |
 | Large suites spend time grouping many Test keys | The unreleased candidate avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
@@ -802,6 +812,12 @@ invalid values in export payloads.
 | Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**Unreleased parallel-comment migration:** no new flag is required. Reports
+without diagnostic text no longer create worker-header-only comments. Custom
+non-`None` representations, real diagnostics and opt-in captures/details remain;
+comment limits and archival requirements are unchanged. Inspect real diagnostic
+content before sharing it.
 
 **Unreleased integer-value migration:** oversized integers rejected by Python
 during opt-in value capture now use the existing placeholder. Valid integers

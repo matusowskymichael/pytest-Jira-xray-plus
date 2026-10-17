@@ -19,7 +19,8 @@ def report(keys, outcome='passed', phase='call', comment='', defects=None, attac
     result = SimpleNamespace(
         nodeid='synthetic', test_keys={'synthetic': keys}, outcome=outcome,
         passed=outcome == 'passed', failed=outcome == 'failed', skipped=outcome == 'skipped',
-        when=phase, longreprtext=comment, defects={'synthetic': defects or []}, evidences=attachments or [],
+        when=phase, longrepr=comment, longreprtext=comment,
+        defects={'synthetic': defects or []}, evidences=attachments or [],
     )
     if xfail:
         result.wasxfail = 'synthetic expected failure'

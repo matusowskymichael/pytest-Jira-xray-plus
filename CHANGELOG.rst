@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Omit xdist worker-header-only comments when a report has no diagnostic
+  representation, preventing otherwise passing grouped exports from exhausting
+  comment limits. Preserve actual/custom diagnostics, privacy opt-ins and limits.
 - Preserve opt-in reports when integer parameters exceed Python's decimal
   conversion limit at capture time: use the existing unsupported-value
   placeholder instead of losing the case report or aborting parameter comments.

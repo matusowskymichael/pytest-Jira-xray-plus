@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "root": "/tmp/xray-header-assessment-jpfu8cz8",
+  "full_comment_bytes": 36474,
+  "header_count": 250,
+  "preview_comment_bytes": 32000,
+  "comment_prefix": "{noformat:borderWidth=0px|bgColor=transparent}[gw1] linux -- Python 3.12.14 /tmp/xray018-public-env/bin/python\n--------------------------------------------------------------------------------\n[gw0] linux -- Python 3.12.14 /tmp/xray018-public-env/bin/",
+  "output_tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................................ [ 28%]\n........................................................................ [ 57%]\n........................................................................ [ 86%]\n..................................                                       [100%]\nXRAY: truncated 1 comment(s) to 32000 UTF-8 bytes; complete payload saved to full.json\n- Generated XRAY execution report file: /tmp/xray-header-assessment-jpfu8cz8/bounded.json -\n250 passed in 0.41s\n"
+}

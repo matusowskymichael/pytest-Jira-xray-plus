@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PRODUCT-011",
-      "title": "Preserve reports for oversized integer parameters",
-      "source": "docs/agent/task-integer-parameters.md",
-      "source_sha256": "a50bd4708e3376c736056632b9a44069fb96ec206b9597ef01cfd202483e31a4",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/26",
+      "id": "XRAY-PRODUCT-012",
+      "title": "Avoid worker-header-only comments",
+      "source": "docs/agent/task-worker-comments.md",
+      "source_sha256": "e0100f68e9b5ac545b6fdcbd53bb401616b4aadb98cada469bd48d06c67aafef",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Exact builtin integers rejected by decimal conversion at capture time use the existing unsupported-value placeholder so local values and legacy parameter comments retain all cases in serial/xdist",
-        "Preserve representable integer values/types, active interpreter settings, existing scalar/subclass/container privacy rules and input data; no arbitrary conversion methods, new cap, traversal or unrelated error suppression",
-        "Full beginner README, schema, troubleshooting/migration and Unreleased changelog/readiness distinguish candidate behavior from 0.1.8 and explain explicit IDs and capture-time limits without recommending safeguard removal",
-        "All five profiles, fifteen installed README commands/full metadata, changed-file static checks and exact-head CI pass; independent review before merge and no immediate publication"
+        "Absent longrepr produces no header-only comment so serial/xdist passing aggregate exports remain usable without opt-in details or captures",
+        "Preserve non-None/custom/real diagnostics, phases/reruns/statuses, privacy opt-ins, input reports and exact UTF-8 limits/archive behavior; no blanket passed filtering or regex stripping",
+        "Full beginner guide and reference/troubleshooting/migration/changelog/readiness distinguish candidate from 0.1.8, explain retained diagnostic privacy limits and preserve all fifteen commands",
+        "All five profiles, installed guide/full metadata, changed-file static checks and exact-head CI pass; fresh independent review before merge, no publication"
       ],
       "checks": [
         "harness",
@@ -47,6 +47,7 @@
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/pytest_xray/case_report.py": "bf4d0a5ead788c316a6bded9a33537a7ea71f762028413391f8070c1034b8ac6",
         "src/pytest_xray/case_results.py": "4ec6cda504edde3288bdd67faa6c3d0388db48437209f73f786466ce572dfee4",
         "src/pytest_xray/comment_limits.py": "ad6e57d9df16079ee69717443508ac6075605778b457d78f73cbdc6342f003d7",
         "src/pytest_xray/constant.py": "fea45e49aa523cb3956857543e092fd473c262ff453e8fa5b7565d8811edec8b",
@@ -56,7 +57,6 @@
         "src/pytest_xray/helper.py": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "2342d8411bab086b03ec9dd467c07dcc155ef55cf2457b846a52256e12f9ddd5",
-        "src/pytest_xray/xray_plugin.py": "cd365ad0a031cd7636b052b698e1c7032cc27e142b2f81752dc1fa4b37c08d5d",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/agent/test_harness.py": "37e8d0443ad4d064c7c9bc8ac0a94d224e46b5d59cd568ec364800e294a2eb1f",
@@ -64,7 +64,6 @@
         "tests/resources/screenshot.jpeg": "77918fd6cd5e05cad7ecf29219626544c0e8b7c070826279ae64cd7ca89cc735",
         "tests/resources/screenshot.png": "33142adb062c55436042da46cc766f869fb720c9052c98b49ad2b63e45ff17e4",
         "tests/resources/test.zip": "baddcbe9ab5402618ed527995775af077c1ce8a97127608f1ce8c97c0befdcab",
-        "tests/test_aggregation_index.py": "52262503048c3a536e7343630109eeadb043dac7c46ed2d66fb17709df396594",
         "tests/test_attachment_ownership.py": "d85d13668f992c205fbc0ce851df2b35619ec981ee3cd8c984002c466543e635",
         "tests/test_auth_configuration.py": "5d2f218190414a788d086513d5da38be6ca64c648e68ee7e213cbe58af9f6e2a",
         "tests/test_case_parent_paths.py": "9a09ab0f87d32d9d120c3c697648db833ff6cc4e40d1467930b58303ef3d1d3c",
@@ -78,6 +77,7 @@
         "tests/test_evidence.py": "3efbe44be7d6beb64473c274361841c71364c29b39d9048934e5b3b7cbf62d9d",
         "tests/test_evidence_with_duplicated_ids.py": "32600d1fa02d2cef060d5dea34cb67d5d20209c806fd9490c8cf83a479e8ddb8",
         "tests/test_helper.py": "e77a9f50542a3f1c5af29d36d63bbdc38b97406c0845be02b54893a6de371950",
+        "tests/test_integer_parameter_values.py": "01f4973d9f5b2ae21bf1a1cdbefcdb6515c7364d9bed56b1d07f31e32159671d",
         "tests/test_key_validation.py": "1780739195277bdb6a957478960a74271a71490817a817a293508231d1c2a16b",
         "tests/test_model.py": "ac7c1cc9c26a7929e4b38207e5bc90cf7b9ff9e7efed434581eb7856883ee337",
         "tests/test_parameter_details.py": "d856da3c5ada94d7edd5a94d0e8d4fcf8bf6d41daf6a52b9438cdbc09584c1e2",
@@ -101,17 +101,11 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-PRODUCT-011-harness-a5a400d41486.json",
-        "docs/agent/evidence/XRAY-PRODUCT-011-tests-03985250bbfe.json",
-        "docs/agent/evidence/XRAY-PRODUCT-011-offline-02db4abd0b87.json",
-        "docs/agent/evidence/XRAY-PRODUCT-011-package-dd07b955724b.json",
-        "docs/agent/evidence/XRAY-PRODUCT-011-docs-7883468a54f2.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-PRODUCT-011-independent-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "Freeze exact-head CI and obtain parent-arranged independent review of PR26 before acceptance; no publication"
+      "next_action": "Reproduce regression, implement narrow comment guard, verify profiles and freeze draft PR for independent review"
     }
   ]
 }

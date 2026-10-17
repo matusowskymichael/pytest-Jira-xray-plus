@@ -1,0 +1,98 @@
+.F.F.F                                                                   [100%]
+=================================== FAILURES ===================================
+___ test_absent_representation_has_no_comment_and_report_is_unchanged[True] ____
+
+worker = True
+
+    @pytest.mark.parametrize('worker', [False, True])
+    def test_absent_representation_has_no_comment_and_report_is_unchanged(worker):
+        report, data = collect_report(None, worker)
+>       assert 'comment' not in data['tests'][0]
+E       AssertionError: assert 'comment' not in {'testKey': 'SYN-1', 'status': 'PASS', 'comment': '{noformat:borderWidth=0px|bgColor=transparent}[gw0] synthetic -- Python 3.12.0 /synthetic/python{noformat}'}
+
+tests/test_worker_comments.py:29: AssertionError
+______ test_many_passing_cases_export_without_header_only_comments[256-2] ______
+
+isolated = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-45/test_many_passing_cases_export_without_header_only_comments1')>
+workers = 2, limit = 256
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('limit', [256, 32000])
+    def test_many_passing_cases_export_without_header_only_comments(isolated, workers, limit):
+        isolated.makepyfile('''
+            import pytest
+            @pytest.mark.xray('SYN-1')
+            @pytest.mark.parametrize('value', range(250))
+            def test_case(value):
+                print('capture remains private')
+                assert value >= 0
+        ''')
+        result = isolated.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=preview.json', '--allow-duplicate-ids',
+            f'--xray-comment-limit={limit}', '--xray-case-report=cases.json',
+        )
+        result.assert_outcomes(passed=250)
+>       assert result.ret == 0
+E       assert <ExitCode.INTERNAL_ERROR: 3> == 0
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=11 len(stderr.lines)=0 duration=0.78s>.ret
+
+/workspace/pytest-jira-xray-plus/tests/test_worker_comments.py:94: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-45/test_many_passing_cases_export_without_header_only_comments1/runpytest-0 -q -n 2 --jira-xray --xraypath=preview.json --allow-duplicate-ids --xray-comment-limit=256 --xray-case-report=cases.json
+     in: /tmp/pytest-of-agent/pytest-45/test_many_passing_cases_export_without_header_only_comments1
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 28%]
+........................................................................ [ 57%]
+........................................................................ [ 86%]
+..................................                                       [100%]
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Comment exceeds --xray-comment-limit; export withheld. Set --xray-full-report=PATH to retain the complete payload before truncation.
+250 passed in 0.50s
+_____ test_many_passing_cases_export_without_header_only_comments[32000-2] _____
+
+isolated = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-45/test_many_passing_cases_export_without_header_only_comments3')>
+workers = 2, limit = 32000
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('limit', [256, 32000])
+    def test_many_passing_cases_export_without_header_only_comments(isolated, workers, limit):
+        isolated.makepyfile('''
+            import pytest
+            @pytest.mark.xray('SYN-1')
+            @pytest.mark.parametrize('value', range(250))
+            def test_case(value):
+                print('capture remains private')
+                assert value >= 0
+        ''')
+        result = isolated.runpytest_subprocess(
+            '-q', '-n', str(workers), '--jira-xray', '--xraypath=preview.json', '--allow-duplicate-ids',
+            f'--xray-comment-limit={limit}', '--xray-case-report=cases.json',
+        )
+        result.assert_outcomes(passed=250)
+>       assert result.ret == 0
+E       assert <ExitCode.INTERNAL_ERROR: 3> == 0
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=11 len(stderr.lines)=0 duration=0.78s>.ret
+
+/workspace/pytest-jira-xray-plus/tests/test_worker_comments.py:94: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-45/test_many_passing_cases_export_without_header_only_comments3/runpytest-0 -q -n 2 --jira-xray --xraypath=preview.json --allow-duplicate-ids --xray-comment-limit=32000 --xray-case-report=cases.json
+     in: /tmp/pytest-of-agent/pytest-45/test_many_passing_cases_export_without_header_only_comments3
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 28%]
+........................................................................ [ 57%]
+........................................................................ [ 86%]
+..................................                                       [100%]
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Comment exceeds --xray-comment-limit; export withheld. Set --xray-full-report=PATH to retain the complete payload before truncation.
+250 passed in 0.46s
+=========================== short test summary info ============================
+FAILED tests/test_worker_comments.py::test_absent_representation_has_no_comment_and_report_is_unchanged[True]
+FAILED tests/test_worker_comments.py::test_many_passing_cases_export_without_header_only_comments[256-2]
+FAILED tests/test_worker_comments.py::test_many_passing_cases_export_without_header_only_comments[32000-2]
+3 failed, 3 passed, 18 deselected in 2.49s
