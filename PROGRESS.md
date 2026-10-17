@@ -10,13 +10,13 @@
   exactly as 0.1.6-to-0.1.7 literals. Full beginner README, dated changelog, existing
   release-doc regression and release-readiness plan updated.
 - Fresh temporary development environment recreated after restart; all five profiles
-  pass on source 5967e86: 305 tests + 19 subtests, harness, offline checks, build/Twine,
+  pass on corrected source 8e34e33: 305 tests + 19 subtests, harness, offline checks, build/Twine,
   all 14 installed README commands/full description rendering, strict docs/links and
   local desktop/mobile browser. Changed-file Ruff and mypy (34 files) pass.
 - Six badge images/targets and GitHub-emitted image URLs pass over normal TLS;
   GitHub/PyPI renderer previews pass. Public coverage/status snapshots remain 0.1.6,
   explicitly not a fresh 0.1.7 measurement. No live visual success is claimed.
-- Digest: 8ad23e6a8453152edcabc7f0286e12cda71c7fe50aed69d602f6a46a05810a85.
+- Digest: 52748ca56aa1ceb60b95660afd5662e8b06718e82be00bc647209fd98665cb87.
 - Next: final evidence-head CI, then fresh parent-arranged independent release review.
   Freeze review head. No merge/publication until acceptance and final gates pass.
   Immediately before publication recheck unused version and exact reviewed main SHA.
@@ -31,5 +31,6 @@
 
 Reviewer correction: GitHub PR17 merge API confirms bd231e13702fec4153499aa59a9f815f5d74f475.
 Corrected a mistyped SHA in RELEASE-READINESS.md; prior digest/profile receipts
-remain historical only. All five profiles and final CI are being regenerated.
+remain historical only. All five profiles regenerated and passed (305 tests + 19 subtests, 14 installed
+commands); final evidence-head CI must pass before renewed review.
 No merge or publication; renewed independent review required for corrected head.
