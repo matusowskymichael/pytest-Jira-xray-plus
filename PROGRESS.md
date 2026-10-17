@@ -28,3 +28,8 @@
   One task in flight; deadline Oct18 2026 23:59 Asia/Dubai. No workplace/private data,
   new permissions/credentials/accounts/purchases or destructive cleanup. Generic
   8.5.3-j10/custom Automatic mapping remains unverified live; native iterations unsupported.
+
+Reviewer correction: GitHub PR17 merge API confirms bd231e13702fec4153499aa59a9f815f5d74f475.
+Corrected a mistyped SHA in RELEASE-READINESS.md; prior digest/profile receipts
+remain historical only. All five profiles and final CI are being regenerated.
+No merge or publication; renewed independent review required for corrected head.

@@ -282,7 +282,7 @@ failures. Diagnostic order, repeated-key deduplication, opt-in grouping and priv
 settings remain unchanged. Duplicate-policy exits intentionally use collection-error
 classification rather than INTERNALERROR/exit 3; the full README explains recovery.
 
-PR17 merged at bd231e13702fec4153499aa59a9f887954b12f34 with identical accepted tree
+PR17 merged at bd231e13702fec4153499aa59a9f815f5d74f475 with identical accepted tree
 and all main CI green. This release preparation freezes that runtime. Package and
 trusted publisher changes are version literals only; no dependency/permission changes.
 0.1.7 was unused at preparation; recheck immediately before eventual publication.
