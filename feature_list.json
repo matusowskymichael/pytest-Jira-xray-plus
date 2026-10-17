@@ -6,7 +6,7 @@
       "title": "Preserve report errors when temporary cleanup fails",
       "source": "docs/agent/task-report-cleanup.md",
       "source_sha256": "d5456044b344aa11e5a189a7fde33cf47cd1a21745245ac79ce96adb6c04c156",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/19",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
