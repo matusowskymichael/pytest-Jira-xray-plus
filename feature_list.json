@@ -6,7 +6,7 @@
       "title": "Prepare 0.1.8 error-handling milestone",
       "source": "docs/agent/task-release-018.md",
       "source_sha256": "7a920e7e83431fe84e5c06eee9cfb2564eae3ddd0e0ff0cb46bcce74de0ac517",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/22",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
