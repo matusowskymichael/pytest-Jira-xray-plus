@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Coverage for src/pytest_xray/helper.py: 87.5%</title>
+    <title>Coverage for src/pytest_xray/helper.py: 93.8%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_c827f16f.png">
     <link rel="stylesheet" href="style_cb_4667309f.css" type="text/css">
     <script src="coverage_html_cb_15cffcd0.js" defer></script>
@@ -12,7 +12,7 @@
     <div class="content">
         <h1>
             <span class="text">Coverage for </span><b>src<span class="sep">/</span>pytest_xray<span class="sep">/</span>helper.py</b>:
-            <span class="pc_cov">87.5%</span>
+            <span class="pc_cov">93.8%</span>
         </h1>
         <aside id="help_panel_wrapper">
             <input id="help_panel_state" type="checkbox">
@@ -56,10 +56,10 @@
         </aside>
         <h2>
             <span class="text">166 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">148<span class="text"> run</span></button>
-            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">18<span class="text"> missing</span></button>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">159<span class="text"> run</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">7<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
-            <button type="button" class="par run show_par button_toggle_par" value="par" data-shortcut="p" title="Toggle lines partially run">4<span class="text"> partial</span></button>
+            <button type="button" class="par run show_par button_toggle_par" value="par" data-shortcut="p" title="Toggle lines partially run">5<span class="text"> partial</span></button>
         </h2>
         <p class="text">
             <a id="prevFileLink" class="nav" href="z_c3da03e42cf3f802_file_publisher_py.html">&#xab; prev</a> &nbsp; &nbsp;
@@ -67,7 +67,7 @@
             <a id="nextFileLink" class="nav" href="z_c3da03e42cf3f802_hooks_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.16.2">coverage.py v7.16.2</a>,
-            created at 2026-10-17 04:13 +0000
+            created at 2026-10-17 05:39 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -299,18 +299,18 @@
     <p class="run"><span class="n"><a id="t215" href="#t215">215</a></span><span class="t">    <span class="nam">options</span> <span class="op">=</span> <span class="op">{</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t216" href="#t216">216</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t217" href="#t217">217</a></span><span class="t">        <span class="nam">base_url</span> <span class="op">=</span> <span class="nam">environ</span><span class="op">[</span><span class="nam">ENV_XRAY_API_BASE_URL</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t218" href="#t218">218</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t219" href="#t219">219</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span><span class="fst">f&#x27;</span><span class="fst">pytest-jira-xray plugin requires environment variable: </span><span class="op">{</span><span class="nam">ENV_XRAY_API_BASE_URL</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t218" href="#t218">218</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t219" href="#t219">219</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span><span class="fst">f&#x27;</span><span class="fst">pytest-jira-xray plugin requires environment variable: </span><span class="op">{</span><span class="nam">ENV_XRAY_API_BASE_URL</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t220" href="#t220">220</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t221" href="#t221">221</a></span><span class="t">    <span class="nam">verify</span> <span class="op">=</span> <span class="nam">os</span><span class="op">.</span><span class="nam">environ</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="nam">ENV_XRAY_API_VERIFY_SSL</span><span class="op">,</span> <span class="str">&#x27;True&#x27;</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t222" href="#t222">222</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="par run show_par"><span class="n"><a id="t223" href="#t223">223</a></span><span class="t">    <span class="key">if</span> <span class="nam">verify</span><span class="op">.</span><span class="nam">upper</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">&#x27;TRUE&#x27;</span><span class="op">:</span>&nbsp;</span><span class="r"><span class="annotate short">223&#x202F;&#x219B;&#x202F;225</span><span class="annotate long">line 223 didn't jump to line 225 because the condition on line 223 was always true</span></span></p>
+    <p class="run"><span class="n"><a id="t223" href="#t223">223</a></span><span class="t">    <span class="key">if</span> <span class="nam">verify</span><span class="op">.</span><span class="nam">upper</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">&#x27;TRUE&#x27;</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t224" href="#t224">224</a></span><span class="t">        <span class="nam">verify</span> <span class="op">=</span> <span class="key">True</span>  <span class="com"># type: ignore</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t225" href="#t225">225</a></span><span class="t">    <span class="key">elif</span> <span class="nam">verify</span><span class="op">.</span><span class="nam">upper</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">&#x27;FALSE&#x27;</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="par run show_par"><span class="n"><a id="t225" href="#t225">225</a></span><span class="t">    <span class="key">elif</span> <span class="nam">verify</span><span class="op">.</span><span class="nam">upper</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">&#x27;FALSE&#x27;</span><span class="op">:</span>&nbsp;</span><span class="r"><span class="annotate short">225&#x202F;&#x219B;&#x202F;226</span><span class="annotate long">line 225 didn't jump to line 226 because the condition on line 225 was never true</span></span></p>
     <p class="mis show_mis"><span class="n"><a id="t226" href="#t226">226</a></span><span class="t">        <span class="nam">verify</span> <span class="op">=</span> <span class="key">False</span>  <span class="com"># type: ignore</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t227" href="#t227">227</a></span><span class="t">    <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t228" href="#t228">228</a></span><span class="t">        <span class="key">if</span> <span class="key">not</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">exists</span><span class="op">(</span><span class="nam">verify</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t229" href="#t229">229</a></span><span class="t">            <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span><span class="fst">f&#x27;</span><span class="fst">Cannot find certificate file &quot;</span><span class="op">{</span><span class="nam">verify</span><span class="op">}</span><span class="fst">&quot;</span><span class="fst">&#x27;</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="par run show_par"><span class="n"><a id="t228" href="#t228">228</a></span><span class="t">        <span class="key">if</span> <span class="key">not</span> <span class="nam">os</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">exists</span><span class="op">(</span><span class="nam">verify</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"><span class="annotate short">228&#x202F;&#x219B;&#x202F;231</span><span class="annotate long">line 228 didn't jump to line 231 because the condition on line 228 was always true</span></span></p>
+    <p class="run"><span class="n"><a id="t229" href="#t229">229</a></span><span class="t">            <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span><span class="fst">f&#x27;</span><span class="fst">Cannot find certificate file &quot;</span><span class="op">{</span><span class="nam">verify</span><span class="op">}</span><span class="fst">&quot;</span><span class="fst">&#x27;</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t230" href="#t230">230</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t231" href="#t231">231</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;VERIFY&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">verify</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t232" href="#t232">232</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;BASE_URL&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">base_url</span>&nbsp;</span><span class="r"></span></p>
@@ -323,10 +323,10 @@
     <p class="run"><span class="n"><a id="t239" href="#t239">239</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t240" href="#t240">240</a></span><span class="t">        <span class="nam">user</span> <span class="op">=</span> <span class="nam">environ</span><span class="op">[</span><span class="nam">ENV_XRAY_API_USER</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t241" href="#t241">241</a></span><span class="t">        <span class="nam">password</span> <span class="op">=</span> <span class="nam">environ</span><span class="op">[</span><span class="nam">ENV_XRAY_API_PASSWORD</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t242" href="#t242">242</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t243" href="#t243">243</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis mis2 show_mis"><span class="n"><a id="t244" href="#t244">244</a></span><span class="t">            <span class="fst">f&#x27;</span><span class="fst">Basic authentication requires environment variables: </span><span class="op">{</span><span class="nam">ENV_XRAY_API_USER</span><span class="op">}</span><span class="fst">, </span><span class="op">{</span><span class="nam">ENV_XRAY_API_PASSWORD</span><span class="op">}</span><span class="fst">&#x27;</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis mis2 show_mis"><span class="n"><a id="t245" href="#t245">245</a></span><span class="t">        <span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t242" href="#t242">242</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t243" href="#t243">243</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t244" href="#t244">244</a></span><span class="t">            <span class="fst">f&#x27;</span><span class="fst">Basic authentication requires environment variables: </span><span class="op">{</span><span class="nam">ENV_XRAY_API_USER</span><span class="op">}</span><span class="fst">, </span><span class="op">{</span><span class="nam">ENV_XRAY_API_PASSWORD</span><span class="op">}</span><span class="fst">&#x27;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t245" href="#t245">245</a></span><span class="t">        <span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t246" href="#t246">246</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t247" href="#t247">247</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;USER&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">user</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t248" href="#t248">248</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;PASSWORD&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">password</span>&nbsp;</span><span class="r"></span></p>
@@ -339,10 +339,10 @@
     <p class="run"><span class="n"><a id="t255" href="#t255">255</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t256" href="#t256">256</a></span><span class="t">        <span class="nam">client_id</span> <span class="op">=</span> <span class="nam">environ</span><span class="op">[</span><span class="nam">ENV_XRAY_CLIENT_ID</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t257" href="#t257">257</a></span><span class="t">        <span class="nam">client_secret</span> <span class="op">=</span> <span class="nam">environ</span><span class="op">[</span><span class="nam">ENV_XRAY_CLIENT_SECRET</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t258" href="#t258">258</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t259" href="#t259">259</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis mis2 show_mis"><span class="n"><a id="t260" href="#t260">260</a></span><span class="t">            <span class="fst">f&#x27;</span><span class="fst">Bearer authentication requires environment variables: </span><span class="op">{</span><span class="nam">ENV_XRAY_CLIENT_ID</span><span class="op">}</span><span class="fst">, </span><span class="op">{</span><span class="nam">ENV_XRAY_CLIENT_SECRET</span><span class="op">}</span><span class="fst">&#x27;</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis mis2 show_mis"><span class="n"><a id="t261" href="#t261">261</a></span><span class="t">        <span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t258" href="#t258">258</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t259" href="#t259">259</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t260" href="#t260">260</a></span><span class="t">            <span class="fst">f&#x27;</span><span class="fst">Bearer authentication requires environment variables: </span><span class="op">{</span><span class="nam">ENV_XRAY_CLIENT_ID</span><span class="op">}</span><span class="fst">, </span><span class="op">{</span><span class="nam">ENV_XRAY_CLIENT_SECRET</span><span class="op">}</span><span class="fst">&#x27;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t261" href="#t261">261</a></span><span class="t">        <span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t262" href="#t262">262</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t263" href="#t263">263</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;CLIENT_ID&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">client_id</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t264" href="#t264">264</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;CLIENT_SECRET&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">client_secret</span>&nbsp;</span><span class="r"></span></p>
@@ -354,8 +354,8 @@
     <p class="run"><span class="n"><a id="t270" href="#t270">270</a></span><span class="t">    <span class="nam">options</span> <span class="op">=</span> <span class="nam">get_base_options</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t271" href="#t271">271</a></span><span class="t">    <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t272" href="#t272">272</a></span><span class="t">        <span class="nam">api_key</span> <span class="op">=</span> <span class="nam">environ</span><span class="op">[</span><span class="nam">ENV_XRAY_API_KEY</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t273" href="#t273">273</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t274" href="#t274">274</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span><span class="fst">f&#x27;</span><span class="fst">API Key authentication requires environment variable: </span><span class="op">{</span><span class="nam">ENV_XRAY_API_KEY</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t273" href="#t273">273</a></span><span class="t">    <span class="key">except</span> <span class="nam">KeyError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t274" href="#t274">274</a></span><span class="t">        <span class="key">raise</span> <span class="nam">XrayError</span><span class="op">(</span><span class="fst">f&#x27;</span><span class="fst">API Key authentication requires environment variable: </span><span class="op">{</span><span class="nam">ENV_XRAY_API_KEY</span><span class="op">}</span><span class="fst">&#x27;</span><span class="op">)</span> <span class="key">from</span> <span class="key">None</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t275" href="#t275">275</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t276" href="#t276">276</a></span><span class="t">    <span class="nam">options</span><span class="op">[</span><span class="str">&#x27;API_KEY&#x27;</span><span class="op">]</span> <span class="op">=</span> <span class="nam">api_key</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t277" href="#t277">277</a></span><span class="t">    <span class="key">return</span> <span class="nam">options</span>&nbsp;</span><span class="r"></span></p>
@@ -403,7 +403,7 @@
             <a class="nav" href="z_c3da03e42cf3f802_hooks_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.16.2">coverage.py v7.16.2</a>,
-            created at 2026-10-17 04:13 +0000
+            created at 2026-10-17 05:39 +0000
         </p>
     </div>
 </footer>

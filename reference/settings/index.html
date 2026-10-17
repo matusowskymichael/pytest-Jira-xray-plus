@@ -1304,6 +1304,12 @@ Cloud has synthetic test coverage, not live target validation.</p>
 <p>TLS certificate verification is enabled by default. Set <code>XRAY_API_VERIFY_SSL</code>
 to <code>True</code> or to a trusted CA bundle path for an internal CA. <code>False</code> disables
 verification and should not be used with real credentials.</p>
+<p>Version 0.1.8 reports missing required authentication variables
+and a nonexistent CA bundle path as <code>ERROR</code> with pytest exit code 4. Correct the
+named setting and rerun. These checks happen before test collection or HTTP
+requests; they do not prove credentials are accepted by Jira/Xray. Version
+0.1.7 reports these same setup failures as <code>INTERNALERROR</code> with exit code 3.
+Offline previews, local-only reports and <code>--collect-only</code> do not require credentials.</p>
 <p>Optional execution metadata:</p>
 <table>
 <thead>

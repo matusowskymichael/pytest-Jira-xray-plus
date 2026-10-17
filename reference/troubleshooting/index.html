@@ -1347,8 +1347,12 @@ invalid values in export payloads.</p>
 <td>Use both <code>--jira-xray</code> and <code>--xraypath=xray.json</code>. Case reporting is separate.</td>
 </tr>
 <tr>
+<td><code>Cannot resolve</code> a report option</td>
+<td>Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed.</td>
+</tr>
+<tr>
 <td>Cannot write a report</td>
-<td>Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result.</td>
+<td>Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow.</td>
 </tr>
 <tr>
 <td>Comment exceeds the limit</td>
@@ -1356,7 +1360,7 @@ invalid values in export payloads.</p>
 </tr>
 <tr>
 <td>Missing authentication variable</td>
-<td>Set the variables for your selected auth method. Offline file exports do not need credentials.</td>
+<td>Set the named variables for your selected auth method in the same shell/CI job. Version 0.1.8 uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials.</td>
 </tr>
 <tr>
 <td>HTTP 401/403</td>
@@ -1368,7 +1372,7 @@ invalid values in export payloads.</p>
 </tr>
 <tr>
 <td>Certificate error</td>
-<td>Configure the trusted CA bundle; do not bypass verification.</td>
+<td>Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling.</td>
 </tr>
 <tr>
 <td>Timeout, invalid JSON or missing execution ID</td>
@@ -1380,6 +1384,16 @@ invalid values in export payloads.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>From 0.1.7 to 0.1.8:</strong> update any CI checks that expect
+exit 3 for missing authentication variables or nonexistent CA files to expect
+exit 4. Post-run HTTP/upload failures keep their existing exit behavior. The
+change does not add credential validation or alter authentication/TLS settings.</p>
+<p>Errors raised during report-path
+expansion/resolution use exit 4 rather than internal-error exit 3. Existing
+write-time failures keep their current handling. Home expansion stays enabled for
+all report options; environment-variable expansion applies to <code>--xraypath</code> and
+<code>--xray-full-report</code>, while <code>--xray-case-report</code> treats <code>$NAME</code> literally when the
+shell has not already expanded it. Report paths must still be distinct.</p>
 <p><strong>From upstream:</strong> create a fresh environment and install <code>pytest-jira-xray-plus</code>.
 The Python imports, marker and <code>xray</code> plugin name are retained. Check the dependency
 requirements, add local reporting as needed, and compare an offline export before

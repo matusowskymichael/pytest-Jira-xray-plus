@@ -1329,7 +1329,21 @@ that never ran. Hard process termination can prevent any final file from being w
 <p>Requests use a 10-second connect timeout and a 60-second read-inactivity timeout,
 not a total deadline. Redirects are rejected. Authentication and response shapes
 are checked. The plugin does not dump raw server responses to shared temporary files.
-Local file replacement is atomic; failed writes retain any prior report.</p>
+Version 0.1.8 reports errors raised while expanding or
+resolving report paths as <code>Cannot resolve &lt;option&gt;</code> with pytest exit code 4,
+before tests run. Check the named option, home-directory spelling and filesystem
+access. Version 0.1.7 can report these failures as <code>INTERNALERROR</code>/exit 3.
+This is not a filesystem preflight: a path accepted during configuration may still
+fail when written. Python 3.12 raises on symlink loops during non-strict resolution;
+Python 3.13+ can leave those loops unresolved, so they fail later through the
+existing report-writing error handling. No guarantee against filesystem changes
+between configuration and writing is provided.</p>
+<p>Local file replacement is atomic; failed writes retain any prior report.
+Version 0.1.8 preserves the original write error if removing its
+temporary file also fails. That diagnostic includes the temporary path and cleanup
+error; the file may contain report data. After the run, inspect that specific path
+and remove it when permissions allow. Do not treat an older retained report as a
+new result. Version 0.1.7 can instead surface the secondary cleanup exception.</p>
 <p>Python metadata requires <code>&gt;=3.12</code>, pytest <code>&gt;=9.1.1,&lt;10</code> and requests <code>&gt;=2.34.2,&lt;3</code>.
 CI checks Linux on Python 3.12, 3.13 and 3.14; the tested baseline uses pytest 9.1.1,
 requests 2.34.2, xdist 3.8.0 and rerunfailures 16.7. Windows/macOS instructions

@@ -1208,6 +1208,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#018-2026-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.8 [2026-10-17]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#017-2026-10-17" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1427,6 +1438,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#018-2026-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.8 [2026-10-17]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#017-2026-10-17" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1560,6 +1582,19 @@
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <ul>
 <li>No unreleased changes.</li>
+</ul>
+<h2 id="018-2026-10-17">0.1.8 [2026-10-17]<a class="headerlink" href="#018-2026-10-17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Report expected path expansion/resolution failures as option-specific pytest
+  usage errors (exit 4). Preserve non-strict resolution, expansion conventions,
+  collision checks and write-time failures, including Python's symlink-loop
+  behavior difference between 3.12 and 3.13+.</li>
+<li>Report missing authentication environment variables and nonexistent CA bundle
+  paths as concise pytest usage errors (exit 4), avoiding configuration internal
+  tracebacks/exit 3. Offline/collect-only and runtime HTTP handling are unchanged.</li>
+<li>Preserve report-writing errors when temporary-file cleanup also fails, keeping
+  the existing Xray error or offline warning/exit handling and identifying the
+  leftover temporary path. Skip cleanup after successful atomic replacement.</li>
 </ul>
 <h2 id="017-2026-10-17">0.1.7 [2026-10-17]<a class="headerlink" href="#017-2026-10-17" title="Permanent link">&para;</a></h2>
 <ul>
