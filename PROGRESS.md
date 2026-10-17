@@ -34,3 +34,7 @@ Corrected a mistyped SHA in RELEASE-READINESS.md; prior digest/profile receipts
 remain historical only. All five profiles regenerated and passed (305 tests + 19 subtests, 14 installed
 commands); final evidence-head CI must pass before renewed review.
 No merge or publication; renewed independent review required for corrected head.
+
+Independent release PASS from /root/review_release_017 recorded with full assessment,
+verified evidence and limits. Next: acceptance-head CI, merge/main CI, immediate
+unused-version check, trusted publication and public verification; then cleanup fix.

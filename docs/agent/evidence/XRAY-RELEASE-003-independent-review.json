@@ -1,0 +1,89 @@
+{
+  "task": "XRAY-RELEASE-003",
+  "digest": "52748ca56aa1ceb60b95660afd5662e8b06718e82be00bc647209fd98665cb87",
+  "revision": "ebc312a8e68c97e77782d40482893e8526715c1f",
+  "timestamp": "2026-10-17T04:05:49+00:00",
+  "reviewer": "/root/review_release_017",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Prepare unused 0.1.7 bundling accepted PR15\u201317 with version-literal-only package/publisher changes and unchanged runtime, dependencies and permissions",
+    "Full beginner README and dated changelog accurately explain 0.1.7 collection behavior, unchanged usage and migration/compatibility/privacy limits",
+    "All five profiles, installed tutorial/full README rendering, shared badge checks and exact-head CI pass on frozen release content",
+    "Fresh independent review precedes merge/publication; record exact post-publication verification and live-validation limits without claiming unperformed checks"
+  ],
+  "assessment": {
+    "release_scope": "PR18 prepares the 0.1.7 milestone containing collection lookup optimization, malformed Test-key collection errors and duplicate-policy collection errors already present in main. Runtime, tooling, dependency declarations, coverage configuration and workflow permissions remain unchanged. The only test change strengthens the existing release-documentation regression.",
+    "versions_and_metadata": "pyproject.toml declares 0.1.7; publish.yml consistently uses 0.1.7 in the description, expected package version, wheel/sdist filenames, sdist prefix and final artifact checks. Its diff consists only of 0.1.6-to-0.1.7 literal substitutions. Existing reviewed-SHA, explicit publication opt-in, exact artifact set/hash checks, pypi environment and permissions are preserved. Historical version references are clearly historical.",
+    "documentation": "Reviewed the full beginner README, dated changelog, package metadata, README.rst pointer, release-readiness plan and releasing instructions. The guide retains all 14 executable tutorial commands, progressive installation and configuration explanations, preview-before-upload workflow, intentional failure/restoration, values/redaction, comment archives, parallel/retry and hook examples. It accurately explains collection-error exits, recovery, Generic Jira/Xray prerequisites, privacy opt-ins and unsupported native iterations.",
+    "resolved_finding": "The initial candidate contained an incorrect PR17 merge SHA in docs/RELEASE-READINESS.md. The revised document changes exactly that SHA to bd231e13702fec4153499aa59a9f815f5d74f475, independently confirmed through PR17 metadata. All five profiles were regenerated for the corrected digest. No unresolved finding remains.",
+    "source_to_head": "All current receipts identify source 8e34e33d04003a5f3364053236a6105c6ca9761c. GitHub comparison confirms reviewed head ebc312a8e68c97e77782d40482893e8526715c1f is one subsequent commit containing only evidence/log additions, PROGRESS.md and ledger execution-state changes. Source and head ledger policy fields are identical. Hosted exact-head harness logs report the reviewed digest.",
+    "publication_boundary": "PR18 was still draft and unmerged at final inspection. Acceptance covers release preparation, not a claim that publication or post-publication verification has happened. Version availability must be rechecked immediately before publication, followed by exact reviewed-main checks, publisher/PyPI/GitHub hash and tag verification, fresh public installation/tutorial execution and Pages/status/coverage provenance verification."
+  },
+  "evidence": {
+    "pull_request": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/18",
+    "baseline": "bd231e13702fec4153499aa59a9f815f5d74f475",
+    "receipt_source_revision": "8e34e33d04003a5f3364053236a6105c6ca9761c",
+    "receipts": [
+      "docs/agent/evidence/XRAY-RELEASE-003-harness-7d9d703a24b7.json",
+      "docs/agent/evidence/XRAY-RELEASE-003-tests-dd75c1b6658a.json",
+      "docs/agent/evidence/XRAY-RELEASE-003-offline-9fa15b808831.json",
+      "docs/agent/evidence/XRAY-RELEASE-003-package-0873e1cb4eb4.json",
+      "docs/agent/evidence/XRAY-RELEASE-003-docs-d6a5b0205ff5.json"
+    ],
+    "receipt_verification": "All five receipts report passed, the corrected digest and zero exit codes. Independently fetched all 13 referenced log files and recomputed SHA-256; every log matches its receipt.",
+    "tests": "305 passed and 19 subtests passed in the regenerated tests log.",
+    "package": "Wheel and sdist build and Twine checks pass. Fresh installed-wheel checks report all 14 README commands and complete tutorial equality in wheel metadata with PyPI Markdown rendering. Exact-head hosted Python 3.12 logs independently confirm installed tutorial and metadata rendering success.",
+    "offline": "Both case orders retain expected results and comments with no Jira request; the reproduction's intentional nested failing test is correctly distinguished from the successful verification command.",
+    "docs": "Strict build, 23 HTML pages, 1207 internal links/fragments/assets and search index checks pass. Local desktop/mobile, search, syntax highlighting and theme-toggle checks pass.",
+    "badges": "Reviewed the six-image/target receipt bound to the unchanged README, including GitHub and PyPI renderer previews and normal-TLS checks. The receipt explicitly limits claims concerning PyPI Client Challenge responses and live visual rendering.",
+    "exact_head_ci": [
+      {
+        "name": "documentation",
+        "event": "push",
+        "run_id": 39000975371,
+        "conclusion": "success"
+      },
+      {
+        "name": "repository harness",
+        "event": "push",
+        "run_id": 39000975417,
+        "conclusion": "success"
+      },
+      {
+        "name": "tests",
+        "event": "push",
+        "run_id": 39000975403,
+        "conclusion": "success"
+      },
+      {
+        "name": "documentation",
+        "event": "pull_request",
+        "run_id": 39000979610,
+        "conclusion": "success"
+      },
+      {
+        "name": "repository harness",
+        "event": "pull_request",
+        "run_id": 39000979613,
+        "conclusion": "success"
+      },
+      {
+        "name": "tests",
+        "event": "pull_request",
+        "run_id": 39000979608,
+        "conclusion": "success"
+      }
+    ],
+    "ci_binding": "GitHub reports all six runs completed successfully with head_sha ebc312a8e68c97e77782d40482893e8526715c1f. Push-job inspection confirms successful Python 3.12/3.13/3.14 jobs, documentation and harness. Push logs confirm checkout of the exact reviewed head; harness preflight and drift report digest 52748ca56aa1ceb60b95660afd5662e8b06718e82be00bc647209fd98665cb87."
+  },
+  "limits": [
+    "Independent read-only repository review through GitHub connectors; no local test rerun. Execution evidence from inspected receipts, hash-verified logs and hosted CI.",
+    "Digest corroborated by exact-head hosted harness output and source-to-head policy/diff inspection, not independently reconstructed locally.",
+    "Badge endpoints and PyPI preparation availability are builder evidence, not independently re-requested.",
+    "No live Jira/Xray 8.5.3-j10 or custom Automatic mapping validation. Native iterations/datasets unsupported.",
+    "Local browser results do not establish live Pages/PyPI visual rendering; certificate-warning and Client Challenge limits remain.",
+    "Reviewer performed no repository mutation, external review, merge, workflow dispatch, publication or permission change."
+  ]
+}
