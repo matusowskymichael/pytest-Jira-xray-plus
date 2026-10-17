@@ -1,7 +1,9 @@
-# In progress — scale result aggregation by Test key
+# Review pending — scale result aggregation by Test key
 
 - PR23 independently accepted and merged at 2b8a4f29567bc612a758635975da09e1c1439f15 with identical accepted tree. All six acceptance-head workflows and main CI 39008642922/39008642908/39008642928 passed. Accepted ledger archived. No publication; baseline stays 0.1.8.
 - Task XRAY-PRODUCT-009: private plugin-owned key index removes repeated scans while preserving public models, export order and merge semantics. Open GitHub issues were empty; actual synthetic result-stream benchmark confirms quadratic baseline behavior.
-- Six scaling regressions fail on baseline. Focused compatibility tests and before/after benchmark prepared; full guide, Unreleased changelog/readiness updated.
-- Next: focused/static checks, bind PR, all five profiles and exact-head CI, then fresh parent-arranged independent review. Group useful changes for a later release.
+- Six operation-count regressions fail on baseline; all 15 new tests pass. Synthetic 8k-key ingestion measured 0.605s on installed 0.1.8 vs 0.015s candidate, one local sample, not an end-to-end guarantee. Extra memory is one index entry/key; plugin owns live accumulators; documented final payload hooks/public model API remain supported.
+- PR24: https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/24. All five profiles passed on 0b4e2ed3fdb6be351e4b5894c96bc97ab1e2e397: 429 tests + 19 subtests, 32 harness tests, offline checks, build/Twine, 14 installed commands/full metadata, strict docs (23 HTML pages/1210 references) and local desktop/mobile/search/highlighting/theme. Changed-file Ruff and existing mypy (38 files) pass; 13 profile log hashes verified.
+- Content digest 90abc0150e299529f5e788dba04d459871f01a76353d1058a01a34ddafddf110.
+- Next: final exact-head CI then fresh parent-arranged independent review. Ledger remains review_pending; no merge before acceptance. Group useful changes for a later release; no publication.
 - No workplace/private data, credentials/permissions changes or browser bypass. Live Generic 8.5.3-j10/custom Automatic mapping unverified; native iterations/datasets unsupported.

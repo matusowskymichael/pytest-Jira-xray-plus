@@ -99,11 +99,17 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-PRODUCT-009-harness-e42b74df52a0.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-tests-e4d42230e484.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-offline-7307a148fc0e.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-package-1bbe3aa016b3.json",
+        "docs/agent/evidence/XRAY-PRODUCT-009-docs-5c01f89d0d42.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "Validate aggregation index and documentation, bind PR, run profiles and freeze for independent review"
+      "next_action": "Exact frozen-head CI, then fresh independent review of PR24; no merge or release before acceptance"
     }
   ]
 }
