@@ -6,7 +6,7 @@
       "title": "Classify report path normalization errors as usage errors",
       "source": "docs/agent/task-path-configuration.md",
       "source_sha256": "2d40ac4f0eea728e46f80c1de72785a12ec8c29558069e581dfbe8a319751678",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/21",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
