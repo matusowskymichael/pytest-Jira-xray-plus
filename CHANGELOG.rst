@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- Preserve opt-in reports when integer parameters exceed Python's decimal
+  conversion limit at capture time: use the existing unsupported-value
+  placeholder instead of losing the case report or aborting parameter comments.
+  Keep valid integers, privacy defaults and interpreter settings unchanged.
 - Create missing parent folders for requested local case reports at write time,
   matching preview/archive exports. Preserve genuine filesystem errors, atomic
   replacement and prior files; newly created folders can remain after failure.

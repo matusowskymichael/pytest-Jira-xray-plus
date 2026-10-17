@@ -25,6 +25,12 @@ with `pytest_outcome: rerun`, rather than replacing it with the eventual pass.
 Parameter values are **absent by default**. `--xray-case-values` separately opts
 into scalar values: string, boolean, integer, finite float and null. Other
 values get a placeholder; objects are not repr'd and containers are not traversed.
+The unreleased candidate also uses that placeholder for exact builtin integers
+whose decimal conversion raises `ValueError` under Python's active digit limit
+at capture time. Representable integers stay integers; the plugin never changes
+the limit. Published 0.1.8 can instead fail to write the report. Use descriptive
+explicit pytest IDs to avoid formatting huge values during collection. Later
+interpreter-policy changes or custom-hook data are outside this capture guard.
 No assertion text, traceback, capture, skip reason or xfail reason is stored.
 However, pytest node IDs/parameter IDs may themselves contain values; choose
 safe explicit IDs. This report is not a redaction guarantee. The older

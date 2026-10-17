@@ -1,0 +1,244 @@
+* Getting build dependencies for sdist...
+running egg_info
+creating src/pytest_jira_xray_plus.egg-info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+* Building sdist...
+running sdist
+running egg_info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+running check
+creating pytest_jira_xray_plus-0.1.8
+creating pytest_jira_xray_plus-0.1.8/docs
+creating pytest_jira_xray_plus-0.1.8/docs/agent
+creating pytest_jira_xray_plus-0.1.8/examples
+creating pytest_jira_xray_plus-0.1.8/examples/native-probe
+creating pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+creating pytest_jira_xray_plus-0.1.8/src/pytest_xray
+creating pytest_jira_xray_plus-0.1.8/tests
+creating pytest_jira_xray_plus-0.1.8/tests/agent
+creating pytest_jira_xray_plus-0.1.8/tests/resources
+creating pytest_jira_xray_plus-0.1.8/tools
+copying files to pytest_jira_xray_plus-0.1.8...
+copying CHANGELOG.rst -> pytest_jira_xray_plus-0.1.8
+copying LICENSE -> pytest_jira_xray_plus-0.1.8
+copying MANIFEST.in -> pytest_jira_xray_plus-0.1.8
+copying NOTICE -> pytest_jira_xray_plus-0.1.8
+copying README.md -> pytest_jira_xray_plus-0.1.8
+copying README.rst -> pytest_jira_xray_plus-0.1.8
+copying pyproject.toml -> pytest_jira_xray_plus-0.1.8
+copying docs/API.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/CASE-REPORT.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/COVERAGE.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/MINIMAL-SANDBOX-CHECK.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/NATIVE-VALIDATION.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/QUICK-VALIDATION.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/RELEASE-READINESS.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/RELEASE.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/RELEASING.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/SERVER-COMPATIBILITY.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/VALIDATION.md -> pytest_jira_xray_plus-0.1.8/docs
+copying docs/agent/BACKLOG.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/architecture.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/completion.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/harness-adoption.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/maintainer.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-aggregation-index.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-auth-configuration.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-blank-base-url.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-case-parent.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-collection-lookup.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-duplicate-policy.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-integer-parameters.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-path-configuration.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-product-001.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-product-002.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-release-016.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-release-017.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-release-018.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-release-tags.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-report-cleanup.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task-test-key-validation.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/task.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/testing.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying docs/agent/workflow.md -> pytest_jira_xray_plus-0.1.8/docs/agent
+copying examples/case-report.json -> pytest_jira_xray_plus-0.1.8/examples
+copying examples/synthetic.py -> pytest_jira_xray_plus-0.1.8/examples
+copying examples/native-probe/forward.json -> pytest_jira_xray_plus-0.1.8/examples/native-probe
+copying examples/native-probe/reverse.json -> pytest_jira_xray_plus-0.1.8/examples/native-probe
+copying src/pytest_jira_xray_plus.egg-info/PKG-INFO -> pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+copying src/pytest_jira_xray_plus.egg-info/SOURCES.txt -> pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+copying src/pytest_jira_xray_plus.egg-info/dependency_links.txt -> pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+copying src/pytest_jira_xray_plus.egg-info/entry_points.txt -> pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+copying src/pytest_jira_xray_plus.egg-info/requires.txt -> pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+copying src/pytest_jira_xray_plus.egg-info/top_level.txt -> pytest_jira_xray_plus-0.1.8/src/pytest_jira_xray_plus.egg-info
+copying src/pytest_xray/__init__.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/case_report.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/case_results.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/comment_limits.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/constant.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/evidence.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/exceptions.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/file_publisher.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/helper.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/hooks.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/plugin.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/xray_plugin.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying src/pytest_xray/xray_publisher.py -> pytest_jira_xray_plus-0.1.8/src/pytest_xray
+copying tests/__init__.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/conftest.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_aggregation_index.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_attachment_ownership.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_auth_configuration.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_case_parent_paths.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_case_report.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_case_results.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_collection_lookup.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_comment_limits.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_coverage_report.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_defects_validation.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_duplicate_policy.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_evidence.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_evidence_with_duplicated_ids.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_helper.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_integer_parameter_values.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_key_validation.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_model.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_parameter_details.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_path_configuration.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_release_docs.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_release_readiness.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_report_cleanup.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_tag_release.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/test_xray_plugin.py -> pytest_jira_xray_plus-0.1.8/tests
+copying tests/agent/test_harness.py -> pytest_jira_xray_plus-0.1.8/tests/agent
+copying tests/resources/screenshot.jpeg -> pytest_jira_xray_plus-0.1.8/tests/resources
+copying tests/resources/screenshot.png -> pytest_jira_xray_plus-0.1.8/tests/resources
+copying tests/resources/test.zip -> pytest_jira_xray_plus-0.1.8/tests/resources
+copying tools/agent.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/benchmark_collection.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/build_release.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/check_docs_browser.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/check_docs_links.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/check_harness_tests.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/check_installed_usage.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/measure_coverage.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/prepare_docs_site.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/reproduce.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/status_badges.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/tag_release.py -> pytest_jira_xray_plus-0.1.8/tools
+copying tools/validate_offline.py -> pytest_jira_xray_plus-0.1.8/tools
+Writing pytest_jira_xray_plus-0.1.8/setup.cfg
+Creating tar archive
+removing 'pytest_jira_xray_plus-0.1.8' (and everything under it)
+* Building wheel from sdist
+* Getting build dependencies for wheel...
+running egg_info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/pytest_xray
+copying src/pytest_xray/xray_publisher.py -> build/lib/pytest_xray
+copying src/pytest_xray/xray_plugin.py -> build/lib/pytest_xray
+copying src/pytest_xray/plugin.py -> build/lib/pytest_xray
+copying src/pytest_xray/hooks.py -> build/lib/pytest_xray
+copying src/pytest_xray/helper.py -> build/lib/pytest_xray
+copying src/pytest_xray/file_publisher.py -> build/lib/pytest_xray
+copying src/pytest_xray/exceptions.py -> build/lib/pytest_xray
+copying src/pytest_xray/evidence.py -> build/lib/pytest_xray
+copying src/pytest_xray/constant.py -> build/lib/pytest_xray
+copying src/pytest_xray/comment_limits.py -> build/lib/pytest_xray
+copying src/pytest_xray/case_results.py -> build/lib/pytest_xray
+copying src/pytest_xray/case_report.py -> build/lib/pytest_xray
+copying src/pytest_xray/__init__.py -> build/lib/pytest_xray
+running egg_info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/pytest_xray
+copying build/lib/pytest_xray/__init__.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/case_report.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/case_results.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/comment_limits.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/constant.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/evidence.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/exceptions.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/file_publisher.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/helper.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/hooks.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/plugin.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/xray_plugin.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+copying build/lib/pytest_xray/xray_publisher.py -> build/bdist.linux-x86_64/wheel/./pytest_xray
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying src/pytest_jira_xray_plus.egg-info to build/bdist.linux-x86_64/wheel/./pytest_jira_xray_plus-0.1.8-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/pytest_jira_xray_plus-0.1.8.dist-info/WHEEL
+creating '/tmp/tmphqgl7ixy/dist/.tmp-sa88yywm/pytest_jira_xray_plus-0.1.8-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/licenses/LICENSE'
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/licenses/NOTICE'
+adding 'pytest_xray/__init__.py'
+adding 'pytest_xray/case_report.py'
+adding 'pytest_xray/case_results.py'
+adding 'pytest_xray/comment_limits.py'
+adding 'pytest_xray/constant.py'
+adding 'pytest_xray/evidence.py'
+adding 'pytest_xray/exceptions.py'
+adding 'pytest_xray/file_publisher.py'
+adding 'pytest_xray/helper.py'
+adding 'pytest_xray/hooks.py'
+adding 'pytest_xray/plugin.py'
+adding 'pytest_xray/xray_plugin.py'
+adding 'pytest_xray/xray_publisher.py'
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/METADATA'
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/WHEEL'
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/entry_points.txt'
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/top_level.txt'
+adding 'pytest_jira_xray_plus-0.1.8.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built pytest_jira_xray_plus-0.1.8.tar.gz and pytest_jira_xray_plus-0.1.8-py3-none-any.whl
+d6c2475afc748384c80bd185fb749b5588134435922efd1b07a7d039fa6d5a1f pytest_jira_xray_plus-0.1.8-py3-none-any.whl
+61e63e92a0249934b2ee6e96cb45843f0b7693377c7128766b9d561ed05b0e84 pytest_jira_xray_plus-0.1.8.tar.gz

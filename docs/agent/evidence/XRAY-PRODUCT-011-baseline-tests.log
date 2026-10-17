@@ -1,0 +1,80 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___ test_integer_boundary_respects_active_limit_without_changing_it[-1-640] ____
+
+limit = 640, sign = -1
+
+    @pytest.mark.parametrize('limit', [640, 1000])
+    @pytest.mark.parametrize('sign', [-1, 1])
+    def test_integer_boundary_respects_active_limit_without_changing_it(limit, sign):
+        with conversion_limit(limit):
+            valid = sign * 10 ** (limit - 1)
+            oversized = sign * 10 ** limit
+            params = {'valid': valid, 'oversized': oversized, 'ordinary': 17}
+            result = scalar_values(params)
+            assert result['valid'] is valid
+            assert type(result['valid']) is int
+>           assert result['oversized'] == PLACEHOLDER
+E           AssertionError: assert <[ValueError('Exceeds the limit (640 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit') raised in repr()] int object at 0x7fdacf661e30> == '<unsupported value: use a descriptive pytest id>'
+
+/tmp/test_integer_parameter_values.py:34: AssertionError
+___ test_integer_boundary_respects_active_limit_without_changing_it[-1-1000] ___
+
+limit = 1000, sign = -1
+
+    @pytest.mark.parametrize('limit', [640, 1000])
+    @pytest.mark.parametrize('sign', [-1, 1])
+    def test_integer_boundary_respects_active_limit_without_changing_it(limit, sign):
+        with conversion_limit(limit):
+            valid = sign * 10 ** (limit - 1)
+            oversized = sign * 10 ** limit
+            params = {'valid': valid, 'oversized': oversized, 'ordinary': 17}
+            result = scalar_values(params)
+            assert result['valid'] is valid
+            assert type(result['valid']) is int
+>           assert result['oversized'] == PLACEHOLDER
+E           AssertionError: assert <[ValueError('Exceeds the limit (1000 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit') raised in repr()] int object at 0x7fdacf560b70> == '<unsupported value: use a descriptive pytest id>'
+
+/tmp/test_integer_parameter_values.py:34: AssertionError
+____ test_integer_boundary_respects_active_limit_without_changing_it[1-640] ____
+
+limit = 640, sign = 1
+
+    @pytest.mark.parametrize('limit', [640, 1000])
+    @pytest.mark.parametrize('sign', [-1, 1])
+    def test_integer_boundary_respects_active_limit_without_changing_it(limit, sign):
+        with conversion_limit(limit):
+            valid = sign * 10 ** (limit - 1)
+            oversized = sign * 10 ** limit
+            params = {'valid': valid, 'oversized': oversized, 'ordinary': 17}
+            result = scalar_values(params)
+            assert result['valid'] is valid
+            assert type(result['valid']) is int
+>           assert result['oversized'] == PLACEHOLDER
+E           AssertionError: assert <[ValueError('Exceeds the limit (640 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit') raised in repr()] int object at 0x7fdacf663af0> == '<unsupported value: use a descriptive pytest id>'
+
+/tmp/test_integer_parameter_values.py:34: AssertionError
+___ test_integer_boundary_respects_active_limit_without_changing_it[1-1000] ____
+
+limit = 1000, sign = 1
+
+    @pytest.mark.parametrize('limit', [640, 1000])
+    @pytest.mark.parametrize('sign', [-1, 1])
+    def test_integer_boundary_respects_active_limit_without_changing_it(limit, sign):
+        with conversion_limit(limit):
+            valid = sign * 10 ** (limit - 1)
+            oversized = sign * 10 ** limit
+            params = {'valid': valid, 'oversized': oversized, 'ordinary': 17}
+            result = scalar_values(params)
+            assert result['valid'] is valid
+            assert type(result['valid']) is int
+>           assert result['oversized'] == PLACEHOLDER
+E           AssertionError: assert <[ValueError('Exceeds the limit (1000 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit') raised in repr()] int object at 0x7fdacf560f30> == '<unsupported value: use a descriptive pytest id>'
+
+/tmp/test_integer_parameter_values.py:34: AssertionError
+=========================== short test summary info ============================
+FAILED ../../tmp/test_integer_parameter_values.py::test_integer_boundary_respects_active_limit_without_changing_it[-1-640]
+FAILED ../../tmp/test_integer_parameter_values.py::test_integer_boundary_respects_active_limit_without_changing_it[-1-1000]
+FAILED ../../tmp/test_integer_parameter_values.py::test_integer_boundary_respects_active_limit_without_changing_it[1-640]
+FAILED ../../tmp/test_integer_parameter_values.py::test_integer_boundary_respects_active_limit_without_changing_it[1-1000]
+4 failed, 19 deselected in 0.04s
