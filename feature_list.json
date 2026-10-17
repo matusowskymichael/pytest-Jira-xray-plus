@@ -6,7 +6,7 @@
       "title": "Prepare 0.1.9 reporting reliability milestone",
       "source": "docs/agent/task-release-019.md",
       "source_sha256": "b0d186392e9db52410ee2d4fb696991efe1624ef5eef5dc03b371548d5e190fb",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/28",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
