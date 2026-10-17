@@ -574,6 +574,13 @@ requests; they do not prove credentials are accepted by Jira/Xray. Version
 0.1.7 reports these same setup failures as `INTERNALERROR` with exit code 3.
 Offline previews, local-only reports and `--collect-only` do not require credentials.
 
+**Unreleased candidate:** an empty or whitespace-only `XRAY_API_BASE_URL` in
+upload mode is also a setup error (exit 4), before collection or fixtures. Set a
+nonblank base URL in the same shell/CI job. Published 0.1.8 instead runs tests and
+then fails while preparing the upload (exit 3). This guard does not validate URL
+format, server reachability or credentials, and does not trim nonblank values.
+Local reports, offline previews and `--collect-only` still need no base URL.
+
 Optional execution metadata:
 
 | Environment variable | Meaning |
@@ -748,12 +755,18 @@ invalid values in export payloads.
 | `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
 | Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |
+| Blank upload base URL (unreleased) | Set a nonblank `XRAY_API_BASE_URL`. The candidate stops before tests with exit 4; 0.1.8 fails later at upload with exit 3. Nonblank URL format and server reachability are not preflighted. |
 | Missing authentication variable | Set the named variables for your selected auth method in the same shell/CI job. Version 0.1.8 uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials. |
 | HTTP 401/403 | Check existing credentials and permissions with the sandbox administrator. Do not paste secrets into issue reports. |
 | HTTP 404 or redirect | Check the base URL, context path and Server/DC versus Cloud mode. |
 | Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**Unreleased migration from 0.1.8:** upload jobs with an empty/whitespace base
+URL now stop before collection with exit 4. Fix the environment setting; do not
+rely on fixtures running before this configuration error. Nonblank inputs and
+offline/collect-only behavior are unchanged.
 
 **From 0.1.7 to 0.1.8:** update any CI checks that expect
 exit 3 for missing authentication variables or nonexistent CA files to expect

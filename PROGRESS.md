@@ -1,10 +1,7 @@
-# Published and verified — 0.1.8 error-handling milestone
+# In progress — reject blank upload base URLs
 
-- Independently accepted PR22 merged at 074c09a79e5578d89138c4207556b99005e08608; exact-tree match and all three main workflows passed (39006879833/39006879826/39006879859).
-- Immediate live unused-version/tag/release check passed; existing trusted publisher 39007135770 succeeded. Automatic GitHub release 39007292690 succeeded and v0.1.8 points to the reviewed merge.
-- Both public PyPI downloads match publisher and GitHub asset hashes. Full README metadata and all six badge images/targets verified over normal TLS. Fresh ordinary PyPI-index installation passed all 14 README commands, JSON assertions and full metadata rendering with HTTP blocked.
-- New coverage measured on clean release source: 383 tests + 19 subtests; 753/770 lines (97.8%) and 222/244 branches (91.0%). Explicit local measurement provenance, not claimed as a downloaded CI artifact.
-- Strict docs: 23 HTML pages/1210 references; local desktop/mobile/search/highlighting/theme checks passed. Pages commit 5fc32cb60146125d7b497d2dda27dabcac6e6c1c, deployment 39007332906 passed; all live files matched deployed bytes. Status snapshot is 0.1.8.
-- Durable proof: docs/agent/evidence/XRAY-RELEASE-004-release-0.1.8.json with public artifact hashes, source, workflow IDs, live Pages/coverage/status provenance and log hashes. Release content digest remains 0f94455e808ba8fb269c40f05c690d43b26ec31f37e3a34a793fa0f1736aa111.
-- Live browser certificate-warning handoff and PyPI Client Challenge remain; no bypass or live visual claim. No workplace/private data. Live Generic 8.5.3-j10/custom Automatic mapping remains unverified; native iterations/datasets unsupported.
-- Next: push operational proof and check exact-head CI, then address reproduced blank base-URL configuration failure in a bounded independently reviewed iteration. Empty/whitespace URL currently runs fixtures before failing at upload; synthetic blocked-transport reproduction is available. Continue useful maintenance through 2026-10-18 23:59 Asia/Dubai.
+- Verified 0.1.8 release and operational evidence committed at a6f8dd82548de169c2043556f684c416b2757ce8. All three exact-head workflows passed (39007379442/39007379449/39007379448); clean remote/local main. Prior accepted ledger archived.
+- Task XRAY-PRODUCT-008 on fix/blank-base-url. Installed 0.1.8 synthetic reproduction: empty/whitespace URLs run tests then exit 3 in all three auth modes, with transport blocked.
+- Scope: helper blank-value guard only; preserve nonblank bytes, credentials/TLS, offline/collect-only and existing HTTP handling. Regressions and full-guide Unreleased notes added. Version/workflows/permissions unchanged.
+- Next: focused tests/static checks, bind draft PR, run all five profiles and exact-head CI; fresh parent-arranged independent review before merge.
+- No workplace/private data or browser security bypass. Live Generic 8.5.3-j10/custom Automatic mapping unverified; native iterations/datasets unsupported.

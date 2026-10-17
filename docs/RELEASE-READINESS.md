@@ -378,3 +378,25 @@ Do not bypass browser certificate warnings. PyPI HTML Client Challenge and live
 visual gaps remain; previews/HTTP checks are not live visual proof. Generic on-prem
 8.5.3-j10/custom Automatic mapping remains unverified live; native iterations and
 datasets are unsupported.
+
+
+## Unreleased blank base-URL guard — 2026-10-17
+
+Published 0.1.8 is verified at source 074c09a79e5578d89138c4207556b99005e08608.
+Publisher 39007135770, automatic GitHub release 39007292690 and Pages deployment
+39007332906 passed. Both public assets match publisher hashes and the source tag;
+fresh public-index installation passed all 14 README commands. All 101 live Pages
+files match deployment bytes. Fresh clean-source local coverage is 753/770 lines
+(97.8%) and 222/244 branches (91.0%), with 383 tests + 19 subtests. Proof is in
+`docs/agent/evidence/XRAY-RELEASE-004-release-0.1.8.json`.
+
+This candidate changes only the base-option helper's blank-value guard. A
+transport-blocked installed 0.1.8 reproduction shows tests run before MissingSchema
+for both empty/whitespace URLs in basic, API-key and Cloud modes. The candidate
+rejects blank values through the existing configuration UsageError boundary,
+without general URL validation, trimming or credential/TLS/runtime HTTP changes.
+The version remains 0.1.8 until a separately reviewed release decision. Full
+profiles, installed documentation and exact-head CI plus fresh independent review
+are required before merge. No new live Jira/Xray compatibility claims follow.
+The certificate-warning handoff and PyPI HTML Client Challenge remain; local
+previews and normal-TLS metadata checks are not live rendered-page proof.
