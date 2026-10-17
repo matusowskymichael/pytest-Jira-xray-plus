@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Report missing authentication environment variables and nonexistent CA bundle
+  paths as concise pytest usage errors (exit 4), avoiding configuration internal
+  tracebacks/exit 3. Offline/collect-only and runtime HTTP handling are unchanged.
 - Preserve report-writing errors when temporary-file cleanup also fails, keeping
   the existing Xray error or offline warning/exit handling and identifying the
   leftover temporary path. Skip cleanup after successful atomic replacement.

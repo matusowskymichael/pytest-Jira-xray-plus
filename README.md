@@ -567,6 +567,13 @@ TLS certificate verification is enabled by default. Set `XRAY_API_VERIFY_SSL`
 to `True` or to a trusted CA bundle path for an internal CA. `False` disables
 verification and should not be used with real credentials.
 
+The unreleased configuration fix reports missing required authentication variables
+and a nonexistent CA bundle path as `ERROR` with pytest exit code 4. Correct the
+named setting and rerun. These checks happen before test collection or HTTP
+requests; they do not prove credentials are accepted by Jira/Xray. Published
+0.1.7 reports these same setup failures as `INTERNALERROR` with exit code 3.
+Offline previews, local-only reports and `--collect-only` do not require credentials.
+
 Optional execution metadata:
 
 | Environment variable | Meaning |
@@ -730,12 +737,17 @@ invalid values in export payloads.
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
 | Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With the unreleased cleanup fix, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |
-| Missing authentication variable | Set the variables for your selected auth method. Offline file exports do not need credentials. |
+| Missing authentication variable | Set the named variables for your selected auth method in the same shell/CI job. The unreleased configuration fix uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials. |
 | HTTP 401/403 | Check existing credentials and permissions with the sandbox administrator. Do not paste secrets into issue reports. |
 | HTTP 404 or redirect | Check the base URL, context path and Server/DC versus Cloud mode. |
-| Certificate error | Configure the trusted CA bundle; do not bypass verification. |
+| Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 with the unreleased configuration fix). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**From 0.1.7 to the unreleased configuration fix:** update any CI checks that expect
+exit 3 for missing authentication variables or nonexistent CA files to expect
+exit 4. Post-run HTTP/upload failures keep their existing exit behavior. The
+change does not add credential validation or alter authentication/TLS settings.
 
 **From upstream:** create a fresh environment and install `pytest-jira-xray-plus`.
 The Python imports, marker and `xray` plugin name are retained. Check the dependency
