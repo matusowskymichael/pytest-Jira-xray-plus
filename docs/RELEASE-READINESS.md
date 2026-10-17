@@ -400,3 +400,25 @@ profiles, installed documentation and exact-head CI plus fresh independent revie
 are required before merge. No new live Jira/Xray compatibility claims follow.
 The certificate-warning handoff and PyPI HTML Client Challenge remain; local
 previews and normal-TLS metadata checks are not live rendered-page proof.
+
+
+## Unreleased result aggregation scaling — 2026-10-17
+
+PR23 was independently accepted and merged at 2b8a4f29567bc612a758635975da09e1c1439f15.
+All six acceptance-head workflows and main 39008642922/39008642908/39008642928
+passed. It remains grouped for a later release; latest published baseline is 0.1.8.
+
+The next candidate changes only xray_plugin.py's report-stream lookup: a private
+per-instance index references the same TestCase objects already appended to the
+execution list. Public helper/model code and final-payload customization remain
+unchanged. This costs one dictionary entry per unique key and assumes ownership
+of the live plugin accumulator, not concurrent external mutation of its internals.
+No overall linear-time or bounded comment-memory claim is made.
+
+Six operation-count regressions fail on the old linear lookup. The same synthetic
+2k/4k/8k report stream measured roughly 0.043/0.160/0.605 seconds on installed 0.1.8
+and 0.004/0.008/0.015 seconds on the candidate in this environment. These are
+illustrative single local measurements, not portable performance guarantees;
+regressions use comparison counts rather than elapsed-time thresholds. Full
+profiles, installed guide and CI plus fresh independent review are required.
+No version, publishing, permission or live Xray capability changes are included.

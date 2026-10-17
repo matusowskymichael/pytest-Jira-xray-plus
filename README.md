@@ -681,6 +681,13 @@ parameter metadata or Jira keys. Native rows and datasets are unsupported
 for the confirmed Generic target.
 
 
+**Unreleased performance improvement:** large suites with many distinct Jira Test
+keys avoid repeated scans of earlier keys while results are grouped. The plugin
+keeps an extra lookup entry per unique key. First-observed output order, status
+precedence, comments, defects and attachment occurrences are unchanged, including
+xdist and retries. This reduces key-lookup work; it does not speed up test bodies
+or bound comment/attachment memory. The published 0.1.8 package still uses scans.
+
 ## Troubleshooting and migration
 
 **Duplicate Test keys (0.1.7+):** if separate pytest cases intentionally
@@ -749,6 +756,7 @@ invalid values in export payloads.
 | What happened | What to do |
 | --- | --- |
 | `unrecognized arguments` | Activate the intended environment and use `python -m pytest`. Check `python -m pip show pytest-jira-xray-plus`. If plugin autoload is disabled, add `-p pytest_xray.plugin`. |
+| Large suites spend time grouping many Test keys | The unreleased candidate avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
@@ -762,6 +770,12 @@ invalid values in export payloads.
 | Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**Unreleased aggregation migration:** no flags or output-schema changes. The
+public `TestExecution.tests` list and `find_test_case` behavior are unchanged.
+Customize exported results with `pytest_xray_results`; the plugin owns its live
+accumulators while reports arrive. Direct mutation of internal accumulation is
+not a supported hook contract.
 
 **Unreleased migration from 0.1.8:** upload jobs with an empty/whitespace base
 URL now stop before collection with exit 4. Fix the environment setting; do not

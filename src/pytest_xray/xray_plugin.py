@@ -61,6 +61,9 @@ class XrayPlugin:
         self.test_execution: TestExecution = TestExecution(
             test_execution_key=self.test_execution_id, test_plan_key=self.test_plan_id
         )
+        # The plugin owns these aggregates until the final payload hook runs.
+        # Keep the public execution list for first-observed export ordering.
+        self._test_cases_by_key: dict[str, TestCase] = {}
         self.status_str_mapper: dict[Status, str] = STATUS_STR_MAPPER_JIRA
         if self.is_cloud_server:
             self.status_str_mapper = STATUS_STR_MAPPER_CLOUD
@@ -203,9 +206,10 @@ class XrayPlugin:
                 defects=defects,
             )
             try:
-                test_case = self.test_execution.find_test_case(test_key)
+                test_case = self._test_cases_by_key[test_key]
             except KeyError:
                 self.test_execution.append(new_test_case)
+                self._test_cases_by_key[test_key] = new_test_case
             else:
                 test_case.merge(new_test_case)
 

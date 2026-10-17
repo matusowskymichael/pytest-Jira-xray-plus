@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Avoid repeated linear Test-key scans during plugin result aggregation. Preserve
+  first-observed ordering, grouping contents/statuses, public model APIs and final
+  payload hooks, at the cost of one index entry per unique Test key.
 - Reject empty or whitespace-only upload base URLs as configuration usage errors
   (exit 4) before tests run, instead of failing later while preparing an upload
   (exit 3). Preserve nonblank values and credential-free offline/collect-only modes.

@@ -1,0 +1,112 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+______________ test_result_key_comparison_work_is_bounded[1-128] _______________
+
+size = 128, rounds = 1
+
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    @pytest.mark.parametrize('rounds', [1, 3])
+    def test_result_key_comparison_work_is_bounded(size, rounds):
+        instance = plugin()
+        CountedKey.comparisons = 0
+        for _ in range(rounds):
+            for number in range(size):
+                instance.pytest_runtest_logreport(report([CountedKey(f'SYN-{number}')]))
+        comparisons = CountedKey.comparisons
+>       assert comparisons <= size * rounds * 4
+E       assert 8128 <= ((128 * 1) * 4)
+
+/tmp/test_aggregation_index.py:49: AssertionError
+______________ test_result_key_comparison_work_is_bounded[1-256] _______________
+
+size = 256, rounds = 1
+
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    @pytest.mark.parametrize('rounds', [1, 3])
+    def test_result_key_comparison_work_is_bounded(size, rounds):
+        instance = plugin()
+        CountedKey.comparisons = 0
+        for _ in range(rounds):
+            for number in range(size):
+                instance.pytest_runtest_logreport(report([CountedKey(f'SYN-{number}')]))
+        comparisons = CountedKey.comparisons
+>       assert comparisons <= size * rounds * 4
+E       assert 32640 <= ((256 * 1) * 4)
+
+/tmp/test_aggregation_index.py:49: AssertionError
+______________ test_result_key_comparison_work_is_bounded[1-512] _______________
+
+size = 512, rounds = 1
+
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    @pytest.mark.parametrize('rounds', [1, 3])
+    def test_result_key_comparison_work_is_bounded(size, rounds):
+        instance = plugin()
+        CountedKey.comparisons = 0
+        for _ in range(rounds):
+            for number in range(size):
+                instance.pytest_runtest_logreport(report([CountedKey(f'SYN-{number}')]))
+        comparisons = CountedKey.comparisons
+>       assert comparisons <= size * rounds * 4
+E       assert 130816 <= ((512 * 1) * 4)
+
+/tmp/test_aggregation_index.py:49: AssertionError
+______________ test_result_key_comparison_work_is_bounded[3-128] _______________
+
+size = 128, rounds = 3
+
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    @pytest.mark.parametrize('rounds', [1, 3])
+    def test_result_key_comparison_work_is_bounded(size, rounds):
+        instance = plugin()
+        CountedKey.comparisons = 0
+        for _ in range(rounds):
+            for number in range(size):
+                instance.pytest_runtest_logreport(report([CountedKey(f'SYN-{number}')]))
+        comparisons = CountedKey.comparisons
+>       assert comparisons <= size * rounds * 4
+E       assert 24640 <= ((128 * 3) * 4)
+
+/tmp/test_aggregation_index.py:49: AssertionError
+______________ test_result_key_comparison_work_is_bounded[3-256] _______________
+
+size = 256, rounds = 3
+
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    @pytest.mark.parametrize('rounds', [1, 3])
+    def test_result_key_comparison_work_is_bounded(size, rounds):
+        instance = plugin()
+        CountedKey.comparisons = 0
+        for _ in range(rounds):
+            for number in range(size):
+                instance.pytest_runtest_logreport(report([CountedKey(f'SYN-{number}')]))
+        comparisons = CountedKey.comparisons
+>       assert comparisons <= size * rounds * 4
+E       assert 98432 <= ((256 * 3) * 4)
+
+/tmp/test_aggregation_index.py:49: AssertionError
+______________ test_result_key_comparison_work_is_bounded[3-512] _______________
+
+size = 512, rounds = 3
+
+    @pytest.mark.parametrize('size', [128, 256, 512])
+    @pytest.mark.parametrize('rounds', [1, 3])
+    def test_result_key_comparison_work_is_bounded(size, rounds):
+        instance = plugin()
+        CountedKey.comparisons = 0
+        for _ in range(rounds):
+            for number in range(size):
+                instance.pytest_runtest_logreport(report([CountedKey(f'SYN-{number}')]))
+        comparisons = CountedKey.comparisons
+>       assert comparisons <= size * rounds * 4
+E       assert 393472 <= ((512 * 3) * 4)
+
+/tmp/test_aggregation_index.py:49: AssertionError
+=========================== short test summary info ============================
+FAILED ../../tmp/test_aggregation_index.py::test_result_key_comparison_work_is_bounded[1-128]
+FAILED ../../tmp/test_aggregation_index.py::test_result_key_comparison_work_is_bounded[1-256]
+FAILED ../../tmp/test_aggregation_index.py::test_result_key_comparison_work_is_bounded[1-512]
+FAILED ../../tmp/test_aggregation_index.py::test_result_key_comparison_work_is_bounded[3-128]
+FAILED ../../tmp/test_aggregation_index.py::test_result_key_comparison_work_is_bounded[3-256]
+FAILED ../../tmp/test_aggregation_index.py::test_result_key_comparison_work_is_bounded[3-512]
+6 failed, 9 deselected in 0.19s

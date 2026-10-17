@@ -1,0 +1,17 @@
+import json,time,sys
+from pathlib import Path
+from types import SimpleNamespace
+from pytest_xray.xray_plugin import XrayPlugin
+results=[]
+for count in [2000,4000,8000]:
+ config=SimpleNamespace(getoption=lambda name,default=None: default)
+ plugin=XrayPlugin(config,None)
+ started=time.perf_counter()
+ for n in range(count):
+  nodeid=f'test_case[{n}]';key=f'SYN-{n}'
+  report=SimpleNamespace(nodeid=nodeid,test_keys={nodeid:[key]},outcome='passed',passed=True,failed=False,skipped=False,when='call',longreprtext='')
+  plugin.pytest_runtest_logreport(report)
+ elapsed=time.perf_counter()-started
+ assert len(plugin.test_execution.tests)==count
+ results.append({'unique_keys':count,'elapsed_seconds':elapsed})
+Path(sys.argv[1]).write_text(json.dumps(results,indent=2)+'\n');print(json.dumps(results,indent=2))
