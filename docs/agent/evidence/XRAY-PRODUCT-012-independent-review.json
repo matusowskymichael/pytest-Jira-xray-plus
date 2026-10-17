@@ -1,0 +1,38 @@
+{
+  "task": "XRAY-PRODUCT-012",
+  "digest": "76deae1d985ff16539321a3b301cc23a2eb248d9f8b580f3b4871e209ffeb79a",
+  "revision": "2a1dc09cba1d403dd378f824e9d125dab6b2ca77",
+  "timestamp": "2026-10-17T07:36:46+00:00",
+  "reviewer": "independent-review-worker-header-fix",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Absent longrepr produces no header-only comment so serial/xdist passing aggregate exports remain usable without opt-in details or captures",
+    "Preserve non-None/custom/real diagnostics, phases/reruns/statuses, privacy opt-ins, input reports and exact UTF-8 limits/archive behavior; no blanket passed filtering or regex stripping",
+    "Full beginner guide and reference/troubleshooting/migration/changelog/readiness distinguish candidate from 0.1.8, explain retained diagnostic privacy limits and preserve all fifteen commands",
+    "All five profiles, installed guide/full metadata, changed-file static checks and exact-head CI pass; fresh independent review before merge, no publication"
+  ],
+  "source": "Parent-supplied independent acceptance, source thread 01a12a8b-3ef6-705b-9250-4b8889b0701e",
+  "evidence": {
+    "tested_revision": "ea222a24ae66ad69b088b017d3c686dd2ee1851f",
+    "verified": "All thirteen profile log hashes and two static log hashes, scope-source hash and receipt bindings independently verified. Tested revision is frozen head immediate ancestor; later changes only evidence, progress and excluded ledger execution state. Push CI job 117341514562 confirms exact revision and digest.",
+    "workflow_runs": [
+      39013764199,
+      39013764204,
+      39013764206,
+      39013762016,
+      39013762040,
+      39013762052
+    ],
+    "results": "Python 3.12\u20133.14 jobs succeeded; 492 tests plus nineteen subtests; 32 harness tests; fresh wheel and all fifteen README commands with blocked HTTP; full metadata/rendering; strict docs with 23 pages and 1211 references; local browser; changed-file Ruff and mypy 41 files.",
+    "regressions": "Twenty-four regressions cover missing/custom/empty diagnostics, exact boundaries, archival, 250 passing serial/xdist cases, opt-ins, failure/setup/teardown/skip/xfail/retry diagnostics. Three expected baseline regressions failed before fix."
+  },
+  "limits": [
+    "Connector-based source, evidence and CI review without local rerun.",
+    "No live Jira/Xray or custom Automatic validation; native iterations and datasets unsupported.",
+    "Local browser evidence does not resolve live certificate or PyPI challenge limits.",
+    "No whole-repository Ruff, Windows/macOS execution or future dependency certification.",
+    "Relevant content changes require renewed review."
+  ]
+}
