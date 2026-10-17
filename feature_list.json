@@ -6,7 +6,7 @@
       "title": "Prepare 0.1.7 collection-validation milestone",
       "source": "docs/agent/task-release-017.md",
       "source_sha256": "fe2c8bde8fcf02cdd9c411d145c16c59915060ec402ab794bc157487fd344c7f",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/18",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
