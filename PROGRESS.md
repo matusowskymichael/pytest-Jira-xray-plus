@@ -1,4 +1,4 @@
-# Review pending — duplicate-key policy collection errors
+# Independently accepted — duplicate-key policy collection errors
 
 - Task XRAY-PRODUCT-004; [draft PR17](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/17).
 - Baseline main 0d4d05f: PR16 independently accepted and merged; tree matches
@@ -19,8 +19,9 @@
   strict docs/links and local desktop/mobile browser. Changed-file Ruff and mypy
   (34 files) pass. No version/dependency/workflow/permission change.
 - Digest: 51ac24165a6cfd2f539b1a1ae676a12bb0569f62c5e893233ba47347ef99871e.
-- Next: verify final evidence-head CI and request parent independent review before
-  merging. Group this with PR15/16 into the next coherent reviewed stable milestone;
+- Independent acceptance supplied by /root/review_duplicate_collection_errors,
+  bound to head 11a39fc and recorded unchanged with assessment/CI/limits.
+- Next: verify acceptance-head CI, merge and verify main CI. Group this with PR15/16 into the next coherent reviewed stable milestone;
   do not publish each tiny change separately. One task in flight.
 - Then continue justified backlog: aggregation lookup is quadratic but public-list
   mutation/first-match compatibility needs careful design and tests. Do not add
