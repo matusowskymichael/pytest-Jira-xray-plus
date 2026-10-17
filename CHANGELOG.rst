@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- No unreleased changes.
+
+0.1.8 [2026-10-17]
+==================
 - Report expected path expansion/resolution failures as option-specific pytest
   usage errors (exit 4). Preserve non-strict resolution, expansion conventions,
   collision checks and write-time failures, including Python's symlink-loop

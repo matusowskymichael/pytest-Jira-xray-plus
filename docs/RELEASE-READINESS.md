@@ -348,3 +348,33 @@ and unexpected-exception preservation cases passed before edits.
 All five profiles, installed guide, exact-head CI and independent review gate
 merge. No version/dependency/workflow/permission changes or live-server claims.
 Published0.1.7 and existing browser-security/PyPI HTML limits remain the baseline.
+
+
+## 0.1.8 error-handling release candidate — 2026-10-17
+
+The candidate groups independently accepted PR19–21: preserve report-writing
+errors when cleanup also fails, classify existing authentication setup errors as
+usage errors, and classify raised path normalization errors with the responsible
+option. The full guide explains exit4 versus prior exit3, retained report data,
+cleanup residuals and the Python3.12/3.13+ symlink-loop boundary.
+
+Reviewed merge provenance:
+- PR19: `3f144256ca910e37a64fb0542c16d6d7faa685f7`
+- PR20: `0d3c5f0086771eccb898f8b509839c4f725778a3`
+- PR21/release baseline: `a9279d81e674ceb5bdfa8f72d3cf713a96d49f84`
+
+All main workflows passed on that exact baseline. Runtime/tooling/dependencies
+are frozen. Package and trusted-publisher changes are version literals only;
+permissions, explicit opt-in, pypi environment, reviewed SHA and artifact checks
+remain unchanged. Public PyPI latest0.1.7 and unused0.1.8 verified at preparation;
+recheck immediately before eventual publication.
+
+All five profiles, installed tutorial/full README rendering, shared badge checks,
+exact-head CI and fresh independent release review gate merge/publication. Public
+coverage/status still describe verified0.1.7; no new0.1.8 measurement is claimed.
+After acceptance, verify publisher/PyPI/GitHub artifact hashes and tag, fresh public
+installation/all14 commands, deployed Pages/status and actual coverage provenance.
+Do not bypass browser certificate warnings. PyPI HTML Client Challenge and live
+visual gaps remain; previews/HTTP checks are not live visual proof. Generic on-prem
+8.5.3-j10/custom Automatic mapping remains unverified live; native iterations and
+datasets are unsupported.

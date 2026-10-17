@@ -1,0 +1,63 @@
+{
+  "task": "XRAY-RELEASE-004",
+  "verified_utc": "2026-10-17T05:20:39.017552+00:00",
+  "readme_sha256": "5fd04e94327fd46beced314be559f95c8a6cd58e655d8b16129b35c8c4b06b39",
+  "badges": [
+    {
+      "label": "PyPI version snapshot",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/pypi.svg",
+      "target": "https://pypi.org/project/pytest-jira-xray-plus/",
+      "image_sha256": "92ea4b9cc74669d8eb3da5a3e9dbf89d21c2f4c8ae1a2bd77e8c5b8cdd70d17c",
+      "status": 200
+    },
+    {
+      "label": "Tested Python versions",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/python.svg",
+      "target": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml",
+      "image_sha256": "d04617baa42e0cc0b176639cf9a1f3b210b31d6cf06bd58144c9a7ae8f51be09",
+      "status": 200
+    },
+    {
+      "label": "Licence",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/status/license.svg",
+      "target": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/LICENSE",
+      "image_sha256": "d86f9f73773b6802ed2a033fcaba0f80bc1f3255d901c8b2e7ef195b6b04e838",
+      "status": 200
+    },
+    {
+      "label": "Tests",
+      "image": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml/badge.svg?branch=main&event=push",
+      "target": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/tests.yml",
+      "image_sha256": "6b52945adbf8d9e421fe243515ae54cfbd3da263f16b1eabda37cdc0b797b8eb",
+      "status": 200
+    },
+    {
+      "label": "Documentation build",
+      "image": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/workflows/docs.yml/badge.svg?branch=main&event=push",
+      "target": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/",
+      "image_sha256": "168dcab3d67470c01625e1ada6a4ce05906b25f2f3b6566c1702ccb5172fd1ff",
+      "status": 200
+    },
+    {
+      "label": "Measured plugin line coverage",
+      "image": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/coverage/coverage.svg",
+      "target": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/coverage/",
+      "image_sha256": "681eec567119239555c99e66159d544364b0a4c7fc798fe4b45ddb7975abf319",
+      "status": 200
+    }
+  ],
+  "renderers": [
+    {
+      "name": "GitHub",
+      "images": 6,
+      "sha256": "553165179e98d4ee77fbfe0c0e01b5d1ca79a355566be85d9c9adee2f6d19f17"
+    },
+    {
+      "name": "PyPI preview",
+      "images": 6,
+      "sha256": "e569c42508f91988a2e147e8c8d7c35cde646a4eff3ea71379be29c2a31e1cb3"
+    }
+  ],
+  "tls": "normal certificate verification",
+  "limits": "0.1.8 candidate renderer previews only; no PyPI publication. Public snapshot badges still describe measured 0.1.7. HTTP 200 alone does not prove target page visual rendering; PyPI may return Client Challenge. Live browser certificate-warning handoff remains."
+}
