@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-10-17T05:40:38.952034+00:00",
+  "source_commit": "074c09a79e5578d89138c4207556b99005e08608",
+  "main_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 39006879833,
+      "name": "repository harness",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39006879826,
+      "name": "documentation",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39006879859,
+      "name": "tests",
+      "status": "completed"
+    }
+  ],
+  "version_unused": true,
+  "tag_release_absent": true
+}

@@ -1,0 +1,10 @@
+..................................................... [ 13%]
+........................................................................ [ 32%]
+........................................................................ [ 51%]
+........................................................................ [ 70%]
+........................................................................ [ 89%]
+..........................................                               [100%]
+383 passed, 19 subtests passed in 163.39s (0:02:43)
+Combined 124 files, skipped 151
+Wrote JSON report to /workspace/pytest-jira-xray-plus/.harness/coverage/measurement-o15h96sf/public/coverage.json
+Wrote HTML report to /workspace/pytest-jira-xray-plus/.harness/coverage/measurement-o15h96sf/public/html/index.html

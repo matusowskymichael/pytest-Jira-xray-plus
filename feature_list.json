@@ -107,7 +107,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-RELEASE-004-independent-review.json",
       "blocker": "",
-      "next_action": "Final exact-head CI then fresh independent release review of PR22"
+      "next_action": "Release verified; check operational evidence CI then begin next bounded independently reviewed improvement"
     }
   ]
 }
