@@ -1,0 +1,20 @@
+{
+  "installed_package": "0.1.8",
+  "transport": "Session.request blocked",
+  "cases": [
+    {
+      "workers": 0,
+      "exit": 3,
+      "report_exists": false,
+      "test_passed": true,
+      "output": ".                                                                        [100%]\n=============================== warnings summary ===============================\n../xray018-public-env/lib/python3.12/site-packages/pluggy/_execution.py:147\n  /tmp/xray018-public-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/tmpnehh3fyk/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/tmpnehh3fyk/artifacts/reports/tmpiethwf4f'\n    res = hook_impl.function(*args)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 passed, 1 warning in 0.00s\n"
+    },
+    {
+      "workers": 2,
+      "exit": 3,
+      "report_exists": false,
+      "test_passed": true,
+      "output": "bringing up nodes...\nbringing up nodes...\n\n.                                                                        [100%]\n=============================== warnings summary ===============================\n../xray018-public-env/lib/python3.12/site-packages/pluggy/_execution.py:147\n  /tmp/xray018-public-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/tmph4_r3_zi/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/tmph4_r3_zi/artifacts/reports/tmpx43nkbu1'\n    res = hook_impl.function(*args)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 passed, 1 warning in 0.28s\n"
+    }
+  ]
+}

@@ -374,8 +374,24 @@ A **fixture** is pytest code that prepares or cleans up a test resource. Our
 example has no custom fixtures, but pytest still reports these phases.
 
 `cases.json` is replaced on each run. Use a different filename to keep an older
-run. Its parent folder must already exist. This file is the plugin's own format;
-**it is not an Xray import file**.
+run. This file is the plugin's own format; **it is not an Xray import file**.
+
+**Unreleased candidate:** local case reports create missing parent folders at
+write time, like Xray previews and full archives. For a clean CI workspace, the
+candidate can run this without a preceding directory-creation command:
+
+<!-- run:nested -->
+```sh
+python -m pytest -q test_example.py --xray-case-report=artifacts/reports/cases.json
+```
+
+Expected with the candidate: `2 passed`, with both cases saved in
+`artifacts/reports/cases.json`. Published **0.1.8 requires these parent folders to
+exist first**; the command above exercises the unreleased improvement. Directory
+creation uses normal filesystem permissions. A file blocking the parent path or
+a denied write still produces a warning and exit 3. New folders may remain if a
+later write fails; they are not removed automatically. `--collect-only` creates
+no report folders.
 
 
 ## 6. Choose audit report contents
@@ -604,7 +620,7 @@ The table describes the combinations required to make each option useful.
 
 | Option | Effect |
 | --- | --- |
-| `--xray-case-report=PATH` | Write observed cases locally. Parent folder must exist. Audit/debug output; does not upload. |
+| `--xray-case-report=PATH` | Write observed cases locally. Candidate creates missing parents; 0.1.8 requires them to exist. Audit/debug output; does not upload. |
 | `--xray-case-values` | Include scalar input values in the case report; requires its path. |
 | `--xray-case-redact-identities` | Replace local names/IDs with per-run aliases; requires the case report and excludes case values. |
 | `--jira-xray` | Enable export of marked tests. Uploads unless `--xraypath` is set. |
@@ -761,7 +777,7 @@ invalid values in export payloads.
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
 | `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
-| Cannot write a report | Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
+| Cannot write a report | Check permissions and distinct paths. With published 0.1.8, create the case-report parent folder. The candidate creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |
 | Blank upload base URL (unreleased) | Set a nonblank `XRAY_API_BASE_URL`. The candidate stops before tests with exit 4; 0.1.8 fails later at upload with exit 3. Nonblank URL format and server reachability are not preflighted. |
 | Missing authentication variable | Set the named variables for your selected auth method in the same shell/CI job. Version 0.1.8 uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials. |
@@ -770,6 +786,11 @@ invalid values in export payloads.
 | Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**Unreleased directory migration:** local reports now create missing parents
+when writing. No extra option is needed. Existing files still require an atomic
+replacement to succeed; check exit status before using the report. Permission
+errors remain errors, and newly created folders may remain after later failure.
 
 **Unreleased aggregation migration:** no flags or output-schema changes. The
 public `TestExecution.tests` list and `find_test_case` behavior are unchanged.

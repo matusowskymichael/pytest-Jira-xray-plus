@@ -190,9 +190,13 @@ def test_opt_in_and_invalid_configuration(pytester):
 
 def test_write_failure_is_visible_and_changes_exit_code(pytester):
     pytester.makepyfile('def test_case(): pass')
-    result = pytester.runpytest_subprocess('--xray-case-report=missing-parent/cases.json')
+    parent_file = pytester.path / 'blocked-parent'
+    parent_file.write_text('existing file must survive')
+    result = pytester.runpytest_subprocess('--xray-case-report=blocked-parent/cases.json')
+    result.assert_outcomes(passed=1)
     assert result.ret == pytest.ExitCode.INTERNAL_ERROR
     assert 'Could not write offline case report' in str(result.stdout) + str(result.stderr)
+    assert parent_file.read_text() == 'existing file must survive'
 
 
 def test_rerun_setup_failure_retained(pytester):

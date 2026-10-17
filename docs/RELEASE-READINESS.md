@@ -422,3 +422,26 @@ illustrative single local measurements, not portable performance guarantees;
 regressions use comparison counts rather than elapsed-time thresholds. Full
 profiles, installed guide and CI plus fresh independent review are required.
 No version, publishing, permission or live Xray capability changes are included.
+
+
+## Unreleased local-report parent directories — 2026-10-17
+
+PR24 independently accepted and merged at 285cd6dfa9cc8303587bef930d0902597d361e17
+with identical accepted tree. Six acceptance-head workflows and main CI
+39009983118/39009982918/39009982930 passed. No publication; baseline remains 0.1.8.
+
+Installed 0.1.8 reproduces a passing test followed by exit 3 and no nested case
+report in serial/xdist when parents are absent. Eight new path/outcome regressions
+fail on that baseline. The candidate adds controller-side parent creation after
+JSON serialization, before the owned temporary file; no permission bypass or
+directory rollback. Blocking files and denied creation remain write failures.
+An existing write-failure test now uses a blocking parent file, retaining its
+warning/exit assertions and checking that the blocking file survives.
+
+The full guide and schema notes distinguish the candidate from 0.1.8. The installed
+usage checker retains all fourteen commands and adds a fifteenth nested-report
+command with absent parents before execution and schema/case/phase assertions.
+All five profiles, exact-head CI and fresh independent review are required before
+merge. No version, dependency, workflow, permission or live Xray changes. Group
+this with other accepted work for a later release. Existing live-browser and
+Generic/custom Automatic validation limits remain; native iterations unsupported.

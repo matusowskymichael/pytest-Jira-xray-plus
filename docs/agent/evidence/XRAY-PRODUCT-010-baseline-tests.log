@@ -1,0 +1,354 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+________ test_nested_report_paths_preserve_test_outcomes[False-False-0] ________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes0')>
+workers = 0, absolute = False, failing = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.OK: 0>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=8 len(stderr.lines)=0 duration=0.28s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes0/runpytest-0 -q -n 0 --xray-case-report=artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes0
+.                                                                        [100%]
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes0/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes0/artifacts/reports/tmppvfa0455'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.00s
+________ test_nested_report_paths_preserve_test_outcomes[False-False-2] ________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes1')>
+workers = 2, absolute = False, failing = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.OK: 0>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=11 len(stderr.lines)=0 duration=0.65s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes1/runpytest-0 -q -n 2 --xray-case-report=artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes1
+bringing up nodes...
+bringing up nodes...
+
+.                                                                        [100%]
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes1/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes1/artifacts/reports/tmpyqhe8o5j'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.34s
+________ test_nested_report_paths_preserve_test_outcomes[False-True-0] _________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes2')>
+workers = 0, absolute = True, failing = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.OK: 0>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=8 len(stderr.lines)=0 duration=0.29s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes2/runpytest-0 -q -n 0 --xray-case-report=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes2/artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes2
+.                                                                        [100%]
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes2/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes2/artifacts/reports/tmp7uwsblo9'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.00s
+________ test_nested_report_paths_preserve_test_outcomes[False-True-2] _________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes3')>
+workers = 2, absolute = True, failing = False
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.OK: 0>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=11 len(stderr.lines)=0 duration=0.65s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes3/runpytest-0 -q -n 2 --xray-case-report=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes3/artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes3
+bringing up nodes...
+bringing up nodes...
+
+.                                                                        [100%]
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes3/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes3/artifacts/reports/tmph7y_xpxh'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.36s
+________ test_nested_report_paths_preserve_test_outcomes[True-False-0] _________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes4')>
+workers = 0, absolute = False, failing = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.TESTS_FAILED: 1>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=18 len(stderr.lines)=0 duration=0.30s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes4/runpytest-0 -q -n 0 --xray-case-report=artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes4
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_nested_report_paths_preserve_test_outcomes.py:1: AssertionError
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes4/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes4/artifacts/reports/tmplfy8nlx3'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test_nested_report_paths_preserve_test_outcomes.py::test_case - assert...
+1 failed, 1 warning in 0.02s
+________ test_nested_report_paths_preserve_test_outcomes[True-False-2] _________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes5')>
+workers = 2, absolute = False, failing = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.TESTS_FAILED: 1>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=22 len(stderr.lines)=0 duration=0.61s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes5/runpytest-0 -q -n 2 --xray-case-report=artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes5
+bringing up nodes...
+bringing up nodes...
+
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+[gw0] linux -- Python 3.12.14 /tmp/xray-harness-env/bin/python
+
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_nested_report_paths_preserve_test_outcomes.py:1: AssertionError
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes5/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes5/artifacts/reports/tmpy_bx173p'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test_nested_report_paths_preserve_test_outcomes.py::test_case - assert...
+1 failed, 1 warning in 0.34s
+_________ test_nested_report_paths_preserve_test_outcomes[True-True-0] _________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes6')>
+workers = 0, absolute = True, failing = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.TESTS_FAILED: 1>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=18 len(stderr.lines)=0 duration=0.30s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes6/runpytest-0 -q -n 0 --xray-case-report=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes6/artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes6
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_nested_report_paths_preserve_test_outcomes.py:1: AssertionError
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes6/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes6/artifacts/reports/tmp1nu2iops'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test_nested_report_paths_preserve_test_outcomes.py::test_case - assert...
+1 failed, 1 warning in 0.02s
+_________ test_nested_report_paths_preserve_test_outcomes[True-True-2] _________
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes7')>
+workers = 2, absolute = True, failing = True
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('absolute', [False, True])
+    @pytest.mark.parametrize('failing', [False, True])
+    def test_nested_report_paths_preserve_test_outcomes(pytester, workers, absolute, failing):
+        pytester.makeconftest('''
+            import requests
+            def blocked(*args, **kwargs):
+                raise AssertionError('HTTP forbidden')
+            requests.sessions.Session.request = blocked
+        ''')
+        pytester.makepyfile(f'def test_case(): assert {not failing!r}')
+        destination = pytester.path / 'artifacts' / 'reports' / 'cases.json'
+        argument = str(destination) if absolute else 'artifacts/reports/cases.json'
+        assert not destination.parent.exists()
+        result = pytester.runpytest_subprocess('-q', '-n', str(workers), f'--xray-case-report={argument}')
+>       assert result.ret == (pytest.ExitCode.TESTS_FAILED if failing else pytest.ExitCode.OK)
+E       assert <ExitCode.INTERNAL_ERROR: 3> == <ExitCode.TESTS_FAILED: 1>
+E        +  where <ExitCode.INTERNAL_ERROR: 3> = <RunResult ret=3 len(stdout.lines)=22 len(stderr.lines)=0 duration=0.64s>.ret
+
+/tmp/test_case_parent_paths.py:29: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes7/runpytest-0 -q -n 2 --xray-case-report=/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes7/artifacts/reports/cases.json
+     in: /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes7
+bringing up nodes...
+bringing up nodes...
+
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+[gw0] linux -- Python 3.12.14 /tmp/xray-harness-env/bin/python
+
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_nested_report_paths_preserve_test_outcomes.py:1: AssertionError
+=============================== warnings summary ===============================
+../../../xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147
+  /tmp/xray-harness-env/lib/python3.12/site-packages/pluggy/_execution.py:147: PytestWarning: Could not write offline case report /tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes7/artifacts/reports/cases.json: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-35/test_nested_report_paths_preserve_test_outcomes7/artifacts/reports/tmp8dcprxmu'
+    res = hook_impl.function(*args)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test_nested_report_paths_preserve_test_outcomes.py::test_case - assert...
+1 failed, 1 warning in 0.33s
+=========================== short test summary info ============================
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[False-False-0]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[False-False-2]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[False-True-0]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[False-True-2]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[True-False-0]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[True-False-2]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[True-True-0]
+FAILED ../../tmp/test_case_parent_paths.py::test_nested_report_paths_preserve_test_outcomes[True-True-2]
+8 failed, 8 deselected in 3.84s

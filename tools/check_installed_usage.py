@@ -54,14 +54,17 @@ with tempfile.TemporaryDirectory() as directory:
             continue
         args = shlex.split(content)
         assert args[0] == 'python' and args[1:3] == ['-m', 'pytest'] or args[:3] == ['python', '-m', 'json.tool']
+        if name == 'nested':
+            assert not (path / 'artifacts').exists()
         result = subprocess.run([python, *args[1:]], cwd=path, env=env, capture_output=True, text=True)
         assert result.returncode == (1 if name == 'failure' else 0), result.stdout + result.stderr
         seen.append(name)
         if name == 'basic':
             assert '2 passed' in result.stdout
             assert not (path / 'cases.json').exists()
-        if '--xray-case-report=cases.json' in args:
-            report = json.loads((path / 'cases.json').read_text())
+        case_path = next((arg.split('=', 1)[1] for arg in args if arg.startswith('--xray-case-report=')), None)
+        if case_path is not None:
+            report = json.loads((path / case_path).read_text())
             assert report['schema_version'] == 1
             assert report['pytest_exit_status'] == (1 if name == 'failure' else 0)
             assert len(report['cases']) == 2
@@ -103,11 +106,12 @@ with tempfile.TemporaryDirectory() as directory:
                 assert len(test['evidences']) == 2
     assert seen == [
         'basic', 'xray', 'comments', 'preupload', 'inspect_xray',
-        'local', 'inspect', 'values', 'redact', 'failure', 'archive',
+        'local', 'inspect', 'nested', 'values', 'redact', 'failure', 'archive',
         'parallel', 'retries', 'hooks',
     ], seen
     print(
-        'PASS: all 14 README commands, JSON excerpt, intentional failure, restored passing cases, '
+        'PASS: all 15 README commands, nested output folders, JSON excerpt, '
+        'intentional failure, restored passing cases, '
         'values/redaction, Xray comments/archive, parallel/retries and hooks; HTTP blocked'
     )
 
