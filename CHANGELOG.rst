@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- No unreleased changes.
+
+0.1.7 [2026-10-17]
+==================
 - Classify disallowed duplicate Test keys as collection failures, avoiding internal
   errors and xdist worker/controller errors while preserving diagnostic order and
   opt-in grouping. Nonzero collection-error exits replace internal-error exit 3.

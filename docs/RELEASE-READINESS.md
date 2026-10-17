@@ -272,3 +272,26 @@ independent review precede publication. Then verify public PyPI bytes and README
 automatic GitHub tag/Release/assets and Pages. Never bypass a browser security
 warning; the existing certificate failure remains a user handoff. Native iterations
 remain unsupported; custom Automatic mapping and live Xray 8.5.3-j10 remain unverified.
+
+
+## 0.1.7 collection-validation candidate — 2026-10-17
+
+The candidate bundles independently accepted PR15–17: set membership in collection
+validation, controlled malformed Test-key failures, and controlled duplicate-policy
+failures. Diagnostic order, repeated-key deduplication, opt-in grouping and privacy
+settings remain unchanged. Duplicate-policy exits intentionally use collection-error
+classification rather than INTERNALERROR/exit 3; the full README explains recovery.
+
+PR17 merged at bd231e13702fec4153499aa59a9f815f5d74f475 with identical accepted tree
+and all main CI green. This release preparation freezes that runtime. Package and
+trusted publisher changes are version literals only; no dependency/permission changes.
+0.1.7 was unused at preparation; recheck immediately before eventual publication.
+
+All five profiles, installed tutorial/full metadata rendering, badge endpoint checks,
+exact-head CI and fresh independent review gate publication. After acceptance,
+verify publisher/public PyPI/GitHub byte hashes, fresh public install and examples,
+automatic tag/release target, and refreshed Pages/status/coverage with actual source
+provenance. Current public snapshots describe 0.1.6, not a measurement of 0.1.7.
+Browser certificate warnings must not be bypassed; prior PyPI HTML client challenge
+and live visual gaps require truthful reporting. Generic Xray 8.5.3-j10/custom
+Automatic mapping remains unverified live; native iterations/datasets unsupported.
