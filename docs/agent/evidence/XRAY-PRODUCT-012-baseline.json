@@ -1,0 +1,15 @@
+[
+  {
+    "workers": 0,
+    "exit_code": 0,
+    "preview_exists": true,
+    "output_tail": "........................................................................ [ 28%]\n........................................................................ [ 57%]\n........................................................................ [ 86%]\n..................................                                       [100%]\n- Generated XRAY execution report file: /tmp/xray-header-assessment-jpfu8cz8/preview-0.json -\n250 passed in 0.13s\n",
+    "comment_bytes": 0
+  },
+  {
+    "workers": 2,
+    "exit_code": 3,
+    "preview_exists": false,
+    "output_tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................................ [ 28%]\n........................................................................ [ 57%]\n........................................................................ [ 86%]\n..................................                                       [100%]\n---------------------------------- Jira XRAY -----------------------------------\nCould not publish results to Jira XRAY!\nComment exceeds --xray-comment-limit; export withheld. Set --xray-full-report=PATH to retain the complete payload before truncation.\n250 passed in 0.45s\n"
+  }
+]

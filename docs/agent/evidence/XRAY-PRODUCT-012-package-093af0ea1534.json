@@ -1,0 +1,77 @@
+{
+  "task": "XRAY-PRODUCT-012",
+  "profile": "package",
+  "digest": "76deae1d985ff16539321a3b301cc23a2eb248d9f8b580f3b4871e209ffeb79a",
+  "revision": "ea222a24ae66ad69b088b017d3c686dd2ee1851f",
+  "timestamp": "2026-10-17T07:26:44.863380+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/build_release.py",
+      ".harness/dist"
+    ],
+    [
+      "{python}",
+      "-m",
+      "twine",
+      "check",
+      ".harness/dist/pytest_jira_xray_plus-0.1.8-py3-none-any.whl",
+      ".harness/dist/pytest_jira_xray_plus-0.1.8.tar.gz"
+    ],
+    [
+      "{python}",
+      "-m",
+      "venv",
+      "--clear",
+      ".harness/installed"
+    ],
+    [
+      "{root}/.harness/installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      ".harness/dist/pytest_jira_xray_plus-0.1.8-py3-none-any.whl",
+      "pytest-xdist==3.8.0",
+      "pytest-rerunfailures==16.7"
+    ],
+    [
+      "{python}",
+      "tools/check_installed_usage.py",
+      "{root}/.harness/installed/bin/python",
+      ".harness/dist/pytest_jira_xray_plus-0.1.8-py3-none-any.whl"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.579,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-012-package-093af0ea1534-0.log",
+      "log_sha256": "2115ca79c75a38783867bccd688ab597db7b455a96cca3477092da61352ab8c8"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.305,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-012-package-093af0ea1534-1.log",
+      "log_sha256": "77de6a0117f04da9c1e3825c314b28672a3b2909fe037b05943b43b93947d81f"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.104,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-012-package-093af0ea1534-2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 3.257,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-012-package-093af0ea1534-3.log",
+      "log_sha256": "38d6d670df136baf3960f2e8053e7cb05113dab997a44c27bb20c53b2511135c"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 4.346,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-012-package-093af0ea1534-4.log",
+      "log_sha256": "94f252ba82a13a093e4ddf56a1c1112274e61cd67e0a3cb7452abe51040ad0a7"
+    }
+  ],
+  "status": "passed"
+}

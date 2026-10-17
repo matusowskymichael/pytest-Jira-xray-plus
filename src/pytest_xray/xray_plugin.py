@@ -169,7 +169,8 @@ class XrayPlugin:
         defects = getattr(report, 'defects', {}).get(report.nodeid)
         evidences = getattr(report, 'evidences', [])
 
-        comment = report.longreprtext
+        # pytest renders an xdist worker header even when there is no diagnostic.
+        comment = report.longreprtext if report.longrepr is not None else ''
         if self.add_captures:
             if comment != '':
                 comment += '\n'

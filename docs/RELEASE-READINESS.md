@@ -471,3 +471,28 @@ All five profiles, fifteen installed commands, static checks and exact-head CI
 plus fresh independent review are required before merge. No version, dependencies,
 workflows, permissions, transport or live Xray capabilities change. Group with
 other accepted changes for a later milestone; do not publish now.
+
+
+## Unreleased xdist header-only comments — 2026-10-17
+
+PR26 independently accepted and merged at a8f8ab0aaf80417d1fdc7b7ec841a978d3347e26;
+all six final PR workflows and main 39013018768/39013018713/39013018738 passed.
+Published baseline remains 0.1.8; no publication.
+
+Installed 0.1.8 with blocked HTTP: 250 passing cases sharing one Test export in
+serial, but two workers generate 36474 bytes of repeated header text and exit 3
+with export withheld at the default 32000-byte limit. Archival permits truncation
+but does not prevent unnecessary header-only content. Three new regressions fail
+on the unchanged source, including default and minimum configured limits.
+
+The candidate skips diagnostic rendering only for absent longrepr. Actual/custom
+representations, captures/details opt-ins, phases/statuses, grouping and UTF-8
+limit/archive policy remain. Real diagnostics may still contain worker paths or
+sensitive data; no blanket redaction claim. Full guide/reference/troubleshooting
+and migration notes distinguish candidate from published behavior. All five
+profiles, fifteen installed commands, static checks and exact-head CI plus fresh
+independent review are required before merge. After acceptance and main CI, assess
+the grouped fixes as a meaningful milestone. No version/dependency/workflow or
+permission changes, publishing or live Xray access in this task. Generic/custom
+Automatic live validation and browser limitations remain; native iterations are
+unsupported.
