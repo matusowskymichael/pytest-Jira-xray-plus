@@ -6,7 +6,7 @@
       "title": "Reject explicit empty report paths before execution",
       "source": "docs/agent/task-empty-report-paths.md",
       "source_sha256": "b79d041c7f43a50c243ee481225b9d6eb57c8e6c92c11b18da4e6f71a037a883",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/30",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
