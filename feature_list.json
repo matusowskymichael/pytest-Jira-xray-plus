@@ -104,11 +104,17 @@
         "tests/test_docs_links.py": "d80140a0e7b645e1adb50eabe979b925bb8ccd905324bc44f1c2c73a304327aa",
         "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-PRODUCT-013-harness-ecb451421fe8.json",
+        "docs/agent/evidence/XRAY-PRODUCT-013-tests-50dabb0983fb.json",
+        "docs/agent/evidence/XRAY-PRODUCT-013-offline-afed9bf75287.json",
+        "docs/agent/evidence/XRAY-PRODUCT-013-package-41ed52169891.json",
+        "docs/agent/evidence/XRAY-PRODUCT-013-docs-a12613768eea.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "Reproduce empty-path failures, implement configuration guard, verify and prepare one draft PR"
+      "next_action": "Verify frozen-head CI and obtain parent-arranged independent review of PR30; no merge or release before acceptance"
     }
   ]
 }
