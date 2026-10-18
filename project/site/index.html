@@ -1414,7 +1414,16 @@ The full PyPI README remains intact; do not edit generated <code>.docs-source</c
 </code></pre></div>
 <p>Open the localhost URL printed by MkDocs. No credentials are needed. The static
 output is in <code>site/</code>; its links work under the repository's GitHub Pages path.
-The browser check in <code>tools/check_docs_browser.py</code> also exercises desktop/mobile
+<strong>Unreleased repository checker fix:</strong> a page such as <code>class_index.html</code> keeps
+its complete filename when resolving self-links. Only a file named exactly
+<code>index.html</code> represents a directory URL. The 0.1.9 source checkout can report
+false missing-file errors for coverage.py's <code>class_index.html</code> and
+<code>function_index.html</code>, even when those files and their self-links are valid.
+The fix allows checking a combined documentation/coverage site without removing
+those links. Actual missing files or fragments still fail the command; external
+URLs remain outside this local-file check. This does not change pytest reporting
+or require a new plugin option.</p>
+<p>The browser check in <code>tools/check_docs_browser.py</code> also exercises desktop/mobile
 navigation, local search, clipboard copying and theme switching against a local server:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">playwright</span><span class="o">==</span><span class="m">1</span>.64.0
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>-m<span class="w"> </span>playwright<span class="w"> </span>install<span class="w"> </span>chromium
