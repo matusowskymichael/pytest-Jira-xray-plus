@@ -28,7 +28,7 @@ errors = []
 checked = 0
 for path, page in pages.items():
     relative = path.relative_to(ROOT).as_posix()
-    url = BASE + relative.removesuffix('index.html')
+    url = BASE + (relative.removesuffix('index.html') if path.name == 'index.html' else relative)
     for link in page.links:
         absolute = urljoin(url, link)
         if not absolute.startswith(BASE):

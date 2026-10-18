@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-RELEASE-005",
-      "title": "Prepare 0.1.9 reporting reliability milestone",
-      "source": "docs/agent/task-release-019.md",
-      "source_sha256": "b0d186392e9db52410ee2d4fb696991efe1624ef5eef5dc03b371548d5e190fb",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/28",
+      "id": "XRAY-DOCS-001",
+      "title": "Correct built-site index-suffixed self-links",
+      "source": "docs/agent/task-docs-self-links.md",
+      "source_sha256": "475246a88dcefdd00032ff9f9896b4fbe3121ee96d1e4cd058cee1f0d36be3fd",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/29",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Prepare unused 0.1.9 bundling accepted PR23\u201327 with version-literal-only package/publisher changes; freeze runtime, dependencies, tools and publishing permissions",
-        "Full beginner guide, schema/API references and dated changelog accurately document all five improvements, migration and limitations while retaining fifteen commands and privacy/live compatibility boundaries",
-        "All five profiles, fresh installed guide/full metadata, shared badge checks, static checks and exact-head CI pass on frozen candidate with accurate accepted-source/public snapshot provenance",
-        "Fresh independent release review before merge/publication; retain trusted publisher safeguards and require subsequent public artifact/install/tag/Pages/coverage verification without claiming unperformed checks"
+        "Canonicalize only exact index.html basenames so index-suffixed page self-links resolve correctly while root/nested directory-index behavior remains",
+        "Preserve relative/encoded files and fragments, assets, query handling, external boundaries and genuine missing-file/anchor/search-index failures; no suppression or network requests",
+        "Subprocess regressions fail on baseline and pass after fix; real full site with released coverage/status validates; README/maintainer/coverage/changelog explain repository-only impact and retain fifteen guide commands",
+        "All five profiles, installed guide/full metadata, changed static checks and exact-head CI pass; runtime/dependencies/workflows/version unchanged and fresh independent review before merge with no publication"
       ],
       "checks": [
         "harness",
@@ -41,7 +41,9 @@
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
         ".github/workflows/github-release.yml": "c09e3684b29abe7b73f00473503cc184ffe9d1d83772f1baa1941e0c2b7edd07",
+        ".github/workflows/publish.yml": "1065952494f2b5985184a54898979d80b4addddc52f31b1caeb8609ab5346841",
         ".github/workflows/tests.yml": "2a63f790d2de782cdfad6c635816d8824cb6fdd01b46e494a48ef7e09d8a860e",
+        "pyproject.toml": "9854caf0abcac69475f09ed10253c9251acda5460af01706b057ccc6e33ecfeb",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -82,6 +84,7 @@
         "tests/test_model.py": "ac7c1cc9c26a7929e4b38207e5bc90cf7b9ff9e7efed434581eb7856883ee337",
         "tests/test_parameter_details.py": "d856da3c5ada94d7edd5a94d0e8d4fcf8bf6d41daf6a52b9438cdbc09584c1e2",
         "tests/test_path_configuration.py": "449dd786c19dcfd3e90b0f2843528ec98f30d0d98c2a5d7ec5e833f4db90703b",
+        "tests/test_release_docs.py": "67255d6611420fc98a8d1562760b03b0f66522b0acc0986d727f810077b8c429",
         "tests/test_release_readiness.py": "c901fb1cae5e2293ab2cdad54a8c3132092c73922e746826b3d5dee42ff00c59",
         "tests/test_report_cleanup.py": "c30f2de667f7080e14d2b07cf0a56819de228dfed131c822cad77e4f0fb0d507",
         "tests/test_tag_release.py": "ffcacd1d121c3b08d8ca6ef3e74a8743fca6b7c3a189aee0217f59b331b1448a",
@@ -91,7 +94,6 @@
         "tools/benchmark_collection.py": "73db491e7dc06e039d4d41e7be694ea495992e3ede67a14c2f6eb8375aca021f",
         "tools/build_release.py": "d4f190ee00865e8327af57ae6b3ed99dd30209c5da6ad58f4c1f30544c07fb34",
         "tools/check_docs_browser.py": "ad12e477d344fb9b1e35f09674fbb8333c2167fe2bbfb19a0f001153474fa6e0",
-        "tools/check_docs_links.py": "e59e0e721adedb7d8d39b92c51cb20efb7c15fe129cc419e5b360768542f49a7",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
         "tools/check_installed_usage.py": "5ff38252da7d1ef2cd7aab7f9adeedbdce2d416633924b0bfb985a1e903e48b3",
         "tools/measure_coverage.py": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
@@ -103,15 +105,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-RELEASE-005-harness-4b77e2222249.json",
-        "docs/agent/evidence/XRAY-RELEASE-005-tests-34517bc46102.json",
-        "docs/agent/evidence/XRAY-RELEASE-005-offline-64178f022df4.json",
-        "docs/agent/evidence/XRAY-RELEASE-005-package-e57ff98e39d9.json",
-        "docs/agent/evidence/XRAY-RELEASE-005-docs-3ee089beca0b.json"
+        "docs/agent/evidence/XRAY-DOCS-001-harness-ad2d3efd44e7.json",
+        "docs/agent/evidence/XRAY-DOCS-001-tests-7b513e2a1ce3.json",
+        "docs/agent/evidence/XRAY-DOCS-001-offline-cff0385841e0.json",
+        "docs/agent/evidence/XRAY-DOCS-001-package-3b30873f5a5b.json",
+        "docs/agent/evidence/XRAY-DOCS-001-docs-fc7a7c40ce74.json"
       ],
-      "review": "docs/agent/evidence/XRAY-RELEASE-005-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-DOCS-001-independent-review.json",
       "blocker": "",
-      "next_action": "Verify frozen-head CI and obtain fresh independent release review of PR28 before merge/publication"
+      "next_action": "Verify frozen-head CI and obtain fresh independent review of PR29 before merge; no release or deployment"
     }
   ]
 }

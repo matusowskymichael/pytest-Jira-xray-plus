@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-10-18T11:16:20.101147+00:00",
+  "revision": "bb68cdbf70241f49ffe0b91e8dda3ec43f7adc26",
+  "argv": [
+    "/tmp/xray-harness-env/bin/python",
+    "tools/check_docs_links.py"
+  ],
+  "exit_code": 0,
+  "log": "docs/agent/evidence/XRAY-DOCS-001-full-site.log",
+  "log_sha256": "68e0840526cac2eda90a50ea711a03b1c7dc1f418203465db224b097be0a31f6",
+  "inputs": "Fresh candidate documentation build plus the unchanged verified 0.1.9 coverage/status outputs; not published.",
+  "coverage_source": "5169981a955fa72c865dbaff7be5167a27c6aef6",
+  "status_version": "0.1.9"
+}

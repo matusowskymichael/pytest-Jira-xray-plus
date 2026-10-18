@@ -1,0 +1,20 @@
+{
+  "task": "XRAY-DOCS-001",
+  "digest": "c38402e5a8c4fc144094e6812b09107d4f19f722918cb493436bd6543d1519c5",
+  "revision": "95ed39c0b9e5eefd60935b2202e9d34534e70752",
+  "timestamp": "2026-10-18T11:25:59+00:00",
+  "reviewer": "independent-docs-link-reviewer",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "tested_revision": "bb68cdbf70241f49ffe0b91e8dda3ec43f7adc26",
+  "acceptance": [
+    "Canonicalize only exact index.html basenames so index-suffixed page self-links resolve correctly while root/nested directory-index behavior remains",
+    "Preserve relative/encoded files and fragments, assets, query handling, external boundaries and genuine missing-file/anchor/search-index failures; no suppression or network requests",
+    "Subprocess regressions fail on baseline and pass after fix; real full site with released coverage/status validates; README/maintainer/coverage/changelog explain repository-only impact and retain fifteen guide commands",
+    "All five profiles, installed guide/full metadata, changed static checks and exact-head CI pass; runtime/dependencies/workflows/version unchanged and fresh independent review before merge with no publication"
+  ],
+  "source": "Parent delegation from thread 01a12a8b-3ef6-705b-9250-4b8889b0701e",
+  "review_scope": "Reviewer read complete diff, scope, harness instructions, receipts and logs; independently matched 13 profile log hashes, combined-site and two static hashes, PR body hash, and six workflow successes. Confirmed tested-source-to-head changes only evidence/progress/ledger execution state. Logs show 525 tests and 19 subtests, 33 subprocess cases, 41 pages and 2912 references, and fifteen installed commands.",
+  "limitations": "Read-only review did not rerun tests/browser or recompute full checkout content digest; receipt consistency and unchanged inputs corroborate digest. Live certificate blocking and Xray validation limitations remain. Review applies only to frozen relevant content; changes require fresh review."
+}

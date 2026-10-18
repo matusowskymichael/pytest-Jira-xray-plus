@@ -1,6 +1,8 @@
 Unreleased
 ==========
-- No additional changes queued.
+- Correct repository documentation link checks for named pages such as
+  class_index.html: only an exact index.html filename represents a directory.
+  Preserve genuine missing-file/fragment errors; plugin behavior is unchanged.
 
 0.1.9 [2026-10-17]
 ==================
