@@ -1,0 +1,1006 @@
+FFFFFFFFFFFFFFFFFFFFFFFF.............                                    [100%]
+=================================== FAILURES ===================================
+____ test_empty_path_rejected_before_execution[False-0---xray-case-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution0')>
+option = '--xray-case-report', workers = 0, separate_value = False
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution0')>
+result = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.35s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.35s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution0/runpytest-0 --xray-case-report= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution0
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution0
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_rejected_before_execution.py .                           [100%]
+
+============================== 1 passed in 0.01s ===============================
+________ test_empty_path_rejected_before_execution[False-0---xraypath] _________
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution1')>
+option = '--xraypath', workers = 0, separate_value = False
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution1')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.31s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.31s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution1/runpytest-0 --jira-xray --xraypath= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution1
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution1
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_rejected_before_execution.py .                           [100%]
+
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.01s ===============================
+____ test_empty_path_rejected_before_execution[False-0---xray-full-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution2')>
+option = '--xray-full-report', workers = 0, separate_value = False
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution2')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.31s>
+option = '--xray-full-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.31s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution2/runpytest-0 --jira-xray --xraypath=preview.json --xray-full-report= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution2
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution2
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_rejected_before_execution.py .                           [100%]
+
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution2/preview.json -
+============================== 1 passed in 0.01s ===============================
+____ test_empty_path_rejected_before_execution[False-2---xray-case-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution3')>
+option = '--xray-case-report', workers = 2, separate_value = False
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution3')>
+result = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.68s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.68s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution3/runpytest-0 --xray-case-report= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution3
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution3
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+============================== 1 passed in 0.36s ===============================
+________ test_empty_path_rejected_before_execution[False-2---xraypath] _________
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution4')>
+option = '--xraypath', workers = 2, separate_value = False
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution4')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.64s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.64s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution4/runpytest-0 --jira-xray --xraypath= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution4
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution4
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.34s ===============================
+____ test_empty_path_rejected_before_execution[False-2---xray-full-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution5')>
+option = '--xray-full-report', workers = 2, separate_value = False
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution5')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.65s>
+option = '--xray-full-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.65s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution5/runpytest-0 --jira-xray --xraypath=preview.json --xray-full-report= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution5
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution5
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution5/preview.json -
+============================== 1 passed in 0.34s ===============================
+_____ test_empty_path_rejected_before_execution[True-0---xray-case-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution6')>
+option = '--xray-case-report', workers = 0, separate_value = True
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution6')>
+result = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.28s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.28s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution6/runpytest-0 --xray-case-report  -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution6
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution6
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_rejected_before_execution.py .                           [100%]
+
+============================== 1 passed in 0.01s ===============================
+_________ test_empty_path_rejected_before_execution[True-0---xraypath] _________
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution7')>
+option = '--xraypath', workers = 0, separate_value = True
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution7')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.30s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.30s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution7/runpytest-0 --jira-xray --xraypath  -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution7
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution7
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_rejected_before_execution.py .                           [100%]
+
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.01s ===============================
+_____ test_empty_path_rejected_before_execution[True-0---xray-full-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution8')>
+option = '--xray-full-report', workers = 0, separate_value = True
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution8')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.29s>
+option = '--xray-full-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.29s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution8/runpytest-0 --jira-xray --xraypath=preview.json --xray-full-report  -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution8
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution8
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_rejected_before_execution.py .                           [100%]
+
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution8/preview.json -
+============================== 1 passed in 0.01s ===============================
+_____ test_empty_path_rejected_before_execution[True-2---xray-case-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution9')>
+option = '--xray-case-report', workers = 2, separate_value = True
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution9')>
+result = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.70s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=9 len(stderr.lines)=0 duration=0.70s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution9/runpytest-0 --xray-case-report  -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution9
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution9
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+============================== 1 passed in 0.40s ===============================
+_________ test_empty_path_rejected_before_execution[True-2---xraypath] _________
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution10')>
+option = '--xraypath', workers = 2, separate_value = True
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution10')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.62s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.62s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution10/runpytest-0 --jira-xray --xraypath  -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution10
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution10
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.35s ===============================
+_____ test_empty_path_rejected_before_execution[True-2---xray-full-report] _____
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution11')>
+option = '--xray-full-report', workers = 2, separate_value = True
+
+    @pytest.mark.parametrize('option', OPTIONS)
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('separate_value', [False, True])
+    def test_empty_path_rejected_before_execution(suite, option, workers, separate_value):
+        argument = [option, ''] if separate_value else [f'{option}=']
+        result = suite.runpytest_subprocess(*args_for(option), *argument, '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution11')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.63s>
+option = '--xray-full-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.63s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution11/runpytest-0 --jira-xray --xraypath=preview.json --xray-full-report  -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution11
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution11
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-6/test_empty_path_rejected_before_execution11/preview.json -
+============================== 1 passed in 0.35s ===============================
+___ test_empty_path_not_hidden_by_other_options[--xray-case-report-extra0-0] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options0')>
+option = '--xray-case-report', extra = ['--jira-xray'], workers = 0
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options0')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.29s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.29s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options0/runpytest-0 --jira-xray --xray-case-report= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options0
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options0
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_not_hidden_by_other_options.py .                         [100%]
+
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.01s ===============================
+___ test_empty_path_not_hidden_by_other_options[--xray-case-report-extra0-2] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options1')>
+option = '--xray-case-report', extra = ['--jira-xray'], workers = 2
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options1')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.67s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.67s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options1/runpytest-0 --jira-xray --xray-case-report= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options1
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options1
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.35s ===============================
+___ test_empty_path_not_hidden_by_other_options[--xray-case-report-extra1-0] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options2')>
+option = '--xray-case-report', extra = ['--xray-case-values'], workers = 0
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options2')>
+result = <RunResult ret=4 len(stdout.lines)=0 len(stderr.lines)=2 duration=0.25s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+        assert result.ret == pytest.ExitCode.USAGE_ERROR
+        output = str(result.stdout) + str(result.stderr)
+>       assert f'{option} requires a nonempty file path' in output
+E       AssertionError: assert '--xray-case-report requires a nonempty file path' in 'ERROR: --xray-case-values requires --xray-case-report\n'
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options2/runpytest-0 --xray-case-values --xray-case-report= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options2
+----------------------------- Captured stderr call -----------------------------
+ERROR: --xray-case-values requires --xray-case-report
+
+___ test_empty_path_not_hidden_by_other_options[--xray-case-report-extra1-2] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options3')>
+option = '--xray-case-report', extra = ['--xray-case-values'], workers = 2
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options3')>
+result = <RunResult ret=4 len(stdout.lines)=0 len(stderr.lines)=2 duration=0.28s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+        assert result.ret == pytest.ExitCode.USAGE_ERROR
+        output = str(result.stdout) + str(result.stderr)
+>       assert f'{option} requires a nonempty file path' in output
+E       AssertionError: assert '--xray-case-report requires a nonempty file path' in 'ERROR: --xray-case-values requires --xray-case-report\n'
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options3/runpytest-0 --xray-case-values --xray-case-report= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options3
+----------------------------- Captured stderr call -----------------------------
+ERROR: --xray-case-values requires --xray-case-report
+
+___ test_empty_path_not_hidden_by_other_options[--xray-case-report-extra2-0] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options4')>
+option = '--xray-case-report', extra = ['--xray-case-redact-identities']
+workers = 0
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options4')>
+result = <RunResult ret=4 len(stdout.lines)=0 len(stderr.lines)=2 duration=0.27s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+        assert result.ret == pytest.ExitCode.USAGE_ERROR
+        output = str(result.stdout) + str(result.stderr)
+>       assert f'{option} requires a nonempty file path' in output
+E       AssertionError: assert '--xray-case-report requires a nonempty file path' in 'ERROR: --xray-case-redact-identities requires --xray-case-report\n'
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options4/runpytest-0 --xray-case-redact-identities --xray-case-report= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options4
+----------------------------- Captured stderr call -----------------------------
+ERROR: --xray-case-redact-identities requires --xray-case-report
+
+___ test_empty_path_not_hidden_by_other_options[--xray-case-report-extra2-2] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options5')>
+option = '--xray-case-report', extra = ['--xray-case-redact-identities']
+workers = 2
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options5')>
+result = <RunResult ret=4 len(stdout.lines)=0 len(stderr.lines)=2 duration=0.27s>
+option = '--xray-case-report'
+
+    def assert_rejected(suite, result, option):
+        assert result.ret == pytest.ExitCode.USAGE_ERROR
+        output = str(result.stdout) + str(result.stderr)
+>       assert f'{option} requires a nonempty file path' in output
+E       AssertionError: assert '--xray-case-report requires a nonempty file path' in 'ERROR: --xray-case-redact-identities requires --xray-case-report\n'
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options5/runpytest-0 --xray-case-redact-identities --xray-case-report= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options5
+----------------------------- Captured stderr call -----------------------------
+ERROR: --xray-case-redact-identities requires --xray-case-report
+
+_______ test_empty_path_not_hidden_by_other_options[--xraypath-extra3-0] _______
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options6')>
+option = '--xraypath'
+extra = ['--xray-case-report=cases.json', '--xray-full-report=full.json']
+workers = 0
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options6')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.29s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.29s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options6/runpytest-0 --jira-xray --xray-case-report=cases.json --xray-full-report=full.json --xraypath= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options6
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options6
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_not_hidden_by_other_options.py .                         [100%]
+
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.01s ===============================
+_______ test_empty_path_not_hidden_by_other_options[--xraypath-extra3-2] _______
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options7')>
+option = '--xraypath'
+extra = ['--xray-case-report=cases.json', '--xray-full-report=full.json']
+workers = 2
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options7')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.64s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.64s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options7/runpytest-0 --jira-xray --xray-case-report=cases.json --xray-full-report=full.json --xraypath= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options7
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options7
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+----------- Uploaded results to JIRA XRAY. Test Execution Id: SYN-2 ------------
+============================== 1 passed in 0.33s ===============================
+___ test_empty_path_not_hidden_by_other_options[--xray-full-report-extra4-0] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options8')>
+option = '--xray-full-report', extra = ['--xray-case-report=cases.json']
+workers = 0
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options8')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.30s>
+option = '--xray-full-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.30s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options8/runpytest-0 --jira-xray --xraypath=preview.json --xray-case-report=cases.json --xray-full-report= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options8
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options8
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+collected 1 item
+
+test_empty_path_not_hidden_by_other_options.py .                         [100%]
+
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options8/preview.json -
+============================== 1 passed in 0.01s ===============================
+___ test_empty_path_not_hidden_by_other_options[--xray-full-report-extra4-2] ___
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options9')>
+option = '--xray-full-report', extra = ['--xray-case-report=cases.json']
+workers = 2
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('option, extra', [
+        ('--xray-case-report', ['--jira-xray']),
+        ('--xray-case-report', ['--xray-case-values']),
+        ('--xray-case-report', ['--xray-case-redact-identities']),
+        ('--xraypath', ['--xray-case-report=cases.json', '--xray-full-report=full.json']),
+        ('--xray-full-report', ['--xray-case-report=cases.json']),
+    ])
+    def test_empty_path_not_hidden_by_other_options(suite, option, extra, workers):
+        result = suite.runpytest_subprocess(*args_for(option), *extra, f'{option}=', '-n', str(workers))
+>       assert_rejected(suite, result, option)
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options9')>
+result = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.63s>
+option = '--xray-full-report'
+
+    def assert_rejected(suite, result, option):
+>       assert result.ret == pytest.ExitCode.USAGE_ERROR
+E       AssertionError: assert <ExitCode.OK: 0> == <ExitCode.USAGE_ERROR: 4>
+E        +  where <ExitCode.OK: 0> = <RunResult ret=0 len(stdout.lines)=10 len(stderr.lines)=0 duration=0.63s>.ret
+E        +  and   <ExitCode.USAGE_ERROR: 4> = <enum 'ExitCode'>.USAGE_ERROR
+E        +    where <enum 'ExitCode'> = pytest.ExitCode
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:59: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options9/runpytest-0 --jira-xray --xraypath=preview.json --xray-case-report=cases.json --xray-full-report= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options9
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options9
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.9, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.13.4
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-6/test_empty_path_not_hidden_by_other_options9/preview.json -
+============================== 1 passed in 0.34s ===============================
+_____________ test_empty_export_rejected_before_authentication[0] ______________
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication0')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ffaeaa36e70>
+workers = 0
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    def test_empty_export_rejected_before_authentication(suite, monkeypatch, workers):
+        monkeypatch.delenv('XRAY_API_BASE_URL')
+        result = suite.runpytest_subprocess('--jira-xray', '--xraypath=', '-n', str(workers))
+>       assert_rejected(suite, result, '--xraypath')
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication0')>
+result = <RunResult ret=4 len(stdout.lines)=0 len(stderr.lines)=2 duration=0.26s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+        assert result.ret == pytest.ExitCode.USAGE_ERROR
+        output = str(result.stdout) + str(result.stderr)
+>       assert f'{option} requires a nonempty file path' in output
+E       AssertionError: assert '--xraypath requires a nonempty file path' in 'ERROR: pytest-jira-xray plugin requires environment variable: XRAY_API_BASE_URL\n'
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication0/runpytest-0 --jira-xray --xraypath= -n 0
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication0
+----------------------------- Captured stderr call -----------------------------
+ERROR: pytest-jira-xray plugin requires environment variable: XRAY_API_BASE_URL
+
+_____________ test_empty_export_rejected_before_authentication[2] ______________
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication1')>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ffaeaa35e20>
+workers = 2
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    def test_empty_export_rejected_before_authentication(suite, monkeypatch, workers):
+        monkeypatch.delenv('XRAY_API_BASE_URL')
+        result = suite.runpytest_subprocess('--jira-xray', '--xraypath=', '-n', str(workers))
+>       assert_rejected(suite, result, '--xraypath')
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suite = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication1')>
+result = <RunResult ret=4 len(stdout.lines)=0 len(stderr.lines)=2 duration=0.25s>
+option = '--xraypath'
+
+    def assert_rejected(suite, result, option):
+        assert result.ret == pytest.ExitCode.USAGE_ERROR
+        output = str(result.stdout) + str(result.stderr)
+>       assert f'{option} requires a nonempty file path' in output
+E       AssertionError: assert '--xraypath requires a nonempty file path' in 'ERROR: pytest-jira-xray plugin requires environment variable: XRAY_API_BASE_URL\n'
+
+/workspace/pytest-jira-xray-plus/tests/test_empty_report_paths.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray-harness-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication1/runpytest-0 --jira-xray --xraypath= -n 2
+     in: /tmp/pytest-of-agent/pytest-6/test_empty_export_rejected_before_authentication1
+----------------------------- Captured stderr call -----------------------------
+ERROR: pytest-jira-xray plugin requires environment variable: XRAY_API_BASE_URL
+
+=========================== short test summary info ============================
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[False-0---xray-case-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[False-0---xraypath]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[False-0---xray-full-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[False-2---xray-case-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[False-2---xraypath]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[False-2---xray-full-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[True-0---xray-case-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[True-0---xraypath]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[True-0---xray-full-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[True-2---xray-case-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[True-2---xraypath]
+FAILED tests/test_empty_report_paths.py::test_empty_path_rejected_before_execution[True-2---xray-full-report]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-case-report-extra0-0]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-case-report-extra0-2]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-case-report-extra1-0]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-case-report-extra1-2]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-case-report-extra2-0]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-case-report-extra2-2]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xraypath-extra3-0]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xraypath-extra3-2]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-full-report-extra4-0]
+FAILED tests/test_empty_report_paths.py::test_empty_path_not_hidden_by_other_options[--xray-full-report-extra4-2]
+FAILED tests/test_empty_report_paths.py::test_empty_export_rejected_before_authentication[0]
+FAILED tests/test_empty_report_paths.py::test_empty_export_rejected_before_authentication[2]
+24 failed, 13 passed in 16.03s

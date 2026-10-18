@@ -1,0 +1,566 @@
+{
+  "task": "XRAY-DOCS-001",
+  "source_revision": "dd76138fc63be87a73f6e826d06a3ecc4a858393",
+  "acceptance_revision": "334b0db83cafec74fd8885b5918a4291886d4876",
+  "reviewed_revision": "95ed39c0b9e5eefd60935b2202e9d34534e70752",
+  "acceptance_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 39123304941,
+      "headSha": "334b0db83cafec74fd8885b5918a4291886d4876",
+      "name": "repository harness",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123304908,
+      "headSha": "334b0db83cafec74fd8885b5918a4291886d4876",
+      "name": "documentation",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123304928,
+      "headSha": "334b0db83cafec74fd8885b5918a4291886d4876",
+      "name": "tests",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123300237,
+      "headSha": "334b0db83cafec74fd8885b5918a4291886d4876",
+      "name": "repository harness",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123300234,
+      "headSha": "334b0db83cafec74fd8885b5918a4291886d4876",
+      "name": "documentation",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123300247,
+      "headSha": "334b0db83cafec74fd8885b5918a4291886d4876",
+      "name": "tests",
+      "status": "completed"
+    }
+  ],
+  "checked_utc": "2026-10-18T11:35:05.385388+00:00",
+  "local_site": {
+    "strict_build": "passed",
+    "links": "41 HTML pages, 2912 internal links/fragments/assets, search index",
+    "browser": {
+      "desktop": "passed",
+      "mobile": "passed",
+      "search": "passed",
+      "syntax_highlighting": "passed",
+      "theme_toggle": "passed"
+    },
+    "preserved_coverage_status_files": 31,
+    "preservation": "All 31 files match previously verified release 0.1.9 live manifest hashes"
+  },
+  "publication": "No PyPI release; documentation deployment only",
+  "limits": "Local browser checks do not prove hosted browser accessibility or live Xray compatibility.",
+  "main_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 39123721242,
+      "headSha": "dd76138fc63be87a73f6e826d06a3ecc4a858393",
+      "name": "repository harness",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123721241,
+      "headSha": "dd76138fc63be87a73f6e826d06a3ecc4a858393",
+      "name": "documentation",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39123721266,
+      "headSha": "dd76138fc63be87a73f6e826d06a3ecc4a858393",
+      "name": "tests",
+      "status": "completed"
+    }
+  ],
+  "pages_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 39124155259,
+      "headSha": "dfe1d7e8f5d11984ece9e3fb971076946d2c61e3",
+      "name": "pages build and deployment",
+      "status": "completed"
+    }
+  ],
+  "public_site": {
+    "verified_utc": "2026-10-18T11:40:36.181093+00:00",
+    "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/",
+    "pages_commit": "dfe1d7e8f5d11984ece9e3fb971076946d2c61e3",
+    "verified_file_count": 102,
+    "files": [
+      {
+        "path": "404.html",
+        "sha256": "03a74d2833a6efa39a381619ea3f30e32e6631ec0026fe6942eb78b349bf6188"
+      },
+      {
+        "path": "sitemap.xml",
+        "sha256": "e456aa8ece698c1eb7d5ee39738ee7f394569394aa15b1d1e2a54c8c7067a6d5"
+      },
+      {
+        "path": "index.html",
+        "sha256": "f99dc830e9f5ac9353b02f446966c5700f6d3f90e52f45611878b7fc2077e554"
+      },
+      {
+        "path": "sitemap.xml.gz",
+        "sha256": "3206e8fab688a479ca87eb30099187c503cc9790ab0f44ba6b42a7a5153de158"
+      },
+      {
+        "path": "assets/logo.svg",
+        "sha256": "0909a20c8aea4f30fe0298db7d813641a6b26799069fa1a327d485e5348bce18"
+      },
+      {
+        "path": "assets/extra.css",
+        "sha256": "696fd869437f0f4092e045d6b8c504adf0fbbb9670d534c0bf9efd708db753e6"
+      },
+      {
+        "path": "status/license.svg",
+        "sha256": "d86f9f73773b6802ed2a033fcaba0f80bc1f3255d901c8b2e7ef195b6b04e838"
+      },
+      {
+        "path": "status/metadata.json",
+        "sha256": "6486e2615c3d305696a69fed39ff78148bd96160687e25e8771e5c6264b6d664"
+      },
+      {
+        "path": "status/python.svg",
+        "sha256": "d04617baa42e0cc0b176639cf9a1f3b210b31d6cf06bd58144c9a7ae8f51be09"
+      },
+      {
+        "path": "status/index.html",
+        "sha256": "2dcd576e7e275499e064387e8695faf02ba14b0329745c529a3ccec13bb5ceaf"
+      },
+      {
+        "path": "status/pypi.svg",
+        "sha256": "da52c480be190950f6ca37793f45615d21c81583d8c7fabdb9916a9ec160a87d"
+      },
+      {
+        "path": "tutorial/index.html",
+        "sha256": "ae6ea1252490561571ee0cf3e89c522c41f68e0e60d7393088b8202485498ff3"
+      },
+      {
+        "path": "coverage/coverage.json",
+        "sha256": "8d75bd8a6d81425b5488fa719ebbc90694c6cbaf40c80924bbc7ea78b7d08f26"
+      },
+      {
+        "path": "coverage/summary.json",
+        "sha256": "5ff38027ba9660c89a8cf665bc2f4550fb83bb8bc6c009c80afc3955490fa822"
+      },
+      {
+        "path": "coverage/coverage.svg",
+        "sha256": "7e66a1b9169734375c8b94a1fe6d736156b7f1894097e880e59e71194bf3fc95"
+      },
+      {
+        "path": "coverage/index.html",
+        "sha256": "1966c1325fe1e6f1aee8c4292eed7e889edd952f5f7fc828e4777172a228205c"
+      },
+      {
+        "path": "search/search_index.json",
+        "sha256": "c92939487b4abe6dcce25a12a6e31ac08c62d405420fa901f849a19b1b1b5e0d"
+      },
+      {
+        "path": "reference/options/index.html",
+        "sha256": "2042963e7d69d6b061bbea333a6bc66022cc9e855a201cfcfb96fbadb57fccf5"
+      },
+      {
+        "path": "reference/compatibility/index.html",
+        "sha256": "e0f705786abed2cce308d7d02af46af5144e7542305943a2f6b5d4c52ee8efba"
+      },
+      {
+        "path": "reference/settings/index.html",
+        "sha256": "c0928fec7717d46a0d89646850fd3814f06db4dceeb40b850c12e12cf6279a7e"
+      },
+      {
+        "path": "reference/prerequisites/index.html",
+        "sha256": "95c8bf9c241015606cd83fdfc46cfad448356527dcfd95c778ecc2a116e033fe"
+      },
+      {
+        "path": "reference/troubleshooting/index.html",
+        "sha256": "cf51683be38c31a4ddcc1aeea1378cc100743ff78d988fcc2f7e66b413a2f189"
+      },
+      {
+        "path": "reference/schema/index.html",
+        "sha256": "c299c9e58a39f5e8baac6f828cb7a428bf31985ce2c2553a314796fecac367ab"
+      },
+      {
+        "path": "assets/images/favicon.png",
+        "sha256": "023854c43fc4b25b795ee4951c8019e3de0593ffeb6f918b5d1f2a9b47a57cfe"
+      },
+      {
+        "path": "assets/stylesheets/palette.ab4e12ef.min.css",
+        "sha256": "ab4e12ef511f9c36de818455892c5c57cc3f98a8c86c36fa609601a88a720da2"
+      },
+      {
+        "path": "assets/stylesheets/main.ec1eaa64.min.css",
+        "sha256": "ec1eaa640ab3790ea234d5a09da26015eb070222da8185a1e532d99cb022d68d"
+      },
+      {
+        "path": "assets/stylesheets/main.ec1eaa64.min.css.map",
+        "sha256": "0202466a8ddb51487b325e6df1b6e3a704d7506cf5762617301e5d4bff3a0f54"
+      },
+      {
+        "path": "assets/stylesheets/palette.ab4e12ef.min.css.map",
+        "sha256": "bcf19de0132bed966de2c46b3b56b69f4bf720b2fe35e8dca22b568a017ee3f9"
+      },
+      {
+        "path": "assets/javascripts/bundle.d7400e89.min.js",
+        "sha256": "f288ab99e197c406766aea4581ba6e902d7d0e28c013bdd3cd3fab6cc77fb7c8"
+      },
+      {
+        "path": "assets/javascripts/bundle.d7400e89.min.js.map",
+        "sha256": "dcfd5eb85b43e975773ecf102220197ef3f985f45abbbee4a5286e137f8097ba"
+      },
+      {
+        "path": "assets/javascripts/workers/search.2c215733.min.js.map",
+        "sha256": "780dccece24891aa19da6285715e2c7d0cd884237a87a3a9be6684823584921f"
+      },
+      {
+        "path": "assets/javascripts/workers/search.2c215733.min.js",
+        "sha256": "cfb35333fafd6d2eb148eba21452849fb7fbde32fdfbf986836573f963106188"
+      },
+      {
+        "path": "assets/javascripts/lunr/tinyseg.js",
+        "sha256": "1b044c239610ef65fceff6039567442bb1692d413f5ee8686fee81b1a3067761"
+      },
+      {
+        "path": "assets/javascripts/lunr/wordcut.js",
+        "sha256": "3d38fde68af348915288e45eeb338af8256c8611fa2cfef307e6ab95808b3567"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.he.min.js",
+        "sha256": "3f7d5c28ada94d78c9bc8041e271c355800ba36dbab98ad95d57b6bc25993621"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.hi.min.js",
+        "sha256": "631fff52e3623f2dfba35af076c6b8b5a450eeffe30a5cfac7458dab77cbe0a6"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.ro.min.js",
+        "sha256": "cfa26a8ea4293d81e8547ba2321d703a0fe9881f0721fca5f33a3f80bf156ee9"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.sa.min.js",
+        "sha256": "41c558a4355c3eae8f0a27ae870712738f14b0bd88038042ac8ab8b411e5817f"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.du.min.js",
+        "sha256": "452da04fe449b9c65c61384fec582dc63824bd4e559fae2c3926a7790b68e976"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.jp.min.js",
+        "sha256": "04114edc36dc114edce5afbb3c7f795f45c77d8673c1edcdca5675ddab5d5199"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.multi.min.js",
+        "sha256": "9761f475ae79f36420ff714df9950efb264effcf9230efd55b511a0de899e979"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.stemmer.support.min.js",
+        "sha256": "2e7213605846a18014ec750910cb18a8a4c60bb23200103b3fad9ef27b10c705"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.de.min.js",
+        "sha256": "bcaa7c5c19bc730c05bb91e22ae0e386e1ac4a0580c42b7d94f9b8757aadadab"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.tr.min.js",
+        "sha256": "e8bf57b1033b8bd92ea04a94c533015aa1a7f0a8d6830194b974e94e1e4aca3c"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.pt.min.js",
+        "sha256": "3a25d2abaa23063cf13fc56c19ae4cc5050cb6215115e9d08f4a6f4b78780067"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.it.min.js",
+        "sha256": "00a5073df2e922e5fded1c5a4d4011aec02472ab9d9182a7c6508d60b625c453"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.nl.min.js",
+        "sha256": "399ef26d61ed2d5806f58ea723dfaca09f4a7c9b51e315bdd17482c8e3013a3e"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.ko.min.js",
+        "sha256": "73d1bdb1de4aef6c5920f516924c5ab1c440db50a6f5c6126bd0fb7cf5d37664"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.ar.min.js",
+        "sha256": "89a1dcb094a8491d968c151ab254a03195c87ff2adaa2408c769928284847125"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.no.min.js",
+        "sha256": "57f9db9290f9ed36080755f53ee342a04f55a5954e4add915d1c301a37464573"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.th.min.js",
+        "sha256": "348461266843e316b26820004a96d3fd87a1579829d244ce510c17293eef0439"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.fi.min.js",
+        "sha256": "681541fcf5b1987ad8b00766e9c06389ecf99c3d7ae817fa891f923f691b8668"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.es.min.js",
+        "sha256": "dec4ec90bd6f478ca3e65636a8e3fedf512b23d01a51a01d7e7822f67ebbaaf8"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.te.min.js",
+        "sha256": "079c8fcf028aeef388e98ec8607c8ea50ba9660c46797c8a119d05f8f8205838"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.vi.min.js",
+        "sha256": "2e39c3fd7305f6e66fc0424796a7696cb8e36dc0f5c3a83ea1bc44dfe3fecb56"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.hy.min.js",
+        "sha256": "0efbcb902bdb7ec0dddffa5e2ba347b74c49ffc5f43fd73ffed83528eba12e95"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.kn.min.js",
+        "sha256": "a064d0d7438334957a442b626140fb72f4ede8ebe17eb5c4e25682d87c88bbf8"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.ru.min.js",
+        "sha256": "50ef3c0fab4a3f2d260e8973c63363aa0dcf02b559ea9d11d5f02b6197585c17"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.fr.min.js",
+        "sha256": "4dd56aa2551e770ad26ef4b85092cd31447671e0e84b39514278547f54177377"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.hu.min.js",
+        "sha256": "876c969bbf4a2b84738f4e0a14922ee331cb7c2193a621f65db7f836fdd33a38"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.da.min.js",
+        "sha256": "2a12734048eae74e0a05e5c108fdf24c2b71dfcd8da712336ca9e3d27ab92956"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.ta.min.js",
+        "sha256": "17a32dc49c27c9d27945625a7e8d066d42f64ea1ce5a5b34de427723fbf9ae2a"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.zh.min.js",
+        "sha256": "d8c5b72c36ec9c3197602546e9ba5b57ada3f725d564a551bf16eabafb548e88"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.ja.min.js",
+        "sha256": "c4fded308f633681a6ed53b6c10d8ca5916fdfd50f6b82ec914d725be0cb8bd6"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.el.min.js",
+        "sha256": "a6fd5cbbb21d127407bc31c6c4298bf92ec7e1496a1ea83d5e4add14325a0c21"
+      },
+      {
+        "path": "assets/javascripts/lunr/min/lunr.sv.min.js",
+        "sha256": "942b165bcc8218e3246fc4735af9b1c2f66514366d0000be051bf1bb896d413e"
+      },
+      {
+        "path": "project/development/index.html",
+        "sha256": "eebc0a9402a13e451308c89c1243acfe59d272532de7315d2c7d8bc772ca3c18"
+      },
+      {
+        "path": "project/site/index.html",
+        "sha256": "d6c61e0095263e163f34ca67bf1407328d4b9295a96a1e4f704c257c3962daf0"
+      },
+      {
+        "path": "project/changelog/index.html",
+        "sha256": "b72a9f8d43866eb60356f6088b75c03bb03d939b39d1a4fed6679e49b7a2ab74"
+      },
+      {
+        "path": "tutorial/local-report/index.html",
+        "sha256": "eb617ff9e73e1ebf5fd462ac03bd18f04034be001e10e2fd5fd75805e138a969"
+      },
+      {
+        "path": "tutorial/xray/index.html",
+        "sha256": "0a2d757921d99cc88bcde00af83eef782ee815b19526668f99becc30ad457b06"
+      },
+      {
+        "path": "tutorial/archive/index.html",
+        "sha256": "9947bc827e39b180dacd47dbd86f3e21b41a54472e6d96708a0e64675784b586"
+      },
+      {
+        "path": "tutorial/upload/index.html",
+        "sha256": "230d0c15967719da216a870b69d17257b4d82be636d38825c1875b548760b7c9"
+      },
+      {
+        "path": "tutorial/values/index.html",
+        "sha256": "23cd2a5a967d035d98acb6e37efa0de39e75b423d07a9fb9cefbc34bc40c7b5c"
+      },
+      {
+        "path": "tutorial/failure/index.html",
+        "sha256": "062138c96e459c255bc50550d88a4342e03c6384615362d00b1a25de500e4837"
+      },
+      {
+        "path": "tutorial/install/index.html",
+        "sha256": "4d143ad41f7f4d24825d3cfaf5fe6050349ec15297d333ca6ccd67b5b284c740"
+      },
+      {
+        "path": "tutorial/cases/index.html",
+        "sha256": "22351c08af598ba84983dc02413f12268abef10faa820470ec55d8fcfcc41759"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_hooks_py.html",
+        "sha256": "4a23277887f35ef2498552a0b2473a2e4728b9a7788b571c380871a158f0db49"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_constant_py.html",
+        "sha256": "b3be0433e6ed68f89aa2c68a2e81c374c21b9346fea9d39ab94d1d0af649827f"
+      },
+      {
+        "path": "coverage/html/class_index.html",
+        "sha256": "5a55a023b7bceb9433c0ef14f6410b80b3902519c478efe3571403fccce6f530"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_file_publisher_py.html",
+        "sha256": "d139b2dd0987802e39c7518f54c85b14415e7e3b395230b567670b9ed23a4239"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_exceptions_py.html",
+        "sha256": "08f14ee0a85e94bf53bd1f96739cd058150d9ee8942907638a7b0dfdf6c395b9"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_case_report_py.html",
+        "sha256": "0237e12773d81f2cdd2e4afd6851a3459719a096df390b11bcf3ac4835e73a8f"
+      },
+      {
+        "path": "coverage/html/status.json",
+        "sha256": "008d7bcedee84fe49bd61b0652ee79022351c16886398ab51610af5942ab198e"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_comment_limits_py.html",
+        "sha256": "0b7640f71df829804b4d6e6af598745c4c42a1d5f00fd0bb6f2c2c0876718402"
+      },
+      {
+        "path": "coverage/html/keybd_closed_cb_900cfef5.png",
+        "sha256": "7d9bf8ae66370e4349b4f423ac5279501384e4374da1fde675e099582ed33a8a"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_plugin_py.html",
+        "sha256": "a5c6ba57af1a739c0190cc04560831e22baddd7f95f0dea9a4513e1b6669b9c1"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_xray_publisher_py.html",
+        "sha256": "4ec9e04f8f8c57f735bd9ed7869ccc342be1c4f550f5d2d4f95f3a2313ae8ec1"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_helper_py.html",
+        "sha256": "864e58bbb3220cb7285788f838da08d0b47c145117659dad759e00a7a5caf8d1"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_xray_plugin_py.html",
+        "sha256": "d4df9bbc9c4744c7f7280d36b110b8baa21f231a12388fc0e2de850b4dfe4ade"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802___init___py.html",
+        "sha256": "ad48aac252b966a4e8217e6eb46f56a42a7b8a9b52c7d68609730d2515e5e501"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_evidence_py.html",
+        "sha256": "62c18bdf305066ba127abf05fd34547e0b1fcbdbd872d0cf6a02e9223adbf654"
+      },
+      {
+        "path": "coverage/html/favicon_32_cb_c827f16f.png",
+        "sha256": "bc8100fa8743c11bd243eb3259f4b012758651612fd9bf93bf8b734d17f02561"
+      },
+      {
+        "path": "coverage/html/coverage_html_cb_15cffcd0.js",
+        "sha256": "f6b4fff272644e71ad233c460f77a8a688a1d00e4a0984c41bbb76615f67b0da"
+      },
+      {
+        "path": "coverage/html/.gitignore",
+        "sha256": "8c2eb1fa82c314dc11791274cb7aa967245d1908442d6e788bc77f6e1aa5c2b8"
+      },
+      {
+        "path": "coverage/html/function_index.html",
+        "sha256": "af0f91e0cff7c744f565cf819c83a6014528fc95fd58121835c4051412ae8243"
+      },
+      {
+        "path": "coverage/html/index.html",
+        "sha256": "882c8998f8800cd57c216ee1c58b1fba83ee5386e3290504a6ce182a08b22601"
+      },
+      {
+        "path": "coverage/html/z_c3da03e42cf3f802_case_results_py.html",
+        "sha256": "5ac2dc659a1204896508d80cb337271b55674ecb83f1507a993b40f714286f02"
+      },
+      {
+        "path": "coverage/html/style_cb_4667309f.css",
+        "sha256": "1b54edba892874f987fd65a5f0fc992bf4f5923ef6e53c687eb0ac0923dd932a"
+      },
+      {
+        "path": "guides/hooks/index.html",
+        "sha256": "3c1d3da37b04c6b1f5c123bbd8e6d2b890c63fd717e7d795e8b63562d1b0f6df"
+      },
+      {
+        "path": "guides/multiple-tests/index.html",
+        "sha256": "a47745fd0678bd83dbcd9c8f6d98e381aeea3f104163bebf6ec814ae4dedbc1b"
+      },
+      {
+        "path": "guides/parallel/index.html",
+        "sha256": "2ea3c2be12a732f0852a15ceddb8c9c8e18a6c3c8377bc99e4938457c3477a4f"
+      }
+    ],
+    "coverage": {
+      "commit": "5169981a955fa72c865dbaff7be5167a27c6aef6",
+      "working_tree_dirty": false,
+      "measured_utc": "2026-10-18T11:00:25.423662+00:00",
+      "python": "3.12.14",
+      "command": "/tmp/xray-harness-env/bin/python tools/measure_coverage.py",
+      "measurement_script_sha256": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
+      "measurement_config_sha256": "23af419dcfedd914478a2f056f55eb63096bbd4f95d6e5ef8eaa1d5d4e267ca2",
+      "workflow_run": "local measurement",
+      "scope": "src/pytest_xray/**/*.py; full pytest suite including Python subprocesses",
+      "tool": "coverage.py 7.16.2",
+      "source_sha256": "e70542b55c644b118e1f9919e5c40f53570febe5db5b57490ae68e0ce85babb0",
+      "files": 13,
+      "covered_lines": 769,
+      "num_statements": 785,
+      "covered_branches": 229,
+      "num_branches": 250,
+      "line_percent": 98.0,
+      "branch_percent": 91.6
+    },
+    "status": {
+      "verified_utc": "2026-10-18T11:04:29.181555+00:00",
+      "pypi_source": "https://pypi.org/pypi/pytest-jira-xray-plus/json?release=0.1.9",
+      "published_version": "0.1.9",
+      "tested_python": [
+        "3.12",
+        "3.13",
+        "3.14"
+      ],
+      "license": "Apache-2.0",
+      "scope": "Metadata snapshots; refresh after each release. Workflow badges separately show live main CI."
+    },
+    "tls": "normal certificate verification",
+    "limits": "HTTP byte agreement, not live interactive browser verification."
+  },
+  "live_browser": {
+    "checked_utc": "2026-10-18T11:40:34.561872+00:00",
+    "tls": "Default browser certificate verification; no bypass",
+    "checks": [
+      {
+        "name": "Pages maintainer",
+        "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/project/site/",
+        "status": "blocked",
+        "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://matusowskymichael.github.io/pytest-Jira-xray-plus/project/site/\nCall log:\n  - navigating to \"https://matusowskymichael.github.io/pytest-Jira-xray-plus/project/site/\", waiting until \"domcontentloaded\"\n"
+      },
+      {
+        "name": "Pages tutorial",
+        "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/",
+        "status": "blocked",
+        "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\nCall log:\n  - navigating to \"https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\", waiting until \"domcontentloaded\"\n"
+      }
+    ]
+  }
+}

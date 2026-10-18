@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- Reject explicit empty report-path arguments with usage-error exit 4 before
+  execution. In 0.1.9 an empty --xraypath selects upload and empty case/full-report
+  paths disable the requested output. Preserve omitted options, collect-only
+  behavior, nonempty filenames and path expansion/collision rules.
 - Correct repository documentation link checks for named pages such as
   class_index.html: only an exact index.html filename represents a directory.
   Preserve genuine missing-file/fragment errors; plugin behavior is unchanged.

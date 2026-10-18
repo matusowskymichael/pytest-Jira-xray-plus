@@ -524,3 +524,28 @@ PyPI and run the full guide, measure actual clean-source coverage, refresh exist
 Pages/status and compare live files. Do not substitute renderer/HTTP checks for
 live browser evidence: prior certificate/PyPI challenge limits remain. No live
 workplace Xray/custom Automatic validation; native iterations/datasets unsupported.
+
+
+## Explicit empty report paths — unreleased candidate, 2026-10-18
+
+Published 0.1.9 treats an empty --xraypath as an omitted option and can select
+upload after running tests; empty case/full-report paths disable requested output.
+A synthetic probe confirmed the upload selection with requests replaced before
+any transport. This scoped candidate rejects explicitly empty values with
+pytest.UsageError (exit 4) before collection, fixtures, xdist startup, authentication
+or publishing. Omitted options, collect-only bypass, nonempty filenames, expansion
+conventions and collision checks remain. Use a literal nonempty offline filename
+with 0.1.9 and check shell-variable values before passing them as paths.
+
+Baseline new regressions: 24 failed, 13 passed; all transport is synthetic.
+The fix requires all five profiles, fifteen installed guide commands/full metadata,
+changed static checks, exact-head CI and independent review before merge.
+No release, dependency, workflow, publishing-permission or other runtime change
+is included. Version remains 0.1.9. Native iterations/datasets unsupported;
+Generic/custom Automatic live validation and hosted browser certificate limits
+remain. PR29's reviewed documentation deployment is separately recorded in
+XRAY-DOCS-001-deployment.json; that deployment did not publish this candidate.
+
+Official pytest references checked 2026-10-18:
+[UsageError API](https://docs.pytest.org/en/stable/reference/reference.html#pytest.UsageError)
+and [exit codes](https://docs.pytest.org/en/stable/reference/exit-codes.html).

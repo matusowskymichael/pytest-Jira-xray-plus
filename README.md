@@ -226,6 +226,15 @@ passing cases usually have no comment text; failure details can still appear.
 selects uploading. This also applies when options are inherited from `pytest.ini`
 or `PYTEST_ADDOPTS`.
 
+**Give every report option a nonempty filename.** In published 0.1.9,
+`--jira-xray --xraypath=""` selects upload, and empty case/full-report arguments
+silently disable those outputs. For offline work, use a literal value such as
+`--xraypath=xray.json`; check any shell variable before using it as a path.
+The unreleased fix rejects explicitly empty values for `--xraypath`,
+`--xray-case-report` and `--xray-full-report` with exit 4 before tests run.
+Omitting an option retains its existing behavior; `--collect-only` still skips
+report configuration and creates no report. Nonempty filenames are not trimmed.
+
 
 ## 4. Authenticate and publish to Jira/Xray
 
@@ -802,6 +811,7 @@ invalid values in export payloads.
 | Large suites spend time grouping many Test keys | Version 0.1.9 avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
+| Empty report filename (unreleased fix) | Supply a nonempty filename for the named option; execution stops with exit 4. In published 0.1.9, an empty `--xraypath` can select upload. Use a literal offline filename and check shell variables before running. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
 | `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
 | Cannot write a report | Check permissions and distinct paths. With version 0.1.8, create the case-report parent folder. Version 0.1.9 creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |

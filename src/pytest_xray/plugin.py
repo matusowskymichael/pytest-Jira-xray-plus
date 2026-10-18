@@ -125,6 +125,8 @@ def pytest_configure(config: pytest.Config) -> None:
     normalized = []
     for option, expand in paths:
         path = config.getoption(option)
+        if path == '':
+            raise pytest.UsageError(f'{option} requires a nonempty file path')
         if not path:
             continue
         try:
