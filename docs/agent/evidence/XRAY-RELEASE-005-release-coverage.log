@@ -1,0 +1,20 @@
+{
+  "commit": "5169981a955fa72c865dbaff7be5167a27c6aef6",
+  "working_tree_dirty": false,
+  "measured_utc": "2026-10-18T11:00:25.423662+00:00",
+  "python": "3.12.14",
+  "command": "/tmp/xray-harness-env/bin/python tools/measure_coverage.py",
+  "measurement_script_sha256": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
+  "measurement_config_sha256": "23af419dcfedd914478a2f056f55eb63096bbd4f95d6e5ef8eaa1d5d4e267ca2",
+  "workflow_run": "local measurement",
+  "scope": "src/pytest_xray/**/*.py; full pytest suite including Python subprocesses",
+  "tool": "coverage.py 7.16.2",
+  "source_sha256": "e70542b55c644b118e1f9919e5c40f53570febe5db5b57490ae68e0ce85babb0",
+  "files": 13,
+  "covered_lines": 769,
+  "num_statements": 785,
+  "covered_branches": 229,
+  "num_branches": 250,
+  "line_percent": 98.0,
+  "branch_percent": 91.6
+}
