@@ -101,11 +101,17 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
+      "state": "review_pending",
+      "evidence": [
+        "docs/agent/evidence/XRAY-RELEASE-005-harness-4b77e2222249.json",
+        "docs/agent/evidence/XRAY-RELEASE-005-tests-34517bc46102.json",
+        "docs/agent/evidence/XRAY-RELEASE-005-offline-64178f022df4.json",
+        "docs/agent/evidence/XRAY-RELEASE-005-package-e57ff98e39d9.json",
+        "docs/agent/evidence/XRAY-RELEASE-005-docs-3ee089beca0b.json"
+      ],
       "review": null,
       "blocker": "",
-      "next_action": "Prepare and verify release candidate; freeze PR for independent review before publication"
+      "next_action": "Verify frozen-head CI and obtain fresh independent release review of PR28 before merge/publication"
     }
   ]
 }
