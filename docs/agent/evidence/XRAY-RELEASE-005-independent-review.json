@@ -1,0 +1,38 @@
+{
+  "task": "XRAY-RELEASE-005",
+  "revision": "9ad6d2733dc89e56282ba0727287f13951e3f4f6",
+  "digest": "ab5a9567fc7a1894f249eb2bbf516282b838a9ea0285eb44e9d20e3bc75b1c7a",
+  "tested_revision": "a47993d2b485251535ca3fc1fab902ac591524d8",
+  "timestamp": "2026-10-18T10:48:15+00:00",
+  "reviewer": "independent-review-release-candidate",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Prepare unused 0.1.9 bundling accepted PR23\u201327 with version-literal-only package/publisher changes; freeze runtime, dependencies, tools and publishing permissions",
+    "Full beginner guide, schema/API references and dated changelog accurately document all five improvements, migration and limitations while retaining fifteen commands and privacy/live compatibility boundaries",
+    "All five profiles, fresh installed guide/full metadata, shared badge checks, static checks and exact-head CI pass on frozen candidate with accurate accepted-source/public snapshot provenance",
+    "Fresh independent release review before merge/publication; retain trusted publisher safeguards and require subsequent public artifact/install/tag/Pages/coverage verification without claiming unperformed checks"
+  ],
+  "source": "Parent-supplied independent acceptance, source thread 01a12a8b-3ef6-705b-9250-4b8889b0701e",
+  "evidence": {
+    "verified": "Full diff, README, harness instructions, ledger scope hash, all 13 profile log hashes and 2 static log hashes, README badge hash and six exact-head workflows independently verified. Tested-source-to-review-head changes only evidence, progress and ledger execution state.",
+    "workflow_runs": [
+      39120146272,
+      39120146295,
+      39120146342,
+      39120151300,
+      39120151336,
+      39120151275
+    ],
+    "hosted_results": "492 tests plus 19 subtests; all 15 installed commands; 23 HTML pages and 1214 references; desktop/mobile/search/theme checks.",
+    "release_scope": "Unused 0.1.9 bundles accepted PR23\u201327; version-only package/publisher changes; full guide/schema/API/changelog and privacy/compatibility boundaries preserved. Subsequent public artifact/install/tag/Pages/coverage verification still required."
+  },
+  "limits": [
+    "Reviewer did not rerun application tests locally.",
+    "Badge HTTP/render and PyPI status based on recorded evidence; recheck unused version.",
+    "No workplace/credential/exact-server/native-iterations validation.",
+    "Existing live-browser certificate/PyPI challenge limits remain; Windows/macOS not certified.",
+    "Candidate acceptance is not proof of publication; material changes require renewed review."
+  ]
+}
