@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-10-18T10:39:22.694893+00:00",
+  "revision": "a47993d2b485251535ca3fc1fab902ac591524d8",
+  "checks": [
+    {
+      "argv": [
+        "/tmp/xray-harness-env/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "tests/test_release_docs.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-RELEASE-005-ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "argv": [
+        "/tmp/xray-harness-env/bin/python",
+        "-m",
+        "mypy"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-RELEASE-005-mypy.log",
+      "sha256": "02a88e044e14b966c27f6c162bdcba751601b93ba0a212fa2151bd889d9688ef"
+    }
+  ],
+  "scope": "Changed-file Ruff and existing mypy; no full-repository Ruff claim."
+}

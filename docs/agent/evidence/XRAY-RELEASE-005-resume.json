@@ -1,0 +1,50 @@
+{
+  "verified_utc": "2026-10-18T10:39:12.327843+00:00",
+  "head": "a47993d2b485251535ca3fc1fab902ac591524d8",
+  "source_main": "45ae374410b14992c741788168036dd786e6b52a",
+  "published_version": "0.1.8",
+  "candidate": "0.1.9",
+  "candidate_exists": false,
+  "candidate_tag": "",
+  "open_prs": [
+    {
+      "headRefOid": "a47993d2b485251535ca3fc1fab902ac591524d8",
+      "isDraft": true,
+      "number": 28
+    }
+  ],
+  "open_issues": [],
+  "package_publisher_changes": "Verified byte-for-byte version-literal replacement only; runtime and other preservation hashes checked by preflight.",
+  "status": {
+    "verified_utc": "2026-10-17T05:43:54.743386+00:00",
+    "pypi_source": "https://pypi.org/pypi/pytest-jira-xray-plus/json",
+    "published_version": "0.1.8",
+    "tested_python": [
+      "3.12",
+      "3.13",
+      "3.14"
+    ],
+    "license": "Apache-2.0",
+    "scope": "Metadata snapshots; refresh after each release. Workflow badges separately show live main CI."
+  },
+  "coverage": {
+    "commit": "074c09a79e5578d89138c4207556b99005e08608",
+    "working_tree_dirty": false,
+    "measured_utc": "2026-10-17T05:39:26.889296+00:00",
+    "python": "3.12.14",
+    "command": "/tmp/xray-harness-env/bin/python tools/measure_coverage.py",
+    "measurement_script_sha256": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
+    "measurement_config_sha256": "23af419dcfedd914478a2f056f55eb63096bbd4f95d6e5ef8eaa1d5d4e267ca2",
+    "workflow_run": "local measurement",
+    "scope": "src/pytest_xray/**/*.py; full pytest suite including Python subprocesses",
+    "tool": "coverage.py 7.16.2",
+    "source_sha256": "c2e1bb35370d16e9a84fbe5613ffd62cb10f49f0d848387af935cef2aec9482f",
+    "files": 13,
+    "covered_lines": 753,
+    "num_statements": 770,
+    "covered_branches": 222,
+    "num_branches": 244,
+    "line_percent": 97.8,
+    "branch_percent": 91.0
+  }
+}

@@ -16,6 +16,11 @@ def test_generated_changelog_contains_current_and_unreleased_notes(tmp_path):
     subprocess.run([sys.executable, str(tmp_path / 'tools/prepare_docs_site.py')], check=True, capture_output=True)
     rendered = (tmp_path / '.docs-source/project/changelog.md').read_text()
     assert '## Unreleased' in rendered and 'explicit permission confirmation' in rendered
+    assert '## 0.1.9 [2026-10-17]' in rendered and 'Omit xdist worker-header-only comments' in rendered
+    assert 'Preserve opt-in reports when integer parameters' in rendered
+    assert 'Create missing parent folders' in rendered
+    assert 'Avoid repeated linear Test-key scans' in rendered
+    assert 'Reject empty or whitespace-only upload base URLs' in rendered
     assert '## 0.1.8 [2026-10-17]' in rendered and 'Report expected path expansion' in rendered
     assert '## 0.1.7 [2026-10-17]' in rendered and 'Classify disallowed duplicate Test keys' in rendered
     assert '## 0.1.6 [2026-10-16]' in rendered and 'shared README badges' in rendered
@@ -24,6 +29,7 @@ def test_generated_changelog_contains_current_and_unreleased_notes(tmp_path):
     assert '0.9.4 [2026-04-24]' not in rendered
     assert (
         rendered.index('## Unreleased')
+        < rendered.index('## 0.1.9')
         < rendered.index('## 0.1.8')
         < rendered.index('## 0.1.7')
         < rendered.index('## 0.1.6')

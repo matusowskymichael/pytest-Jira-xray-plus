@@ -57,11 +57,11 @@ contract. Generic is now confirmed as the target Test type; named Generic
 iteration behavior remains unverified. No live request was made; no native serializer was added.
 
 
-## Unreleased worker-header comment correction (2026-10-17)
+## 0.1.9 worker-header comment correction (2026-10-17)
 
-The candidate omits diagnostic rendering only when pytest's `longrepr` is `None`.
+Version 0.1.9 omits diagnostic rendering only when pytest's `longrepr` is `None`.
 Pytest's [report renderer](https://docs.pytest.org/en/stable/_modules/_pytest/reports.html)
-can otherwise emit a worker header without diagnostic content. Published 0.1.8
+can otherwise emit a worker header without diagnostic content. Version 0.1.8
 can repeat these headers until an all-passing aggregate exceeds the client comment
 limit. Non-`None` representations (including custom passing text) retain existing
 rendering; real failures, skips and retries are not filtered. Captures and parameter

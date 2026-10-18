@@ -22,9 +22,10 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.8 error-handling improvements**, retaining Generic as the target
-Xray Test type. The examples also work with 0.1.2 and 0.1.3; the multi-key attachment
-isolation fix requires 0.1.4 or later. Installation selects the latest published
+This guide covers **0.1.9 reporting reliability improvements**, retaining Generic
+as the target Xray Test type. Core examples also work with 0.1.2 and 0.1.3; the
+nested local-report example requires 0.1.9, and multi-key attachment isolation
+requires 0.1.4 or later. Installation selects the latest published
 version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
 for availability.
 Offline previews still require neither network access nor credentials.
@@ -376,18 +377,18 @@ example has no custom fixtures, but pytest still reports these phases.
 `cases.json` is replaced on each run. Use a different filename to keep an older
 run. This file is the plugin's own format; **it is not an Xray import file**.
 
-**Unreleased candidate:** local case reports create missing parent folders at
-write time, like Xray previews and full archives. For a clean CI workspace, the
-candidate can run this without a preceding directory-creation command:
+**Version 0.1.9:** local case reports create missing parent folders at
+write time, like Xray previews and full archives. For a clean CI workspace,
+version 0.1.9 can run this without a preceding directory-creation command:
 
 <!-- run:nested -->
 ```sh
 python -m pytest -q test_example.py --xray-case-report=artifacts/reports/cases.json
 ```
 
-Expected with the candidate: `2 passed`, with both cases saved in
-`artifacts/reports/cases.json`. Published **0.1.8 requires these parent folders to
-exist first**; the command above exercises the unreleased improvement. Directory
+Expected with 0.1.9: `2 passed`, with both cases saved in
+`artifacts/reports/cases.json`. Version **0.1.8 requires these parent folders to
+exist first**; the command above requires 0.1.9 for automatic folder creation. Directory
 creation uses normal filesystem permissions. A file blocking the parent path or
 a denied write still produces a warning and exit 3. New folders may remain if a
 later write fails; they are not removed automatically. `--collect-only` creates
@@ -532,12 +533,12 @@ values get a placeholder instead of invoking arbitrary object serialization.
 Indirect fixtures record their input parameters, not the fixture's return value.
 Use step 6 to choose values or identity aliases for the local report.
 
-**Unreleased candidate:** when Python refuses to format an integer in decimal at
+**Version 0.1.9:** when Python refuses to format an integer in decimal at
 value-capture time, that value becomes
 `<unsupported value: use a descriptive pytest id>`. This applies to both
 `--xray-case-values` and `--xray-parameter-details`; other cases and representable
 integers retain their normal data. Python's conversion limit is unchanged.
-Published 0.1.8 can lose the local report or stop with an internal error for such
+Version 0.1.8 can lose the local report or stop with an internal error for such
 inputs (for example `10**5000` under the default limit).
 
 Give unusually large inputs explicit IDs, such as
@@ -572,10 +573,10 @@ see the status table below. The main process writes one report. Results can arri
 in a different order. With `--dist=each`, the same node observed on two workers
 is retained as two worker attempts.
 
-**Unreleased candidate:** ordinary passing Xray results with no diagnostic text
-no longer add xdist worker headers to comments. Published 0.1.8 can repeat these
+**Version 0.1.9:** ordinary passing Xray results with no diagnostic text
+no longer add xdist worker headers to comments. Version 0.1.8 can repeat these
 headers for every passing case; a large group may exceed the comment limit even
-with captures and parameter details disabled. The candidate preserves actual
+with captures and parameter details disabled. Version 0.1.9 preserves actual
 failure, skip, retry and custom diagnostic text, plus explicitly requested
 captures and parameter details. Such text can still contain worker paths or
 sensitive data: this change is not a general redaction guarantee. Local case
@@ -614,9 +615,9 @@ requests; they do not prove credentials are accepted by Jira/Xray. Version
 0.1.7 reports these same setup failures as `INTERNALERROR` with exit code 3.
 Offline previews, local-only reports and `--collect-only` do not require credentials.
 
-**Unreleased candidate:** an empty or whitespace-only `XRAY_API_BASE_URL` in
+**Version 0.1.9:** an empty or whitespace-only `XRAY_API_BASE_URL` in
 upload mode is also a setup error (exit 4), before collection or fixtures. Set a
-nonblank base URL in the same shell/CI job. Published 0.1.8 instead runs tests and
+nonblank base URL in the same shell/CI job. Version 0.1.8 instead runs tests and
 then fails while preparing the upload (exit 3). This guard does not validate URL
 format, server reachability or credentials, and does not trim nonblank values.
 Local reports, offline previews and `--collect-only` still need no base URL.
@@ -644,7 +645,7 @@ The table describes the combinations required to make each option useful.
 
 | Option | Effect |
 | --- | --- |
-| `--xray-case-report=PATH` | Write observed cases locally. Candidate creates missing parents; 0.1.8 requires them to exist. Audit/debug output; does not upload. |
+| `--xray-case-report=PATH` | Write observed cases locally. 0.1.9 creates missing parents; 0.1.8 requires them to exist. Audit/debug output; does not upload. |
 | `--xray-case-values` | Include scalar input values in the case report; requires its path. |
 | `--xray-case-redact-identities` | Replace local names/IDs with per-run aliases; requires the case report and excludes case values. |
 | `--jira-xray` | Enable export of marked tests. Uploads unless `--xraypath` is set. |
@@ -721,12 +722,12 @@ parameter metadata or Jira keys. Native rows and datasets are unsupported
 for the confirmed Generic target.
 
 
-**Unreleased performance improvement:** large suites with many distinct Jira Test
+**Aggregation performance (0.1.9):** large suites with many distinct Jira Test
 keys avoid repeated scans of earlier keys while results are grouped. The plugin
 keeps an extra lookup entry per unique key. First-observed output order, status
 precedence, comments, defects and attachment occurrences are unchanged, including
 xdist and retries. This reduces key-lookup work; it does not speed up test bodies
-or bound comment/attachment memory. The published 0.1.8 package still uses scans.
+or bound comment/attachment memory. Version 0.1.8 still uses scans.
 
 ## Troubleshooting and migration
 
@@ -796,16 +797,16 @@ invalid values in export payloads.
 | What happened | What to do |
 | --- | --- |
 | `unrecognized arguments` | Activate the intended environment and use `python -m pytest`. Check `python -m pip show pytest-jira-xray-plus`. If plugin autoload is disabled, add `-p pytest_xray.plugin`. |
-| Integer string conversion limit error | Use explicit descriptive pytest IDs. The unreleased candidate substitutes the unsupported-value placeholder when opt-in value capture cannot format an integer. It does not change Python's limit or fix earlier collection errors. |
-| Passing parallel tests hit the comment limit | Published 0.1.8 may fill comments with worker headers alone. The unreleased candidate omits headers when diagnostic text is absent. Real diagnostics and opted-in details still count toward the configured limit; use the full-report archive when needed. |
-| Large suites spend time grouping many Test keys | The unreleased candidate avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
+| Integer string conversion limit error | Use explicit descriptive pytest IDs. Version 0.1.9 substitutes the unsupported-value placeholder when opt-in value capture cannot format an integer. It does not change Python's limit or fix earlier collection errors. |
+| Passing parallel tests hit the comment limit | Version 0.1.8 may fill comments with worker headers alone. Version 0.1.9 omits headers when diagnostic text is absent. Real diagnostics and opted-in details still count toward the configured limit; use the full-report archive when needed. |
+| Large suites spend time grouping many Test keys | Version 0.1.9 avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
 | `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
-| Cannot write a report | Check permissions and distinct paths. With published 0.1.8, create the case-report parent folder. The candidate creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
+| Cannot write a report | Check permissions and distinct paths. With version 0.1.8, create the case-report parent folder. Version 0.1.9 creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |
-| Blank upload base URL (unreleased) | Set a nonblank `XRAY_API_BASE_URL`. The candidate stops before tests with exit 4; 0.1.8 fails later at upload with exit 3. Nonblank URL format and server reachability are not preflighted. |
+| Blank upload base URL (0.1.9) | Set a nonblank `XRAY_API_BASE_URL`. Version 0.1.9 stops before tests with exit 4; 0.1.8 fails later at upload with exit 3. Nonblank URL format and server reachability are not preflighted. |
 | Missing authentication variable | Set the named variables for your selected auth method in the same shell/CI job. Version 0.1.8 uses exit 4 instead of the internal-error exit 3 in 0.1.7. Offline file exports do not need credentials. |
 | HTTP 401/403 | Check existing credentials and permissions with the sandbox administrator. Do not paste secrets into issue reports. |
 | HTTP 404 or redirect | Check the base URL, context path and Server/DC versus Cloud mode. |
@@ -813,29 +814,29 @@ invalid values in export payloads.
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
 
-**Unreleased parallel-comment migration:** no new flag is required. Reports
+**Parallel-comment migration (0.1.9):** no new flag is required. Reports
 without diagnostic text no longer create worker-header-only comments. Custom
 non-`None` representations, real diagnostics and opt-in captures/details remain;
 comment limits and archival requirements are unchanged. Inspect real diagnostic
 content before sharing it.
 
-**Unreleased integer-value migration:** oversized integers rejected by Python
+**Integer-value migration (0.1.9):** oversized integers rejected by Python
 during opt-in value capture now use the existing placeholder. Valid integers
 remain numbers; no privacy flag or interpreter setting changes. Use explicit
 pytest IDs for these inputs.
 
-**Unreleased directory migration:** local reports now create missing parents
+**Directory migration (0.1.9):** local reports now create missing parents
 when writing. No extra option is needed. Existing files still require an atomic
 replacement to succeed; check exit status before using the report. Permission
 errors remain errors, and newly created folders may remain after later failure.
 
-**Unreleased aggregation migration:** no flags or output-schema changes. The
+**Aggregation migration (0.1.9):** no flags or output-schema changes. The
 public `TestExecution.tests` list and `find_test_case` behavior are unchanged.
 Customize exported results with `pytest_xray_results`; the plugin owns its live
 accumulators while reports arrive. Direct mutation of internal accumulation is
 not a supported hook contract.
 
-**Unreleased migration from 0.1.8:** upload jobs with an empty/whitespace base
+**Base-URL migration from 0.1.8 to 0.1.9:** upload jobs with an empty/whitespace base
 URL now stop before collection with exit 4. Fix the environment setting; do not
 rely on fixtures running before this configuration error. Nonblank inputs and
 offline/collect-only behavior are unchanged.
