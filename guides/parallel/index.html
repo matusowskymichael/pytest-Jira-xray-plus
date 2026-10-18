@@ -1286,6 +1286,14 @@ test, pytest may exit 0 while this reporter still records an earlier failure;
 see the status table below. The main process writes one report. Results can arrive
 in a different order. With <code>--dist=each</code>, the same node observed on two workers
 is retained as two worker attempts.</p>
+<p><strong>Version 0.1.9:</strong> ordinary passing Xray results with no diagnostic text
+no longer add xdist worker headers to comments. Version 0.1.8 can repeat these
+headers for every passing case; a large group may exceed the comment limit even
+with captures and parameter details disabled. Version 0.1.9 preserves actual
+failure, skip, retry and custom diagnostic text, plus explicitly requested
+captures and parameter details. Such text can still contain worker paths or
+sensitive data: this change is not a general redaction guarantee. Local case
+reports and configured comment limits are unchanged.</p>
 
 
 

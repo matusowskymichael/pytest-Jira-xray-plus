@@ -1423,6 +1423,12 @@ with <code>pytest_outcome: rerun</code>, rather than replacing it with the event
 <p>Parameter values are <strong>absent by default</strong>. <code>--xray-case-values</code> separately opts
 into scalar values: string, boolean, integer, finite float and null. Other
 values get a placeholder; objects are not repr'd and containers are not traversed.
+Version 0.1.9 also uses that placeholder for exact builtin integers
+whose decimal conversion raises <code>ValueError</code> under Python's active digit limit
+at capture time. Representable integers stay integers; the plugin never changes
+the limit. Version 0.1.8 can instead fail to write the report. Use descriptive
+explicit pytest IDs to avoid formatting huge values during collection. Later
+interpreter-policy changes or custom-hook data are outside this capture guard.
 No assertion text, traceback, capture, skip reason or xfail reason is stored.
 However, pytest node IDs/parameter IDs may themselves contain values; choose
 safe explicit IDs. This report is not a redaction guarantee. The older
@@ -1462,8 +1468,12 @@ Two-worker and local failed-then-passed reruns exercise this mode in tests.</p>
 </ul>
 <p>Cases are sorted by node ID. Attempts/phases retain arrival order. With xdist,
 arrival order across workers may vary. Output uses a temporary file and atomic
-replacement; an unwritable destination is reported and exits nonzero. Parent
-directories must exist. A previous complete file can remain after a write
+replacement; an unwritable destination is reported and exits nonzero. Version
+0.1.8 requires parent directories to exist. Version 0.1.9 creates
+missing parents after successful serialization, on the controller at write time.
+Normal permissions still apply; a file blocking a parent path is not replaced.
+New directories may remain after a later write failure. Collect-only and workers
+do not create report directories. A previous complete file can remain after a write
 failure: callers must check exit status. Reusing a path replaces the previous
 session report, not appends to it; choose separate paths for separate runs.</p>
 <h2 id="exercised-scope-and-limits">Exercised scope and limits<a class="headerlink" href="#exercised-scope-and-limits" title="Permanent link">&para;</a></h2>

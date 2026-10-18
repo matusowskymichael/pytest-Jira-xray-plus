@@ -1335,6 +1335,18 @@ invalid values in export payloads.</p>
 <td>Activate the intended environment and use <code>python -m pytest</code>. Check <code>python -m pip show pytest-jira-xray-plus</code>. If plugin autoload is disabled, add <code>-p pytest_xray.plugin</code>.</td>
 </tr>
 <tr>
+<td>Integer string conversion limit error</td>
+<td>Use explicit descriptive pytest IDs. Version 0.1.9 substitutes the unsupported-value placeholder when opt-in value capture cannot format an integer. It does not change Python's limit or fix earlier collection errors.</td>
+</tr>
+<tr>
+<td>Passing parallel tests hit the comment limit</td>
+<td>Version 0.1.8 may fill comments with worker headers alone. Version 0.1.9 omits headers when diagnostic text is absent. Real diagnostics and opted-in details still count toward the configured limit; use the full-report archive when needed.</td>
+</tr>
+<tr>
+<td>Large suites spend time grouping many Test keys</td>
+<td>Version 0.1.9 avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately.</td>
+</tr>
+<tr>
 <td>Duplicate plugin/import errors</td>
 <td>Create a fresh environment with this fork only, not upstream <code>pytest-jira-xray</code>.</td>
 </tr>
@@ -1352,11 +1364,15 @@ invalid values in export payloads.</p>
 </tr>
 <tr>
 <td>Cannot write a report</td>
-<td>Check permissions and distinct paths. Create the case-report parent folder. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow.</td>
+<td>Check permissions and distinct paths. With version 0.1.8, create the case-report parent folder. Version 0.1.9 creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow.</td>
 </tr>
 <tr>
 <td>Comment exceeds the limit</td>
 <td>Add <code>--xray-full-report=PATH</code> to retain full text before truncation; inspect the resulting export.</td>
+</tr>
+<tr>
+<td>Blank upload base URL (0.1.9)</td>
+<td>Set a nonblank <code>XRAY_API_BASE_URL</code>. Version 0.1.9 stops before tests with exit 4; 0.1.8 fails later at upload with exit 3. Nonblank URL format and server reachability are not preflighted.</td>
 </tr>
 <tr>
 <td>Missing authentication variable</td>
@@ -1384,6 +1400,28 @@ invalid values in export payloads.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>Parallel-comment migration (0.1.9):</strong> no new flag is required. Reports
+without diagnostic text no longer create worker-header-only comments. Custom
+non-<code>None</code> representations, real diagnostics and opt-in captures/details remain;
+comment limits and archival requirements are unchanged. Inspect real diagnostic
+content before sharing it.</p>
+<p><strong>Integer-value migration (0.1.9):</strong> oversized integers rejected by Python
+during opt-in value capture now use the existing placeholder. Valid integers
+remain numbers; no privacy flag or interpreter setting changes. Use explicit
+pytest IDs for these inputs.</p>
+<p><strong>Directory migration (0.1.9):</strong> local reports now create missing parents
+when writing. No extra option is needed. Existing files still require an atomic
+replacement to succeed; check exit status before using the report. Permission
+errors remain errors, and newly created folders may remain after later failure.</p>
+<p><strong>Aggregation migration (0.1.9):</strong> no flags or output-schema changes. The
+public <code>TestExecution.tests</code> list and <code>find_test_case</code> behavior are unchanged.
+Customize exported results with <code>pytest_xray_results</code>; the plugin owns its live
+accumulators while reports arrive. Direct mutation of internal accumulation is
+not a supported hook contract.</p>
+<p><strong>Base-URL migration from 0.1.8 to 0.1.9:</strong> upload jobs with an empty/whitespace base
+URL now stop before collection with exit 4. Fix the environment setting; do not
+rely on fixtures running before this configuration error. Nonblank inputs and
+offline/collect-only behavior are unchanged.</p>
 <p><strong>From 0.1.7 to 0.1.8:</strong> update any CI checks that expect
 exit 3 for missing authentication variables or nonexistent CA files to expect
 exit 4. Post-run HTTP/upload failures keep their existing exit behavior. The

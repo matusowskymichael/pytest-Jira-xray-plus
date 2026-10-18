@@ -1354,6 +1354,12 @@ case identity across worker crashes/restarts, cross-session aggregation and
 per-iteration evidence are outside this release. Crashed-worker reports can lack
 parameter metadata or Jira keys. Native rows and datasets are unsupported
 for the confirmed Generic target.</p>
+<p><strong>Aggregation performance (0.1.9):</strong> large suites with many distinct Jira Test
+keys avoid repeated scans of earlier keys while results are grouped. The plugin
+keeps an extra lookup entry per unique key. First-observed output order, status
+precedence, comments, defects and attachment occurrences are unchanged, including
+xdist and retries. This reduces key-lookup work; it does not speed up test bodies
+or bound comment/attachment memory. Version 0.1.8 still uses scans.</p>
 
 
 

@@ -1208,6 +1208,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#019-2026-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.9 [2026-10-17]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#018-2026-10-17" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1438,6 +1449,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#019-2026-10-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.9 [2026-10-17]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#018-2026-10-17" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1581,7 +1603,26 @@
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <ul>
-<li>No unreleased changes.</li>
+<li>No additional changes queued.</li>
+</ul>
+<h2 id="019-2026-10-17">0.1.9 [2026-10-17]<a class="headerlink" href="#019-2026-10-17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Omit xdist worker-header-only comments when a report has no diagnostic
+  representation, preventing otherwise passing grouped exports from exhausting
+  comment limits. Preserve actual/custom diagnostics, privacy opt-ins and limits.</li>
+<li>Preserve opt-in reports when integer parameters exceed Python's decimal
+  conversion limit at capture time: use the existing unsupported-value
+  placeholder instead of losing the case report or aborting parameter comments.
+  Keep valid integers, privacy defaults and interpreter settings unchanged.</li>
+<li>Create missing parent folders for requested local case reports at write time,
+  matching preview/archive exports. Preserve genuine filesystem errors, atomic
+  replacement and prior files; newly created folders can remain after failure.</li>
+<li>Avoid repeated linear Test-key scans during plugin result aggregation. Preserve
+  first-observed ordering, grouping contents/statuses, public model APIs and final
+  payload hooks, at the cost of one index entry per unique Test key.</li>
+<li>Reject empty or whitespace-only upload base URLs as configuration usage errors
+  (exit 4) before tests run, instead of failing later while preparing an upload
+  (exit 3). Preserve nonblank values and credential-free offline/collect-only modes.</li>
 </ul>
 <h2 id="018-2026-10-17">0.1.8 [2026-10-17]<a class="headerlink" href="#018-2026-10-17" title="Permanent link">&para;</a></h2>
 <ul>

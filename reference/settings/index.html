@@ -1310,6 +1310,12 @@ named setting and rerun. These checks happen before test collection or HTTP
 requests; they do not prove credentials are accepted by Jira/Xray. Version
 0.1.7 reports these same setup failures as <code>INTERNALERROR</code> with exit code 3.
 Offline previews, local-only reports and <code>--collect-only</code> do not require credentials.</p>
+<p><strong>Version 0.1.9:</strong> an empty or whitespace-only <code>XRAY_API_BASE_URL</code> in
+upload mode is also a setup error (exit 4), before collection or fixtures. Set a
+nonblank base URL in the same shell/CI job. Version 0.1.8 instead runs tests and
+then fails while preparing the upload (exit 3). This guard does not validate URL
+format, server reachability or credentials, and does not trim nonblank values.
+Local reports, offline previews and <code>--collect-only</code> still need no base URL.</p>
 <p>Optional execution metadata:</p>
 <table>
 <thead>
