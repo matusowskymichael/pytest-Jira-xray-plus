@@ -6,7 +6,7 @@
       "title": "Correct built-site index-suffixed self-links",
       "source": "docs/agent/task-docs-self-links.md",
       "source_sha256": "475246a88dcefdd00032ff9f9896b4fbe3121ee96d1e4cd058cee1f0d36be3fd",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/29",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
