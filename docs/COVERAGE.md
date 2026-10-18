@@ -100,3 +100,17 @@ ignore TLS/security errors; use a trusted user browser for that final visual che
 Sources: [Coverage.py subprocess measurement](https://coverage.readthedocs.io/en/latest/subprocess.html)
 and [GitHub workflow status badges](https://docs.github.com/en/actions/how-tos/monitor-workflows/add-a-status-badge),
 checked 2026-10-16.
+
+
+## Checking a site that includes coverage pages
+
+After copying the generated coverage report into `site/coverage`, run the existing
+`python tools/check_docs_links.py` command against the combined site. The
+unreleased repository checker fix preserves filenames such as `class_index.html`
+and `function_index.html` when checking empty or fragment-only self-links. The
+0.1.9 checkout can falsely report those links as missing because it treats any
+filename ending in `index.html` as a directory index. Only the exact filename
+`index.html` should use the directory URL. Genuine missing files/fragments and
+the required search index remain failures. This is local static validation, not
+a browser check or verification of remote links; do not remove valid coverage
+links just to silence the old diagnostic.

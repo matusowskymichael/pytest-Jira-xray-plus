@@ -1,0 +1,6 @@
+{
+  "original_checker_result": "Four missing empty-link errors in coverage class_index.html and function_index.html",
+  "cause": "The checker strips index.html from every filename ending with that text, producing class_ and function_ URLs for empty self-links.",
+  "diagnostic_change": "Only canonicalize a basename exactly equal to index.html. In-memory validation only; repository tool unchanged.",
+  "result": "PASS: 41 HTML pages, 2911 internal links/fragments/assets, search index"
+}

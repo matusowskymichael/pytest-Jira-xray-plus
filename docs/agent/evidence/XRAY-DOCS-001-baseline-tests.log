@@ -1,0 +1,422 @@
+..FFFFF..FFFFF..FFFFF..FFF.......                                        [100%]
+=================================== FAILURES ===================================
+________ test_self_links_resolve_to_the_actual_page[-class_index.html] _________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the2')
+name = 'class_index.html', link = ''
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the2/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: class_index.html: missing 
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...le>\n    assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: class_index.html: missing \n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[-coverage/html/function_index.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the3')
+name = 'coverage/html/function_index.html', link = ''
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the3/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/function_index.html: missing 
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...ot errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/function_index.html: missing \n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[-coverage/html/class_index.html] __
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the4')
+name = 'coverage/html/class_index.html', link = ''
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the4/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/class_index.html: missing 
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...t not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/class_index.html: missing \n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_______ test_self_links_resolve_to_the_actual_page[-guide/myindex.html] ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the5')
+name = 'guide/myindex.html', link = ''
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the5/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: guide/myindex.html: missing 
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...>\n    assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: guide/myindex.html: missing \n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_____ test_self_links_resolve_to_the_actual_page[-guide/class index.html] ______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the6')
+name = 'guide/class index.html', link = ''
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the6/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: guide/class index.html: missing 
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...   assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: guide/class index.html: missing \n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+______ test_self_links_resolve_to_the_actual_page[#here-class_index.html] ______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the9')
+name = 'class_index.html', link = '#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the9/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: class_index.html: missing #here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...    assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: class_index.html: missing #here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[#here-coverage/html/function_index.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the10')
+name = 'coverage/html/function_index.html', link = '#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the10/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/function_index.html: missing #here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...rors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/function_index.html: missing #here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[#here-coverage/html/class_index.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the11')
+name = 'coverage/html/class_index.html', link = '#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the11/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/class_index.html: missing #here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t... errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/class_index.html: missing #here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_____ test_self_links_resolve_to_the_actual_page[#here-guide/myindex.html] _____
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the12')
+name = 'guide/myindex.html', link = '#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the12/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: guide/myindex.html: missing #here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...  assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: guide/myindex.html: missing #here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+___ test_self_links_resolve_to_the_actual_page[#here-guide/class index.html] ___
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the13')
+name = 'guide/class index.html', link = '#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the13/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: guide/class index.html: missing #here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...sert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: guide/class index.html: missing #here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[?view=all#here-class_index.html] __
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the16')
+name = 'class_index.html', link = '?view=all#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the16/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: class_index.html: missing ?view=all#here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...t not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: class_index.html: missing ?view=all#here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[?view=all#here-coverage/html/function_index.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the17')
+name = 'coverage/html/function_index.html', link = '?view=all#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the17/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/function_index.html: missing ?view=all#here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/function_index.html: missing ?view=all#here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[?view=all#here-coverage/html/class_index.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the18')
+name = 'coverage/html/class_index.html', link = '?view=all#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the18/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/class_index.html: missing ?view=all#here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...\'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/class_index.html: missing ?view=all#here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[?view=all#here-guide/myindex.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the19')
+name = 'guide/myindex.html', link = '?view=all#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the19/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: guide/myindex.html: missing ?view=all#here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: guide/myindex.html: missing ?view=all#here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+_ test_self_links_resolve_to_the_actual_page[?view=all#here-guide/class index.html] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the20')
+name = 'guide/class index.html', link = '?view=all#here'
+
+    @pytest.mark.parametrize('name', [
+        'index.html', 'guide/index.html', 'class_index.html', 'coverage/html/function_index.html',
+        'coverage/html/class_index.html', 'guide/myindex.html', 'guide/class index.html',
+    ])
+    @pytest.mark.parametrize('link', ['', '#here', '?view=all#here'])
+    def test_self_links_resolve_to_the_actual_page(tmp_path, name, link):
+        result = check_site(tmp_path, {name: f'<h1 id="here">Page</h1><a href="{link}">Self</a>'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_the20/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: guide/class index.html: missing ?view=all#here
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_self_links_resolve_to_t...errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: guide/class index.html: missing ?view=all#here\n').returncode
+
+tests/test_docs_links.py:37: AssertionError
+________ test_missing_self_fragment_is_still_rejected[class_index.html] ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_is_2')
+name = 'class_index.html'
+
+    @pytest.mark.parametrize('name', ['index.html', 'guide/index.html', 'class_index.html', 'coverage/function_index.html'])
+    def test_missing_self_fragment_is_still_rejected(tmp_path, name):
+        result = check_site(tmp_path, {name: '<a href="#missing">Broken</a>'})
+        assert result.returncode != 0
+>       assert f'{name}: missing anchor #missing' in result.stderr
+E       assert 'class_index.html: missing anchor #missing' in 'Traceback (most recent call last):\n  File "/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_is_2/tools/check...  assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: class_index.html: missing #missing\n'
+E        +  where 'Traceback (most recent call last):\n  File "/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_is_2/tools/check...  assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: class_index.html: missing #missing\n' = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_i... assert not errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: class_index.html: missing #missing\n').stderr
+
+tests/test_docs_links.py:45: AssertionError
+__ test_missing_self_fragment_is_still_rejected[coverage/function_index.html] __
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_is_3')
+name = 'coverage/function_index.html'
+
+    @pytest.mark.parametrize('name', ['index.html', 'guide/index.html', 'class_index.html', 'coverage/function_index.html'])
+    def test_missing_self_fragment_is_still_rejected(tmp_path, name):
+        result = check_site(tmp_path, {name: '<a href="#missing">Broken</a>'})
+        assert result.returncode != 0
+>       assert f'{name}: missing anchor #missing' in result.stderr
+E       assert 'coverage/function_index.html: missing anchor #missing' in 'Traceback (most recent call last):\n  File "/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_is_3/tools/check... errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/function_index.html: missing #missing\n'
+E        +  where 'Traceback (most recent call last):\n  File "/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_is_3/tools/check... errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/function_index.html: missing #missing\n' = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_missing_self_fragment_i...errors, \'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/function_index.html: missing #missing\n').stderr
+
+tests/test_docs_links.py:45: AssertionError
+____________ test_relative_files_assets_encoded_paths_and_fragments ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_relative_files_assets_enc0')
+
+    def test_relative_files_assets_encoded_paths_and_fragments(tmp_path):
+        result = check_site(tmp_path, {
+            'index.html': '<a href="coverage/html/class_index.html#here">Classes</a>',
+            'coverage/html/class_index.html': (
+                '<h1 id="here">Classes</h1><a href="function_index.html#detail">Functions</a>'
+                '<a href="../../guide/">Guide</a><a href="class%20index.html#hello%20world">Encoded</a>'
+                '<img src="../assets/icon.svg"><script src="../assets/app.js"></script>'
+            ),
+            'coverage/html/function_index.html': '<h1 id="detail">Functions</h1><a href="class_index.html#here">Classes</a>',
+            'coverage/html/class index.html': '<h1 id="hello world">Encoded anchor</h1><a href="#hello%20world">Self</a>',
+            'guide/index.html': f'<a href="{BASE}coverage/html/class_index.html?view=all#here">Classes</a>',
+        }, assets={'coverage/assets/icon.svg': '<svg/>', 'coverage/assets/app.js': 'void 0;'})
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/tmp/pytest-of-agent/pytest-2/test_relative_files_assets_enc0/tools/check_docs_links.py", line 45, in <module>
+E             assert not errors, '\n'.join(errors)
+E                    ^^^^^^^^^^
+E         AssertionError: coverage/html/class index.html: missing #hello%20world
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/xray-harness-env/bin/python', '/tmp/pytest-of-agent/pytest-2/test_relative_files_assets_e...\'\\n\'.join(errors)\n           ^^^^^^^^^^\nAssertionError: coverage/html/class index.html: missing #hello%20world\n').returncode
+
+tests/test_docs_links.py:60: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[-class_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[-coverage/html/function_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[-coverage/html/class_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[-guide/myindex.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[-guide/class index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[#here-class_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[#here-coverage/html/function_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[#here-coverage/html/class_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[#here-guide/myindex.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[#here-guide/class index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[?view=all#here-class_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[?view=all#here-coverage/html/function_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[?view=all#here-coverage/html/class_index.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[?view=all#here-guide/myindex.html]
+FAILED tests/test_docs_links.py::test_self_links_resolve_to_the_actual_page[?view=all#here-guide/class index.html]
+FAILED tests/test_docs_links.py::test_missing_self_fragment_is_still_rejected[class_index.html]
+FAILED tests/test_docs_links.py::test_missing_self_fragment_is_still_rejected[coverage/function_index.html]
+FAILED tests/test_docs_links.py::test_relative_files_assets_encoded_paths_and_fragments
+18 failed, 15 passed in 1.05s

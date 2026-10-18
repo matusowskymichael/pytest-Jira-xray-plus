@@ -964,3 +964,11 @@ repository tools are outside this denominator. Python badges describe the tested
 
 Version, tested Python and licence images are first-party [metadata snapshots](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/gh-pages/status/metadata.json), refreshed after releases.
 The test and documentation images show live main-branch workflow status.
+
+
+For site maintainers, an **unreleased repository checker fix** removes false
+missing-file alarms on self-links in coverage pages such as `class_index.html`.
+Actual broken links still fail validation. This does not change package
+installation or pytest reporting; see the
+[site-maintenance guide](https://matusowskymichael.github.io/pytest-Jira-xray-plus/project/site/)
+for documentation build checks.

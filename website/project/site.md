@@ -18,6 +18,16 @@ python -m mkdocs serve
 
 Open the localhost URL printed by MkDocs. No credentials are needed. The static
 output is in `site/`; its links work under the repository's GitHub Pages path.
+**Unreleased repository checker fix:** a page such as `class_index.html` keeps
+its complete filename when resolving self-links. Only a file named exactly
+`index.html` represents a directory URL. The 0.1.9 source checkout can report
+false missing-file errors for coverage.py's `class_index.html` and
+`function_index.html`, even when those files and their self-links are valid.
+The fix allows checking a combined documentation/coverage site without removing
+those links. Actual missing files or fragments still fail the command; external
+URLs remain outside this local-file check. This does not change pytest reporting
+or require a new plugin option.
+
 The browser check in `tools/check_docs_browser.py` also exercises desktop/mobile
 navigation, local search, clipboard copying and theme switching against a local server:
 
