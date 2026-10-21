@@ -106,7 +106,7 @@
         "tests/test_docs_links.py": "d80140a0e7b645e1adb50eabe979b925bb8ccd905324bc44f1c2c73a304327aa",
         "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6"
       },
-      "state": "review_pending",
+      "state": "passing",
       "evidence": [
         "docs/agent/evidence/XRAY-DEPS-001-harness-ca0bb4ce6720.json",
         "docs/agent/evidence/XRAY-DEPS-001-tests-45ddad7be2fd.json",
@@ -114,7 +114,7 @@
         "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8.json",
         "docs/agent/evidence/XRAY-DEPS-001-docs-488072961317.json"
       ],
-      "review": null,
+      "review": "docs/agent/evidence/XRAY-DEPS-001-independent-review.json",
       "blocker": "",
       "next_action": "Verify frozen-head CI and obtain independent review of PR31 before acceptance/merge; PR30 stays paused"
     }

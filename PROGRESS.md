@@ -1,4 +1,4 @@
-# Dependabot review pending — PR30 remains paused
+# Dependabot independently accepted — PR30 remains paused
 
 - Fresh remote main is dd76138fc63be87a73f6e826d06a3ecc4a858393 (PR29 merged); no Dependabot config. Historical main ledger archived. Prior pre-merge progress was stale; PR29 is merged, not awaiting merge.
 - Isolated /workspace/pytest-xray-dependabot, branch chore/dependabot-friday. Original /workspace/pytest-jira-xray-plus remains on clean paused PR30 at 1c46a5556ab3701ec41c1ce8e4e58728793ef335; no pending work moved or changed.
@@ -7,3 +7,5 @@
 
 - PR31 source a2b0cf8e741428c6e2732c9ce81ff90aaaa09b42, digest 9a7a76e4f3a3cac81df508171aed4c17b3775a47a26e24d508fb291f554820ee. All five profiles passed, 525 tests and 19 subtests, all 15 installed guide commands/full metadata, 23 docs pages/1215 references and local browser checks. All 13 profile log hashes verified. YAML/inventory/preservation checks passed; harness Ruff, existing mypy (42 files) and diff whitespace checks passed. No new tests needed for this configuration-only change.
 - GitHub reports public standalone repository (not a fork), so fork-specific enablement is inapplicable. Config is not yet on main and no bot-run success is claimed. Next: frozen-head CI, independent review, acceptance, authorized merge, main CI/config and first-job inspection.
+
+- Parent independent reviewer review_dependabot_setup approved reviewed head 5b3cc5c6d4b0abd3e57f8ee17db94f10af2a883a with no findings at 2026-10-21T07:25:52+00:00; exact review scope and limitations recorded. All six reviewed-head workflows subsequently passed. Harness acceptance passed. Next: acceptance-head CI, merge under current maintainer authorization, verify main config/CI and observe first bot jobs.
