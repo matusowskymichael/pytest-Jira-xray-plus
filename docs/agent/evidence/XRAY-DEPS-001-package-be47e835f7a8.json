@@ -1,0 +1,77 @@
+{
+  "task": "XRAY-DEPS-001",
+  "profile": "package",
+  "digest": "9a7a76e4f3a3cac81df508171aed4c17b3775a47a26e24d508fb291f554820ee",
+  "revision": "a2b0cf8e741428c6e2732c9ce81ff90aaaa09b42",
+  "timestamp": "2026-10-21T07:20:17.449137+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/build_release.py",
+      ".harness/dist"
+    ],
+    [
+      "{python}",
+      "-m",
+      "twine",
+      "check",
+      ".harness/dist/pytest_jira_xray_plus-0.1.9-py3-none-any.whl",
+      ".harness/dist/pytest_jira_xray_plus-0.1.9.tar.gz"
+    ],
+    [
+      "{python}",
+      "-m",
+      "venv",
+      "--clear",
+      ".harness/installed"
+    ],
+    [
+      "{root}/.harness/installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      ".harness/dist/pytest_jira_xray_plus-0.1.9-py3-none-any.whl",
+      "pytest-xdist==3.8.0",
+      "pytest-rerunfailures==16.7"
+    ],
+    [
+      "{python}",
+      "tools/check_installed_usage.py",
+      "{root}/.harness/installed/bin/python",
+      ".harness/dist/pytest_jira_xray_plus-0.1.9-py3-none-any.whl"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.552,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8-0.log",
+      "log_sha256": "123024e9cc35944eb1c7a35ed4831e465faecde0eaac72d2128e9ca41e8d8813"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.243,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8-1.log",
+      "log_sha256": "1d2bdd243d5fc96c651a466a2bb88cb36ea86721bba6f86f7aa63ea26985f53a"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.129,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8-2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 4.128,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8-3.log",
+      "log_sha256": "4229f115fa554d0f92e403cdb3afdee9e2878de0d5a360e9012d0333585b0248"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 5.369,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8-4.log",
+      "log_sha256": "94f252ba82a13a093e4ddf56a1c1112274e61cd67e0a3cb7452abe51040ad0a7"
+    }
+  ],
+  "status": "passed"
+}

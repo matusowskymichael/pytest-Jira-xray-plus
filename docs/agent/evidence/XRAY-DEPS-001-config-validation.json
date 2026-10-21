@@ -1,0 +1,133 @@
+{
+  "task": "XRAY-DEPS-001",
+  "revision": "a2b0cf8e741428c6e2732c9ce81ff90aaaa09b42",
+  "digest": "9a7a76e4f3a3cac81df508171aed4c17b3775a47a26e24d508fb291f554820ee",
+  "timestamp": "2026-10-21T07:20:45.369233+00:00",
+  "configuration": {
+    "version": 2,
+    "updates": [
+      {
+        "package-ecosystem": "pip",
+        "directory": "/",
+        "schedule": {
+          "interval": "weekly",
+          "day": "friday",
+          "time": "09:00",
+          "timezone": "Asia/Dubai"
+        },
+        "open-pull-requests-limit": 5,
+        "groups": {
+          "python-minor-patch": {
+            "applies-to": "version-updates",
+            "patterns": [
+              "*"
+            ],
+            "update-types": [
+              "minor",
+              "patch"
+            ]
+          }
+        }
+      },
+      {
+        "package-ecosystem": "github-actions",
+        "directory": "/",
+        "schedule": {
+          "interval": "weekly",
+          "day": "friday",
+          "time": "09:00",
+          "timezone": "Asia/Dubai"
+        },
+        "open-pull-requests-limit": 3,
+        "groups": {
+          "actions-minor-patch": {
+            "applies-to": "version-updates",
+            "patterns": [
+              "*"
+            ],
+            "update-types": [
+              "minor",
+              "patch"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "configuration_sha256": "80380902f7312ab985c861a730924a3f74f0ec51ecf12c0f75b6d717b9f11d3d",
+  "requirements": {
+    "requirements-tests.txt": [
+      "coverage==7.16.2",
+      "pytest-httpserver>=1.1.3",
+      "pytest-xdist>=3.8.0",
+      "pytest-rerunfailures>=16.7"
+    ],
+    "requirements-docs.txt": [
+      "mkdocs==1.6.1",
+      "mkdocs-material==9.7.7"
+    ]
+  },
+  "pep621_dependencies": [
+    "pytest>=9.1.1,<10",
+    "requests>=2.34.2,<3"
+  ],
+  "build_requires": [
+    "setuptools==84.0.0"
+  ],
+  "dependency_groups": {
+    "dev": [
+      "pre-commit>=4.3.0",
+      "tox>=4.30.3",
+      {
+        "include-group": "lint"
+      },
+      {
+        "include-group": "test"
+      }
+    ],
+    "lint": [
+      "mypy>=1.18.2",
+      "ruff>=0.14.3",
+      "types-requests>=2.32.4.20250913"
+    ],
+    "test": [
+      "coverage>=7.10.0",
+      "pytest-httpserver>=1.1.3",
+      "pytest-xdist>=3.8.0",
+      "pytest-rerunfailures>=16.7"
+    ]
+  },
+  "workflows": {
+    ".github/workflows/github-release.yml": [
+      "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065"
+    ],
+    ".github/workflows/publish.yml": [
+      "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+      "actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+      "pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33"
+    ],
+    ".github/workflows/docs.yml": [
+      "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+    ],
+    ".github/workflows/agent.yml": [
+      "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+    ],
+    ".github/workflows/tests.yml": [
+      "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+      "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+    ]
+  },
+  "protected_inputs": "Unchanged versus remote-main baseline; PR30 checkout clean and unchanged",
+  "limits": "PyYAML plus explicit structural/inventory assertions against official documented options; not GitHub server-side validation or successful Dependabot discovery/execution. Build-system/dependency-group discovery and inline tool pins require bot-log/manual review."
+}

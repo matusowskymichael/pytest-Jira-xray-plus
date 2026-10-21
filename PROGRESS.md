@@ -1,6 +1,9 @@
-# Dependabot setup in progress — PR30 remains paused
+# Dependabot review pending — PR30 remains paused
 
 - Fresh remote main is dd76138fc63be87a73f6e826d06a3ecc4a858393 (PR29 merged); no Dependabot config. Historical main ledger archived. Prior pre-merge progress was stale; PR29 is merged, not awaiting merge.
 - Isolated /workspace/pytest-xray-dependabot, branch chore/dependabot-friday. Original /workspace/pytest-jira-xray-plus remains on clean paused PR30 at 1c46a5556ab3701ec41c1ce8e4e58728793ef335; no pending work moved or changed.
 - October 21 explicit request supersedes pause only for Dependabot setup. Root pip and GitHub Actions schedules Friday 09:00 Asia/Dubai; limits 5/3; nonmajor version-update groups, separate eligible majors, no auto-merge/ignore rules. Docs cover supported manifests and unverified declaration discovery, inline-pin gaps, security distinction and actual first-run evidence requirements.
 - No runtime, dependency, workflow, version, credentials, access or security-setting changes. No PyPI release or Pages deployment. Next: validate documented configuration, five profiles and draft PR for independent review. Installed config and successful bot execution must be reported separately.
+
+- PR31 source a2b0cf8e741428c6e2732c9ce81ff90aaaa09b42, digest 9a7a76e4f3a3cac81df508171aed4c17b3775a47a26e24d508fb291f554820ee. All five profiles passed, 525 tests and 19 subtests, all 15 installed guide commands/full metadata, 23 docs pages/1215 references and local browser checks. All 13 profile log hashes verified. YAML/inventory/preservation checks passed; harness Ruff, existing mypy (42 files) and diff whitespace checks passed. No new tests needed for this configuration-only change.
+- GitHub reports public standalone repository (not a fork), so fork-specific enablement is inapplicable. Config is not yet on main and no bot-run success is claimed. Next: frozen-head CI, independent review, acceptance, authorized merge, main CI/config and first-job inspection.

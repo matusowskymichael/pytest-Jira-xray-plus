@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-DEPS-001",
+  "profile": "tests",
+  "digest": "9a7a76e4f3a3cac81df508171aed4c17b3775a47a26e24d508fb291f554820ee",
+  "revision": "a2b0cf8e741428c6e2732c9ce81ff90aaaa09b42",
+  "timestamp": "2026-10-21T07:22:14.051500+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 130.106,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-tests-45ddad7be2fd-0.log",
+      "log_sha256": "5e77291d6e33015c427ef1a76c71337a2561f2ccf44de42b1055451f5383f806"
+    }
+  ],
+  "status": "passed"
+}
