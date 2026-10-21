@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Configure Friday Dependabot checks for Python manifests and GitHub Actions,
+  grouping minor/patch updates while keeping majors separate for review.
+  No dependency upgrades, automatic merges or package release in this setup.
 - Correct repository documentation link checks for named pages such as
   class_index.html: only an exact index.html filename represents a directory.
   Preserve genuine missing-file/fragment errors; plugin behavior is unchanged.
