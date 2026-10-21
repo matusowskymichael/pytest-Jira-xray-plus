@@ -6,7 +6,7 @@
       "title": "Set up Friday Dependabot version updates",
       "source": "docs/agent/task-dependabot.md",
       "source_sha256": "ae0608d8c4b7c40e2e1b9c15d680b584e1fbee64dc82a9688abc81cd750cf08d",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/31",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
