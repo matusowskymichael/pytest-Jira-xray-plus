@@ -1,3 +1,12 @@
+# Current maintenance policy — October 21, 2026
+
+Continuous maintenance and daily releases ended at Michael's request. Work weekly
+on Fridays; discuss useful integration features before implementation. His explicit
+Dependabot request is an exception now. Tested, independently reviewed improvements
+may be merged without another user approval; no automatic merging of bot PRs.
+PR30 remains paused. No release/access/credential/security-setting expansion is
+included. The historical authorization below does not reopen continuous work.
+
 # Standing maintainer authorization
 
 Scope: **matusowskymichael/pytest-Jira-xray-plus only**, for the user-requested

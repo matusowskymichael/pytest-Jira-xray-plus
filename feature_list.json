@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-DOCS-001",
-      "title": "Correct built-site index-suffixed self-links",
-      "source": "docs/agent/task-docs-self-links.md",
-      "source_sha256": "475246a88dcefdd00032ff9f9896b4fbe3121ee96d1e4cd058cee1f0d36be3fd",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/29",
+      "id": "XRAY-DEPS-001",
+      "title": "Set up Friday Dependabot version updates",
+      "source": "docs/agent/task-dependabot.md",
+      "source_sha256": "ae0608d8c4b7c40e2e1b9c15d680b584e1fbee64dc82a9688abc81cd750cf08d",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -20,14 +20,15 @@
         "CHANGELOG.rst",
         "pyproject.toml",
         ".github/workflows",
-        ".coveragerc"
+        ".coveragerc",
+        ".github/dependabot.yml"
       ],
       "prerequisites": [],
       "acceptance": [
-        "Canonicalize only exact index.html basenames so index-suffixed page self-links resolve correctly while root/nested directory-index behavior remains",
-        "Preserve relative/encoded files and fragments, assets, query handling, external boundaries and genuine missing-file/anchor/search-index failures; no suppression or network requests",
-        "Subprocess regressions fail on baseline and pass after fix; real full site with released coverage/status validates; README/maintainer/coverage/changelog explain repository-only impact and retain fifteen guide commands",
-        "All five profiles, installed guide/full metadata, changed static checks and exact-head CI pass; runtime/dependencies/workflows/version unchanged and fresh independent review before merge with no publication"
+        "Configure pip and github-actions root manifests for Fridays 09:00 Asia/Dubai, limits 5/3 and minor/patch version-update groups; majors remain eligible separately without auto-merge",
+        "Inventory real manifests and current official docs; document inline-pin and discovery limitations, version/security distinction and first-job verification without claiming unobserved bot success",
+        "Preserve runtime, existing tests/tools, manifests, workflows, dependency versions, release permissions and paused PR30; no credentials, access expansion, security-setting changes or release",
+        "All five profiles, YAML/inventory validation, applicable static checks and exact-head CI pass; fresh independent review before merge and main/config verification afterward"
       ],
       "checks": [
         "harness",
@@ -101,19 +102,15 @@
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
         "tools/status_badges.py": "8dd904d10e291138096ed7d62cdbb8d2bfcdcbbd7a8254d20709fa4fe03b37ab",
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
-        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
+        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
+        "tests/test_docs_links.py": "d80140a0e7b645e1adb50eabe979b925bb8ccd905324bc44f1c2c73a304327aa",
+        "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-DOCS-001-harness-ad2d3efd44e7.json",
-        "docs/agent/evidence/XRAY-DOCS-001-tests-7b513e2a1ce3.json",
-        "docs/agent/evidence/XRAY-DOCS-001-offline-cff0385841e0.json",
-        "docs/agent/evidence/XRAY-DOCS-001-package-3b30873f5a5b.json",
-        "docs/agent/evidence/XRAY-DOCS-001-docs-fc7a7c40ce74.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-DOCS-001-independent-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "Verify frozen-head CI and obtain fresh independent review of PR29 before merge; no release or deployment"
+      "next_action": "Validate Dependabot config and five profiles; prepare draft PR for independent review"
     }
   ]
 }

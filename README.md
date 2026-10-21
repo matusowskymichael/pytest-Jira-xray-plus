@@ -972,3 +972,5 @@ Actual broken links still fail validation. This does not change package
 installation or pytest reporting; see the
 [site-maintenance guide](https://matusowskymichael.github.io/pytest-Jira-xray-plus/project/site/)
 for documentation build checks.
+
+Dependency maintenance: [Dependabot schedule, coverage and review process](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/DEPENDENCY-UPDATES.md). Version checks run Fridays at 09:00 Asia/Dubai; updates require review and are not automatically merged.
