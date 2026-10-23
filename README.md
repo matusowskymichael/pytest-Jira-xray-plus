@@ -983,7 +983,7 @@ Version, tested Python and licence images are first-party [metadata snapshots](h
 The test and documentation images show live main-branch workflow status.
 
 
-For site maintainers, an **unreleased repository checker fix** removes false
+For site maintainers, the **0.1.10 repository checker fix** removes false
 missing-file alarms on self-links in coverage pages such as `class_index.html`.
 Actual broken links still fail validation. This does not change package
 installation or pytest reporting; see the
