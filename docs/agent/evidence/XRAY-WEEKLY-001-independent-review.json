@@ -1,0 +1,21 @@
+{
+  "task": "XRAY-WEEKLY-001",
+  "revision": "3b5782a5bed21e37ceca244d99e293e60a43fbde",
+  "tested_revision": "d20dc861b6a525dd92cac5e2f182724495764b69",
+  "digest": "2f73ae83596396a880c84119902b05e7e09de3b9e08c7bef62dfcc2a6c93ab1f",
+  "timestamp": "2026-10-23T07:47:01.067445+00:00",
+  "reviewer": "/root/review_pytest_release_candidate",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile main into existing PR30 without duplicating work; preserve Dependabot configuration and defer bot PR32-35; one weekly iteration only",
+    "Explicit empty report paths fail with exit 4 before collection, workers, authentication or transport; 37 regressions and existing valid/omitted/collect-only/expansion/privacy/aggregation behavior pass",
+    "Prepare meaningful 0.1.10 package correction with full beginner guide, changelog and migration; metadata/manual publisher edits are version-only, with no dependency, permission or unrelated runtime/test/tool changes",
+    "All five profiles, 15 installed guide commands/full metadata, installed empty-path probes, static checks, public docs checks and exact-head CI pass or accurately disclose external browser blockers; fresh independent review before merge/release",
+    "After accepted merge and main CI recheck unused version, use existing trusted publisher and reviewed SHA only, verify public artifacts/tag/install and measured coverage/Pages; no live-Xray/native-iteration claims and stop after iteration"
+  ],
+  "source": "External native reviewer supplied by parent delegation thread 01a1587a-b383-7205-ac44-6cca490bd0e0; not builder self-review",
+  "scope": "Read all 37 regressions and all five receipts; independently verified all 13 profile log hashes. Evidence supports 562 tests plus 19 subtests, 15 installed guide commands and six installed empty-path probes. Confirmed explicit empty strings fail before authentication/publisher selection; omitted values, collect-only and nonempty filenames retain behavior. Version-only publisher changes, no dependency or permission expansion. No code findings.",
+  "limitations": "Reviewer did not rerun tests or access real Xray. Final CI was pending at verdict; acceptance and merge await success. Main CI, version-availability recheck, trusted publication and actual public artifacts/install/tag/Pages verification remain required operational gates, not completed release claims."
+}

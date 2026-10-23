@@ -1,11 +1,20 @@
 Unreleased
 ==========
+- No additional changes queued.
+
+0.1.10 [2026-10-23]
+===================
+- Reject explicitly empty report filenames with usage-error exit 4 before tests
+  or upload selection. Previously --xraypath= could select upload and empty case
+  or full-report paths could silently disable requested output. Keep omitted
+  options, collect-only, nonempty paths and valid reporting unchanged.
 - Configure Friday Dependabot checks for Python manifests and GitHub Actions,
   grouping minor/patch updates while keeping majors separate for review.
   No dependency upgrades, automatic merges or package release in this setup.
 - Correct repository documentation link checks for named pages such as
   class_index.html: only an exact index.html filename represents a directory.
   Preserve genuine missing-file/fragment errors; plugin behavior is unchanged.
+
 
 0.1.9 [2026-10-17]
 ==================

@@ -524,3 +524,45 @@ PyPI and run the full guide, measure actual clean-source coverage, refresh exist
 Pages/status and compare live files. Do not substitute renderer/HTTP checks for
 live browser evidence: prior certificate/PyPI challenge limits remain. No live
 workplace Xray/custom Automatic validation; native iterations/datasets unsupported.
+
+
+## Explicit empty report paths — unreleased candidate, 2026-10-18
+
+Published 0.1.9 treats an empty --xraypath as an omitted option and can select
+upload after running tests; empty case/full-report paths disable requested output.
+A synthetic probe confirmed the upload selection with requests replaced before
+any transport. This scoped candidate rejects explicitly empty values with
+pytest.UsageError (exit 4) before collection, fixtures, xdist startup, authentication
+or publishing. Omitted options, collect-only bypass, nonempty filenames, expansion
+conventions and collision checks remain. Use a literal nonempty offline filename
+with 0.1.9 and check shell-variable values before passing them as paths.
+
+Baseline new regressions: 24 failed, 13 passed; all transport is synthetic.
+The fix requires all five profiles, fifteen installed guide commands/full metadata,
+changed static checks, exact-head CI and independent review before merge.
+No release, dependency, workflow, publishing-permission or other runtime change
+is included. Version remains 0.1.9. Native iterations/datasets unsupported;
+Generic/custom Automatic live validation and hosted browser certificate limits
+remain. PR29's reviewed documentation deployment is separately recorded in
+XRAY-DOCS-001-deployment.json; that deployment did not publish this candidate.
+
+Official pytest references checked 2026-10-18:
+[UsageError API](https://docs.pytest.org/en/stable/reference/reference.html#pytest.UsageError)
+and [exit codes](https://docs.pytest.org/en/stable/reference/exit-codes.html).
+
+
+## October 23 weekly candidate: 0.1.10
+
+Resumes PR30 after the user's weekly authorization; the October 18 pause is
+historical. The meaningful package change prevents an explicitly empty offline
+filename from selecting upload. Existing two-line guard and 37 regression cases
+are retained; all old evidence is historical and fresh checks are required against
+reconciled main. Metadata and manual publisher version literals advance to 0.1.10;
+dependencies, permissions and trusted-publishing policy remain unchanged.
+
+PyPI was freshly checked over normal TLS: latest 0.1.9, no 0.1.10. Recheck before
+publication. Fresh independent review, exact-head CI and main CI gate release.
+Verify public artifacts, installed full guide, actual clean-source coverage and
+existing Pages after publication. No live Xray or native-iteration claims; any
+hosted browser certificate block must remain visible without a bypass. Stop after
+this iteration; do not combine the failing dependency bot PRs with the fix.

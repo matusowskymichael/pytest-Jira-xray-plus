@@ -1,0 +1,46 @@
+{
+  "task": "XRAY-WEEKLY-001",
+  "revision": "d20dc861b6a525dd92cac5e2f182724495764b69",
+  "timestamp": "2026-10-23T07:39:30.700363+00:00",
+  "checks": [
+    {
+      "argv": [
+        "/tmp/xray-weekly-env/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/pytest_xray/plugin.py",
+        "tests/test_empty_report_paths.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-001-ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "argv": [
+        "/tmp/xray-weekly-env/bin/python",
+        "-m",
+        "mypy"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-001-mypy.log",
+      "sha256": "355a435c33a29b8f3f0db0815b88731b7ae35c080fe47fdbc27e9330572711aa"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main",
+        "--",
+        ".",
+        ":!docs/agent/evidence"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-001-diff.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "publisher": "Only 0.1.9 to 0.1.10 version literals changed in metadata/publish.yml; permissions and trusted publisher unchanged",
+  "limits": "Changed-file Ruff and existing mypy scope; diff whitespace excludes historical immutable evidence logs."
+}

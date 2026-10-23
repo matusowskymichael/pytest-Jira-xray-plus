@@ -1,0 +1,94 @@
+{
+  "task": "XRAY-PRODUCT-013",
+  "revision": "c9b368a0dbe7743c8db02086a4cda044b011b6a1",
+  "timestamp": "2026-10-18T11:44:43.776869+00:00",
+  "installed_module": "/workspace/pytest-jira-xray-plus/.harness/installed/lib/python3.12/site-packages/pytest_xray/plugin.py",
+  "checks": [
+    {
+      "argv": [
+        "/workspace/pytest-jira-xray-plus/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-case-report=",
+        "-n",
+        "0"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-case-report requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/workspace/pytest-jira-xray-plus/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-case-report=",
+        "-n",
+        "2"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-case-report requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/workspace/pytest-jira-xray-plus/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xraypath=",
+        "--jira-xray",
+        "-n",
+        "0"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xraypath requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/workspace/pytest-jira-xray-plus/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xraypath=",
+        "--jira-xray",
+        "-n",
+        "2"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xraypath requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/workspace/pytest-jira-xray-plus/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-full-report=",
+        "--jira-xray",
+        "--xraypath=preview.json",
+        "-n",
+        "0"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-full-report requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/workspace/pytest-jira-xray-plus/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-full-report=",
+        "--jira-xray",
+        "--xraypath=preview.json",
+        "-n",
+        "2"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-full-report requires a nonempty file path\n\n"
+    }
+  ],
+  "limits": "Fresh candidate wheel version remains 0.1.9, unpublished; requests blocked, no real Jira access.",
+  "digest": "66921192f47ff17b8bb44af4d4864950ff55d9a602108cbc9471beda9c53f586"
+}

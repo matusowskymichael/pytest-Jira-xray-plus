@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-10-18T11:49:48.998093+00:00",
+  "revision": "bf5d722698e38297698b229e51c241947970253f",
+  "reason": "Latest user requested stop of continuous maintenance; preserve draft without merge/release",
+  "runs": [
+    {
+      "conclusion": "",
+      "databaseId": 39124586012,
+      "headSha": "bf5d722698e38297698b229e51c241947970253f",
+      "name": "tests",
+      "status": "in_progress"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39124586025,
+      "headSha": "bf5d722698e38297698b229e51c241947970253f",
+      "name": "repository harness",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39124586019,
+      "headSha": "bf5d722698e38297698b229e51c241947970253f",
+      "name": "documentation",
+      "status": "completed"
+    },
+    {
+      "conclusion": "",
+      "databaseId": 39124582490,
+      "headSha": "bf5d722698e38297698b229e51c241947970253f",
+      "name": "tests",
+      "status": "in_progress"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39124582437,
+      "headSha": "bf5d722698e38297698b229e51c241947970253f",
+      "name": "repository harness",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39124582441,
+      "headSha": "bf5d722698e38297698b229e51c241947970253f",
+      "name": "documentation",
+      "status": "completed"
+    }
+  ],
+  "limits": "Snapshot at pause, not a claim that pending checks passed; later pause-only handoff commit CI not awaited."
+}

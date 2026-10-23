@@ -1,3 +1,11 @@
+# October 23 weekly iteration authorization
+
+Resume and finish one maintenance iteration, then stop. Scoped tested and
+independently reviewed commits/PRs, merge, existing Pages updates and meaningful
+stable releases through existing trusted publishing are authorized. PR30 is
+resumed explicitly; bot PRs remain separate. Integration features require prior
+user agreement. Historical pause/continuous-window text below is not current scope.
+
 # Current maintenance policy — October 21, 2026
 
 Continuous maintenance and daily releases ended at Michael's request. Work weekly

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-DEPS-001",
-      "title": "Set up Friday Dependabot version updates",
-      "source": "docs/agent/task-dependabot.md",
-      "source_sha256": "ae0608d8c4b7c40e2e1b9c15d680b584e1fbee64dc82a9688abc81cd750cf08d",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/31",
+      "id": "XRAY-WEEKLY-001",
+      "title": "Complete empty-report-path fix and release 0.1.10",
+      "source": "docs/agent/task-weekly-2026-10-23.md",
+      "source_sha256": "a4895201c0cf4a055e423686aa092723fc0e964656f2a39250b66eeb509c0908",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/30",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -25,10 +25,11 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Configure pip and github-actions root manifests for Fridays 09:00 Asia/Dubai, limits 5/3 and minor/patch version-update groups; majors remain eligible separately without auto-merge",
-        "Inventory real manifests and current official docs; document inline-pin and discovery limitations, version/security distinction and first-job verification without claiming unobserved bot success",
-        "Preserve runtime, existing tests/tools, manifests, workflows, dependency versions, release permissions and paused PR30; no credentials, access expansion, security-setting changes or release",
-        "All five profiles, YAML/inventory validation, applicable static checks and exact-head CI pass; fresh independent review before merge and main/config verification afterward"
+        "Reconcile main into existing PR30 without duplicating work; preserve Dependabot configuration and defer bot PR32-35; one weekly iteration only",
+        "Explicit empty report paths fail with exit 4 before collection, workers, authentication or transport; 37 regressions and existing valid/omitted/collect-only/expansion/privacy/aggregation behavior pass",
+        "Prepare meaningful 0.1.10 package correction with full beginner guide, changelog and migration; metadata/manual publisher edits are version-only, with no dependency, permission or unrelated runtime/test/tool changes",
+        "All five profiles, 15 installed guide commands/full metadata, installed empty-path probes, static checks, public docs checks and exact-head CI pass or accurately disclose external browser blockers; fresh independent review before merge/release",
+        "After accepted merge and main CI recheck unused version, use existing trusted publisher and reviewed SHA only, verify public artifacts/tag/install and measured coverage/Pages; no live-Xray/native-iteration claims and stop after iteration"
       ],
       "checks": [
         "harness",
@@ -42,9 +43,7 @@
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
         ".github/workflows/github-release.yml": "c09e3684b29abe7b73f00473503cc184ffe9d1d83772f1baa1941e0c2b7edd07",
-        ".github/workflows/publish.yml": "1065952494f2b5985184a54898979d80b4addddc52f31b1caeb8609ab5346841",
         ".github/workflows/tests.yml": "2a63f790d2de782cdfad6c635816d8824cb6fdd01b46e494a48ef7e09d8a860e",
-        "pyproject.toml": "9854caf0abcac69475f09ed10253c9251acda5460af01706b057ccc6e33ecfeb",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -57,7 +56,6 @@
         "src/pytest_xray/file_publisher.py": "4d114749361ac41f2e2e0fbc6ff0ab24050e9d9da2169bee047b274a8948f202",
         "src/pytest_xray/helper.py": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
-        "src/pytest_xray/plugin.py": "2342d8411bab086b03ec9dd467c07dcc155ef55cf2457b846a52256e12f9ddd5",
         "src/pytest_xray/xray_plugin.py": "cc3fd30cac3185e66a7bfa2b319456842b581a080db0e2d893e1e84d1a166d3e",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -104,19 +102,20 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
         "tests/test_docs_links.py": "d80140a0e7b645e1adb50eabe979b925bb8ccd905324bc44f1c2c73a304327aa",
-        "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6"
+        "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6",
+        ".github/dependabot.yml": "80380902f7312ab985c861a730924a3f74f0ec51ecf12c0f75b6d717b9f11d3d"
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-DEPS-001-harness-ca0bb4ce6720.json",
-        "docs/agent/evidence/XRAY-DEPS-001-tests-45ddad7be2fd.json",
-        "docs/agent/evidence/XRAY-DEPS-001-offline-f247fe864683.json",
-        "docs/agent/evidence/XRAY-DEPS-001-package-be47e835f7a8.json",
-        "docs/agent/evidence/XRAY-DEPS-001-docs-488072961317.json"
+        "docs/agent/evidence/XRAY-WEEKLY-001-harness-f156e885be11.json",
+        "docs/agent/evidence/XRAY-WEEKLY-001-tests-f1200b3c6774.json",
+        "docs/agent/evidence/XRAY-WEEKLY-001-offline-7c254fb7e9da.json",
+        "docs/agent/evidence/XRAY-WEEKLY-001-package-6514343c7a2c.json",
+        "docs/agent/evidence/XRAY-WEEKLY-001-docs-12cac235827d.json"
       ],
-      "review": "docs/agent/evidence/XRAY-DEPS-001-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-WEEKLY-001-independent-review.json",
       "blocker": "",
-      "next_action": "Verify frozen-head CI and obtain independent review of PR31 before acceptance/merge; PR30 stays paused"
+      "next_action": "Verify frozen-head CI; independent review of PR30 correction/0.1.10 release candidate before acceptance, merge and publication"
     }
   ]
 }

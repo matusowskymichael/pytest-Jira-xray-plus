@@ -1,0 +1,34 @@
+{
+  "task": "XRAY-PRODUCT-013",
+  "profile": "offline",
+  "digest": "66921192f47ff17b8bb44af4d4864950ff55d9a602108cbc9471beda9c53f586",
+  "revision": "c9b368a0dbe7743c8db02086a4cda044b011b6a1",
+  "timestamp": "2026-10-18T11:43:53.796167+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/reproduce.py",
+      "src",
+      "--details"
+    ],
+    [
+      "{python}",
+      "tools/validate_offline.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.404,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-013-offline-afed9bf75287-0.log",
+      "log_sha256": "89f699561521d8a8a89bf9423cadb4924152b7dd5366b802a4d9ada7f0e2165b"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.801,
+      "log": "docs/agent/evidence/XRAY-PRODUCT-013-offline-afed9bf75287-1.log",
+      "log_sha256": "f3a6c7bb9eff35d7c632f4845321534f28230400005fa8ebf4ef100588df7a24"
+    }
+  ],
+  "status": "passed"
+}
