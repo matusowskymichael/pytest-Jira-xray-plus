@@ -1,4 +1,4 @@
-# October 23 weekly iteration — resume PR30, candidate 0.1.10
+# October 23 weekly iteration — independently accepted 0.1.10 candidate
 
 - Fresh main 6ee20aa3a59e08f7b80c6e312f9758a3876c642a: Dependabot setup completed, both initial jobs successful; prior main progress was stale. Archived accepted main ledger and paused PR30 ledger. Merge resolves maintenance-record conflicts without dropping either history.
 - No open issues. PR30 was draft/conflicting, old CI green. Resume the existing draft; do not create a duplicate. Bot PR32-34 have red harness checks; new bot PR35 changes setuptools and has red tests/harness. All remain separate/unmerged. Published PyPI latest 0.1.9; 0.1.10 unused at preflight.
@@ -7,3 +7,5 @@
 
 - Fresh checks passed at d20dc861b6a525dd92cac5e2f182724495764b69, digest 2f73ae83596396a880c84119902b05e7e09de3b9e08c7bef62dfcc2a6c93ab1f: 562 tests plus 19 subtests, all five profiles, all 15 installed guide commands/full metadata, 23-page docs check/local browser, 38 focused regression/rendering tests, six candidate-wheel empty-path probes outside checkout. All 13 profile log hashes verified. Changed-file Ruff, mypy (43 files), version-only publisher/metadata comparisons and non-evidence whitespace checks passed. Historical immutable failure logs retain original whitespace.
 - Normal-TLS public tutorial/compatibility/status checks pass for currently deployed 0.1.9. Hosted Chromium tutorial and PyPI both remain blocked by ERR_CERT_AUTHORITY_INVALID, without bypass. Candidate site/release is not yet published. Next: exact frozen-head CI and fresh independent review; later main CI, existing publisher, exact public artifacts/install, measured coverage and Pages verification remain operational release gates.
+
+- External native reviewer /root/review_pytest_release_candidate approved exact head 3b5782a5bed21e37ceca244d99e293e60a43fbde with no findings, verifying all 13 profile log hashes and reading 37 regressions. No self-review; limitations recorded. All six reviewed-head CI workflows passed; harness acceptance passed. Next: acceptance-head CI, merge, main CI, unused-version recheck, existing trusted publisher and public verification. No publication claimed yet.

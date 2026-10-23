@@ -105,7 +105,7 @@
         "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6",
         ".github/dependabot.yml": "80380902f7312ab985c861a730924a3f74f0ec51ecf12c0f75b6d717b9f11d3d"
       },
-      "state": "review_pending",
+      "state": "passing",
       "evidence": [
         "docs/agent/evidence/XRAY-WEEKLY-001-harness-f156e885be11.json",
         "docs/agent/evidence/XRAY-WEEKLY-001-tests-f1200b3c6774.json",
@@ -113,7 +113,7 @@
         "docs/agent/evidence/XRAY-WEEKLY-001-package-6514343c7a2c.json",
         "docs/agent/evidence/XRAY-WEEKLY-001-docs-12cac235827d.json"
       ],
-      "review": null,
+      "review": "docs/agent/evidence/XRAY-WEEKLY-001-independent-review.json",
       "blocker": "",
       "next_action": "Verify frozen-head CI; independent review of PR30 correction/0.1.10 release candidate before acceptance, merge and publication"
     }
