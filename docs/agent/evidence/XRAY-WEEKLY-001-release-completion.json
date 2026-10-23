@@ -1,0 +1,101 @@
+{
+  "task": "XRAY-WEEKLY-001",
+  "completed_at": "2026-10-23T08:09:55.217598+00:00",
+  "version": "0.1.10",
+  "pr": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/30",
+  "source_revision": "6867988a123e019cda2bc383c8f73b63c53f34d6",
+  "reviewed_head": "3b5782a5bed21e37ceca244d99e293e60a43fbde",
+  "accepted_head": "111f4baf1eaf79bc0739dd4d26f888bcaf108042",
+  "independent_reviewer": "native agent /root/review_pytest_release_candidate (external parent-provided PASS; not builder self-review)",
+  "digest": "2f73ae83596396a880c84119902b05e7e09de3b9e08c7bef62dfcc2a6c93ab1f",
+  "checks": {
+    "candidate": "562 tests plus 19 subtests; all five profiles; 37 empty-path regressions; changed-file Ruff and mypy43files",
+    "remote": "six acceptance-head checks and three release-source main workflows successful",
+    "public_install": "Clean public-index 0.1.10 install; 15 README commands/full metadata; six installed empty-path probes serial/xdist; HTTP blocked",
+    "artifacts": "Both public archive hashes match PyPI metadata, publisher build log and public GitHub assets; full reviewed README in archives/PyPI metadata; exact source tag",
+    "docs": "41 HTML pages and 2917 references checked locally; desktop/mobile/search/theme passed; all102livePagesfiles match built bytes",
+    "coverage": "Clean released source:771/787lines98.0%;231/252branches91.7%;full562testsplus19subtestsundercoverage"
+  },
+  "publisher_log": {
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39921970054",
+    "sha256": "65180edc74c28a4a8a6f036e87795ae88e524277fb527e0c0824c3f255ba2607",
+    "limits": "Read-only workflow log inspected locally; no claim of private artifact download."
+  },
+  "evidence": [
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-public.json",
+      "sha256": "6fe3bdc72052da959ed27f60074047797c37391be959c624a8353f90c1ca8753"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-pages.json",
+      "sha256": "ecbd97e09c692ff8bc01b4a79d03122e7019a1e739cace018df6d565d14542c8"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-browser.json",
+      "sha256": "3b4f3d85ee2be0a44c22acff7c7851019a86086682a6cf9bc922126beb58c59d"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-installed-empty-paths.json",
+      "sha256": "a75a1c4a431dedf1746eb5148e97d3803d0235b7505a2a35a280952a1bd468de"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-main-ci.json",
+      "sha256": "e0679d3c6b34c2a14219743fc7f78dd4502f8cbd10ce075792c343caad7d2ee6"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-acceptance-ci.json",
+      "sha256": "c29a752c7d72b2b2c5c164575acd7f5b024becd1d47a922cb471aedd6c334abc"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-preflight.json",
+      "sha256": "e41b9da9af33dbfbcff25f8287153aa964906c0185b00d900cf79645608404cf"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-publisher.json",
+      "sha256": "475b434f5e121624f29001d41cdadfcb79c1a56b22e8fa02bf60d8f51ef9db04"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-tag-workflow.json",
+      "sha256": "e881b0823a2dcf71ccb47f4a7a92837a425558b04b250dcfda656c1c86453509"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-pages-workflow.json",
+      "sha256": "3271c1a87bb9a6c9dd69f25986541de15664be24620c25cef94fb7bd374404ca"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-installed-guide.log",
+      "sha256": "94f252ba82a13a093e4ddf56a1c1112274e61cd67e0a3cb7452abe51040ad0a7"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-install.log",
+      "sha256": "1287540959bf0199827817bcd18feaa555fcb606931d7236dfc0f9457abb1051"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-docs-links.log",
+      "sha256": "40b641939f6ab867f26e341318f35c6e2975e10a00838800c466f753501be378"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-docs-build.log",
+      "sha256": "3b81de9b22ffcd1e550b710e077d4a1f791a6e8f0575867f696a18df30fdb9be"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-local-browser.log",
+      "sha256": "5c392b9a7661826938d2a36a7584110e722cde496e02bb9bddae19b2931b51bd"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-coverage.json",
+      "sha256": "6bf6bf3a03d4394ce3392620047acde2414f00235f836ae568f448b2674d87af"
+    },
+    {
+      "path": "docs/agent/evidence/XRAY-WEEKLY-001-release-coverage-tests.log",
+      "sha256": "0d4c231e6261131d4c3efae4047e64ace83fa550a6e044517d67b8cfaddcd369"
+    }
+  ],
+  "limits": [
+    "Hosted Chromium Pages and PyPI navigation blocked by ERR_CERT_AUTHORITY_INVALID; never bypassed. Normal-TLS HTTP bytes and local browser checks passed separately.",
+    "No workplace server/private data/live Jira/Xray validation. Generic target Xray8.5.3-j10; custom Automatic mapping unverified; native iterations/datasets unsupported.",
+    "Bot PR32-35 deferred, unmodified; no dependency upgrades, credentials or permissions changes.",
+    "Single October23iteration complete; stop, no automatic next iteration.",
+    "This evidence-only completion commit requires its own final remote CI; released source CI is already green."
+  ]
+}

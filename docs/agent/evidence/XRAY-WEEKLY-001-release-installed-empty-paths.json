@@ -1,0 +1,91 @@
+{
+  "verified_at": "2026-10-23T08:07:53.964828+00:00",
+  "installed_version_and_module": "0.1.10\n/tmp/xray-0110-public-env/lib/python3.12/site-packages/pytest_xray/plugin.py\n",
+  "checks": [
+    {
+      "argv": [
+        "/tmp/xray-0110-public-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-case-report=",
+        "-n",
+        "0"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-case-report requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/tmp/xray-0110-public-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-case-report=",
+        "-n",
+        "2"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-case-report requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/tmp/xray-0110-public-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xraypath=",
+        "--jira-xray",
+        "-n",
+        "0"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xraypath requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/tmp/xray-0110-public-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xraypath=",
+        "--jira-xray",
+        "-n",
+        "2"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xraypath requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/tmp/xray-0110-public-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-full-report=",
+        "--jira-xray",
+        "--xraypath=preview.json",
+        "-n",
+        "0"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-full-report requires a nonempty file path\n\n"
+    },
+    {
+      "argv": [
+        "/tmp/xray-0110-public-env/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--xray-full-report=",
+        "--jira-xray",
+        "--xraypath=preview.json",
+        "-n",
+        "2"
+      ],
+      "exit_code": 4,
+      "output": "ERROR: --xray-full-report requires a nonempty file path\n\n"
+    }
+  ],
+  "limits": "Clean public PyPI install; synthetic blocked-HTTP probes; no live Jira validation."
+}

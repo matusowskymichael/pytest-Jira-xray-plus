@@ -1,0 +1,109 @@
+{
+  "conclusion": "success",
+  "databaseId": 39922506846,
+  "headSha": "01de9a394a90a1a3cecda4d034e1371faf81d991",
+  "jobs": [
+    {
+      "completedAt": "2026-10-23T08:08:15Z",
+      "conclusion": "success",
+      "databaseId": 120310861037,
+      "name": "build",
+      "startedAt": "2026-10-23T08:08:07Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Upload artifact",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 7,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39922506846/job/120310861037"
+    },
+    {
+      "completedAt": "2026-10-23T08:08:21Z",
+      "conclusion": "success",
+      "databaseId": 120310932068,
+      "name": "report-build-status",
+      "startedAt": "2026-10-23T08:08:17Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Report Build Status",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39922506846/job/120310932068"
+    },
+    {
+      "completedAt": "2026-10-23T08:08:29Z",
+      "conclusion": "success",
+      "databaseId": 120310932196,
+      "name": "deploy",
+      "startedAt": "2026-10-23T08:08:19Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Deploy to GitHub Pages",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39922506846/job/120310932196"
+    }
+  ],
+  "name": "pages build and deployment",
+  "status": "completed",
+  "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39922506846"
+}

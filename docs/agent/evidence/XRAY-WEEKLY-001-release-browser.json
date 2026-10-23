@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-23T08:08:44.769465+00:00",
+  "browser": [
+    {
+      "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/",
+      "status": "blocked",
+      "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\nCall log:\n  - navigating to \"https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "url": "https://pypi.org/project/pytest-jira-xray-plus/0.1.10/",
+      "status": "blocked",
+      "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://pypi.org/project/pytest-jira-xray-plus/0.1.10/\nCall log:\n  - navigating to \"https://pypi.org/project/pytest-jira-xray-plus/0.1.10/\", waiting until \"domcontentloaded\"\n"
+    }
+  ],
+  "tls": "Default certificate verification; no bypass",
+  "limits": "Blocked hosted browser checks require a correctly trusted browser environment; local browser and normal-TLS HTTP checks are separate evidence."
+}

@@ -1,0 +1,25 @@
+{
+  "verified_at": "2026-10-23T08:07:34.861005+00:00",
+  "source_revision": "6867988a123e019cda2bc383c8f73b63c53f34d6",
+  "pypi_url": "https://pypi.org/pypi/pytest-jira-xray-plus/0.1.10/json",
+  "github_release": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.10",
+  "tag": "v0.1.10",
+  "artifacts": [
+    {
+      "filename": "pytest_jira_xray_plus-0.1.10-py3-none-any.whl",
+      "sha256": "94509e926c33fda3e746cbe7c20d878aaf72b463cafec62a7501655a2ac928a7",
+      "url": "https://files.pythonhosted.org/packages/a1/b8/2254f33ba2d880a5047d196485b3098dc9e9422ccd159f2defc25ed3f454/pytest_jira_xray_plus-0.1.10-py3-none-any.whl",
+      "bytes": 41586
+    },
+    {
+      "filename": "pytest_jira_xray_plus-0.1.10.tar.gz",
+      "sha256": "3f46c324bf06df4fdb47065c4febc2bdf4fc1ffd9abd19174b9b5913a3c5eac1",
+      "url": "https://files.pythonhosted.org/packages/8a/76/b51b8b4b424bf192c7ea326f23dc0dd8dab72c95a3037b166e3121d894fd/pytest_jira_xray_plus-0.1.10.tar.gz",
+      "bytes": 193634
+    }
+  ],
+  "metadata": "Both archives and PyPI have exact full reviewed README, expected name/version/license",
+  "github_assets": "Byte-for-byte equal to PyPI distributions",
+  "tls": "Normal certificate verification",
+  "limits": "Public artifact verification; does not claim private workflow artifact download or live Jira validation."
+}

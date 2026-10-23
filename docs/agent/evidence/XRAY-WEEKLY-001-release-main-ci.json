@@ -1,0 +1,26 @@
+[
+  {
+    "conclusion": "success",
+    "databaseId": 39921167012,
+    "headSha": "6867988a123e019cda2bc383c8f73b63c53f34d6",
+    "name": "repository harness",
+    "status": "completed",
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39921167012"
+  },
+  {
+    "conclusion": "success",
+    "databaseId": 39921167020,
+    "headSha": "6867988a123e019cda2bc383c8f73b63c53f34d6",
+    "name": "documentation",
+    "status": "completed",
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39921167020"
+  },
+  {
+    "conclusion": "success",
+    "databaseId": 39921167073,
+    "headSha": "6867988a123e019cda2bc383c8f73b63c53f34d6",
+    "name": "tests",
+    "status": "completed",
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39921167073"
+  }
+]

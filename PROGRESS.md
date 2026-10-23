@@ -1,3 +1,42 @@
+# October 23 weekly iteration completed — published 0.1.10
+
+PR [#30](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/30) merged
+as `6867988a123e019cda2bc383c8f73b63c53f34d6` after external independent review
+and six acceptance-head CI checks. All three main CI workflows passed. Existing
+trusted publisher [39921970054](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39921970054)
+and automatic tag/release [39922389468](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39922389468)
+succeeded. [PyPI 0.1.10](https://pypi.org/project/pytest-jira-xray-plus/0.1.10/) and
+[GitHub v0.1.10](https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.10)
+are public; tag points to the exact released source.
+
+The meaningful fix rejects explicit empty report paths before collection,
+authentication or publisher selection. Full beginner guide and migration explain
+this correction. Public wheel/sdist hashes match PyPI, publisher log and GitHub
+assets; full README metadata matches. A fresh public PyPI install passed all 15
+guide commands and six serial/xdist empty-path probes outside the checkout, with
+HTTP blocked. Candidate tests: 562 passed plus 19 subtests; all five profiles and
+independent review passed. Clean release-source coverage: 771/787 lines (98.0%),
+231/252 branches (91.7%); all 562 tests plus 19 subtests passed under coverage.
+
+[Live quick start](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/)
+is deployed at Pages commit `01de9a394a90a1a3cecda4d034e1371faf81d991`, deployment
+[39922506846](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/39922506846).
+All 102 live files match checked build bytes over normally validated HTTPS.
+Local checks cover 41 HTML pages/2917 references plus desktop/mobile/search/theme.
+Hosted Chromium remains blocked by ERR_CERT_AUTHORITY_INVALID for Pages and PyPI;
+no certificate bypass was used. Live Jira/Xray, custom Automatic mapping and
+native iterations are not validated; native iterations remain unsupported.
+
+[Complete release evidence](docs/agent/evidence/XRAY-WEEKLY-001-release-completion.json)
+links all receipts and hashes. Final operational record changes only progress and
+evidence; its own exact-head CI is the remaining bookkeeping check. Bot PR32-35
+remain separate/unmodified. No credentials, permissions, dependency upgrades or
+workplace access. Stop after this one weekly iteration; no next implementation or
+release is authorized by this iteration. Earlier candidate checkpoints below are
+historical, not current publication state.
+
+---
+
 # October 23 weekly iteration — independently accepted 0.1.10 candidate
 
 - Fresh main 6ee20aa3a59e08f7b80c6e312f9758a3876c642a: Dependabot setup completed, both initial jobs successful; prior main progress was stale. Archived accepted main ledger and paused PR30 ledger. Merge resolves maintenance-record conflicts without dropping either history.
