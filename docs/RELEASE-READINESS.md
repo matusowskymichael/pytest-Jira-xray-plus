@@ -549,3 +549,20 @@ XRAY-DOCS-001-deployment.json; that deployment did not publish this candidate.
 Official pytest references checked 2026-10-18:
 [UsageError API](https://docs.pytest.org/en/stable/reference/reference.html#pytest.UsageError)
 and [exit codes](https://docs.pytest.org/en/stable/reference/exit-codes.html).
+
+
+## October 23 weekly candidate: 0.1.10
+
+Resumes PR30 after the user's weekly authorization; the October 18 pause is
+historical. The meaningful package change prevents an explicitly empty offline
+filename from selecting upload. Existing two-line guard and 37 regression cases
+are retained; all old evidence is historical and fresh checks are required against
+reconciled main. Metadata and manual publisher version literals advance to 0.1.10;
+dependencies, permissions and trusted-publishing policy remain unchanged.
+
+PyPI was freshly checked over normal TLS: latest 0.1.9, no 0.1.10. Recheck before
+publication. Fresh independent review, exact-head CI and main CI gate release.
+Verify public artifacts, installed full guide, actual clean-source coverage and
+existing Pages after publication. No live Xray or native-iteration claims; any
+hosted browser certificate block must remain visible without a bypass. Stop after
+this iteration; do not combine the failing dependency bot PRs with the fix.

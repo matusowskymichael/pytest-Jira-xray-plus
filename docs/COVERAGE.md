@@ -106,7 +106,7 @@ checked 2026-10-16.
 
 After copying the generated coverage report into `site/coverage`, run the existing
 `python tools/check_docs_links.py` command against the combined site. The
-unreleased repository checker fix preserves filenames such as `class_index.html`
+0.1.10 repository checker fix preserves filenames such as `class_index.html`
 and `function_index.html` when checking empty or fragment-only self-links. The
 0.1.9 checkout can falsely report those links as missing because it treats any
 filename ending in `index.html` as a directory index. Only the exact filename

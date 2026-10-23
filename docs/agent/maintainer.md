@@ -1,3 +1,20 @@
+# October 23 weekly iteration authorization
+
+Resume and finish one maintenance iteration, then stop. Scoped tested and
+independently reviewed commits/PRs, merge, existing Pages updates and meaningful
+stable releases through existing trusted publishing are authorized. PR30 is
+resumed explicitly; bot PRs remain separate. Integration features require prior
+user agreement. Historical pause/continuous-window text below is not current scope.
+
+# Current maintenance policy — October 21, 2026
+
+Continuous maintenance and daily releases ended at Michael's request. Work weekly
+on Fridays; discuss useful integration features before implementation. His explicit
+Dependabot request is an exception now. Tested, independently reviewed improvements
+may be merged without another user approval; no automatic merging of bot PRs.
+PR30 remains paused. No release/access/credential/security-setting expansion is
+included. The historical authorization below does not reopen continuous work.
+
 # Standing maintainer authorization
 
 Scope: **matusowskymichael/pytest-Jira-xray-plus only**, for the user-requested

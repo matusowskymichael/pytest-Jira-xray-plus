@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-DEPS-001",
+  "profile": "harness",
+  "digest": "9a7a76e4f3a3cac81df508171aed4c17b3775a47a26e24d508fb291f554820ee",
+  "revision": "a2b0cf8e741428c6e2732c9ce81ff90aaaa09b42",
+  "timestamp": "2026-10-21T07:20:06.211731+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.239,
+      "log": "docs/agent/evidence/XRAY-DEPS-001-harness-ca0bb4ce6720-0.log",
+      "log_sha256": "1d64c51765f9f74e4d4e439fd5d59d603ec160af0fc28172d1dc2e5e962296ff"
+    }
+  ],
+  "status": "passed"
+}

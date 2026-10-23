@@ -18,7 +18,7 @@ python -m mkdocs serve
 
 Open the localhost URL printed by MkDocs. No credentials are needed. The static
 output is in `site/`; its links work under the repository's GitHub Pages path.
-**Unreleased repository checker fix:** a page such as `class_index.html` keeps
+**Repository checker fix (0.1.10 source):** a page such as `class_index.html` keeps
 its complete filename when resolving self-links. Only a file named exactly
 `index.html` represents a directory URL. The 0.1.9 source checkout can report
 false missing-file errors for coverage.py's `class_index.html` and

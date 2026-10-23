@@ -2,10 +2,10 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PRODUCT-013",
-      "title": "Reject explicit empty report paths before execution",
-      "source": "docs/agent/task-empty-report-paths.md",
-      "source_sha256": "b79d041c7f43a50c243ee481225b9d6eb57c8e6c92c11b18da4e6f71a037a883",
+      "id": "XRAY-WEEKLY-001",
+      "title": "Complete empty-report-path fix and release 0.1.10",
+      "source": "docs/agent/task-weekly-2026-10-23.md",
+      "source_sha256": "a4895201c0cf4a055e423686aa092723fc0e964656f2a39250b66eeb509c0908",
       "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/30",
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -20,14 +20,16 @@
         "CHANGELOG.rst",
         "pyproject.toml",
         ".github/workflows",
-        ".coveragerc"
+        ".coveragerc",
+        ".github/dependabot.yml"
       ],
       "prerequisites": [],
       "acceptance": [
-        "Explicit empty strings for all three report-path options fail with UsageError exit 4 before collection, fixtures, workers, authentication or transport in normal serial/xdist execution",
-        "Omitted defaults, collect-only bypass, nonempty filenames including spaces, expansion conventions, collision checks and successful local exports/upload selection retain existing behavior",
-        "New synthetic transport-blocked regressions demonstrate baseline failures and pass after the fix; beginner README/troubleshooting, changelog and readiness describe unreleased behavior and a safe 0.1.9 workaround while retaining fifteen guide commands",
-        "All five profiles, installed guide/full metadata, changed static checks and exact-head CI pass with unrelated runtime, existing tests, dependencies, workflows, publisher and version unchanged; independent review before merge and no publication in this task"
+        "Reconcile main into existing PR30 without duplicating work; preserve Dependabot configuration and defer bot PR32-35; one weekly iteration only",
+        "Explicit empty report paths fail with exit 4 before collection, workers, authentication or transport; 37 regressions and existing valid/omitted/collect-only/expansion/privacy/aggregation behavior pass",
+        "Prepare meaningful 0.1.10 package correction with full beginner guide, changelog and migration; metadata/manual publisher edits are version-only, with no dependency, permission or unrelated runtime/test/tool changes",
+        "All five profiles, 15 installed guide commands/full metadata, installed empty-path probes, static checks, public docs checks and exact-head CI pass or accurately disclose external browser blockers; fresh independent review before merge/release",
+        "After accepted merge and main CI recheck unused version, use existing trusted publisher and reviewed SHA only, verify public artifacts/tag/install and measured coverage/Pages; no live-Xray/native-iteration claims and stop after iteration"
       ],
       "checks": [
         "harness",
@@ -41,9 +43,7 @@
         ".github/workflows/agent.yml": "3ee1638681edf544d80a4e44d8ea59bdcec126171316dae2731fbf77f082fc71",
         ".github/workflows/docs.yml": "ba9d3c853a3ef365e06a0f7920827f0c09b119f04e3ec7a6ea2c98244972a9b9",
         ".github/workflows/github-release.yml": "c09e3684b29abe7b73f00473503cc184ffe9d1d83772f1baa1941e0c2b7edd07",
-        ".github/workflows/publish.yml": "1065952494f2b5985184a54898979d80b4addddc52f31b1caeb8609ab5346841",
         ".github/workflows/tests.yml": "2a63f790d2de782cdfad6c635816d8824cb6fdd01b46e494a48ef7e09d8a860e",
-        "pyproject.toml": "9854caf0abcac69475f09ed10253c9251acda5460af01706b057ccc6e33ecfeb",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -102,19 +102,14 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
         "tests/test_docs_links.py": "d80140a0e7b645e1adb50eabe979b925bb8ccd905324bc44f1c2c73a304327aa",
-        "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6"
+        "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6",
+        ".github/dependabot.yml": "80380902f7312ab985c861a730924a3f74f0ec51ecf12c0f75b6d717b9f11d3d"
       },
-      "state": "blocked",
-      "evidence": [
-        "docs/agent/evidence/XRAY-PRODUCT-013-harness-ecb451421fe8.json",
-        "docs/agent/evidence/XRAY-PRODUCT-013-tests-50dabb0983fb.json",
-        "docs/agent/evidence/XRAY-PRODUCT-013-offline-afed9bf75287.json",
-        "docs/agent/evidence/XRAY-PRODUCT-013-package-41ed52169891.json",
-        "docs/agent/evidence/XRAY-PRODUCT-013-docs-a12613768eea.json"
-      ],
+      "state": "in_progress",
+      "evidence": [],
       "review": null,
-      "blocker": "Paused by latest user instruction: stop continuous maintenance and preserve already-started PR30 without merge or release; future Friday maintenance may resume after fresh review of scope and CI.",
-      "next_action": "Verify frozen-head CI and obtain parent-arranged independent review of PR30; no merge or release before acceptance"
+      "blocker": "",
+      "next_action": "Validate reconciled PR30 and 0.1.10 candidate; obtain independent review before merge/release"
     }
   ]
 }

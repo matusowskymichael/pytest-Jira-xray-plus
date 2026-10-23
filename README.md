@@ -22,7 +22,7 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.9 reporting reliability improvements**, retaining Generic
+This guide covers **0.1.10 empty-report-path protection**, retaining Generic
 as the target Xray Test type. Core examples also work with 0.1.2 and 0.1.3; the
 nested local-report example requires 0.1.9, and multi-key attachment isolation
 requires 0.1.4 or later. Installation selects the latest published
@@ -230,7 +230,7 @@ or `PYTEST_ADDOPTS`.
 `--jira-xray --xraypath=""` selects upload, and empty case/full-report arguments
 silently disable those outputs. For offline work, use a literal value such as
 `--xraypath=xray.json`; check any shell variable before using it as a path.
-The unreleased fix rejects explicitly empty values for `--xraypath`,
+Version 0.1.10 rejects explicitly empty values for `--xraypath`,
 `--xray-case-report` and `--xray-full-report` with exit 4 before tests run.
 Omitting an option retains its existing behavior; `--collect-only` still skips
 report configuration and creates no report. Nonempty filenames are not trimmed.
@@ -811,7 +811,7 @@ invalid values in export payloads.
 | Large suites spend time grouping many Test keys | Version 0.1.9 avoids repeated key scans. No flag or mapping change is needed. Large comments/attachments still consume memory; use the existing comment/archive controls and opt-ins deliberately. |
 | Duplicate plugin/import errors | Create a fresh environment with this fork only, not upstream `pytest-jira-xray`. |
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
-| Empty report filename (unreleased fix) | Supply a nonempty filename for the named option; execution stops with exit 4. In published 0.1.9, an empty `--xraypath` can select upload. Use a literal offline filename and check shell variables before running. |
+| Empty report filename (0.1.10) | Supply a nonempty filename for the named option; execution stops with exit 4. In published 0.1.9, an empty `--xraypath` can select upload. Use a literal offline filename and check shell variables before running. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
 | `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
 | Cannot write a report | Check permissions and distinct paths. With version 0.1.8, create the case-report parent folder. Version 0.1.9 creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
@@ -823,6 +823,13 @@ invalid values in export payloads.
 | Certificate error | Configure the trusted CA bundle; do not bypass verification. A nonexistent bundle path is a setup error (exit 4 in 0.1.8). A server TLS failure happens later and retains existing publishing-failure handling. |
 | Timeout, invalid JSON or missing execution ID | Inspect local server/proxy information and check whether the import already succeeded before retrying. |
 | No native parameter rows | Expected: this exporter provides aggregate status and optional comment detail, not native iterations. |
+
+**Empty-path migration (0.1.10):** replace empty report values with nonempty
+filenames. If you intend to omit an output, omit its option; do not pass an empty
+string from a shell variable. With `--jira-xray`, omitting `--xraypath` intentionally
+selects upload. Normal valid commands and report schemas are unchanged. Exit 4
+happens before test execution; correct the path and rerun. `--collect-only` still
+skips report configuration.
 
 **Parallel-comment migration (0.1.9):** no new flag is required. Reports
 without diagnostic text no longer create worker-header-only comments. Custom
@@ -982,3 +989,5 @@ Actual broken links still fail validation. This does not change package
 installation or pytest reporting; see the
 [site-maintenance guide](https://matusowskymichael.github.io/pytest-Jira-xray-plus/project/site/)
 for documentation build checks.
+
+Dependency maintenance: [Dependabot schedule, coverage and review process](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/DEPENDENCY-UPDATES.md). Version checks run Fridays at 09:00 Asia/Dubai; updates require review and are not automatically merged.

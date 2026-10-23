@@ -1,7 +1,7 @@
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.9**. Active work: reject explicit empty report paths. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.9**. Active work: October 23 weekly PR30 completion and 0.1.10 candidate. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -23,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-empty-report-paths.md): active product iteration and acceptance criteria.
+- [Current scope](docs/agent/task-weekly-2026-10-23.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -61,7 +61,8 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 - End with current progress, exact verification limits and an executable next step.
   A checkpoint or draft PR is not independent acceptance.
 
-Continuous maintenance update: continue justified reviewed improvements through
-2026-10-18 23:59 Asia/Dubai (19:59 UTC), then stop. Keep one task in flight;
-coordinate independent review with the parent before each merge or release.
-No release quota. Stop earlier only for exhausted worthwhile work or a real blocker.
+Current maintenance policy (October 23): complete one weekly iteration, then stop.
+Resume PR30 for the verified empty-path fix; dependency bot PRs remain separate.
+Tested and independently reviewed scoped merges, existing Pages deployment and a
+meaningful stable release through the existing trusted publisher are authorized.
+No daily-release quota or continuous work. Discuss integration features first.
