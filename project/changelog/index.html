@@ -1208,6 +1208,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#0110-2026-10-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.10 [2026-10-23]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#019-2026-10-17" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1449,6 +1460,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#0110-2026-10-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.1.10 [2026-10-23]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#019-2026-10-17" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1603,6 +1625,17 @@
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <ul>
+<li>No additional changes queued.</li>
+</ul>
+<h2 id="0110-2026-10-23">0.1.10 [2026-10-23]<a class="headerlink" href="#0110-2026-10-23" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Reject explicitly empty report filenames with usage-error exit 4 before tests
+  or upload selection. Previously --xraypath= could select upload and empty case
+  or full-report paths could silently disable requested output. Keep omitted
+  options, collect-only, nonempty paths and valid reporting unchanged.</li>
+<li>Configure Friday Dependabot checks for Python manifests and GitHub Actions,
+  grouping minor/patch updates while keeping majors separate for review.
+  No dependency upgrades, automatic merges or package release in this setup.</li>
 <li>Correct repository documentation link checks for named pages such as
   class_index.html: only an exact index.html filename represents a directory.
   Preserve genuine missing-file/fragment errors; plugin behavior is unchanged.</li>

@@ -1355,6 +1355,10 @@ invalid values in export payloads.</p>
 <td>Add <code>--allow-duplicate-ids</code> only when the cases intentionally share one Test.</td>
 </tr>
 <tr>
+<td>Empty report filename (0.1.10)</td>
+<td>Supply a nonempty filename for the named option; execution stops with exit 4. In published 0.1.9, an empty <code>--xraypath</code> can select upload. Use a literal offline filename and check shell variables before running.</td>
+</tr>
+<tr>
 <td>No <code>xray.json</code></td>
 <td>Use both <code>--jira-xray</code> and <code>--xraypath=xray.json</code>. Case reporting is separate.</td>
 </tr>
@@ -1400,6 +1404,12 @@ invalid values in export payloads.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>Empty-path migration (0.1.10):</strong> replace empty report values with nonempty
+filenames. If you intend to omit an output, omit its option; do not pass an empty
+string from a shell variable. With <code>--jira-xray</code>, omitting <code>--xraypath</code> intentionally
+selects upload. Normal valid commands and report schemas are unchanged. Exit 4
+happens before test execution; correct the path and rerun. <code>--collect-only</code> still
+skips report configuration.</p>
 <p><strong>Parallel-comment migration (0.1.9):</strong> no new flag is required. Reports
 without diagnostic text no longer create worker-header-only comments. Custom
 non-<code>None</code> representations, real diagnostics and opt-in captures/details remain;
