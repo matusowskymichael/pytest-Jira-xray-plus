@@ -1,3 +1,15 @@
+# PR #34 verified source; actual artifact handoff CI pending
+
+All five fresh profiles pass at76cd120 (full revision in receipts), digest
+61c6fe9a196a1c2f97d523ec6ff7aebb2fffaa488f3ea914161f875887102641.
+562 tests plus19subtests; package/15guidecommands/offline/docs/localbrowser pass.
+Initial harness/test receipts from before a wording correction are historical;
+the initial test receipt correctly says stale and is excluded from acceptance.
+Independent reviewer reports no source findings. Next exact-head CI must execute
+the real artifact-ID roundtrip and downloaded-wheel guide before acceptance.
+PR32 merged/mainCI green; PR33 independently accepted, final docs job pending.
+No publication, personal tokens, permission or workplace changes.
+
 # October 26 — Dependabot PR #34 repair in progress
 
 Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and

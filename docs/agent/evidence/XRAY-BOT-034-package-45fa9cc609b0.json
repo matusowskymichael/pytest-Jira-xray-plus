@@ -1,0 +1,77 @@
+{
+  "task": "XRAY-BOT-034",
+  "profile": "package",
+  "digest": "61c6fe9a196a1c2f97d523ec6ff7aebb2fffaa488f3ea914161f875887102641",
+  "revision": "76cd120b3445239103015c23f3dbb3e9dcb13ba3",
+  "timestamp": "2026-10-26T20:00:43.320432+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/build_release.py",
+      ".harness/dist"
+    ],
+    [
+      "{python}",
+      "-m",
+      "twine",
+      "check",
+      ".harness/dist/pytest_jira_xray_plus-0.1.10-py3-none-any.whl",
+      ".harness/dist/pytest_jira_xray_plus-0.1.10.tar.gz"
+    ],
+    [
+      "{python}",
+      "-m",
+      "venv",
+      "--clear",
+      ".harness/installed"
+    ],
+    [
+      "{root}/.harness/installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      ".harness/dist/pytest_jira_xray_plus-0.1.10-py3-none-any.whl",
+      "pytest-xdist==3.8.0",
+      "pytest-rerunfailures==16.7"
+    ],
+    [
+      "{python}",
+      "tools/check_installed_usage.py",
+      "{root}/.harness/installed/bin/python",
+      ".harness/dist/pytest_jira_xray_plus-0.1.10-py3-none-any.whl"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.081,
+      "log": "docs/agent/evidence/XRAY-BOT-034-package-45fa9cc609b0-0.log",
+      "log_sha256": "04ad0930be58f979e7b1a55830197d01db8993228d09a870bd19a9fda3089e3f"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.233,
+      "log": "docs/agent/evidence/XRAY-BOT-034-package-45fa9cc609b0-1.log",
+      "log_sha256": "85a984f3f02d445c40df1b9d65c53b37d1b03e92e7ce7b8bf0972b90b0c16eaf"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.707,
+      "log": "docs/agent/evidence/XRAY-BOT-034-package-45fa9cc609b0-2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 3.159,
+      "log": "docs/agent/evidence/XRAY-BOT-034-package-45fa9cc609b0-3.log",
+      "log_sha256": "e05bb35aefe04b188c4468d8dad72d3a78175a0d5090a33c823e8a50cfba8fb9"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 4.773,
+      "log": "docs/agent/evidence/XRAY-BOT-034-package-45fa9cc609b0-4.log",
+      "log_sha256": "94f252ba82a13a093e4ddf56a1c1112274e61cd67e0a3cb7452abe51040ad0a7"
+    }
+  ],
+  "status": "passed"
+}
