@@ -1,0 +1,34 @@
+{
+  "task": "XRAY-BOT-033",
+  "profile": "offline",
+  "digest": "bd927d5ab56429147a8b96b966ff10da1353e72eec9e1560014b9996297d8ff1",
+  "revision": "289abd48eea7903c96f6a0d1109413f829c9ab17",
+  "timestamp": "2026-10-26T19:45:34.958030+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/reproduce.py",
+      "src",
+      "--details"
+    ],
+    [
+      "{python}",
+      "tools/validate_offline.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.303,
+      "log": "docs/agent/evidence/XRAY-BOT-033-offline-4ca499a812a2-0.log",
+      "log_sha256": "48fd88f4118372623be5d350f84496417cc69bf556e45308edb0e8b3b35e09f2"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.571,
+      "log": "docs/agent/evidence/XRAY-BOT-033-offline-4ca499a812a2-1.log",
+      "log_sha256": "f3a6c7bb9eff35d7c632f4845321534f28230400005fa8ebf4ef100588df7a24"
+    }
+  ],
+  "status": "passed"
+}

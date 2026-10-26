@@ -1,3 +1,21 @@
+# PR #33 independently accepted; PR #32 merged
+
+PR32 merged df17de7d0904db71b8bc0c1b8071c0ae651b68b0. Native reviewer /root/review_bot33 accepted exact33head360001274124e8e914cb2d55e2ddb21aa69684cc with no findings and six green workflows. Main ancestry reconciled without tree/digest change. Next acceptance-head CI, merge33, then artifact-action repair34. No publication.
+
+# PR #33 verified candidate awaiting review/CI
+
+All five profiles passed at 289abd48eea7903c96f6a0d1109413f829c9ab17; digest
+bd927d5ab56429147a8b96b966ff10da1353e72eec9e1560014b9996297d8ff1.
+562 tests plus 19 subtests, installed guide, package and docs/browser verified.
+Independent reviewer is evaluating frozen source and receipts. Merge after #32
+and only when exact-head CI and independent review pass. No publication.
+
+# October 26 — Dependabot PR #33 repair in progress
+
+Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and
+independent review required before this PR merges. No release authorized by this
+task. Other updates remain separate.
+
 # PR #32 independently accepted
 
 Native reviewer /root/review_dependabot_checkout_fix accepted 9bd6e75923dbcae030939add4728cff3f0bd2392 with no findings. All six workflows passed. Harness acceptance passed; next verify acceptance-only head CI then merge and start #33. No runtime/security changes or publication.

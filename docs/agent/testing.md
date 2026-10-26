@@ -69,3 +69,10 @@ ubuntu-latest. Credential persistence remains disabled. The release workflow
 checks out explicit main and never opts into unsafe fork checkout. Current
 [release notes](https://github.com/actions/checkout/releases/tag/v7.0.1) document
 the security/default-input fixes. No runtime usage commands change.
+
+PR #33 updates setup-python to its immutable v7.0.0 SHA. Official
+[release notes](https://github.com/actions/setup-python/releases/tag/v7.0.0)
+describe the ESM migration and removal of the unused pip-install input. The
+[README](https://github.com/actions/setup-python/blob/v7.0.0/README.md) retains
+the Node24 runner requirement. Explicit Python versions (3.12–3.14) and current
+installation commands remain unchanged; no token, permission or cache expansion.

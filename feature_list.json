@@ -2,10 +2,10 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-BOT-032",
-      "title": "Repair and validate Dependabot PR 32",
-      "source": "docs/agent/task-dependabot-32.md",
-      "source_sha256": "ca0c001bbc957cef1eb747ba0a9414e3560bff8d2416f3c52503a88ebdad30f5",
+      "id": "XRAY-BOT-033",
+      "title": "Repair and validate Dependabot PR 33",
+      "source": "docs/agent/task-dependabot-33.md",
+      "source_sha256": "ec083cbfb9f12f5d02b6cd403af4daa46fc888c763e0b27e1d79193987936757",
       "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -39,11 +39,11 @@
       "preserve": {
         ".coveragerc": "23af419dcfedd914478a2f056f55eb63096bbd4f95d6e5ef8eaa1d5d4e267ca2",
         ".github/dependabot.yml": "80380902f7312ab985c861a730924a3f74f0ec51ecf12c0f75b6d717b9f11d3d",
-        ".github/workflows/agent.yml": "9b69ca8a55067b1c8f81afb89f554b512760076661ee94be6fab856be3c50590",
-        ".github/workflows/docs.yml": "1b5532049524cd1150aa6961f53f6cf37543579e6d43ee5059d6801f9612543d",
-        ".github/workflows/github-release.yml": "09084cef8ab9995bd2f7456ba763b0e0c45c98d27157e91bb15de9d8e80aa093",
-        ".github/workflows/publish.yml": "9b9e6a76a0c4d9c57826a28dfad2b3965652220be8fc149d218e8e55749b82df",
-        ".github/workflows/tests.yml": "8df75a579e9fe2dd0b9b20f19b701424dfcc69e82f62d62a6d46ab6f38bc6a87",
+        ".github/workflows/agent.yml": "35318a14ca1a49fe12bf0e168af33b7ea4abd3818beaf0693a8dc820bd08cd97",
+        ".github/workflows/docs.yml": "1eb1b9f32036bcda431b37c3ec3ccb268642820cdaa899725ec593db3f22262b",
+        ".github/workflows/github-release.yml": "997d7eb1bf01a58be9941680dbd21aa749f47aa66f0c33f84f838cf9aa624497",
+        ".github/workflows/publish.yml": "fdef8dda090061d355c64d6ebf419cc0b4f325ab7e408e27d79340fad9f356e7",
+        ".github/workflows/tests.yml": "9d7dd7b15e80cee97cc3cd2124b8dda464bb7097fe7fb981e672eaef0913b0ac",
         "pyproject.toml": "b2c492dbb8082307dfcdb80f1886dcac8b1e3892b284e3bb69960aa3ff628597",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
@@ -109,15 +109,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-BOT-032-harness-53048a70287f.json",
-        "docs/agent/evidence/XRAY-BOT-032-tests-10add295e65c.json",
-        "docs/agent/evidence/XRAY-BOT-032-offline-ceb323ddd9c6.json",
-        "docs/agent/evidence/XRAY-BOT-032-package-23f189203feb.json",
-        "docs/agent/evidence/XRAY-BOT-032-docs-094b7dee8c11.json"
+        "docs/agent/evidence/XRAY-BOT-033-harness-6afccbb9cd5a.json",
+        "docs/agent/evidence/XRAY-BOT-033-offline-4ca499a812a2.json",
+        "docs/agent/evidence/XRAY-BOT-033-tests-b771b84ab1cc.json",
+        "docs/agent/evidence/XRAY-BOT-033-docs-273f8b37e963.json",
+        "docs/agent/evidence/XRAY-BOT-033-package-f97e2af41623.json"
       ],
-      "review": "docs/agent/evidence/XRAY-BOT-032-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-BOT-033-independent-review.json",
       "blocker": "",
-      "next_action": "Run fresh profiles, obtain independent review and green exact-head CI before merging PR 32"
+      "next_action": "Run fresh profiles, obtain independent review and green exact-head CI before merging PR 33"
     }
   ]
 }
