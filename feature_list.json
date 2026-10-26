@@ -107,9 +107,15 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
-      "review": null,
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-BOT-033-harness-6afccbb9cd5a.json",
+        "docs/agent/evidence/XRAY-BOT-033-offline-4ca499a812a2.json",
+        "docs/agent/evidence/XRAY-BOT-033-tests-b771b84ab1cc.json",
+        "docs/agent/evidence/XRAY-BOT-033-docs-273f8b37e963.json",
+        "docs/agent/evidence/XRAY-BOT-033-package-f97e2af41623.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-BOT-033-independent-review.json",
       "blocker": "",
       "next_action": "Run fresh profiles, obtain independent review and green exact-head CI before merging PR 33"
     }
