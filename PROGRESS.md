@@ -1,3 +1,33 @@
+# October 26 dependency maintenance completed
+
+All four requested Dependabot PRs were independently reviewed, tested and merged:
+
+- [PR #32](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/32): `df17de7d0904db71b8bc0c1b8071c0ae651b68b0`.
+- [PR #33](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/33): `44b3025b2ed2a028d7aac57a6f5c571e100ace97`.
+- [PR #34](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/34): `8f97ab81a72adb434cec50877da744a4c606dc2e`.
+- [PR #35](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/35): `32755b590f6fe2f730f3718d9d2babdb53a661e5`.
+
+Checkout 7.0.1, setup-python 7.0.0 and download-artifact 8.0.2 use immutable action
+SHAs. Setuptools 84.2.0 is aligned in the build manifest, CI, publisher setup and
+maintainer instructions. Completed ledgers were archived and fresh evidence
+accepted through the existing harness; guards and permissions were preserved.
+
+Each stage passed all five profiles: 562 tests plus 19 subtests, all 15 installed guide
+commands, package/Twine, offline and local docs/browser checks. Hosted CI also
+verified actual artifact-ID downloads, exact file hashes and the installed guide
+from the downloaded wheel. Runtime, tests, tools, full user guide, package version
+and runtime dependency declarations remain unchanged.
+
+[Completion evidence](docs/agent/evidence/XRAY-DEPS-20261026-completion.json)
+records exact heads, reviews, CI and limitations. Final integrated verification is
+reported by this commit's GitHub checks. Earlier progress below is historical.
+No publication/tag, workplace access, credentials, permissions or paid settings
+changed. Existing upload-artifact deprecation warning remains unsuppressed; it is
+not a failed check. No live Jira/native-iteration compatibility claim is added.
+Stop here; future dependency work requires its own scoped task and fresh evidence.
+
+---
+
 # PR #35 independently accepted; #32–34 merged
 
 Native reviewer /root/review_bot35 approved exact candidate

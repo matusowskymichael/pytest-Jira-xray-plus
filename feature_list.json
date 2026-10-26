@@ -117,7 +117,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-BOT-035-independent-review.json",
       "blocker": "",
-      "next_action": "Run fresh profiles, obtain independent review and green exact-head CI before merging PR 35"
+      "next_action": "Completed all four requested Dependabot repairs and merges; verify final integrated CI, then stop."
     }
   ]
 }

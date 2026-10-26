@@ -1,0 +1,291 @@
+{
+  "completed_at": "2026-10-26T20:38:41.997599+00:00",
+  "request": "October 26: fix and merge four existing Dependabot PRs #32\u201335; no new release",
+  "base_main": "09e871809f9dd84b6a17f06b9bfda9738682776d",
+  "integrated_merge_sha": "32755b590f6fe2f730f3718d9d2babdb53a661e5",
+  "pull_requests": [
+    {
+      "number": 32,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/32",
+      "merged": true,
+      "merge_sha": "df17de7d0904db71b8bc0c1b8071c0ae651b68b0",
+      "accepted_head": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+      "reviewed_head": "9bd6e75923dbcae030939add4728cff3f0bd2392",
+      "digest": "3272381da4bb0319039954588df599eb1eea288974dd21bb1a91440778c41b94",
+      "reviewer": "native agent /root/review_dependabot_checkout_fix",
+      "accepted_head_ci": [
+        {
+          "conclusion": "success",
+          "databaseId": 40389153052,
+          "event": "push",
+          "headSha": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40389153052"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40389118941,
+          "event": "pull_request",
+          "headSha": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40389118941"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40389118955,
+          "event": "pull_request",
+          "headSha": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40389118955"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40389118858,
+          "event": "pull_request",
+          "headSha": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40389118858"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40389110241,
+          "event": "push",
+          "headSha": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40389110241"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40389110671,
+          "event": "push",
+          "headSha": "7eea9bedfe3f5c6bfc211a6693dc5d62fd6996a6",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40389110671"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/33",
+      "merged": true,
+      "merge_sha": "44b3025b2ed2a028d7aac57a6f5c571e100ace97",
+      "accepted_head": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+      "reviewed_head": "360001274124e8e914cb2d55e2ddb21aa69684cc",
+      "digest": "bd927d5ab56429147a8b96b966ff10da1353e72eec9e1560014b9996297d8ff1",
+      "reviewer": "native agent /root/review_bot33",
+      "accepted_head_ci": [
+        {
+          "conclusion": "success",
+          "databaseId": 40390986829,
+          "event": "pull_request",
+          "headSha": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40390986829"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40390986866,
+          "event": "pull_request",
+          "headSha": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40390986866"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40390986841,
+          "event": "pull_request",
+          "headSha": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40390986841"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40390976595,
+          "event": "push",
+          "headSha": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40390976595"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40390976667,
+          "event": "push",
+          "headSha": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40390976667"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40390976724,
+          "event": "push",
+          "headSha": "904869f29b6a11014e22b1aceab8b8fd01c61280",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40390976724"
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/34",
+      "merged": true,
+      "merge_sha": "8f97ab81a72adb434cec50877da744a4c606dc2e",
+      "accepted_head": "a625a8d0199096082e0155f1ec4023624c70652a",
+      "reviewed_head": "55416e9fc6cac0416c23e3c04b397f7f09145f50",
+      "digest": "61c6fe9a196a1c2f97d523ec6ff7aebb2fffaa488f3ea914161f875887102641",
+      "reviewer": "native agent /root/review_bot34",
+      "accepted_head_ci": [
+        {
+          "conclusion": "success",
+          "databaseId": 40393167833,
+          "event": "pull_request",
+          "headSha": "a625a8d0199096082e0155f1ec4023624c70652a",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40393167833"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40393167836,
+          "event": "pull_request",
+          "headSha": "a625a8d0199096082e0155f1ec4023624c70652a",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40393167836"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40393167693,
+          "event": "pull_request",
+          "headSha": "a625a8d0199096082e0155f1ec4023624c70652a",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40393167693"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40393160479,
+          "event": "push",
+          "headSha": "a625a8d0199096082e0155f1ec4023624c70652a",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40393160479"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40393160476,
+          "event": "push",
+          "headSha": "a625a8d0199096082e0155f1ec4023624c70652a",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40393160476"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40393160514,
+          "event": "push",
+          "headSha": "a625a8d0199096082e0155f1ec4023624c70652a",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40393160514"
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/35",
+      "merged": true,
+      "merge_sha": "32755b590f6fe2f730f3718d9d2babdb53a661e5",
+      "accepted_head": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+      "reviewed_head": "bddd7fcaabf095ca536cdf17eafc1f7f56365a67",
+      "digest": "12b5b139a63b2d53826c8c4166478daa757ed259cd28df5897026cebcb3c476c",
+      "reviewer": "native agent /root/review_bot35",
+      "accepted_head_ci": [
+        {
+          "conclusion": "success",
+          "databaseId": 40395869409,
+          "event": "pull_request",
+          "headSha": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40395869409"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40395869463,
+          "event": "pull_request",
+          "headSha": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40395869463"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40395869546,
+          "event": "pull_request",
+          "headSha": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40395869546"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40395862151,
+          "event": "push",
+          "headSha": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+          "name": "documentation",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40395862151"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40395862303,
+          "event": "push",
+          "headSha": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+          "name": "repository harness",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40395862303"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 40395862155,
+          "event": "push",
+          "headSha": "ef450cffb676cea5fd875d1823115abd96ca05bb",
+          "name": "tests",
+          "status": "completed",
+          "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/40395862155"
+        }
+      ]
+    }
+  ],
+  "root_causes": [
+    "All four old PRs changed files protected by the previous completed task ledger; fresh authorized tasks archived old acceptance and regenerated preservation/evidence without disabling checks.",
+    "PR #35 required setuptools 84.2.0 but CI/publisher/developer installation pinned 84.0.0; the non-isolated builder rejected the missing exact backend. All operational pins now agree."
+  ],
+  "verification": [
+    "Each update passed five fresh profiles, 562 tests plus 19 subtests, 15 installed-guide commands, wheel/sdist/Twine, offline validation and local docs/browser checks.",
+    "Each exact reviewed and acceptance head passed six hosted workflows; independent reviewers checked source, preservation/digests and all 13 profile log hashes.",
+    "PR #34 and35 hosted logs prove uploadv4/downloadv8 artifact-ID compatibility, matching archive/per-file hashes and installed-guide success from downloaded wheels.",
+    "Integrated comparison preserves runtime/tests/tools/userguide/packageversion/runtime-dependencies and all workflow access controls."
+  ],
+  "limits": [
+    "No PyPI publication, release tag, workplace access, credentials, permissions, paid-budget or security-setting changes.",
+    "No live Jira/Xray validation; existing target and native-iteration limitations remain.",
+    "Initial PR #34 receipt became stale after a documentation wording correction and was excluded; fresh five-profile receipts replaced it for acceptance.",
+    "Four CI runs for a superseded PR #33 bookkeeping commit were cancelled to avoid unnecessary work; all actual merged heads have successful checks.",
+    "Existing upload-artifact v4 Node20 deprecation warning remains visible; GitHub runs it on Node24. It was not suppressed or expanded into another dependency task.",
+    "Direct executor historical job-log redirects returned Forbidden; completed smoke logs were independently read via the existing GitHub connector.",
+    "Final integrated checks must complete on this evidence-only commit; consult its GitHub checks for terminal status."
+  ]
+}
