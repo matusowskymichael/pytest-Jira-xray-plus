@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-BOT-035",
+  "profile": "tests",
+  "digest": "12b5b139a63b2d53826c8c4166478daa757ed259cd28df5897026cebcb3c476c",
+  "revision": "d5f84472ce2518d5365a18b60ac647c14513b2c5",
+  "timestamp": "2026-10-26T20:12:52.833162+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 143.373,
+      "log": "docs/agent/evidence/XRAY-BOT-035-tests-89328fb2ca36-0.log",
+      "log_sha256": "2b843fba896fc8107973981266beadd6fa07fb6921783bea425a9be23adac6bb"
+    }
+  ],
+  "status": "passed"
+}

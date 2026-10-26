@@ -1,3 +1,14 @@
+# PR #35 verified candidate awaiting final review and CI
+
+Five fresh profiles pass at d5f8447 (full revision in receipts); digest
+12b5b139a63b2d53826c8c4166478daa757ed259cd28df5897026cebcb3c476c.
+562 tests plus 19 subtests; package, all 15 guide commands, offline and local
+browser/docs checks pass with setuptools 84.2.0. Baseline reproduction shows
+84.0.0 misses the exact 84.2.0 backend requirement; aligned environment passes.
+Independent reviewer reports no source findings. Next: exact-head hosted CI,
+including the inherited artifact smoke, and final independent acceptance.
+PR32/33 merged; PR34 accepted and final CI running. No publication or new tag.
+
 # October 26 — Dependabot PR #35 repair in progress
 
 Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and

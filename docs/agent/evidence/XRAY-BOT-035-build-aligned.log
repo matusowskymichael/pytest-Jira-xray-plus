@@ -1,0 +1,16 @@
+running egg_info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+{
+  "installed_setuptools": "84.2.0",
+  "missing_build_requirements": [],
+  "result": "Aligned environment satisfies the exact build backend requirement"
+}
