@@ -1,0 +1,19 @@
+{
+  "task": "XRAY-BOT-032",
+  "digest": "3272381da4bb0319039954588df599eb1eea288974dd21bb1a91440778c41b94",
+  "revision": "9bd6e75923dbcae030939add4728cff3f0bd2392",
+  "timestamp": "2026-10-26T19:41:22+00:00",
+  "reviewer": "native agent /root/review_dependabot_checkout_fix",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile current main and preserve original bot history; archive prior accepted ledger without reusing stale acceptance",
+    "Validate the intended dependency update against official upstream sources; preserve security settings, all tests and publishing opt-in; no release or credentials",
+    "All five profiles and installed guide pass, exact remote CI passes, and fresh independent review approves before merge",
+    "Record exact reviewed/tested head, merge result and limitations; proceed only to the next explicitly authorized bot PR"
+  ],
+  "source": "Parent relay of independent review; not builder self-review",
+  "verification": "Fetched125relevantfiles and verified Git blob SHAs; independently recomputed digest and preservation map; all13loghashes andfiveprofiles; current-main scope and upstream checkout runtime/security; both tests workflows fullygreen",
+  "limits": "Independent source/evidence/hash/CI review; did not rerun application profiles or execute live Jira/PyPI/release."
+}

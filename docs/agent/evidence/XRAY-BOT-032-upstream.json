@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-10-26T19:30:56.657402+00:00",
+  "upstream": [
+    {
+      "repository": "actions/checkout",
+      "tag": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "readme_url": "https://github.com/actions/checkout/blob/v7.0.1/README.md",
+      "readme_sha256": "3df94d90d0df6df603a549cc779bc6cab4b21f8deef82eb6fef1f4d88b788174"
+    },
+    {
+      "repository": "actions/setup-python",
+      "tag": "v7.0.0",
+      "sha": "5fda3b95a4ea91299a34e894583c3862153e4b97",
+      "readme_url": "https://github.com/actions/setup-python/blob/v7.0.0/README.md",
+      "readme_sha256": "d0a51dcaf89df5b8211d4bdbf74631c2cacf25879f95834c70bebef51e9ad1f9"
+    },
+    {
+      "repository": "actions/download-artifact",
+      "tag": "v8.0.2",
+      "sha": "9000827ccba6bdab643e8b6fd33ac0654aef8333",
+      "readme_url": "https://github.com/actions/download-artifact/blob/v8.0.2/README.md",
+      "readme_sha256": "3c2ed3a17c8d87820ba42981b9703be715a8ce99984a1926d4e144bc0afffb41"
+    }
+  ],
+  "compatibility": [
+    "All use existing GitHub-hosted ubuntu-latest runners; Node24 minimum runner2.327.1.",
+    "Checkout persist-credentials:false retained; explicit main release checkout; unsafe fork option not enabled.",
+    "setup-python7 removes pip-install input (not used here); explicit Python matrix preserved.",
+    "download-artifact8 documents ID support for upload-artifact4+; digest mismatch defaults error. Test real artifact handoff before merging34."
+  ],
+  "limits": "Read-only upstream source checks, not execution proof for pending PRs."
+}
