@@ -1,3 +1,12 @@
+# PR #35 independently accepted; #32–34 merged
+
+Native reviewer /root/review_bot35 approved exact candidate
+bddd7fcaabf095ca536cdf17eafc1f7f56365a67 with no findings. All six workflows
+passed, including setuptools 84.2.0 builds, artifact hash checks and downloaded
+wheel guide commands. Main reconciliation preserves the reviewed tree/digest.
+Next: verify acceptance-only head CI, merge #35 and verify integrated main.
+No release, new tag, credentials, access controls or paid settings changed.
+
 # PR #35 verified candidate awaiting final review and CI
 
 Five fresh profiles pass at d5f8447 (full revision in receipts); digest

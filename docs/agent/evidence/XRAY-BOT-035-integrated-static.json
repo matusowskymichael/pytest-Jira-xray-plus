@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-26T20:15:49.517978+00:00",
+  "base": "09e871809f9dd84b6a17f06b9bfda9738682776d",
+  "candidate": "bddd7fcaabf095ca536cdf17eafc1f7f56365a67",
+  "unchanged": "Runtime source, tests, tools, full user guide, runtime dependencies, package version0.1.10, requirements files, Dependabot schedule and coverage config",
+  "workflow_controls": "Workflow/job permissions, environments, conditions, runners and Python strategies unchanged across all five workflows",
+  "workflows": [
+    ".github/workflows/github-release.yml",
+    ".github/workflows/publish.yml",
+    ".github/workflows/docs.yml",
+    ".github/workflows/agent.yml",
+    ".github/workflows/tests.yml"
+  ],
+  "limits": "Static integrated comparison; separate profile/CI and independent review evidence verifies execution. No publication."
+}
