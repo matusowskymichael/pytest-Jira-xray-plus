@@ -6,7 +6,7 @@ Setup installs public development tools; it does not create credentials or call 
 ```sh
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -e . -r requirements-tests.txt -r requirements-docs.txt build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]' playwright==1.64.0
+python -m pip install -e . -r requirements-tests.txt -r requirements-docs.txt build==1.6.1 setuptools==84.2.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]' playwright==1.64.0
 python -m playwright install chromium
 ```
 
@@ -87,3 +87,13 @@ and reinstalls the downloaded wheel to run all guide commands. This exercises
 the publisher handoff without dispatching publication, supplying a personal token, entering
 the pypi environment or changing workflow permissions. Other matrix jobs retain
 their existing package checks. The publisher's existing hashes and opt-in remain.
+
+PR #35 aligns setuptools 84.2.0 in pyproject.toml, test/publisher installation
+commands and the development command above. The release builder deliberately
+uses --no-isolation, so its installed backend must satisfy the exact build-system
+requirement; updating only the manifest causes a missing-dependency build failure.
+The [official setuptools history](https://setuptools.pypa.io/en/latest/history.html#v84-2-0)
+describes the 84.2.0 packaging/extension updates. This project builds a pure-Python
+wheel and verifies its full metadata and installed guide on Python 3.12–3.14.
+This maintenance does not change package version, runtime dependencies or user
+commands and does not authorize publishing another 0.1.10 distribution.

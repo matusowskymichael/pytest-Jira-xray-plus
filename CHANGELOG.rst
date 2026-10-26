@@ -1,5 +1,7 @@
 Unreleased
 ==========
+- Align setuptools 84.2.0 across build metadata, CI, publisher and developer setup
+  so non-isolated distribution builds use the required backend version.
 - Update download-artifact to 8.0.2 and verify the publisher artifact-ID/hash
   handoff in nonpublishing CI, including installed-guide checks of downloaded bytes.
 - Update pinned setup-python action to 7.0.0 while retaining the Python matrix.
