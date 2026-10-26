@@ -84,6 +84,6 @@ default. This repository runs on GitHub.com, not unsupported GHES. The Python
 3.12 CI job now downloads its uploaded wheel/sdist by ID with merge-multiple,
 compares the exact file set and SHA256 values with a separate pre-upload record,
 and reinstalls the downloaded wheel to run all guide commands. This exercises
-the publisher handoff without dispatching publication, using a token, entering
+the publisher handoff without dispatching publication, supplying a personal token, entering
 the pypi environment or changing workflow permissions. Other matrix jobs retain
 their existing package checks. The publisher's existing hashes and opt-in remain.
