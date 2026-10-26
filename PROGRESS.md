@@ -1,3 +1,11 @@
+# PR #33 verified candidate awaiting review/CI
+
+All five profiles passed at 289abd48eea7903c96f6a0d1109413f829c9ab17; digest
+bd927d5ab56429147a8b96b966ff10da1353e72eec9e1560014b9996297d8ff1.
+562 tests plus 19 subtests, installed guide, package and docs/browser verified.
+Independent reviewer is evaluating frozen source and receipts. Merge after #32
+and only when exact-head CI and independent review pass. No publication.
+
 # October 26 — Dependabot PR #33 repair in progress
 
 Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and
