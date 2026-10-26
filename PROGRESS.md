@@ -1,3 +1,13 @@
+# PR #32 verified candidate awaiting independent review and CI
+
+All five profiles pass at 6d15f7cff5639f2fbbe9c0e1bbc4fc38a26dad71.
+Digest: 3272381da4bb0319039954588df599eb1eea288974dd21bb1a91440778c41b94.
+562 tests plus 19 subtests; installed guide and local docs browser pass. Upstream
+pinned action SHA verified. No runtime changes, publishing or security changes.
+Old log downloads are Forbidden in this executor; parent diagnostic findings and
+fresh source/profile evidence are recorded separately. Next: exact remote CI and
+external independent review before merge. No self-review acceptance.
+
 # October 26 — Dependabot PR #32 repair in progress
 
 Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and
