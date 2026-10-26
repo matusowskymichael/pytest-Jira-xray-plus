@@ -59,3 +59,13 @@ versions and docs tools are pinned, source archive metadata is normalized, and
 CI/publisher hashes protect actual released files. Prior local and CI wheels
 had different archive bytes despite identical member contents: do not promise
 cross-host bitwise reproducibility. Record resolved versions with release evidence.
+
+## October 26 action maintenance
+
+PR #32 updates checkout to the immutable v7.0.1 SHA. Official
+[checkout documentation](https://github.com/actions/checkout/blob/v7.0.1/README.md)
+requires a Node 24 capable runner (2.327.1+); these workflows use GitHub-hosted
+ubuntu-latest. Credential persistence remains disabled. The release workflow
+checks out explicit main and never opts into unsafe fork checkout. Current
+[release notes](https://github.com/actions/checkout/releases/tag/v7.0.1) document
+the security/default-input fixes. No runtime usage commands change.

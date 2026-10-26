@@ -1,3 +1,9 @@
+# October 26 — Dependabot PR #32 repair in progress
+
+Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and
+independent review required before this PR merges. No release authorized by this
+task. Other updates remain separate.
+
 # October 23 weekly iteration completed — published 0.1.10
 
 PR [#30](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/30) merged

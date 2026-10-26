@@ -1,3 +1,11 @@
+# Current task — October 26 dependency repairs
+
+User explicitly authorizes fixing and merging existing Dependabot PRs #32–35.
+Current stage: PR #32. Published package remains 0.1.10; no new release or tag.
+See [active task](docs/agent/task-dependabot-32.md) and PROGRESS.md. Historical
+weekly-policy text below does not override this new explicit request. Preserve
+verification gates and security settings; independent review before each merge.
+
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
