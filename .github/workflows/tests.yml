@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m pip install -e . -r requirements-tests.txt build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]'
+      - run: python -m pip install -e . -r requirements-tests.txt build==1.6.1 setuptools==84.2.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]'
       - name: Measure plugin coverage including subprocesses
         if: matrix.python == '3.12'
         run: python tools/measure_coverage.py

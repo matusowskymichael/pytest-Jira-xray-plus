@@ -1,0 +1,33 @@
+{
+  "task": "XRAY-BOT-035",
+  "revision": "d5f84472ce2518d5365a18b60ac647c14513b2c5",
+  "checked_at": "2026-10-26T20:10:57.393692+00:00",
+  "method": "build.ProjectBuilder(root).check_dependencies(wheel) in isolated development environments with setuptools 84.0.0 then 84.2.0; no publication",
+  "checks": [
+    {
+      "stage": "baseline",
+      "result": {
+        "installed_setuptools": "84.0.0",
+        "missing_build_requirements": [
+          [
+            "setuptools==84.2.0"
+          ]
+        ],
+        "result": "Reproduced old CI environment missing the PR-required build backend"
+      },
+      "log": "docs/agent/evidence/XRAY-BOT-035-build-baseline.log",
+      "sha256": "59da2d3b851fe5ea85c4842285dd77e5d5a1dc69917501ba66b30d8a95723560"
+    },
+    {
+      "stage": "aligned",
+      "result": {
+        "installed_setuptools": "84.2.0",
+        "missing_build_requirements": [],
+        "result": "Aligned environment satisfies the exact build backend requirement"
+      },
+      "log": "docs/agent/evidence/XRAY-BOT-035-build-aligned.log",
+      "sha256": "67a89cf30a252fe820cc446e17bb85e0e39ec73ee38474c791328ef91e6291e5"
+    }
+  ],
+  "limits": "Build-requirement reproduction only; separate package/profile/CI evidence verifies actual artifacts and installed guide."
+}

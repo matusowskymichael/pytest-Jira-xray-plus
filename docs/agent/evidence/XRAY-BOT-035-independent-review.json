@@ -1,0 +1,46 @@
+{
+  "task": "XRAY-BOT-035",
+  "revision": "bddd7fcaabf095ca536cdf17eafc1f7f56365a67",
+  "digest": "12b5b139a63b2d53826c8c4166478daa757ed259cd28df5897026cebcb3c476c",
+  "timestamp": "2026-10-26T20:27:02+00:00",
+  "reviewer": "native agent /root/review_bot35",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile current main and preserve original bot history; archive prior accepted ledger without reusing stale acceptance",
+    "Validate the intended dependency update against official upstream sources; preserve security settings, all tests and publishing opt-in; no release or credentials",
+    "All five profiles and installed guide pass, exact remote CI passes, and fresh independent review approves before merge",
+    "Record exact reviewed/tested head, merge result and limitations; proceed only to the next explicitly authorized bot PR"
+  ],
+  "verification": [
+    "Independently reconstructed the content digest across 133 inputs and verified every preservation hash.",
+    "Verified original Dependabot commit ancestry and archived ledger equality with accepted PR34 source.",
+    "Manifest, test workflow and publisher changes are exact setuptools 84.0.0 to 84.2.0 substitutions; developer installation instructions match.",
+    "Reviewed official setuptools history and installed Python requirement. Existing Python 3.12\u20133.14 satisfies setuptools Python >=3.10 requirement.",
+    "Verified all 13 profile log hashes, five passing receipts and both build-requirement reproduction log hashes at source d5f84472ce2518d5365a18b60ac647c14513b2c5.",
+    "Evidence confirms the old 84.0.0 environment misses the required 84.2.0 backend and the aligned environment satisfies it.",
+    "Fresh profiles support 562 tests plus 19 subtests, successful wheel/sdist build and Twine checks, 15 installed guide commands, offline validation and 23 HTML pages/1218 references/local browser checks.",
+    "Frozen head differs from tested source only in excluded progress/evidence. Main reconciliation at 00b8751405b1f2cbfaab053fb870fea5b5f82e9e leaves the reviewed tree unchanged.",
+    "Independently compared integrated changes against initial main 09e871809f9dd84b6a17f06b9bfda9738682776d: runtime, tests, tools, full user guide, project metadata/runtime dependencies, package version, requirement files and Dependabot configuration remain unchanged.",
+    "All five workflows retain their triggers, concurrency, job sets, permissions, environments, conditions, runners, strategies and needs.",
+    "All six exact-head workflows passed: 40393742322, 40393742390, 40393742249, 40393731824, 40393731889 and 40393732092.",
+    "Independently read completed hosted jobs 121821184356 and 121821148331 through the existing GitHub connector. Both installed setuptools 84.2.0, built distributions, verified artifact hashes, reinstalled the downloaded wheel and passed all 15 guide commands."
+  ],
+  "artifact_roundtrips": [
+    {
+      "job_id": 121821184356,
+      "artifact_id": 12685651874,
+      "matching_zip_sha256": "ab9873f2e8644c668213aa55c5afaf532d34269ab154504f6578ff9d3b13003f"
+    },
+    {
+      "job_id": 121821148331,
+      "artifact_id": 12684979185,
+      "matching_zip_sha256": "d74c8357ceb778a569318038e9d2a5c9f59a01363111fad3877cb2cd14ad6e6b"
+    }
+  ],
+  "observations": [
+    "Existing upload-artifact v4 Node20 deprecation warning remains visible; GitHub runs it on Node24. This PR does not introduce or suppress that warning."
+  ],
+  "limits": "Read-only independent source, evidence, hash, upstream and hosted-CI/log review. Application profiles were not independently rerun. No live Jira, credential changes, PyPI publication or release execution. Verify unchanged digest and passing CI on the acceptance-only head before merging."
+}

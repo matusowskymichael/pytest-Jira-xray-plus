@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-BOT-035",
+  "profile": "harness",
+  "digest": "12b5b139a63b2d53826c8c4166478daa757ed259cd28df5897026cebcb3c476c",
+  "revision": "d5f84472ce2518d5365a18b60ac647c14513b2c5",
+  "timestamp": "2026-10-26T20:10:29.212948+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.431,
+      "log": "docs/agent/evidence/XRAY-BOT-035-harness-f3e48f46e999-0.log",
+      "log_sha256": "93f23f7f7ee3141a293eb6e6c37dc79c7de15380048d43dbd9e8b798d28ab687"
+    }
+  ],
+  "status": "passed"
+}

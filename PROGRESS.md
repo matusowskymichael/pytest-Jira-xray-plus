@@ -1,3 +1,29 @@
+# PR #35 independently accepted; #32–34 merged
+
+Native reviewer /root/review_bot35 approved exact candidate
+bddd7fcaabf095ca536cdf17eafc1f7f56365a67 with no findings. All six workflows
+passed, including setuptools 84.2.0 builds, artifact hash checks and downloaded
+wheel guide commands. Main reconciliation preserves the reviewed tree/digest.
+Next: verify acceptance-only head CI, merge #35 and verify integrated main.
+No release, new tag, credentials, access controls or paid settings changed.
+
+# PR #35 verified candidate awaiting final review and CI
+
+Five fresh profiles pass at d5f8447 (full revision in receipts); digest
+12b5b139a63b2d53826c8c4166478daa757ed259cd28df5897026cebcb3c476c.
+562 tests plus 19 subtests; package, all 15 guide commands, offline and local
+browser/docs checks pass with setuptools 84.2.0. Baseline reproduction shows
+84.0.0 misses the exact 84.2.0 backend requirement; aligned environment passes.
+Independent reviewer reports no source findings. Next: exact-head hosted CI,
+including the inherited artifact smoke, and final independent acceptance.
+PR32/33 merged; PR34 accepted and final CI running. No publication or new tag.
+
+# October 26 — Dependabot PR #35 repair in progress
+
+Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and
+independent review required before this PR merges. No release authorized by this
+task. Other updates remain separate.
+
 # PR #34 independently accepted; #32 and #33 merged
 
 Native reviewer /root/review_bot34 approved exact head55416e9fc6cac0416c23e3c04b397f7f09145f50 with no findings. Six workflows and both hosted artifact roundtrips passed, including downloaded-wheel guide. Prior stale receipts excluded. Main reconciliation changes ancestry only. Next final acceptance-head CI and merge34; prepare scoped35 pin alignment. No publication.
