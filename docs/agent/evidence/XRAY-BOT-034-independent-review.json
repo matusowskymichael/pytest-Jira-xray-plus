@@ -1,0 +1,41 @@
+{
+  "task": "XRAY-BOT-034",
+  "revision": "55416e9fc6cac0416c23e3c04b397f7f09145f50",
+  "digest": "61c6fe9a196a1c2f97d523ec6ff7aebb2fffaa488f3ea914161f875887102641",
+  "timestamp": "2026-10-26T20:08:47+00:00",
+  "reviewer": "native agent /root/review_bot34",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile current main and preserve original bot history; archive prior accepted ledger without reusing stale acceptance",
+    "Validate the intended dependency update against official upstream sources; preserve security settings, all tests and publishing opt-in; no release or credentials",
+    "All five profiles and installed guide pass, exact remote CI passes, and fresh independent review approves before merge",
+    "Record exact reviewed/tested head, merge result and limitations; proceed only to the next explicitly authorized bot PR"
+  ],
+  "verification": [
+    "Independently reconstructed the content digest across 132 inputs and verified every preservation hash.",
+    "Verified archived PR33 ledger equals its recorded accepted commit and original Dependabot commit remains an ancestor.",
+    "Publisher changes only the download-artifact pin. Runtime, tests, tools, other dependencies, publisher permissions, environment and publication controls remain unchanged.",
+    "Verified official v8.0.2 tag SHA, Node24 runtime, artifact-ID inputs, upload-artifact v4+ compatibility and default digest-mismatch error behavior.",
+    "Parsed workflow YAML and embedded Python; reviewed independent pre-upload hashes, exact downloaded file set, symlink/hash assertions and downloaded-wheel installation.",
+    "Verified all 13 fresh log hashes and five passing receipts at source 76cd120b3445239103015c23f3dbb3e9dcb13ba3. Excluded both initial old-digest receipts, including the stale test receipt.",
+    "Evidence supports 562 tests plus 19 subtests, 15 installed guide commands, package/Twine, offline checks and local documentation/browser checks.",
+    "All six workflows passed at the reviewed head: 40391969241, 40391896383, 40391895993, 40391885115, 40391885096 and 40391885082.",
+    "Read completed hosted job logs 121814678078 and 121814968520 through the existing GitHub connector. Both confirm successful ID-based download, matching uploaded/downloaded ZIP digests, completed per-file hash assertions, reinstall from publisher-handoff and all 15 guide commands passing.",
+    "Current-main ancestry reconciliation at 627407016c304035d797d7cbdd0d8c90d4e63110 leaves the reviewed tree unchanged."
+  ],
+  "artifact_roundtrips": [
+    {
+      "job_id": 121814678078,
+      "artifact_id": 12685495619,
+      "matching_zip_sha256": "26a1aa5e161f85e724bf13fa29c0c6e7f0db9b69cffefa1658986f1c7bb7b1bb"
+    },
+    {
+      "job_id": 121814968520,
+      "artifact_id": 12684872594,
+      "matching_zip_sha256": "0041c49babd37d476aee428c70f64aa8b209d34ffa3ab65e5adfe1b7af7ee14d"
+    }
+  ],
+  "limits": "Read-only independent source, evidence, hash, upstream and hosted-CI/log review. Application profiles were not independently rerun. No live Jira, credentials, PyPI publication or release execution. Verify unchanged digest and passing CI on the acceptance-only head before merging."
+}

@@ -1,5 +1,7 @@
 Unreleased
 ==========
+- Update download-artifact to 8.0.2 and verify the publisher artifact-ID/hash
+  handoff in nonpublishing CI, including installed-guide checks of downloaded bytes.
 - Update pinned setup-python action to 7.0.0 while retaining the Python matrix.
 - Update pinned checkout action to 7.0.1 with fresh dependency-maintenance evidence;
   preserve credential opt-outs and workflow security checks. No package release.

@@ -2,10 +2,10 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-BOT-033",
-      "title": "Repair and validate Dependabot PR 33",
-      "source": "docs/agent/task-dependabot-33.md",
-      "source_sha256": "ec083cbfb9f12f5d02b6cd403af4daa46fc888c763e0b27e1d79193987936757",
+      "id": "XRAY-BOT-034",
+      "title": "Repair and validate Dependabot PR 34",
+      "source": "docs/agent/task-dependabot-34.md",
+      "source_sha256": "857445674188d3533ffa0dc20b7db5dae86aa13c5d669dde0f65f63e72145eef",
       "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -42,8 +42,8 @@
         ".github/workflows/agent.yml": "35318a14ca1a49fe12bf0e168af33b7ea4abd3818beaf0693a8dc820bd08cd97",
         ".github/workflows/docs.yml": "1eb1b9f32036bcda431b37c3ec3ccb268642820cdaa899725ec593db3f22262b",
         ".github/workflows/github-release.yml": "997d7eb1bf01a58be9941680dbd21aa749f47aa66f0c33f84f838cf9aa624497",
-        ".github/workflows/publish.yml": "fdef8dda090061d355c64d6ebf419cc0b4f325ab7e408e27d79340fad9f356e7",
-        ".github/workflows/tests.yml": "9d7dd7b15e80cee97cc3cd2124b8dda464bb7097fe7fb981e672eaef0913b0ac",
+        ".github/workflows/publish.yml": "01aebcaf3fa8ed4b54e7205300cb8433ad70b658be0a833d0597ac42a1745db3",
+        ".github/workflows/tests.yml": "36ff1e4d1d52bafe5e16d064fec05434075a318370a765fcd63701835c5932a7",
         "pyproject.toml": "b2c492dbb8082307dfcdb80f1886dcac8b1e3892b284e3bb69960aa3ff628597",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
@@ -109,15 +109,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-BOT-033-harness-6afccbb9cd5a.json",
-        "docs/agent/evidence/XRAY-BOT-033-offline-4ca499a812a2.json",
-        "docs/agent/evidence/XRAY-BOT-033-tests-b771b84ab1cc.json",
-        "docs/agent/evidence/XRAY-BOT-033-docs-273f8b37e963.json",
-        "docs/agent/evidence/XRAY-BOT-033-package-f97e2af41623.json"
+        "docs/agent/evidence/XRAY-BOT-034-docs-bc82b75fc566.json",
+        "docs/agent/evidence/XRAY-BOT-034-package-45fa9cc609b0.json",
+        "docs/agent/evidence/XRAY-BOT-034-tests-38d6096b09fb.json",
+        "docs/agent/evidence/XRAY-BOT-034-offline-15867d3cbdea.json",
+        "docs/agent/evidence/XRAY-BOT-034-harness-1fd99bd29b28.json"
       ],
-      "review": "docs/agent/evidence/XRAY-BOT-033-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-BOT-034-independent-review.json",
       "blocker": "",
-      "next_action": "Run fresh profiles, obtain independent review and green exact-head CI before merging PR 33"
+      "next_action": "Run fresh profiles, obtain independent review and green exact-head CI before merging PR 34"
     }
   ]
 }

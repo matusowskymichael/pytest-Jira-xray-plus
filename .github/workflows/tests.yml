@@ -47,10 +47,49 @@ jobs:
         with:
           name: readme-preview-python-${{ matrix.python }}
           path: release-dist/README-preview.html
+      - name: Record publisher handoff hashes
+        if: matrix.python == '3.12'
+        run: |
+          python - <<'PYTHON'
+          import hashlib, json, os
+          from pathlib import Path
+          files = list(Path('release-dist').glob('*.whl')) + list(Path('release-dist').glob('*.tar.gz'))
+          assert len(files) == 2
+          hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+          (Path(os.environ['RUNNER_TEMP']) / 'publisher-handoff-hashes.json').write_text(json.dumps(hashes))
+          PYTHON
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        id: distributions
         with:
           name: release-distributions-python-${{ matrix.python }}
           path: |
             release-dist/*.whl
             release-dist/*.tar.gz
           if-no-files-found: error
+      - name: Smoke-test publisher artifact download without publishing
+        if: matrix.python == '3.12'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ steps.distributions.outputs.artifact-id }}
+          merge-multiple: true
+          path: ${{ runner.temp }}/publisher-handoff
+      - name: Verify exact downloaded distributions and installed guide
+        if: matrix.python == '3.12'
+        run: |
+          python - <<'PYTHON'
+          import hashlib, json, os, subprocess
+          from pathlib import Path
+          temporary = Path(os.environ['RUNNER_TEMP'])
+          expected = json.loads((temporary / 'publisher-handoff-hashes.json').read_text())
+          root = temporary / 'publisher-handoff'
+          assert {p.name for p in root.iterdir()} == set(expected)
+          for name, digest in expected.items():
+              path = root / name
+              assert path.is_file() and not path.is_symlink()
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
+          wheel = next(root.glob('*.whl'))
+          subprocess.run(['/tmp/xray-wheel/bin/python', '-m', 'pip', 'install', '--no-deps',
+                          '--force-reinstall', str(wheel)], check=True)
+          subprocess.run(['python', 'tools/check_installed_usage.py',
+                          '/tmp/xray-wheel/bin/python', str(wheel)], check=True)
+          PYTHON
