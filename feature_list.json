@@ -2,7 +2,7 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-BOT32-001",
+      "id": "XRAY-BOT-032",
       "title": "Repair and validate Dependabot PR 32",
       "source": "docs/agent/task-dependabot-32.md",
       "source_sha256": "ca0c001bbc957cef1eb747ba0a9414e3560bff8d2416f3c52503a88ebdad30f5",
