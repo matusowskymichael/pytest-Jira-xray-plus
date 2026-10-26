@@ -1,5 +1,6 @@
 Unreleased
 ==========
+- Update pinned setup-python action to 7.0.0 while retaining the Python matrix.
 - Update pinned checkout action to 7.0.1 with fresh dependency-maintenance evidence;
   preserve credential opt-outs and workflow security checks. No package release.
 

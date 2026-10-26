@@ -1,3 +1,9 @@
+# October 26 — Dependabot PR #33 repair in progress
+
+Current main reconciled; prior accepted ledger archived. Fresh scoped evidence and
+independent review required before this PR merges. No release authorized by this
+task. Other updates remain separate.
+
 # PR #32 independently accepted
 
 Native reviewer /root/review_dependabot_checkout_fix accepted 9bd6e75923dbcae030939add4728cff3f0bd2392 with no findings. All six workflows passed. Harness acceptance passed; next verify acceptance-only head CI then merge and start #33. No runtime/security changes or publication.
