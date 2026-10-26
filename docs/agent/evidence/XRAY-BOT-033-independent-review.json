@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-BOT-033",
+  "revision": "360001274124e8e914cb2d55e2ddb21aa69684cc",
+  "digest": "bd927d5ab56429147a8b96b966ff10da1353e72eec9e1560014b9996297d8ff1",
+  "timestamp": "2026-10-26T19:53:52.885465+00:00",
+  "reviewer": "native agent /root/review_bot33",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile current main and preserve original bot history; archive prior accepted ledger without reusing stale acceptance",
+    "Validate the intended dependency update against official upstream sources; preserve security settings, all tests and publishing opt-in; no release or credentials",
+    "All five profiles and installed guide pass, exact remote CI passes, and fresh independent review approves before merge",
+    "Record exact reviewed/tested head, merge result and limitations; proceed only to the next explicitly authorized bot PR"
+  ],
+  "verification": [
+    "Independently recomputed digest across 131 inputs and every preservation hash.",
+    "Five exact setup-python pin substitutions; permissions, credential opt-outs, publisher guards, Python matrix, runtime/tests/tools and other dependencies unchanged.",
+    "Original bot ancestry and archive equality verified. Official tag SHA and Node24/removed-input compatibility verified.",
+    "All 13 receipt hashes and five profiles verified: 562 tests plus 19 subtests, 15 guide commands, package/Twine, offline/docs/local browser.",
+    "Frozen head differs from tested source only in excluded progress/evidence. Six exact-head workflows passed."
+  ],
+  "limits": "Read-only source/evidence/hash/upstream/CI review; no independent application reruns, live Jira or publication. Verify unchanged digest and acceptance-head CI before merge."
+}
