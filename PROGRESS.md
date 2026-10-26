@@ -1,3 +1,7 @@
+# PR #34 independently accepted; #32 and #33 merged
+
+Native reviewer /root/review_bot34 approved exact head55416e9fc6cac0416c23e3c04b397f7f09145f50 with no findings. Six workflows and both hosted artifact roundtrips passed, including downloaded-wheel guide. Prior stale receipts excluded. Main reconciliation changes ancestry only. Next final acceptance-head CI and merge34; prepare scoped35 pin alignment. No publication.
+
 # PR #34 verified source; actual artifact handoff CI pending
 
 All five fresh profiles pass at76cd120 (full revision in receipts), digest
