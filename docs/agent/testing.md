@@ -76,3 +76,14 @@ describe the ESM migration and removal of the unused pip-install input. The
 [README](https://github.com/actions/setup-python/blob/v7.0.0/README.md) retains
 the Node24 runner requirement. Explicit Python versions (3.12–3.14) and current
 installation commands remain unchanged; no token, permission or cache expansion.
+
+PR #34 updates download-artifact to its immutable v8.0.2 SHA. Its official
+[README](https://github.com/actions/download-artifact/blob/v8.0.2/README.md)
+supports artifact IDs from upload-artifact v4+ and fails digest mismatches by
+default. This repository runs on GitHub.com, not unsupported GHES. The Python
+3.12 CI job now downloads its uploaded wheel/sdist by ID with merge-multiple,
+compares the exact file set and SHA256 values with a separate pre-upload record,
+and reinstalls the downloaded wheel to run all guide commands. This exercises
+the publisher handoff without dispatching publication, using a token, entering
+the pypi environment or changing workflow permissions. Other matrix jobs retain
+their existing package checks. The publisher's existing hashes and opt-in remain.
