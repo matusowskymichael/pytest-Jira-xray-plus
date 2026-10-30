@@ -1276,13 +1276,20 @@
 Report issues with synthetic examples through
 <a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus/issues">GitHub issues</a>.</p>
 <p>From a checkout in a fresh environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>-r<span class="w"> </span>requirements-tests.txt<span class="w"> </span><span class="nv">build</span><span class="o">==</span><span class="m">1</span>.6.1<span class="w"> </span><span class="nv">setuptools</span><span class="o">==</span><span class="m">84</span>.0.0<span class="w"> </span><span class="nv">wheel</span><span class="o">==</span><span class="m">0</span>.48.0<span class="w"> </span><span class="nv">twine</span><span class="o">==</span><span class="m">7</span>.0.0
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>python<span class="w"> </span>tools/reproduce.py<span class="w"> </span>src<span class="w"> </span>--details
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>python<span class="w"> </span>tools/validate_offline.py
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>tools/build_release.py<span class="w"> </span>release-dist
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>check<span class="w"> </span>release-dist/*
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>-r<span class="w"> </span>requirements-tests.txt<span class="w"> </span><span class="nv">build</span><span class="o">==</span><span class="m">1</span>.6.1<span class="w"> </span><span class="nv">wheel</span><span class="o">==</span><span class="m">0</span>.48.0<span class="w"> </span><span class="nv">twine</span><span class="o">==</span><span class="m">7</span>.0.0
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>tools/install_build_dependencies.py
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>python<span class="w"> </span>tools/reproduce.py<span class="w"> </span>src<span class="w"> </span>--details
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>tools/validate_offline.py
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>python<span class="w"> </span>tools/build_release.py<span class="w"> </span>release-dist
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>check<span class="w"> </span>release-dist/*
 </code></pre></div>
+<p>The build setup command reads <code>[build-system].requires</code> from this checkout’s
+<code>pyproject.toml</code> and installs those exact requirements into your active environment.
+Run it again after updating the checkout: the non-isolated release build needs the
+declared backend version. This developer command requires package-index access;
+normal package users only need the installation steps at the start of this guide.
+A missing build dependency is a setup error, not a Jira authentication failure.</p>
 <p>Tests use synthetic data, blocked transport or a localhost fake service.
 <a href="https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASE-READINESS.md">Release evidence</a>
 distinguishes independent checks from user-reported validation.

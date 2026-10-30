@@ -1625,7 +1625,16 @@
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <ul>
-<li>No additional changes queued.</li>
+<li>Read build backend requirements from pyproject.toml in developer, CI and
+  publisher setup, fixing the stale beginner-guide pin and preventing repeated
+  non-isolated build failures after manifest updates. Repository-only maintenance.</li>
+<li>Align setuptools 84.2.0 across build metadata, CI, publisher and developer setup
+  so non-isolated distribution builds use the required backend version.</li>
+<li>Update download-artifact to 8.0.2 and verify the publisher artifact-ID/hash
+  handoff in nonpublishing CI, including installed-guide checks of downloaded bytes.</li>
+<li>Update pinned setup-python action to 7.0.0 while retaining the Python matrix.</li>
+<li>Update pinned checkout action to 7.0.1 with fresh dependency-maintenance evidence;
+  preserve credential opt-outs and workflow security checks. No package release.</li>
 </ul>
 <h2 id="0110-2026-10-23">0.1.10 [2026-10-23]<a class="headerlink" href="#0110-2026-10-23" title="Permanent link">&para;</a></h2>
 <ul>
