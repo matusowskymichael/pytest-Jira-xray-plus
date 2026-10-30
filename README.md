@@ -948,13 +948,21 @@ Report issues with synthetic examples through
 From a checkout in a fresh environment:
 
 ```sh
-python -m pip install -e . -r requirements-tests.txt build==1.6.1 setuptools==84.0.0 wheel==0.48.0 twine==7.0.0
+python -m pip install -e . -r requirements-tests.txt build==1.6.1 wheel==0.48.0 twine==7.0.0
+python tools/install_build_dependencies.py
 python -m pytest -q
 python tools/reproduce.py src --details
 python tools/validate_offline.py
 python tools/build_release.py release-dist
 python -m twine check release-dist/*
 ```
+
+The build setup command reads `[build-system].requires` from this checkout’s
+`pyproject.toml` and installs those exact requirements into your active environment.
+Run it again after updating the checkout: the non-isolated release build needs the
+declared backend version. This developer command requires package-index access;
+normal package users only need the installation steps at the start of this guide.
+A missing build dependency is a setup error, not a Jira authentication failure.
 
 Tests use synthetic data, blocked transport or a localhost fake service.
 [Release evidence](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASE-READINESS.md)

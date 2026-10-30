@@ -38,7 +38,8 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install build and test dependencies
-        run: python -m pip install -e . pytest-httpserver pytest-xdist==3.8.0 pytest-rerunfailures==16.7 build==1.6.1 setuptools==84.2.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]'
+        run: python -m pip install -e . pytest-httpserver pytest-xdist==3.8.0 pytest-rerunfailures==16.7 build==1.6.1 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]'
+      - run: python tools/install_build_dependencies.py
       - name: Run offline validation
         run: |
           python -m pytest -q

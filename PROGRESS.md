@@ -1,3 +1,15 @@
+# October 30 weekly iteration in progress
+
+Main reconciled at 9ed4655; October 26 work complete. No open issues. New bot
+PRs #36–38 are separate. Public PyPI latest is 0.1.10. The README developer
+command still pins setuptools 84.0.0 although build-system requires 84.2.0.
+One scoped tooling correction reads build requirements from the manifest in
+local setup, CI and publisher setup. No runtime, dependency or release change.
+Next: fresh five-profile checks, draft PR, independent technical review and CI.
+No GitHub approval action, workplace access or permission expansion.
+
+---
+
 # October 26 dependency maintenance completed
 
 All four requested Dependabot PRs were independently reviewed, tested and merged:

@@ -1,39 +1,7 @@
-# Current task — October 26 dependency repairs
-
-User explicitly authorizes fixing and merging existing Dependabot PRs #32–35.
-Current stage: PR #35. Published package remains 0.1.10; no new release or tag.
-See [active task](docs/agent/task-dependabot-35.md) and PROGRESS.md. Historical
-weekly-policy text below does not override this new explicit request. Preserve
-verification gates and security settings; independent review before each merge.
-
-# Current task — October 26 dependency repairs
-
-User explicitly authorizes fixing and merging existing Dependabot PRs #32–35.
-Current stage: PR #34. Published package remains 0.1.10; no new release or tag.
-See [active task](docs/agent/task-dependabot-34.md) and PROGRESS.md. Historical
-weekly-policy text below does not override this new explicit request. Preserve
-verification gates and security settings; independent review before each merge.
-
-# Current task — October 26 dependency repairs
-
-User explicitly authorizes fixing and merging existing Dependabot PRs #32–35.
-Current stage: PR #33. Published package remains 0.1.10; no new release or tag.
-See [active task](docs/agent/task-dependabot-33.md) and PROGRESS.md. Historical
-weekly-policy text below does not override this new explicit request. Preserve
-verification gates and security settings; independent review before each merge.
-
-# Current task — October 26 dependency repairs
-
-User explicitly authorizes fixing and merging existing Dependabot PRs #32–35.
-Current stage: PR #32. Published package remains 0.1.10; no new release or tag.
-See [active task](docs/agent/task-dependabot-32.md) and PROGRESS.md. Historical
-weekly-policy text below does not override this new explicit request. Preserve
-verification gates and security settings; independent review before each merge.
-
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.9**. Active work: October 23 weekly PR30 completion and 0.1.10 candidate. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.10**. Active work: October 30 build setup correction. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -55,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-weekly-2026-10-23.md): active product iteration and acceptance criteria.
+- [Current scope](docs/agent/task-weekly-2026-10-30.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -93,8 +61,8 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 - End with current progress, exact verification limits and an executable next step.
   A checkpoint or draft PR is not independent acceptance.
 
-Current maintenance policy (October 23): complete one weekly iteration, then stop.
-Resume PR30 for the verified empty-path fix; dependency bot PRs remain separate.
-Tested and independently reviewed scoped merges, existing Pages deployment and a
-meaningful stable release through the existing trusted publisher are authorized.
-No daily-release quota or continuous work. Discuss integration features first.
+Current maintenance policy (October 30): complete one weekly iteration, then stop.
+Use the active task above; October 26 dependency repairs are complete. New bot
+PRs remain separate. Tested independently reviewed merges and existing Pages
+updates are authorized. This repository-only correction does not need a release.
+Do not submit a GitHub PR approval action without specific action-time confirmation.
