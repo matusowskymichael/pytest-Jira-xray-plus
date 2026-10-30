@@ -105,9 +105,15 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
-      "review": null,
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-WEEKLY-002-docs-cc33866695c7.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-offline-e021833c3684.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-harness-2789b2117bb8.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-package-2e228447381f.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-tests-e2a17d315405.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-WEEKLY-002-independent-review.json",
       "blocker": "",
       "next_action": "Implement and verify scoped build setup correction"
     }

@@ -1,3 +1,19 @@
+# October 30 candidate independently accepted
+
+Native reviewer /root/review_weekly1030 accepted exact head
+4401ee5989a97c8511f6cc0df8a65e803726b5f2 with no findings. All ten exact-head
+checks passed. Five local profiles and 570 tests plus 19 subtests passed;
+15 installed guide commands and real-pip before/after reproduction passed.
+Harness acceptance is recorded. Next: acceptance-only head CI, merge PR39,
+integrated main CI, then publish checked docs while preserving coverage/status.
+Live browser remains blocked by certificate validation; normal HTTPS checks work.
+No package release, GitHub approval action or separate bot PR merge.
+The prior evidence-only commit title preceded acceptance: a local receipt-list
+collector encountered CI JSON as a list and stopped. Corrected type filtering
+allowed the unchanged harness acceptance to complete; no validation was bypassed.
+
+---
+
 # October 30 verified candidate — review and CI pending
 
 All five fresh profiles pass at 3b6b9e09fed8efb39a690a3e84e7b4e40ef4cc90;
