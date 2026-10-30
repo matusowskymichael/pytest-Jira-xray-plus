@@ -1,3 +1,16 @@
+# October 30 verified candidate — review and CI pending
+
+All five fresh profiles pass at 3b6b9e09fed8efb39a690a3e84e7b4e40ef4cc90;
+digest dfab9b5bac69e64d0ca71707d5470d10db48fc8e1e783335e647dccb55d9f919.
+570 tests plus 19 subtests, all 15 installed guide commands, package/Twine,
+offline validation and local desktop/mobile/search/theme checks pass.
+Real pip reproduction confirms old 84.0.0 misses the 84.2.0 requirement and the
+new helper resolves it. Draft PR39 requires independent acceptance and exact-head CI.
+Live HTTPS works; live Chromium reports ERR_CERT_AUTHORITY_INVALID, not bypassed.
+No release is warranted. Separate bot PRs36–38 remain unchanged.
+
+---
+
 # October 30 weekly iteration in progress
 
 Main reconciled at 9ed4655; October 26 work complete. No open issues. New bot

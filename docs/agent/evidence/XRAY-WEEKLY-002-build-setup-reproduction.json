@@ -1,0 +1,31 @@
+{
+  "revision": "3b6b9e09fed8efb39a690a3e84e7b4e40ef4cc90",
+  "timestamp": "2026-10-30T07:42:18.370006+00:00",
+  "commands": [
+    [
+      "/tmp/xray1030-before/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "setuptools==84.0.0"
+    ],
+    [
+      "/tmp/xray1030-before/bin/python",
+      "-c",
+      "import build; missing=build.ProjectBuilder('.').check_dependencies('wheel'); print(missing); assert ('setuptools==84.2.0',) in missing"
+    ],
+    [
+      "/tmp/xray1030-before/bin/python",
+      "tools/install_build_dependencies.py"
+    ],
+    [
+      "/tmp/xray1030-before/bin/python",
+      "-c",
+      "import build; missing=build.ProjectBuilder('.').check_dependencies('wheel'); print(missing); assert not missing"
+    ]
+  ],
+  "status": "passed",
+  "log": "docs/agent/evidence/XRAY-WEEKLY-002-build-setup-reproduction.log",
+  "sha256": "1f5fa3e728c3043e237e4d3801f624d8bf24cfba1103187995b03bc46f7a6142",
+  "result": "84.0.0 fails the current manifest requirement; helper installs 84.2.0 and dependency check passes. No publishing or Jira requests."
+}

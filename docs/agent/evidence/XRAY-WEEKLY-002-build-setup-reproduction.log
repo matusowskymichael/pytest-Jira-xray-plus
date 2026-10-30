@@ -1,0 +1,56 @@
+['/tmp/xray1030-before/bin/python', '-m', 'pip', 'install', 'setuptools==84.0.0']
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting setuptools==84.0.0
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 25.2 MB/s eta 0:00:00
+Installing collected packages: setuptools
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 84.2.0
+    Uninstalling setuptools-84.2.0:
+      Successfully uninstalled setuptools-84.2.0
+Successfully installed setuptools-84.0.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.2
+[notice] To update, run: python -m pip install --upgrade pip
+['/tmp/xray1030-before/bin/python', '-c', "import build; missing=build.ProjectBuilder('.').check_dependencies('wheel'); print(missing); assert ('setuptools==84.2.0',) in missing"]
+running egg_info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+{('setuptools==84.2.0',)}
+['/tmp/xray1030-before/bin/python', 'tools/install_build_dependencies.py']
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting setuptools==84.2.0
+  Downloading setuptools-84.2.0-py3-none-any.whl.metadata (6.6 kB)
+Downloading setuptools-84.2.0-py3-none-any.whl (875 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 875.8/875.8 kB 62.2 MB/s eta 0:00:00
+Installing collected packages: setuptools
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 84.0.0
+    Uninstalling setuptools-84.0.0:
+      Successfully uninstalled setuptools-84.0.0
+Successfully installed setuptools-84.2.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.2
+[notice] To update, run: python -m pip install --upgrade pip
+['/tmp/xray1030-before/bin/python', '-c', "import build; missing=build.ProjectBuilder('.').check_dependencies('wheel'); print(missing); assert not missing"]
+running egg_info
+writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+set()

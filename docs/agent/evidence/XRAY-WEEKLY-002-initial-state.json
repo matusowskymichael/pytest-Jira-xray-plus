@@ -1,0 +1,17 @@
+{
+  "base": "9ed4655efbb653ce608f207097cbf7e2d8302085",
+  "published_version": "0.1.10",
+  "open_issues": [],
+  "separate_open_prs": [
+    36,
+    37,
+    38
+  ],
+  "live_browser": {
+    "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/",
+    "status": "blocked",
+    "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\nCall log:\n  - navigating to \"https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\", waiting until \"networkidle\"\n",
+    "tls_bypass": false
+  },
+  "scope": "Repository-only build setup; no package release or bot PR merge"
+}
