@@ -1,3 +1,33 @@
+# October 30 weekly maintenance completed
+
+[PR #39](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39) merged
+as `7065073ee96574be4f2f950ba0e6270e8ae69dd4` after independent acceptance and
+all exact-head checks. Developer, CI and publisher setup now install build
+requirements from the manifest, correcting the stale README pin and preventing
+repeated backend setup drift. Runtime and dependency versions are unchanged.
+
+Five profiles pass: 570 tests plus 19 subtests, eight new regressions, all 15
+installed guide commands, package/Twine, offline and local browser/docs checks.
+Integrated main CI passed. Pages deployment 41024257430 succeeded at
+`6185d058af41f70630406ed801376f3a4cfa7cac`; all 102 live file hashes match over
+validated HTTPS. Combined site checks cover 41 pages and 2918 references;
+31 existing coverage/status files were preserved. The full beginner guide,
+development instructions and changelog are updated.
+
+[Completion evidence](docs/agent/evidence/XRAY-WEEKLY-002-completion.json)
+records reviews, receipts, exact CI and limits. Live Chromium remains blocked
+by ERR_CERT_AUTHORITY_INVALID; no bypass. A trusted-browser live check remains
+unverified. No workplace/Jira access, GitHub approval, permission change or release.
+PyPI remains 0.1.10; repository-only work does not warrant publication. Separate
+bot PRs #36–38 were not manually modified or merged. Dependabot subsequently
+updated #36; the completion evidence records initial and current heads. Earlier
+progress below is historical.
+
+Final step: verify this evidence-only completion commit’s CI, then stop this
+single iteration. Do not start another implementation or release automatically.
+
+---
+
 # October 30 candidate independently accepted
 
 Native reviewer /root/review_weekly1030 accepted exact head

@@ -1,0 +1,18 @@
+{
+  "superseded_head": "d16cc59cac647b079aad38815c0a49eebb831dbd",
+  "actual_acceptance_head": "76b8e91f0e9dc0e09cb20848fce37b452c746fc2",
+  "initial_cancel_requested": 41022626200,
+  "already_completed_cancel_rejected": 41022626438,
+  "fresh_remaining_results": [
+    {
+      "run": 41022626185,
+      "exit_code": 0,
+      "message": "\u2713 Request to cancel workflow 41022626185 submitted.\n"
+    },
+    {
+      "run": 41022620540,
+      "exit_code": 0,
+      "message": "\u2713 Request to cancel workflow 41022620540 submitted.\n"
+    }
+  ]
+}

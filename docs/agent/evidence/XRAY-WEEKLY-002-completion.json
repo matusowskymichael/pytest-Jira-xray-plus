@@ -1,0 +1,58 @@
+{
+  "task": "XRAY-WEEKLY-002",
+  "timestamp": "2026-10-30T08:08:21.239028+00:00",
+  "scope": "One repository-only build setup correction; stop after final record CI",
+  "pr": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39",
+  "reviewed_head": "4401ee5989a97c8511f6cc0df8a65e803726b5f2",
+  "accepted_head": "76b8e91f0e9dc0e09cb20848fce37b452c746fc2",
+  "merge_commit": "7065073ee96574be4f2f950ba0e6270e8ae69dd4",
+  "pages_commit": "6185d058af41f70630406ed801376f3a4cfa7cac",
+  "source_digest": "dfab9b5bac69e64d0ca71707d5470d10db48fc8e1e783335e647dccb55d9f919",
+  "verification": {
+    "tests": 570,
+    "subtests": 19,
+    "new_regressions": 8,
+    "installed_guide_commands": 15,
+    "profiles": [
+      "harness",
+      "tests",
+      "offline",
+      "package",
+      "docs"
+    ],
+    "reviewed_and_accepted_head_ci": "all six workflows each passed",
+    "merge_main_ci": "all three workflows passed",
+    "live_https_file_hashes": 102,
+    "combined_site_pages": 41,
+    "combined_site_references": 2918,
+    "preserved_coverage_status_files": 31,
+    "independent_review": "/root/review_weekly1030 PASS; independently ran focused8tests/Ruff and verified all receipts; follow-up confirmed excluded-only acceptance changes"
+  },
+  "public_pypi_version": "0.1.10",
+  "release": "not warranted: tooling/documentation only; no publish dispatch or tag",
+  "limits": [
+    "Live Chromium ERR_CERT_AUTHORITY_INVALID; no bypass. Normal HTTPS live hashes and local browser checks passed.",
+    "No live Jira/Xray, private data or native iteration validation.",
+    "Independent reviewer did not rerun full application profiles or publishing.",
+    "No GitHub approval action, credentials, permissions, billing or dependency version changes."
+  ],
+  "bookkeeping": "Interim receipt collector failed on a CI JSON list before acceptance; corrected type filter and original harness accepted. Superseded intermediate runs cancelled, one cancellation rejected because run already completed; no retry of completed run. See superseded-ci record.",
+  "remaining_gate": "CI of this final evidence/progress-only commit must pass; no further implementation authorized",
+  "separate_prs_initial_heads": {
+    "36": "b8543db599e96413680dd0bcd142066865d60636",
+    "37": "b8625d8408dd590769f29aa3200594505bf00108",
+    "38": "f212e0640dd97ad3331a6af6939c5af4403bd4c9"
+  },
+  "separate_prs_current_heads": {
+    "38": "f212e0640dd97ad3331a6af6939c5af4403bd4c9",
+    "37": "b8625d8408dd590769f29aa3200594505bf00108",
+    "36": "66895c20745b79a28fae21f22c0674faf2b63fc8"
+  },
+  "separate_prs_policy": "Not manually modified or merged in this iteration. Dependabot subsequently updated PR36 to66895c20745b79a28fae21f22c0674faf2b63fc8 (commit author dependabot[bot]); PR37/38 retain initial heads at final check.",
+  "completion_record_review": {
+    "reviewer": "/root/review_weekly1030",
+    "verdict": "pass",
+    "findings": [],
+    "scope": "Corrected excluded-only completion records; unchanged digest, main CI, Pages,102hashes,31preserved files and bot update attribution verified; final commit CI remains required"
+  }
+}

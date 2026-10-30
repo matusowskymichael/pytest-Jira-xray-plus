@@ -115,7 +115,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-WEEKLY-002-independent-review.json",
       "blocker": "",
-      "next_action": "Implement and verify scoped build setup correction"
+      "next_action": "October 30 iteration completed; verify final completion-record CI, then stop. Separate bot PRs require a future scoped iteration."
     }
   ]
 }
