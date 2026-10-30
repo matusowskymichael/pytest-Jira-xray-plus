@@ -6,7 +6,7 @@
       "title": "Use declared build requirements in repository setup",
       "source": "docs/agent/task-weekly-2026-10-30.md",
       "source_sha256": "0810dc520dc48c10063b911f648620546cef46a15b44afeb74a6c554cb4ac1da",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
