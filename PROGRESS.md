@@ -1,3 +1,44 @@
+# October 30 candidate independently accepted
+
+Native reviewer /root/review_weekly1030 accepted exact head
+4401ee5989a97c8511f6cc0df8a65e803726b5f2 with no findings. All ten exact-head
+checks passed. Five local profiles and 570 tests plus 19 subtests passed;
+15 installed guide commands and real-pip before/after reproduction passed.
+Harness acceptance is recorded. Next: acceptance-only head CI, merge PR39,
+integrated main CI, then publish checked docs while preserving coverage/status.
+Live browser remains blocked by certificate validation; normal HTTPS checks work.
+No package release, GitHub approval action or separate bot PR merge.
+The prior evidence-only commit title preceded acceptance: a local receipt-list
+collector encountered CI JSON as a list and stopped. Corrected type filtering
+allowed the unchanged harness acceptance to complete; no validation was bypassed.
+
+---
+
+# October 30 verified candidate — review and CI pending
+
+All five fresh profiles pass at 3b6b9e09fed8efb39a690a3e84e7b4e40ef4cc90;
+digest dfab9b5bac69e64d0ca71707d5470d10db48fc8e1e783335e647dccb55d9f919.
+570 tests plus 19 subtests, all 15 installed guide commands, package/Twine,
+offline validation and local desktop/mobile/search/theme checks pass.
+Real pip reproduction confirms old 84.0.0 misses the 84.2.0 requirement and the
+new helper resolves it. Draft PR39 requires independent acceptance and exact-head CI.
+Live HTTPS works; live Chromium reports ERR_CERT_AUTHORITY_INVALID, not bypassed.
+No release is warranted. Separate bot PRs36–38 remain unchanged.
+
+---
+
+# October 30 weekly iteration in progress
+
+Main reconciled at 9ed4655; October 26 work complete. No open issues. New bot
+PRs #36–38 are separate. Public PyPI latest is 0.1.10. The README developer
+command still pins setuptools 84.0.0 although build-system requires 84.2.0.
+One scoped tooling correction reads build requirements from the manifest in
+local setup, CI and publisher setup. No runtime, dependency or release change.
+Next: fresh five-profile checks, draft PR, independent technical review and CI.
+No GitHub approval action, workplace access or permission expansion.
+
+---
+
 # October 26 dependency maintenance completed
 
 All four requested Dependabot PRs were independently reviewed, tested and merged:

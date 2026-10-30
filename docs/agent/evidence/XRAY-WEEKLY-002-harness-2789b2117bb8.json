@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-WEEKLY-002",
+  "profile": "harness",
+  "digest": "dfab9b5bac69e64d0ca71707d5470d10db48fc8e1e783335e647dccb55d9f919",
+  "revision": "3b6b9e09fed8efb39a690a3e84e7b4e40ef4cc90",
+  "timestamp": "2026-10-30T07:41:16.274819+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.411,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-002-harness-2789b2117bb8-0.log",
+      "log_sha256": "15765a851b97df14774c9bf623bd204adeb721f8dd64f9decf4d39f6e9d10e35"
+    }
+  ],
+  "status": "passed"
+}

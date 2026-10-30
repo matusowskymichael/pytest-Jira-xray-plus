@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Read build backend requirements from pyproject.toml in developer, CI and
+  publisher setup, fixing the stale beginner-guide pin and preventing repeated
+  non-isolated build failures after manifest updates. Repository-only maintenance.
 - Align setuptools 84.2.0 across build metadata, CI, publisher and developer setup
   so non-isolated distribution builds use the required backend version.
 - Update download-artifact to 8.0.2 and verify the publisher artifact-ID/hash

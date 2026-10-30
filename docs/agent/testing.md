@@ -6,7 +6,8 @@ Setup installs public development tools; it does not create credentials or call 
 ```sh
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install -e . -r requirements-tests.txt -r requirements-docs.txt build==1.6.1 setuptools==84.2.0 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]' playwright==1.64.0
+python -m pip install -e . -r requirements-tests.txt -r requirements-docs.txt build==1.6.1 wheel==0.48.0 twine==7.0.0 'readme-renderer[md]' playwright==1.64.0
+python tools/install_build_dependencies.py
 python -m playwright install chromium
 ```
 
@@ -97,3 +98,16 @@ describes the 84.2.0 packaging/extension updates. This project builds a pure-Pyt
 wheel and verifies its full metadata and installed guide on Python 3.12–3.14.
 This maintenance does not change package version, runtime dependencies or user
 commands and does not authorize publishing another 0.1.10 distribution.
+
+## October 30 build setup correction
+
+`python tools/install_build_dependencies.py` installs the checkout’s
+`[build-system].requires` using the active Python interpreter. CI, publisher setup
+and the full beginner guide use this same command instead of copying the backend
+pin. Re-run setup after changing the manifest; installation failures stop the job.
+The existing non-isolated builder still checks its dependencies. No backend update,
+workflow permission, publication or package version change is included.
+
+The [PyPA specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/#declaring-build-system-dependencies-the-build-system-table)
+defines these requirements as the dependencies needed to execute the build system.
+This helper is for this repository’s explicit manifest, not a general build frontend.

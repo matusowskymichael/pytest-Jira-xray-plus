@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-BOT-035",
-      "title": "Repair and validate Dependabot PR 35",
-      "source": "docs/agent/task-dependabot-35.md",
-      "source_sha256": "27b9bff646964a262d67d67b2d1a9f989683370a534ed5827095133cf4ed0a4d",
-      "source_url": null,
+      "id": "XRAY-WEEKLY-002",
+      "title": "Use declared build requirements in repository setup",
+      "source": "docs/agent/task-weekly-2026-10-30.md",
+      "source_sha256": "0810dc520dc48c10063b911f648620546cef46a15b44afeb74a6c554cb4ac1da",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Reconcile current main and preserve original bot history; archive prior accepted ledger without reusing stale acceptance",
-        "Validate the intended dependency update against official upstream sources; preserve security settings, all tests and publishing opt-in; no release or credentials",
-        "All five profiles and installed guide pass, exact remote CI passes, and fresh independent review approves before merge",
-        "Record exact reviewed/tested head, merge result and limitations; proceed only to the next explicitly authorized bot PR"
+        "Developer, CI and publisher setup read declared build requirements; updated pins and pip failures are covered by regressions",
+        "Preserve runtime, dependency versions, workflow controls and separate bot PRs; no release or permission expansion",
+        "Update changelog, full beginner guide and maintenance documentation; all five profiles and installed guide pass",
+        "Obtain independent technical review and green exact-head CI before merge; verify integrated CI and public documentation"
       ],
       "checks": [
         "harness",
@@ -42,8 +42,6 @@
         ".github/workflows/agent.yml": "35318a14ca1a49fe12bf0e168af33b7ea4abd3818beaf0693a8dc820bd08cd97",
         ".github/workflows/docs.yml": "1eb1b9f32036bcda431b37c3ec3ccb268642820cdaa899725ec593db3f22262b",
         ".github/workflows/github-release.yml": "997d7eb1bf01a58be9941680dbd21aa749f47aa66f0c33f84f838cf9aa624497",
-        ".github/workflows/publish.yml": "6de7b890e2db793f04798c6a815ebf08904a5a497b9b03617a22448aaac78110",
-        ".github/workflows/tests.yml": "5f8d183daef0dbf4053d52cde00bd7969903701ec00280581e193d1de230f272",
         "pyproject.toml": "f0ec5c5d4988f0318a4620f96f27248ba865e31e7f31af7da79cedc95f8898ef",
         "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
         "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
@@ -109,15 +107,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-BOT-035-harness-f3e48f46e999.json",
-        "docs/agent/evidence/XRAY-BOT-035-tests-89328fb2ca36.json",
-        "docs/agent/evidence/XRAY-BOT-035-package-1d1095a6d0e3.json",
-        "docs/agent/evidence/XRAY-BOT-035-offline-ca403b35fb6a.json",
-        "docs/agent/evidence/XRAY-BOT-035-docs-30ff9af7d0c7.json"
+        "docs/agent/evidence/XRAY-WEEKLY-002-docs-cc33866695c7.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-offline-e021833c3684.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-harness-2789b2117bb8.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-package-2e228447381f.json",
+        "docs/agent/evidence/XRAY-WEEKLY-002-tests-e2a17d315405.json"
       ],
-      "review": "docs/agent/evidence/XRAY-BOT-035-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-WEEKLY-002-independent-review.json",
       "blocker": "",
-      "next_action": "Completed all four requested Dependabot repairs and merges; verify final integrated CI, then stop."
+      "next_action": "Implement and verify scoped build setup correction"
     }
   ]
 }
