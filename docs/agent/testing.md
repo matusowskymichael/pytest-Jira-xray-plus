@@ -111,3 +111,29 @@ workflow permission, publication or package version change is included.
 The [PyPA specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/#declaring-build-system-dependencies-the-build-system-table)
 defines these requirements as the dependencies needed to execute the build system.
 This helper is for this repository’s explicit manifest, not a general build frontend.
+
+## November 1 PR38 dependency verification
+
+The setup commands above remain valid: install the test/docs requirements and
+run `python tools/install_build_dependencies.py` after changing the checkout.
+Do not copy a backend pin into workflow commands. PR38 selects coverage 7.17.0,
+setuptools 84.2.1 and Material 9.8.0; package/runtime versions and options are unchanged.
+
+- [Coverage 7.17.0](https://github.com/coveragepy/coveragepy/releases/tag/7.17.0)
+  requires Python 3.11+, within this project's 3.12–3.14 matrix. Its parallel-data
+  and branch-accounting corrections require the actual coverage job, not just pytest.
+- [Setuptools 84.2.1](https://setuptools.pypa.io/en/latest/history.html#v84-2-1)
+  fixes extension/ABI tagging. This pure-Python package still needs its wheel/sdist,
+  metadata and installed-guide checks with the declared backend.
+- [Material 9.8.0](https://github.com/squidfunk/mkdocs-material/releases/tag/9.8.0)
+  requires Python 3.11+ and raises security-related dependency minimums. This site
+  does not use the removed recommended RSS/redirects extras. Validate strict build,
+  links, desktop/mobile navigation, search and theme switching. The upstream
+  May 5, 2027 end-of-life notice remains visible; no theme migration is included.
+
+Main already contains the user-merged setup-python 7.1.0, upload-artifact 7.0.2
+and PyPI publishing action 1.14.3 pins. PR38 preserves those exact workflows and
+controls. CI's nonpublishing artifact handoff tests the current upload/download
+pair. The completed October 30 ledger is archived at its accepted commit; its old
+proofs do not certify the new pins. A fresh task, receipts and independent review
+are required before merge. No publishing workflow is dispatched for verification.

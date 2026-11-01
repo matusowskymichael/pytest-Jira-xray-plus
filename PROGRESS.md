@@ -1,3 +1,17 @@
+# November 1 — PR38 dependency repair in progress
+
+Original PR38 f212e064 reconciled with current main 486242f without rewriting
+history. Main already includes the manifest-based build setup from PR39 and
+user-merged action updates #36/#37. Its old passing ledger rejects changed action
+pins; archive at accepted 42ff434 rather than relabel stale evidence as valid.
+New task XRAY-BOT-038 protects current reviewed files and requires fresh profiles.
+Coverage 7.17.0, setuptools 84.2.1 and Material 9.8.0 are the only dependency changes
+relative to current main. No runtime/workflow-control changes or release.
+Next: fresh aggregate verification, independent review, repaired-head CI, merge
+only when all checks pass, then verify integrated main and stop.
+
+---
+
 # October 30 weekly maintenance completed
 
 [PR #39](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39) merged
