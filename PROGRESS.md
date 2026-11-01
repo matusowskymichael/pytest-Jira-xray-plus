@@ -1,3 +1,21 @@
+# PR38 independently accepted — final CI and merge gates remain
+
+Native reviewer /root/review_bot38 accepted exact repaired head
+`a9353604b0853658fae6c0ccf9d97655a8626b6a` with no findings. All six hosted
+workflows passed. Five fresh profiles cover 570 tests plus 19 subtests and all
+15 installed guide commands. Both hosted Python 3.12 jobs verify the new backend,
+coverage (771/787 lines, 231/252 branches) and real artifact-ID/hash handoff.
+
+[Independent review](docs/agent/evidence/XRAY-BOT-038-independent-review.json)
+and [hosted CI](docs/agent/evidence/XRAY-BOT-038-reviewed-ci.json) bind the source
+and evidence. The harness has accepted the new task; old proofs remain historical.
+This commit changes only excluded ledger/progress/evidence, not tested source.
+Next: verify this acceptance-only head's checks, merge PR38, verify merged main
+CI, then stop. No release, deployment, GitHub approval action or settings change.
+No live Jira/Xray validation is claimed. Earlier progress below is historical.
+
+---
+
 # PR38 repaired candidate verified locally
 
 All five fresh profiles pass at f4c38e7bce6ef0ed83348b66ca0b4fb7db9bfa87;

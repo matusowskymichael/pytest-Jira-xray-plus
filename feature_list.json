@@ -111,11 +111,17 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
-      "review": null,
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-BOT-038-harness-eff632a7d0bb.json",
+        "docs/agent/evidence/XRAY-BOT-038-package-fcfbd4638afd.json",
+        "docs/agent/evidence/XRAY-BOT-038-offline-7eff906a0d95.json",
+        "docs/agent/evidence/XRAY-BOT-038-tests-b2ca39e1e85d.json",
+        "docs/agent/evidence/XRAY-BOT-038-docs-8d1ced306312.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-BOT-038-independent-review.json",
       "blocker": "",
-      "next_action": "Verify all five profiles and independent review before exact-head CI and merge"
+      "next_action": "Verify acceptance-head CI, merge PR38 only when green, verify integrated main CI, then stop. No release or unrelated task."
     }
   ]
 }
