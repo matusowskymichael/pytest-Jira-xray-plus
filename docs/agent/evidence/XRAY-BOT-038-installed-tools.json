@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-11-01T15:17:03.442683+00:00",
+  "revision": "f4c38e7bce6ef0ed83348b66ca0b4fb7db9bfa87",
+  "dependencies": {
+    "coverage": {
+      "version": "7.17.0",
+      "requires_python": ">=3.11"
+    },
+    "setuptools": {
+      "version": "84.2.1",
+      "requires_python": ">=3.10"
+    },
+    "mkdocs-material": {
+      "version": "9.8.0",
+      "requires_python": ">=3.11"
+    },
+    "mkdocs": {
+      "version": "1.6.1",
+      "requires_python": ">=3.8"
+    }
+  },
+  "missing_build_requirements": []
+}

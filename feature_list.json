@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-WEEKLY-002",
-      "title": "Use declared build requirements in repository setup",
-      "source": "docs/agent/task-weekly-2026-10-30.md",
-      "source_sha256": "0810dc520dc48c10063b911f648620546cef46a15b44afeb74a6c554cb4ac1da",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39",
+      "id": "XRAY-BOT-038",
+      "title": "Reconcile and verify PR38 Python build/test/docs dependencies",
+      "source": "docs/agent/task-dependabot-38.md",
+      "source_sha256": "a0ccd2dda26471a4fe5e8d0e7e60f0ff68e9772ff2b570f91e1330dc2df51291",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Developer, CI and publisher setup read declared build requirements; updated pins and pip failures are covered by regressions",
-        "Preserve runtime, dependency versions, workflow controls and separate bot PRs; no release or permission expansion",
-        "Update changelog, full beginner guide and maintenance documentation; all five profiles and installed guide pass",
-        "Obtain independent technical review and green exact-head CI before merge; verify integrated CI and public documentation"
+        "Preserve original PR38 bot history and reconcile actual main; archive previous accepted ledger with correct provenance and collect fresh evidence",
+        "Validate coverage7.17.0 setuptools84.2.1 and Material9.8.0 compatibility plus inherited action pins; preserve all runtime, security, tests and publishing controls",
+        "All five profiles, installed guide, full hosted coverage/build/docs and artifact handoff pass on the repaired head",
+        "Independent technical acceptance and green exact-head CI precede merge; verify merge and integrated main CI; no release or GitHub approval action"
       ],
       "checks": [
         "harness",
@@ -39,12 +39,16 @@
       "preserve": {
         ".coveragerc": "23af419dcfedd914478a2f056f55eb63096bbd4f95d6e5ef8eaa1d5d4e267ca2",
         ".github/dependabot.yml": "80380902f7312ab985c861a730924a3f74f0ec51ecf12c0f75b6d717b9f11d3d",
-        ".github/workflows/agent.yml": "35318a14ca1a49fe12bf0e168af33b7ea4abd3818beaf0693a8dc820bd08cd97",
-        ".github/workflows/docs.yml": "1eb1b9f32036bcda431b37c3ec3ccb268642820cdaa899725ec593db3f22262b",
-        ".github/workflows/github-release.yml": "997d7eb1bf01a58be9941680dbd21aa749f47aa66f0c33f84f838cf9aa624497",
-        "pyproject.toml": "f0ec5c5d4988f0318a4620f96f27248ba865e31e7f31af7da79cedc95f8898ef",
-        "requirements-docs.txt": "0b6e1eb235d225dac472910ead9b29b8bbc3c001d4989bf845689d6721db1ae6",
-        "requirements-tests.txt": "0e536a90b1e224d921310eccf41b30c9bd8eb800e9c9b71101a9f97450ae0b6b",
+        ".github/workflows/agent.yml": "273f8b63a97e8fc78fc037344d27c898b43c32cbc769441266d5b17bb1d0b2e1",
+        ".github/workflows/docs.yml": "e4b359a94d2d227048af75679868a13c6b00a00ddfa5b17c01b3905d24325885",
+        ".github/workflows/github-release.yml": "f939cd7e7d920ef2e299ebb96e7a8946dbd2e9456dcec0c3a7628e40388c8ebb",
+        ".github/workflows/publish.yml": "148f47e64f2ae3837d0383e60857a6b3d085a61d7483ea26d7743b0b11389381",
+        ".github/workflows/tests.yml": "66c65235ae86017bc0c47e2da875e8ac9dc5f3da736bbce602ab0ec44d363554",
+        "README.md": "cb85963799029c150a0eac75a052a0e6dcab155d8623384922fca55e5ce7e73d",
+        "README.rst": "986f80462b43686c1835b14b72fc20294ad57a347eb0738672de7053e6ba8672",
+        "pyproject.toml": "7f158d33135177eff44e44cf53af4cafd3f4bb4f789d6b85882ff8b71959914a",
+        "requirements-docs.txt": "a4be7fdf9070754d509eba82cf61593db140cb4b3931b170878b07f1523e47b3",
+        "requirements-tests.txt": "50bbd166255c5927edc5071435338fe435b7703f58d0c088aad89934c441ec19",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "src/pytest_xray/case_report.py": "bf4d0a5ead788c316a6bded9a33537a7ea71f762028413391f8070c1034b8ac6",
         "src/pytest_xray/case_results.py": "4ec6cda504edde3288bdd67faa6c3d0388db48437209f73f786466ce572dfee4",
@@ -67,6 +71,7 @@
         "tests/test_aggregation_index.py": "8f99991c072ab6052c9ca7fa15b3a89fcf7cbb6e8f79e5f5c29438c5683fe56e",
         "tests/test_attachment_ownership.py": "d85d13668f992c205fbc0ce851df2b35619ec981ee3cd8c984002c466543e635",
         "tests/test_auth_configuration.py": "5d2f218190414a788d086513d5da38be6ca64c648e68ee7e213cbe58af9f6e2a",
+        "tests/test_build_dependencies.py": "3f3128c7a01d7778308bb4dc13efb37f290f67a4c2bbc2894446db657d32ca52",
         "tests/test_case_parent_paths.py": "9a09ab0f87d32d9d120c3c697648db833ff6cc4e40d1467930b58303ef3d1d3c",
         "tests/test_case_report.py": "e677634a60778ba328631796c137e2809e4cafbf64939ac4f07bf1256166c364",
         "tests/test_case_results.py": "d71ac50d2c4b5a2fcdd561c5f3647413b1b89e3dd16ee5fa79bfe7235799d354",
@@ -98,6 +103,7 @@
         "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
         "tools/check_installed_usage.py": "5ff38252da7d1ef2cd7aab7f9adeedbdce2d416633924b0bfb985a1e903e48b3",
+        "tools/install_build_dependencies.py": "489daf121e9b42327a265c86143429da396667e813ead139e5925fcfdc25803c",
         "tools/measure_coverage.py": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
         "tools/prepare_docs_site.py": "0452ebe778f4fb61398aaa264ef495ce1c093a226e177193513a47ab24407d2c",
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
@@ -107,15 +113,15 @@
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-WEEKLY-002-docs-cc33866695c7.json",
-        "docs/agent/evidence/XRAY-WEEKLY-002-offline-e021833c3684.json",
-        "docs/agent/evidence/XRAY-WEEKLY-002-harness-2789b2117bb8.json",
-        "docs/agent/evidence/XRAY-WEEKLY-002-package-2e228447381f.json",
-        "docs/agent/evidence/XRAY-WEEKLY-002-tests-e2a17d315405.json"
+        "docs/agent/evidence/XRAY-BOT-038-harness-eff632a7d0bb.json",
+        "docs/agent/evidence/XRAY-BOT-038-package-fcfbd4638afd.json",
+        "docs/agent/evidence/XRAY-BOT-038-offline-7eff906a0d95.json",
+        "docs/agent/evidence/XRAY-BOT-038-tests-b2ca39e1e85d.json",
+        "docs/agent/evidence/XRAY-BOT-038-docs-8d1ced306312.json"
       ],
-      "review": "docs/agent/evidence/XRAY-WEEKLY-002-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-BOT-038-independent-review.json",
       "blocker": "",
-      "next_action": "October 30 iteration completed; verify final completion-record CI, then stop. Separate bot PRs require a future scoped iteration."
+      "next_action": "Verify acceptance-head CI, merge PR38 only when green, verify integrated main CI, then stop. No release or unrelated task."
     }
   ]
 }

@@ -1,3 +1,10 @@
+# Current task — November 1 PR38 repair
+
+The user explicitly requests fixing and merging PR38 after green checks. Read
+[active scope](docs/agent/task-dependabot-38.md). The October30 iteration below
+is completed history; this request authorizes one scoped dependency repair.
+No release, Pages deployment, settings changes or GitHub PR approval action.
+
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic

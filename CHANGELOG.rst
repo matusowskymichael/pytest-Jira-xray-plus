@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Update development tools to coverage 7.17.0, setuptools 84.2.1 and Material
+  for MkDocs 9.8.0; reconcile the completed maintenance ledger with current
+  workflow pins and verify fresh build, coverage, installed-guide and docs evidence.
 - Read build backend requirements from pyproject.toml in developer, CI and
   publisher setup, fixing the stale beginner-guide pin and preventing repeated
   non-isolated build failures after manifest updates. Repository-only maintenance.

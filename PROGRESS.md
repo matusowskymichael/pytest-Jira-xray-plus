@@ -1,3 +1,50 @@
+# PR38 independently accepted — final CI and merge gates remain
+
+Native reviewer /root/review_bot38 accepted exact repaired head
+`a9353604b0853658fae6c0ccf9d97655a8626b6a` with no findings. All six hosted
+workflows passed. Five fresh profiles cover 570 tests plus 19 subtests and all
+15 installed guide commands. Both hosted Python 3.12 jobs verify the new backend,
+coverage (771/787 lines, 231/252 branches) and real artifact-ID/hash handoff.
+
+[Independent review](docs/agent/evidence/XRAY-BOT-038-independent-review.json)
+and [hosted CI](docs/agent/evidence/XRAY-BOT-038-reviewed-ci.json) bind the source
+and evidence. The harness has accepted the new task; old proofs remain historical.
+This commit changes only excluded ledger/progress/evidence, not tested source.
+Next: verify this acceptance-only head's checks, merge PR38, verify merged main
+CI, then stop. No release, deployment, GitHub approval action or settings change.
+No live Jira/Xray validation is claimed. Earlier progress below is historical.
+
+---
+
+# PR38 repaired candidate verified locally
+
+All five fresh profiles pass at f4c38e7bce6ef0ed83348b66ca0b4fb7db9bfa87;
+digest b10e7c69ba740394c0479a930abfd5c598f14f5863910db3027505993ff3adb5.
+570 tests plus 19 subtests, all 15 installed guide commands, wheel/sdist/Twine,
+offline and strict docs/local desktop/mobile/search/theme checks passed.
+Installed backend84.2.1 satisfies the manifest; original-head rerun still failed
+all three non-isolated builds on that missing dependency. No further rerun needed.
+Independent source/receipt review has no findings; final acceptance requires
+hosted exact-head coverage, build/docs and artifact-ID/hash handoff checks.
+Next: push repaired PR38 head, monitor CI, record independent acceptance and
+merge only after all checks pass. No publication, account change or PR approval.
+
+---
+
+# November 1 — PR38 dependency repair in progress
+
+Original PR38 f212e064 reconciled with current main 486242f without rewriting
+history. Main already includes the manifest-based build setup from PR39 and
+user-merged action updates #36/#37. Its old passing ledger rejects changed action
+pins; archive at accepted 42ff434 rather than relabel stale evidence as valid.
+New task XRAY-BOT-038 protects current reviewed files and requires fresh profiles.
+Coverage 7.17.0, setuptools 84.2.1 and Material 9.8.0 are the only dependency changes
+relative to current main. No runtime/workflow-control changes or release.
+Next: fresh aggregate verification, independent review, repaired-head CI, merge
+only when all checks pass, then verify integrated main and stop.
+
+---
+
 # October 30 weekly maintenance completed
 
 [PR #39](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/39) merged
