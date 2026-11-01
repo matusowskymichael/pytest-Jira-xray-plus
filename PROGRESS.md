@@ -1,3 +1,18 @@
+# PR38 repaired candidate verified locally
+
+All five fresh profiles pass at f4c38e7bce6ef0ed83348b66ca0b4fb7db9bfa87;
+digest b10e7c69ba740394c0479a930abfd5c598f14f5863910db3027505993ff3adb5.
+570 tests plus 19 subtests, all 15 installed guide commands, wheel/sdist/Twine,
+offline and strict docs/local desktop/mobile/search/theme checks passed.
+Installed backend84.2.1 satisfies the manifest; original-head rerun still failed
+all three non-isolated builds on that missing dependency. No further rerun needed.
+Independent source/receipt review has no findings; final acceptance requires
+hosted exact-head coverage, build/docs and artifact-ID/hash handoff checks.
+Next: push repaired PR38 head, monitor CI, record independent acceptance and
+merge only after all checks pass. No publication, account change or PR approval.
+
+---
+
 # November 1 — PR38 dependency repair in progress
 
 Original PR38 f212e064 reconciled with current main 486242f without rewriting

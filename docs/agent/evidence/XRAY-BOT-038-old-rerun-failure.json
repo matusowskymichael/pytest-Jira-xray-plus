@@ -1,0 +1,18 @@
+{
+  "original_head": "f212e0640dd97ad3331a6af6939c5af4403bd4c9",
+  "reconciled_main": "486242f2c16bb23836e4255c016ad838b064cb2c",
+  "previous_accepted_main": "42ff434dcfc14ffbb8b3c34359c4db79df34f12a",
+  "old_test_run": 41007567990,
+  "attempt": 2,
+  "conclusion": "failure",
+  "observed_error": "All three old-head build jobs require setuptools==84.2.1; old duplicated setup pin does not install it. Current main helper resolves this without reimplementation.",
+  "old_harness_run": 41007567965,
+  "old_harness_attempt": 3,
+  "old_harness_error": "protected baseline changed: pyproject.toml",
+  "main_harness_run": 41319581771,
+  "main_error": "protected baseline changed: .github/workflows/agent.yml",
+  "log": "docs/agent/evidence/XRAY-BOT-038-old-rerun-failure.log",
+  "log_sha256": "42694727e07486c0c4fec81677336fb9b9ecdb4f4821d1f9c6b502047a489819",
+  "normalization": "Removed ANSI color escapes and BOM from gh failed-step log output; otherwise preserved.",
+  "actions": "No additional reruns, publication, approvals, settings or workflow-control changes."
+}

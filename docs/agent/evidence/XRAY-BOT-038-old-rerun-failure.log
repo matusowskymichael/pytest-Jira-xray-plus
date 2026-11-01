@@ -1,0 +1,119 @@
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8721942Z ##[group]Run python tools/build_release.py release-dist
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8722379Z python tools/build_release.py release-dist
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8752269Z shell: /usr/bin/bash -e {0}
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8752709Z env:
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8753012Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8753452Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8753880Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8754298Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8754682Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8755065Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:26.8755393Z ##[endgroup]
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.1295757Z * Getting build dependencies for sdist...
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3191317Z running egg_info
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3237261Z creating src/pytest_jira_xray_plus.egg-info
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3243624Z writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3263738Z writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3264704Z writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3265369Z writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3266017Z writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3400283Z writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3401506Z reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3402761Z reading manifest template 'MANIFEST.in'
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3513688Z adding license file 'LICENSE'
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3514362Z adding license file 'NOTICE'
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3528420Z writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3898193Z 
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3905294Z ERROR Unmet dependencies (checked against /opt/hostedtoolcache/Python/3.13.17/x64/bin/python):
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3905995Z 	setuptools==84.2.1
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3906302Z 		wanted: ==84.2.1
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.3906578Z 		found: 84.2.0
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4673892Z Traceback (most recent call last):
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4716126Z   File "/home/runner/work/pytest-Jira-xray-plus/pytest-Jira-xray-plus/tools/build_release.py", line 31, in <module>
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4717273Z     subprocess.run([sys.executable, '-m', 'build', '--no-isolation', '--outdir', str(build_out), str(staging)],
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4718021Z     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4718506Z                    env=env, check=True)
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4718844Z                    ^^^^^^^^^^^^^^^^^^^^
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4719508Z   File "/opt/hostedtoolcache/Python/3.13.17/x64/lib/python3.13/subprocess.py", line 578, in run
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4720227Z     raise CalledProcessError(retcode, process.args,
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4720681Z                              output=stdout, stderr=stderr)
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4721913Z subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.13.17/x64/bin/python', '-m', 'build', '--no-isolation', '--outdir', '/tmp/tmp_upu0w_9/dist', '/tmp/tmp_upu0w_9/source']' returned non-zero exit status 1.
+test (3.13)	Run python tools/build_release.py release-dist	2026-11-01T15:13:27.4811079Z ##[error]Process completed with exit code 1.
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0388192Z ##[group]Run python tools/build_release.py release-dist
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0388657Z python tools/build_release.py release-dist
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0408684Z shell: /usr/bin/bash -e {0}
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0409137Z env:
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0409431Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0409872Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0410310Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0410700Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0411089Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0411476Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.0411806Z ##[endgroup]
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.2121345Z * Getting build dependencies for sdist...
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3658719Z running egg_info
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3688415Z creating src/pytest_jira_xray_plus.egg-info
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3689346Z writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3695785Z writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3698645Z writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3700021Z writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3700863Z writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3701812Z writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3789450Z reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3790042Z reading manifest template 'MANIFEST.in'
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3869036Z adding license file 'LICENSE'
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3869466Z adding license file 'NOTICE'
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.3882168Z writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4168465Z 
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4175004Z ERROR Unmet dependencies (checked against /opt/hostedtoolcache/Python/3.12.15/x64/bin/python):
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4176221Z 	setuptools==84.2.1
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4176746Z 		wanted: ==84.2.1
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4177292Z 		found: 84.2.0
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4430567Z Traceback (most recent call last):
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4438566Z   File "/home/runner/work/pytest-Jira-xray-plus/pytest-Jira-xray-plus/tools/build_release.py", line 31, in <module>
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4439453Z     subprocess.run([sys.executable, '-m', 'build', '--no-isolation', '--outdir', str(build_out), str(staging)],
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4440179Z   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 571, in run
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4722482Z     raise CalledProcessError(retcode, process.args,
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4723956Z subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.12.15/x64/bin/python', '-m', 'build', '--no-isolation', '--outdir', '/tmp/tmpl0mbbyy5/dist', '/tmp/tmpl0mbbyy5/source']' returned non-zero exit status 1.
+test (3.12)	Run python tools/build_release.py release-dist	2026-11-01T15:16:14.4801850Z ##[error]Process completed with exit code 1.
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3207649Z ##[group]Run python tools/build_release.py release-dist
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3208072Z python tools/build_release.py release-dist
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3241109Z shell: /usr/bin/bash -e {0}
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3241368Z env:
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3241645Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.9/x64
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3242080Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.9/x64/lib/pkgconfig
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3242504Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.9/x64
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3242902Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.9/x64
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3243270Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.9/x64
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3243647Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.9/x64/lib
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.3244181Z ##[endgroup]
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.5643387Z * Getting build dependencies for sdist...
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7648934Z running egg_info
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7682519Z creating src/pytest_jira_xray_plus.egg-info
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7683892Z writing src/pytest_jira_xray_plus.egg-info/PKG-INFO
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7695485Z writing dependency_links to src/pytest_jira_xray_plus.egg-info/dependency_links.txt
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7696458Z writing entry points to src/pytest_jira_xray_plus.egg-info/entry_points.txt
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7697290Z writing requirements to src/pytest_jira_xray_plus.egg-info/requires.txt
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7725238Z writing top-level names to src/pytest_jira_xray_plus.egg-info/top_level.txt
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7726433Z writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7800885Z reading manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7802044Z reading manifest template 'MANIFEST.in'
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7924323Z adding license file 'LICENSE'
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7924829Z adding license file 'NOTICE'
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.7939594Z writing manifest file 'src/pytest_jira_xray_plus.egg-info/SOURCES.txt'
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.8336034Z 
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.8342951Z ERROR Unmet dependencies (checked against /opt/hostedtoolcache/Python/3.14.9/x64/bin/python):
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.8343738Z 	setuptools==84.2.1
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.8344226Z 		wanted: ==84.2.1
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.8344503Z 		found: 84.2.0
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9316072Z Traceback (most recent call last):
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9327266Z   File "/home/runner/work/pytest-Jira-xray-plus/pytest-Jira-xray-plus/tools/build_release.py", line 31, in <module>
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9328140Z     subprocess.run([sys.executable, '-m', 'build', '--no-isolation', '--outdir', str(build_out), str(staging)],
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9328739Z     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9329105Z                    env=env, check=True)
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9329382Z                    ^^^^^^^^^^^^^^^^^^^^
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9329901Z   File "/opt/hostedtoolcache/Python/3.14.9/x64/lib/python3.14/subprocess.py", line 578, in run
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9330429Z     raise CalledProcessError(retcode, process.args,
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9330788Z                              output=stdout, stderr=stderr)
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9331662Z subprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.14.9/x64/bin/python', '-m', 'build', '--no-isolation', '--outdir', '/tmp/tmpsmj9gesq/dist', '/tmp/tmpsmj9gesq/source']' returned non-zero exit status 1.
+test (3.14)	Run python tools/build_release.py release-dist	2026-11-01T15:13:45.9438659Z ##[error]Process completed with exit code 1.
