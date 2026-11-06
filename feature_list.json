@@ -6,7 +6,7 @@
       "title": "Keep docs validation active under Python optimization",
       "source": "docs/agent/task-weekly-2026-11-06.md",
       "source_sha256": "a17f3a65636ffbbbc9b597898d53fcf815434245301d3563112671b9bc3d77ba",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/40",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
