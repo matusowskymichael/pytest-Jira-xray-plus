@@ -1,3 +1,18 @@
+# Current authorization — November 6 weekly iteration
+
+Complete the [scoped documentation validation fix](task-weekly-2026-11-06.md),
+then stop. PR38 and prior weekly work are completed history. Tested scoped
+commits/PRs, independently accepted merge and existing Pages updates are authorized.
+Start a draft PR; do not submit a GitHub approval action. No package release is
+warranted by this repository-only fix. Preserve all security, privacy and
+verification requirements; no certificate bypass. Discuss integration features
+before implementing them. Maintain one implementation/release at a time.
+
+## Historical authorization records
+
+The dated sections below preserve earlier instructions; they do not reopen
+completed tasks or continuous maintenance.
+
 # October 23 weekly iteration authorization
 
 Resume and finish one maintenance iteration, then stop. Scoped tested and

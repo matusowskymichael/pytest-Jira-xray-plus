@@ -42,6 +42,8 @@ for path, page in pages.items():
             errors.append(f'{relative}: missing {link}')
         elif parts.fragment and target in pages and unquote(parts.fragment) not in pages[target].ids:
             errors.append(f'{relative}: missing anchor {link}')
-assert not errors, '\n'.join(errors)
-assert (ROOT / 'search/search_index.json').is_file()
+if errors:
+    raise SystemExit('\n'.join(errors))
+if not (ROOT / 'search/search_index.json').is_file():
+    raise SystemExit('Missing search index: search/search_index.json')
 print(f'PASS: {len(pages)} HTML pages, {checked} internal links/fragments/assets, search index')

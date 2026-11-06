@@ -1,0 +1,235 @@
+{
+  "timestamp": "2026-11-06T08:10:14.607090+00:00",
+  "baseline_commit": "e06cb5e1395efb6018a8fc50edb0e21a0b7908c2",
+  "tool_hashes": {
+    "before": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6",
+    "after": "2aac24dadd1582f4fa00d21437adf3c98d68b1bf9038d1cdf611085258e6b202"
+  },
+  "results": [
+    {
+      "stage": "before",
+      "fixture": "missing_file",
+      "flags": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/tmphh8hvysm/tools/check_docs_links.py\", line 45, in <module>\n    assert not errors, '\\n'.join(errors)\n           ^^^^^^^^^^\nAssertionError: index.html: missing missing.html\n"
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_file",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_file",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_fragment",
+      "flags": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/tmp8wsq539r/tools/check_docs_links.py\", line 45, in <module>\n    assert not errors, '\\n'.join(errors)\n           ^^^^^^^^^^\nAssertionError: index.html: missing anchor #absent\n"
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_fragment",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_fragment",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_search",
+      "flags": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/tmpny2qj7tf/tools/check_docs_links.py\", line 46, in <module>\n    assert (ROOT / 'search/search_index.json').is_file()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_search",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 0 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "missing_search",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 0 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "valid",
+      "flags": [],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "valid",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "before",
+      "fixture": "valid",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_file",
+      "flags": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "index.html: missing missing.html\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_file",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "index.html: missing missing.html\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_file",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "index.html: missing missing.html\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_fragment",
+      "flags": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "index.html: missing anchor #absent\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_fragment",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "index.html: missing anchor #absent\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_fragment",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "index.html: missing anchor #absent\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_search",
+      "flags": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Missing search index: search/search_index.json\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_search",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Missing search index: search/search_index.json\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "missing_search",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Missing search index: search/search_index.json\n"
+    },
+    {
+      "stage": "after",
+      "fixture": "valid",
+      "flags": [],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "after",
+      "fixture": "valid",
+      "flags": [
+        "-O"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    },
+    {
+      "stage": "after",
+      "fixture": "valid",
+      "flags": [
+        "-OO"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 1 HTML pages, 1 internal links/fragments/assets, search index\n",
+      "stderr": ""
+    }
+  ],
+  "result": "Before: invalid sites incorrectly pass under -O/-OO. After: all invalid cases fail; valid controls pass under all modes. Synthetic local filesystem only."
+}

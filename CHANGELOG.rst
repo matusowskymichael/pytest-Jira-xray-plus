@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Keep documentation link/fragment and search-index validation active under
+  Python -O and -OO; broken sites now fail instead of incorrectly printing PASS.
+  Successful checks and plugin behavior are unchanged; no package release.
 - Update development tools to coverage 7.17.0, setuptools 84.2.1 and Material
   for MkDocs 9.8.0; reconcile the completed maintenance ledger with current
   workflow pins and verify fresh build, coverage, installed-guide and docs evidence.

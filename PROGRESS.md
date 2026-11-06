@@ -1,3 +1,20 @@
+# November 6 weekly iteration — docs validation guard
+
+Remote main e06cb5e is clean; PR38 is merged and its integrated CI passed.
+No open issues or PRs were found; public PyPI remains 0.1.10. PR38's ledger is
+archived at that accepted commit, not reused as current evidence.
+
+Concrete reproduction: the original docs checker exits zero and prints PASS for
+a missing.html link under Python -O/-OO because assert statements disappear.
+The new scoped task makes its two failure guards explicit. Twelve regressions
+cover missing links/fragments/search index and valid controls under all three modes.
+No runtime, dependency or workflow changes; no release warranted.
+Next: draft PR, fresh five-profile evidence, independent review and exact-head CI.
+A named-anchor candidate was discarded after independent review identified wider
+HTML parsing edge cases; none of that candidate is included in this task.
+
+---
+
 # PR38 independently accepted — final CI and merge gates remain
 
 Native reviewer /root/review_bot38 accepted exact repaired head

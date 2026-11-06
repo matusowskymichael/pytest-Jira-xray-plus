@@ -11,7 +11,7 @@ CHECKER = Path(__file__).resolve().parents[1] / 'tools/check_docs_links.py'
 BASE = '/pytest-Jira-xray-plus/'
 
 
-def check_site(tmp_path, pages, assets=None, search=True):
+def check_site(tmp_path, pages, assets=None, search=True, optimization=0):
     script = tmp_path / 'tools/check_docs_links.py'
     script.parent.mkdir()
     shutil.copyfile(CHECKER, script)
@@ -24,7 +24,8 @@ def check_site(tmp_path, pages, assets=None, search=True):
         path = site / 'search/search_index.json'
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text('{}')
-    return subprocess.run([sys.executable, str(script)], cwd=tmp_path, text=True, capture_output=True)
+    flags = ['-' + 'O' * optimization] if optimization else []
+    return subprocess.run([sys.executable, *flags, str(script)], cwd=tmp_path, text=True, capture_output=True)
 
 
 @pytest.mark.parametrize('name', [
@@ -98,3 +99,25 @@ def test_search_index_is_still_required(tmp_path):
     result = check_site(tmp_path, {'class_index.html': '<h1>Classes</h1>'}, search=False)
     assert result.returncode != 0
     assert 'search/search_index.json' in result.stderr
+
+
+@pytest.mark.parametrize('optimization', [0, 1, 2])
+@pytest.mark.parametrize('pages,search,error', [
+    ({'index.html': '<a href="missing.html">Broken</a>'}, True, 'missing missing.html'),
+    ({'index.html': '<a href="#missing">Broken</a>'}, True, 'missing anchor #missing'),
+    ({'index.html': '<h1>Guide</h1>'}, False, 'search/search_index.json'),
+])
+def test_validation_failures_are_not_removed_by_python_optimization(tmp_path, optimization, pages, search, error):
+    result = check_site(tmp_path, pages, search=search, optimization=optimization)
+    assert result.returncode != 0
+    assert error in result.stderr
+    assert 'PASS:' not in result.stdout
+
+
+@pytest.mark.parametrize('optimization', [0, 1, 2])
+def test_valid_site_still_passes_under_python_optimization(tmp_path, optimization):
+    result = check_site(tmp_path, {
+        'index.html': '<h1 id="here">Guide</h1><a href="#here">Section</a><img src="icon.svg">',
+    }, assets={'icon.svg': '<svg/>'}, optimization=optimization)
+    assert result.returncode == 0, result.stderr
+    assert 'PASS: 1 HTML pages, 2 internal links/fragments/assets, search index' in result.stdout

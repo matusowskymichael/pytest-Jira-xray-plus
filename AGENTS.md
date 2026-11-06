@@ -1,14 +1,7 @@
-# Current task — November 1 PR38 repair
-
-The user explicitly requests fixing and merging PR38 after green checks. Read
-[active scope](docs/agent/task-dependabot-38.md). The October30 iteration below
-is completed history; this request authorizes one scoped dependency repair.
-No release, Pages deployment, settings changes or GitHub PR approval action.
-
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.10**. Active work: October 30 build setup correction. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.10**. Active work: November 6 documentation validation correction. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -30,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-weekly-2026-10-30.md): active product iteration and acceptance criteria.
+- [Current scope](docs/agent/task-weekly-2026-11-06.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -52,11 +45,8 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
   A local pass does not prove live Xray compatibility or native iteration support.
 - Do not weaken tests, scope, or evidence validation to mark a task passing. Changed
   relevant content invalidates old evidence; reopen work explicitly.
-- Michael grants standing maintainer authorization for this repository's three-day
-  iterative maintenance window beginning 2026-10-16: after independent acceptance
-  and green exact-head checks, merge without asking again and release an unused
-  stable version through the existing trusted publishing/Pages workflows. This
-  replaces repeated user merge-approval prompts for this repository only.
+- Follow the current authorized iteration and [maintainer policy](docs/agent/maintainer.md).
+  Historical windows and completed PRs do not authorize continuous work.
 - Prepare each candidate for independent review before merge/release. Keep one
   iteration active; scheduled rounds resume its branch/PR/ledger rather than create
   duplicate work. Review [maintainer policy](docs/agent/maintainer.md).
@@ -68,8 +58,8 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 - End with current progress, exact verification limits and an executable next step.
   A checkpoint or draft PR is not independent acceptance.
 
-Current maintenance policy (October 30): complete one weekly iteration, then stop.
-Use the active task above; October 26 dependency repairs are complete. New bot
-PRs remain separate. Tested independently reviewed merges and existing Pages
-updates are authorized. This repository-only correction does not need a release.
-Do not submit a GitHub PR approval action without specific action-time confirmation.
+Current maintenance policy (November 6): complete one weekly iteration, then stop.
+PR38 is merged and verified; its accepted ledger is archived. The active scope
+above is repository-only and needs no PyPI release. Independently reviewed, tested
+merge and existing Pages updates are authorized. Never submit a GitHub approval
+action for this task. Keep only one implementation or release in flight.

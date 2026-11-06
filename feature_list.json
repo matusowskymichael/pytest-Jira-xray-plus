@@ -2,10 +2,10 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-BOT-038",
-      "title": "Reconcile and verify PR38 Python build/test/docs dependencies",
-      "source": "docs/agent/task-dependabot-38.md",
-      "source_sha256": "a0ccd2dda26471a4fe5e8d0e7e60f0ff68e9772ff2b570f91e1330dc2df51291",
+      "id": "XRAY-WEEKLY-003",
+      "title": "Keep docs validation active under Python optimization",
+      "source": "docs/agent/task-weekly-2026-11-06.md",
+      "source_sha256": "a17f3a65636ffbbbc9b597898d53fcf815434245301d3563112671b9bc3d77ba",
       "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Preserve original PR38 bot history and reconcile actual main; archive previous accepted ledger with correct provenance and collect fresh evidence",
-        "Validate coverage7.17.0 setuptools84.2.1 and Material9.8.0 compatibility plus inherited action pins; preserve all runtime, security, tests and publishing controls",
-        "All five profiles, installed guide, full hosted coverage/build/docs and artifact handoff pass on the repaired head",
-        "Independent technical acceptance and green exact-head CI precede merge; verify merge and integrated main CI; no release or GitHub approval action"
+        "Reproduce original false PASS under optimized Python and reject missing targets, fragments and search index in normal, -O and -OO modes",
+        "Preserve successful checker output, existing link-resolution semantics, all runtime/dependency/workflow controls and privacy defaults",
+        "Update changelog, full beginner guide and site maintenance instructions; all five profiles and installed guide pass on current source",
+        "Obtain independent technical acceptance and green exact-head CI before merge; verify main CI and existing Pages updates without security bypass; no package release"
       ],
       "checks": [
         "harness",
@@ -44,7 +44,6 @@
         ".github/workflows/github-release.yml": "f939cd7e7d920ef2e299ebb96e7a8946dbd2e9456dcec0c3a7628e40388c8ebb",
         ".github/workflows/publish.yml": "148f47e64f2ae3837d0383e60857a6b3d085a61d7483ea26d7743b0b11389381",
         ".github/workflows/tests.yml": "66c65235ae86017bc0c47e2da875e8ac9dc5f3da736bbce602ab0ec44d363554",
-        "README.md": "cb85963799029c150a0eac75a052a0e6dcab155d8623384922fca55e5ce7e73d",
         "README.rst": "986f80462b43686c1835b14b72fc20294ad57a347eb0738672de7053e6ba8672",
         "pyproject.toml": "7f158d33135177eff44e44cf53af4cafd3f4bb4f789d6b85882ff8b71959914a",
         "requirements-docs.txt": "a4be7fdf9070754d509eba82cf61593db140cb4b3931b170878b07f1523e47b3",
@@ -79,7 +78,6 @@
         "tests/test_comment_limits.py": "d1fec794d9873897932984f257187325b7f3faeec9541e40c4fbd65bc6af1e30",
         "tests/test_coverage_report.py": "4a9a1e1c933da4c10c6ba7f0494526b1bb62bc64357aceb5a9b3656841e60a43",
         "tests/test_defects_validation.py": "a6c9154d06a71c4f494f2c57d68082d40d06fc21493a776d3938beb09a55e5ea",
-        "tests/test_docs_links.py": "d80140a0e7b645e1adb50eabe979b925bb8ccd905324bc44f1c2c73a304327aa",
         "tests/test_duplicate_policy.py": "60a2bc84b98dae76a02e5c5deeb4388dc73789cfb018b7aaab5ea03ba84aabe8",
         "tests/test_empty_report_paths.py": "1d260bd098a084e22116e02e6c3a549b0944d0aa909f054aa6e418a4d82c7149",
         "tests/test_evidence.py": "3efbe44be7d6beb64473c274361841c71364c29b39d9048934e5b3b7cbf62d9d",
@@ -100,7 +98,6 @@
         "tools/benchmark_collection.py": "73db491e7dc06e039d4d41e7be694ea495992e3ede67a14c2f6eb8375aca021f",
         "tools/build_release.py": "d4f190ee00865e8327af57ae6b3ed99dd30209c5da6ad58f4c1f30544c07fb34",
         "tools/check_docs_browser.py": "ad12e477d344fb9b1e35f09674fbb8333c2167fe2bbfb19a0f001153474fa6e0",
-        "tools/check_docs_links.py": "39e642ad2ec2372d519d8ea02e817015154ed9176d948180afe72f5bcfd767d6",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
         "tools/check_installed_usage.py": "5ff38252da7d1ef2cd7aab7f9adeedbdce2d416633924b0bfb985a1e903e48b3",
         "tools/install_build_dependencies.py": "489daf121e9b42327a265c86143429da396667e813ead139e5925fcfdc25803c",
@@ -111,17 +108,11 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-BOT-038-harness-eff632a7d0bb.json",
-        "docs/agent/evidence/XRAY-BOT-038-package-fcfbd4638afd.json",
-        "docs/agent/evidence/XRAY-BOT-038-offline-7eff906a0d95.json",
-        "docs/agent/evidence/XRAY-BOT-038-tests-b2ca39e1e85d.json",
-        "docs/agent/evidence/XRAY-BOT-038-docs-8d1ced306312.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-BOT-038-independent-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "Verify acceptance-head CI, merge PR38 only when green, verify integrated main CI, then stop. No release or unrelated task."
+      "next_action": "Verify focused regression, all five profiles, draft PR and independent review"
     }
   ]
 }
