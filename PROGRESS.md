@@ -1,3 +1,20 @@
+# Runtime 0.1.11 candidate — final verification and review
+
+All five profiles pass on committed scope cf4959c1697946f26ff209ac945a7982d56f1bef.
+The current digest is 858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282.
+Verification covers 596 tests plus 19 subtests, 85 focused tests, 14 installed-wheel
+regressions outside the checkout, and 17 installed guide commands with HTTP blocked.
+Strict documentation and local browser checks pass. Scope/status prose spacing
+was corrected; fresh profiles bind the committed correction. Earlier receipts
+are historical, including the fixed changelog-heading failure, and are not used
+for final acceptance. The runtime fix is unchanged.
+
+Next: final independent review and exact-head CI, acceptance and merge, main CI,
+then the existing trusted 0.1.11 publisher and public artifact/install/tag/Pages
+verification. No publication yet; stop after this one runtime iteration.
+
+---
+
 # Runtime 0.1.11 candidate verified — exact-head CI and review pending
 
 All five fresh profiles pass at 1a5b58792066ab1cbd21eefa2b335e4817abd116,
