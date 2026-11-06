@@ -1,14 +1,14 @@
 # Runtime 0.1.11 candidate verified — exact-head CI and review pending
 
-All five fresh profiles pass at1a5b58792066ab1cbd21eefa2b335e4817abd116,
-digest53c4afa46a84c5740f3efb10007764001c2df41edc34d37bafd8734b83446a25.
-596 tests plus19subtests;85 focused tests;14 installed-wheel regressions outside
-checkout;17 installed guide commands with HTTP blocked; strict/local browser docs
+All five fresh profiles pass at 1a5b58792066ab1cbd21eefa2b335e4817abd116,
+digest 53c4afa46a84c5740f3efb10007764001c2df41edc34d37bafd8734b83446a25.
+596 tests plus 19 subtests; 85 focused tests; 14 installed-wheel regressions outside
+checkout; 17 installed guide commands with HTTP blocked; strict/local browser docs
 pass. Earlier full-suite failure caught missing Unreleased changelog heading;
 restored it without weakening tests and reran all profiles. Historical failed
 receipt remains archived and cannot satisfy current acceptance.
 Runtime change is one trylast hook decorator after standard -k/-m selection;
-selected duplicates/invalid markers still fail before fixtures. Version0.1.11
+selected duplicates/invalid markers still fail before fixtures. Version 0.1.11
 prepared, unpublished. Next exact-head CI/independent acceptance, merge/main CI,
 then warranted existing trusted release and public artifact/install/tag/Pages
 verification. No authentication, permissions or workplace access changes.
@@ -17,7 +17,7 @@ verification. No authentication, permissions or workplace access changes.
 
 # Runtime selection fix — in progress
 
-Main2018831 is clean and all final CI passed; PR40 is completed and its ledger
+Main 2018831 is clean and all final CI passed; PR #40 is completed and its ledger
 archived. No open issues/PRs. Reproduced plugin bug: selecting one marked test with
 -k still fails due to duplicate keys in deselected tests. New task XRAY-RUNTIME-001
 will validate after standard selection, retaining selected-marker safety checks.

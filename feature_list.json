@@ -5,7 +5,7 @@
       "id": "XRAY-RUNTIME-001",
       "title": "Validate selected Xray cases after pytest filters",
       "source": "docs/agent/task-runtime-selection.md",
-      "source_sha256": "50cb94b10afc3e8c6a036e67569d8b58bd0217af992f3c180b5eef03e81a003f",
+      "source_sha256": "93dd2a5508974a780b829d0e8375b673052e381867441286595e7e32ea1bc587",
       "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/41",
       "owner": "Michael",
       "implementer": "codex-builder",

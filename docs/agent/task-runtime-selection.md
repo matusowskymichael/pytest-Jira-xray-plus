@@ -16,7 +16,7 @@ profiles, installed guide and wheel selection probes, independent technical
 review and exact-head CI. Start draft PR, merge accepted source, verify main CI.
 No GitHub approval action, new integration, workplace access, credentials,
 permission changes, purchases or security-warning bypass. Generic Tests on
-on-premises Xray8.5.3-j10 remain the target; no live-server/native-iteration claim.
+on-premises Xray 8.5.3-j10 remain the target; no live-server/native-iteration claim.
 
 Standing release authorization was explicitly confirmed in this thread: release
 meaningful verified runtime changes through existing manual trusted publishing
