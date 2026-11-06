@@ -1,0 +1,30 @@
+..................................................... [  8%]
+........................................................................ [ 20%]
+........................................................................ [ 33%]
+........................................................................ [ 45%]
+........................................................................ [ 57%]
+........................................................................ [ 69%]
+..................F..................................................... [ 81%]
+........................................................................ [ 93%]
+.......................................                                  [100%]
+=================================== FAILURES ===================================
+________ test_generated_changelog_contains_current_and_unreleased_notes ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-10/test_generated_changelog_conta0')
+
+    def test_generated_changelog_contains_current_and_unreleased_notes(tmp_path):
+        root = Path(__file__).parents[1]
+        for name in ['README.md', 'CHANGELOG.rst', 'docs/CASE-REPORT.md', 'tools/prepare_docs_site.py']:
+            destination = tmp_path / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(root / name, destination)
+        shutil.copytree(root / 'website', tmp_path / 'website')
+        subprocess.run([sys.executable, str(tmp_path / 'tools/prepare_docs_site.py')], check=True, capture_output=True)
+        rendered = (tmp_path / '.docs-source/project/changelog.md').read_text()
+>       assert '## Unreleased' in rendered and 'explicit permission confirmation' in rendered
+E       AssertionError: assert ('## Unreleased' in '# Changelog\n\n## 0.1.11 [2026-11-06]\n\n- Validate Xray markers after standard pytest -k/-m selection. Selecting one...nand [NOTICE](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/NOTICE) for upstream attribution.\n')
+
+tests/test_release_docs.py:18: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_release_docs.py::test_generated_changelog_contains_current_and_unreleased_notes
+1 failed, 595 passed, 19 subtests passed in 134.52s (0:02:14)

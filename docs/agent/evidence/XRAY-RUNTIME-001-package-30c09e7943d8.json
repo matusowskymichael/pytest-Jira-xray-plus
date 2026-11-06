@@ -1,0 +1,77 @@
+{
+  "task": "XRAY-RUNTIME-001",
+  "profile": "package",
+  "digest": "96ddf3cb1eee6af6897a47917b18495de257b28eb094b6100204e232b01f711c",
+  "revision": "3bade05492f82c80e73b0218fabf9e9c3da532cf",
+  "timestamp": "2026-11-06T12:18:13.482956+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/build_release.py",
+      ".harness/dist"
+    ],
+    [
+      "{python}",
+      "-m",
+      "twine",
+      "check",
+      ".harness/dist/pytest_jira_xray_plus-0.1.11-py3-none-any.whl",
+      ".harness/dist/pytest_jira_xray_plus-0.1.11.tar.gz"
+    ],
+    [
+      "{python}",
+      "-m",
+      "venv",
+      "--clear",
+      ".harness/installed"
+    ],
+    [
+      "{root}/.harness/installed/bin/python",
+      "-m",
+      "pip",
+      "install",
+      ".harness/dist/pytest_jira_xray_plus-0.1.11-py3-none-any.whl",
+      "pytest-xdist==3.8.0",
+      "pytest-rerunfailures==16.7"
+    ],
+    [
+      "{python}",
+      "tools/check_installed_usage.py",
+      "{root}/.harness/installed/bin/python",
+      ".harness/dist/pytest_jira_xray_plus-0.1.11-py3-none-any.whl"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.328,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-package-30c09e7943d8-0.log",
+      "log_sha256": "82cb3dcc6ae5c791be878cf48e39cddb002c6f398a247a65d04d47fe257ac9df"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.395,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-package-30c09e7943d8-1.log",
+      "log_sha256": "42d0a101128a3f7881c0fe2c1579dce63c8b10b127c60359d41606b289364dfd"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.774,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-package-30c09e7943d8-2.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 4.123,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-package-30c09e7943d8-3.log",
+      "log_sha256": "4118406baac00b3cc410df557a17cdb43f14712ee368d21eee1afedf878ad1ff"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 6.199,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-package-30c09e7943d8-4.log",
+      "log_sha256": "0643e661f500a42410b10cd941516e30f20f352ec2a6fd2cf40d52634823f317"
+    }
+  ],
+  "status": "passed"
+}
