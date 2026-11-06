@@ -1270,6 +1270,12 @@
 
 
 <h1 id="troubleshooting-and-migration">Troubleshooting and migration<a class="headerlink" href="#troubleshooting-and-migration" title="Permanent link">&para;</a></h1>
+<p><strong>Selecting a subset (0.1.11+):</strong> standard <code>-k</code> and <code>-m</code> filters now run before
+Xray marker validation, in serial and xdist. Upgrade if selecting one case still
+reports duplicate keys or invalid markers from excluded tests. Validation still
+blocks invalid selected markers and selected duplicates before fixtures run.
+Custom selection hooks that run later than this plugin are outside this guarantee.
+Collect-only and runs without <code>--jira-xray</code> retain their behavior.</p>
 <p><strong>Duplicate Test keys (0.1.7+):</strong> if separate pytest cases intentionally
 map to one existing Jira Test, add <code>--allow-duplicate-ids</code> to the same preview or
 upload command. Otherwise give the cases their correct distinct Test keys.

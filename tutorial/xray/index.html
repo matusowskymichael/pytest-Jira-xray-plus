@@ -1292,9 +1292,25 @@ its Jira Test marker; here is the complete file:</p>
 <strong>Test</strong> issue. <code>DEMO-1</code> is just a placeholder here; offline export does not look
 it up. A <strong>Test Execution</strong> is the Jira issue that holds a set of test results.
 A <strong>Test Run</strong> is the result of one Test inside that execution.</p>
+<p>To preview just one input case with <strong>0.1.11+</strong>, filter by its pytest ID:</p>
+<!-- run:selection -->
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>-k<span class="w"> </span>one-plus-one<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>selected.json
+</code></pre></div>
+<p>Expect <code>1 passed, 1 deselected</code> and one <code>DEMO-1</code> result with status <code>PASS</code>.
+No duplicate override is needed: only one case runs. Version 0.1.10 and earlier
+incorrectly check the deselected case too and report a duplicate-key error.
+The same selection works with the optional pytest-xdist package installed
+(<code>python -m pip install pytest-xdist</code>):</p>
+<!-- run:selection_parallel -->
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>-k<span class="w"> </span>one-plus-one<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>selected-workers.json
+</code></pre></div>
+<p>Expect one passed case (xdist need not print a deselected count). Standard <code>-m</code>
+marker selection also runs before Xray validation. Deselected cases contribute
+no Xray results. Selected cases still need valid markers and unique keys unless
+you intentionally enable grouping with <code>--allow-duplicate-ids</code>.</p>
 <p>Generate the Xray preview and a case audit report:</p>
 <!-- run:xray -->
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>xray.json<span class="w"> </span>--allow-duplicate-ids
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>xray.json<span class="w"> </span>--allow-duplicate-ids
 </code></pre></div>
 <table>
 <thead>
@@ -1353,7 +1369,7 @@ You now have two reports with different purposes:</p>
 them under that key. It does not create native Xray iteration rows.</p>
 <p>To keep readable input details in that combined result, add one more option:</p>
 <!-- run:comments -->
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>xray.json<span class="w"> </span>--allow-duplicate-ids<span class="w"> </span>--xray-parameter-details
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-q<span class="w"> </span>test_example.py<span class="w"> </span>--xray-case-report<span class="o">=</span>cases.json<span class="w"> </span>--jira-xray<span class="w"> </span>--xraypath<span class="o">=</span>xray.json<span class="w"> </span>--allow-duplicate-ids<span class="w"> </span>--xray-parameter-details
 </code></pre></div>
 <p>Open <code>xray.json</code>. Its <code>comment</code> now contains both case names, scalar input
 values, the reported phase and its outcome. Open <code>cases.json</code>: it still has two
