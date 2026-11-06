@@ -1,3 +1,14 @@
+# Runtime selection fix — in progress
+
+Main2018831 is clean and all final CI passed; PR40 is completed and its ledger
+archived. No open issues/PRs. Reproduced plugin bug: selecting one marked test with
+-k still fails due to duplicate keys in deselected tests. New task XRAY-RUNTIME-001
+will validate after standard selection, retaining selected-marker safety checks.
+Only one runtime fix/release in flight. Release authorization explicitly confirmed;
+publication remains gated on fresh tests, independent review, exact CI and artifacts.
+
+---
+
 # November 6 iteration completed — merged and documentation verified
 
 PR [#40](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/40)

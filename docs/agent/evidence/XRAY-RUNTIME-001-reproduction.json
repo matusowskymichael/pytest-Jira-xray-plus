@@ -1,0 +1,21 @@
+{
+  "baseline": "2018831e6a2141fdaeaddcfd92b66a0f22b1ec5f",
+  "runtime_file": "src/pytest_xray/xray_plugin.py",
+  "baseline_runtime_sha256": "cc3fd30cac3185e66a7bfa2b319456842b581a080db0e2d893e1e84d1a166d3e",
+  "tests_sha256": "115cee8cf3acb34eeb6958c4edff45e036f24293f5e5abb34e11f19854a0a74a",
+  "before": {
+    "failed": 12,
+    "passed": 2,
+    "command": "PYTHONPATH=$PWD/src /tmp/xray1106-env/bin/python -m pytest -q tests/test_selected_markers.py"
+  },
+  "after_focused": {
+    "passed": 85,
+    "command": "PYTHONPATH=$PWD/src /tmp/xray1106-env/bin/python -m pytest -q tests/test_selected_markers.py tests/test_duplicate_policy.py tests/test_key_validation.py tests/test_defects_validation.py"
+  },
+  "logs": {
+    "XRAY-RUNTIME-001-before.log": "45460ac213940b1064e17ab542fa7f835f05600942a6c0cee171034eeef5d568",
+    "XRAY-RUNTIME-001-focused.log": "148ec786bfb0a7ac662fcd9471613a775ee845eb25b9914e3f70c8fa5e3b65a4"
+  },
+  "data": "Synthetic DEMO keys only; local preview; no workplace/network imports",
+  "official_reference": "https://docs.pytest.org/en/stable/how-to/writing_hook_functions.html#hook-function-ordering-call-example"
+}

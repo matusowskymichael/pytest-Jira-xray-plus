@@ -59,6 +59,12 @@ with tempfile.TemporaryDirectory() as directory:
         result = subprocess.run([python, *args[1:]], cwd=path, env=env, capture_output=True, text=True)
         assert result.returncode == (1 if name == 'failure' else 0), result.stdout + result.stderr
         seen.append(name)
+        if name in ('selection', 'selection_parallel'):
+            selected = 'selected.json' if name == 'selection' else 'selected-workers.json'
+            assert '1 passed' in result.stdout
+            assert json.loads((path / selected).read_text())['tests'] == [
+                {'testKey': 'DEMO-1', 'status': 'PASS'}
+            ]
         if name == 'basic':
             assert '2 passed' in result.stdout
             assert not (path / 'cases.json').exists()
@@ -105,12 +111,12 @@ with tempfile.TemporaryDirectory() as directory:
                 assert payload['info']['revision'] == 'tutorial-revision'
                 assert len(test['evidences']) == 2
     assert seen == [
-        'basic', 'xray', 'comments', 'preupload', 'inspect_xray',
+        'basic', 'selection', 'selection_parallel', 'xray', 'comments', 'preupload', 'inspect_xray',
         'local', 'inspect', 'nested', 'values', 'redact', 'failure', 'archive',
         'parallel', 'retries', 'hooks',
     ], seen
     print(
-        'PASS: all 15 README commands, nested output folders, JSON excerpt, '
+        'PASS: all 17 README commands, selected serial/parallel cases, nested output folders, JSON excerpt, '
         'intentional failure, restored passing cases, '
         'values/redaction, Xray comments/archive, parallel/retries and hooks; HTTP blocked'
     )

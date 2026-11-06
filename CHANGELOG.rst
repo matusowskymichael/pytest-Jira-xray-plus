@@ -1,5 +1,12 @@
-Unreleased
-==========
+0.1.11 [2026-11-06]
+===================
+- Validate Xray markers after standard pytest -k/-m selection. Selecting one
+  parametrized case no longer fails because excluded cases share its key or
+  contain invalid markers. Preserve validation before fixtures for selected cases,
+  serial/xdist reporting, aggregation and privacy defaults.
+
+Repository maintenance included since 0.1.10:
+
 - Keep documentation link/fragment and search-index validation active under
   Python -O and -OO; broken sites now fail instead of incorrectly printing PASS.
   Successful checks and plugin behavior are unchanged; no package release.
