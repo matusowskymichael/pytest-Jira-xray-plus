@@ -1,3 +1,15 @@
+# November 6 independently accepted — merge and deployment gates remain
+
+Reviewer /root/review_weekly1106 independently accepted exact head
+711015ad29ee820a62f5d7d181c5f870dba412aa with no findings after all ten
+hosted checks passed. All five current-source profiles and their thirteen log
+hashes were independently verified; harness acceptance passes. Review and limits
+are recorded in docs/agent/evidence/XRAY-WEEKLY-003-independent-review.json.
+Next: verify acceptance-only head CI, merge PR40, verify main CI, then publish and
+verify existing Pages. No package release; stop after this iteration.
+
+---
+
 # November 6 candidate verified — exact-head CI and review pending
 
 Five fresh profiles pass at fb9cb7ef0b13b5b02b2c71629fa6798902ec43f5;
