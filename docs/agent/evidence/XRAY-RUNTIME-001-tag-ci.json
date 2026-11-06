@@ -1,0 +1,11 @@
+[
+  {
+    "conclusion": "success",
+    "databaseId": 42221014127,
+    "event": "workflow_run",
+    "headSha": "c5e958ec34cc71e94fb01a8514e7bcdf1e9021db",
+    "name": "Tag verified PyPI release",
+    "status": "completed",
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42221014127"
+  }
+]

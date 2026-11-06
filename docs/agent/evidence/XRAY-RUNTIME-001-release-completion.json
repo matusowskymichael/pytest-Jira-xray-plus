@@ -1,0 +1,81 @@
+{
+  "task": "XRAY-RUNTIME-001",
+  "status": "released_and_publicly_verified",
+  "timestamp": "2026-11-06T12:59:39.264577+00:00",
+  "user_benefit": "Selecting one parametrized Xray case with standard -k or -m no longer fails on duplicate or malformed markers belonging to deselected cases. Selected-case safeguards still run before fixtures.",
+  "version": "0.1.11",
+  "pr": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/41",
+  "reviewed_commit": "dd5695165f65ac01295bb7ed4000b404476d4be7",
+  "accepted_commit": "298c42e5da9a5c792f814ee2cb6dee8ae2297f21",
+  "released_merge": "c5e958ec34cc71e94fb01a8514e7bcdf1e9021db",
+  "pages_commit": "2bbaf06f47087450170e9e2cc2d38115e491e8c8",
+  "digest": "858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282",
+  "pypi": "https://pypi.org/project/pytest-jira-xray-plus/0.1.11/",
+  "github_release": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.11",
+  "quickstart": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/",
+  "verification": {
+    "before_fix": {
+      "regressions_failed": 12,
+      "controls_passed": 2
+    },
+    "final_tests": 596,
+    "subtests": 19,
+    "focused_tests": 85,
+    "installed_candidate_regressions": 14,
+    "public_installed_regressions": 14,
+    "installed_guide_commands": 17,
+    "reviewed_and_accepted_head_checks_each": 10,
+    "main_workflows": 3,
+    "public_files_matching": 109,
+    "combined_pages": 41,
+    "combined_references": 2928,
+    "coverage_lines": "772/788 (98.0%)",
+    "coverage_branches": "231/252 (91.7%)",
+    "coverage_source_clean": true,
+    "public_wheel_and_sdist_runtime_modules_match_reviewed_source": 13
+  },
+  "independent_review": {
+    "reviewer": "native-agent:/root/review_weekly1106",
+    "verdict": "pass",
+    "findings": [],
+    "record": "XRAY-RUNTIME-001-independent-review.json",
+    "additional_reviews": "Acceptance-only delta and generated Pages/coverage/version metadata independently reviewed with no findings; no GitHub approval action"
+  },
+  "publisher_dispatches": 1,
+  "publisher_run": 42220620583,
+  "tag_run": 42221014127,
+  "pages_run": 42221382591,
+  "artifact_verification": "Downloaded public PyPI wheel and source archive, verified SHA256 against PyPI and successful publisher log; GitHub release asset digests match. Public modules match reviewed source. Tag points to released merge.",
+  "evidence": {
+    "reviewed-ci": "XRAY-RUNTIME-001-reviewed-ci.json",
+    "accepted-ci": "XRAY-RUNTIME-001-accepted-ci.json",
+    "main-ci": "XRAY-RUNTIME-001-main-ci.json",
+    "publish-dispatch": "XRAY-RUNTIME-001-publish-dispatch.json",
+    "publish-ci": "XRAY-RUNTIME-001-publish-ci.json",
+    "tag-ci": "XRAY-RUNTIME-001-tag-ci.json",
+    "public-artifacts": "XRAY-RUNTIME-001-public-artifacts.json",
+    "public-install": "XRAY-RUNTIME-001-public-install.json",
+    "public-regression": "XRAY-RUNTIME-001-public-regression.json",
+    "release-coverage": "XRAY-RUNTIME-001-release-coverage.json",
+    "combined-check": "XRAY-RUNTIME-001-combined-check.json",
+    "pages-ci": "XRAY-RUNTIME-001-pages-ci.json",
+    "live-pages": "XRAY-RUNTIME-001-live-pages.json",
+    "historical-ci-limit": "XRAY-RUNTIME-001-historical-ci-limit.json"
+  },
+  "limits": [
+    "Standard pytest -k/-m selection ordering; arbitrary later third-party selection hooks and wrappers are not guaranteed",
+    "No live Jira/Xray or workplace validation. Generic Tests on Xray 8.5.3-j10 remain the target; native iterations unsupported",
+    "Old run 42216546539 plugin-coverage-test-log download returned Forbidden; no artifact obtained or retry/bypass. Final Python 3.12 coverage passed",
+    "Public live files checked with default HTTPS certificate verification; browser interaction checks used the local HTTP documentation preview",
+    "Final excluded-only bookkeeping commit must pass its own exact-head main CI after push"
+  ],
+  "next_action": "Independently review completion bookkeeping, push and verify its exact main CI, then stop. No further implementation or release.",
+  "completion_review": {
+    "reviewer": "native-agent:/root/review_weekly1106",
+    "independent": true,
+    "verdict": "pass",
+    "findings": [],
+    "recorded_utc": "2026-11-06T13:01:10.387951+00:00",
+    "scope": "Independently verified public artifact hashes and all 13 modules, exact release tag, successful acceptance/main/publisher/tag/Pages runs, 109 deployment-tree hashes and five live HTTPS URLs, public-install evidence and excluded-only bookkeeping delta. Final main CI remains."
+  }
+}

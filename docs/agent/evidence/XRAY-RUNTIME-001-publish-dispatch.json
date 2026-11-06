@@ -1,0 +1,60 @@
+{
+  "expected_sha": "c5e958ec34cc71e94fb01a8514e7bcdf1e9021db",
+  "version": "0.1.11",
+  "checked_utc": "2026-11-06T12:49:30.111363+00:00",
+  "version_unused": true,
+  "tag_unused": true,
+  "existing_publish_runs": [
+    {
+      "databaseId": 39921970054,
+      "headSha": "6867988a123e019cda2bc383c8f73b63c53f34d6",
+      "status": "completed"
+    },
+    {
+      "databaseId": 39121458979,
+      "headSha": "5169981a955fa72c865dbaff7be5167a27c6aef6",
+      "status": "completed"
+    },
+    {
+      "databaseId": 39007135770,
+      "headSha": "074c09a79e5578d89138c4207556b99005e08608",
+      "status": "completed"
+    },
+    {
+      "databaseId": 39001854186,
+      "headSha": "98b56daab8ad533cbb46a1ac2fbee451f90468e5",
+      "status": "completed"
+    },
+    {
+      "databaseId": 38912482897,
+      "headSha": "b2c5b73bb771110129ede8b41cf5fb96447d81b3",
+      "status": "completed"
+    },
+    {
+      "databaseId": 38900871866,
+      "headSha": "d007adeefe5057ed9dcbb6ce6c4d28ec7eff942e",
+      "status": "completed"
+    },
+    {
+      "databaseId": 38868253334,
+      "headSha": "222fcef7c9461873780359d06733cfc9fc8644f1",
+      "status": "completed"
+    },
+    {
+      "databaseId": 38776646425,
+      "headSha": "8160bec9fb777fc86c28985040f8e4a46253dc6f",
+      "status": "completed"
+    },
+    {
+      "databaseId": 38754551516,
+      "headSha": "35e4a6285bf0eb71e6113ef612765904b8c45916",
+      "status": "completed"
+    },
+    {
+      "databaseId": 38743724696,
+      "headSha": "3e097dd6f20c64a5818c8cdd7ff150a1c4849a31",
+      "status": "completed"
+    }
+  ],
+  "dispatch_returned_success": true
+}

@@ -116,7 +116,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-RUNTIME-001-independent-review.json",
       "blocker": "",
-      "next_action": "Verify acceptance-head CI, merge PR #41, verify main CI, then publish 0.1.11 through existing trusted flow and verify public artifacts/install/tag/Pages; stop afterward."
+      "next_action": "Runtime fix merged; 0.1.11 published and public artifacts, clean install, tag and Pages verified. Verify final bookkeeping main CI, then stop this iteration."
     }
   ]
 }

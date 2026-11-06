@@ -1,0 +1,11 @@
+[
+  {
+    "conclusion": "success",
+    "databaseId": 42220620583,
+    "event": "workflow_dispatch",
+    "headSha": "c5e958ec34cc71e94fb01a8514e7bcdf1e9021db",
+    "name": "Publish release",
+    "status": "completed",
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42220620583"
+  }
+]

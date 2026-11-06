@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-11-06T12:52:44.367342+00:00",
+  "version": "0.1.11",
+  "pypi_url": "https://pypi.org/project/pytest-jira-xray-plus/0.1.11/",
+  "tls": "default certificate verification",
+  "artifacts": [
+    {
+      "name": "pytest_jira_xray_plus-0.1.11-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/68/a1/1aff3a3080e760d503cac4ad88bf9a1915fed13af13e4f3fbe6c3eb3bf81/pytest_jira_xray_plus-0.1.11-py3-none-any.whl",
+      "sha256": "6c86556228ebd68ab441672fa2b109271fda29e7fa3ac848ae29ff13589f5fa6",
+      "bytes": 42468
+    },
+    {
+      "name": "pytest_jira_xray_plus-0.1.11.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/29/28/01e2f1ea2b5e00e86fe2360449c8a3bbf9ceaad86dd79973378954082c57/pytest_jira_xray_plus-0.1.11.tar.gz",
+      "sha256": "311945c5c83f3e68b9559f775395e82140a4cf743b14b46912df57674f1c1db7",
+      "bytes": 204423
+    }
+  ],
+  "publisher_run": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42220620583",
+  "publisher_log_sha256": "43b404b5077cd751c3ed4e2fc379c3cc1c53e54da8813f25d8c3e347bc31c3d6",
+  "publisher_hashes_match": true,
+  "github_release": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.11",
+  "github_asset_digests_match": true,
+  "release_tag_commit": "c5e958ec34cc71e94fb01a8514e7bcdf1e9021db"
+}

@@ -1,3 +1,47 @@
+# Runtime iteration completed — 0.1.11 published and verified
+
+PR [#41](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/41)
+merged as `c5e958ec34cc71e94fb01a8514e7bcdf1e9021db` after independent technical
+acceptance and ten passing checks on the acceptance commit. All three merged-main
+workflows passed. The shipped plugin now validates after standard `-k`/`-m`
+selection, so excluded duplicate or malformed markers cannot block selected tests.
+Selected-case safeguards still run before fixtures. Authentication and privacy
+behavior are unchanged.
+
+[PyPI 0.1.11](https://pypi.org/project/pytest-jira-xray-plus/0.1.11/) and
+[GitHub v0.1.11](https://github.com/matusowskymichael/pytest-Jira-xray-plus/releases/tag/v0.1.11)
+are public. The existing trusted publisher ran once and succeeded in
+[42220620583](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42220620583);
+automatic tag/release verification passed in
+[42221014127](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42221014127).
+The tag points to the exact reviewed merge. Downloaded public wheel/source hashes
+match PyPI and publisher logs; GitHub asset digests match. All 13 shipped modules
+match reviewed source. A fresh public-wheel install passes all 17 guide commands
+with HTTP blocked and all 14 regressions outside the checkout.
+
+Full verification: 596 tests plus 19 subtests, 85 focused tests, five current-source
+profiles, independent review and clean release-source coverage: 772/788 lines
+(98.0%), 231/252 branches (91.7%). Twelve selection regressions fail before the fix;
+two selected-duplicate controls retain their failure safeguards.
+
+[Updated quick start](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/)
+is deployed at Pages commit `2bbaf06f47087450170e9e2cc2d38115e491e8c8`, run
+[42221382591](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42221382591).
+All 109 live files match the verified build over normally validated HTTPS.
+Combined-site checks cover 41 pages and 2,928 references; local browser checks pass.
+
+[Complete release evidence](docs/agent/evidence/XRAY-RUNTIME-001-release-completion.json).
+The historical Python 3.12 log artifact download was denied with Forbidden and
+not retried; fresh exact-head coverage passed. No workplace/live-server validation
+or native iteration support is claimed. Arbitrary later third-party selection
+hooks remain outside the standard-filter guarantee. No security bypass was used.
+
+Only final excluded bookkeeping CI remains after this record is pushed. Verify
+that exact remote main commit, then stop this iteration. Older checkpoints below
+are historical; no additional implementation or release is authorized here.
+
+---
+
 # Runtime 0.1.11 independently accepted — merge and release gates remain
 
 Native reviewer /root/review_weekly1106 accepted exact PR #41 head
