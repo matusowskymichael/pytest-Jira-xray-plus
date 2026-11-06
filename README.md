@@ -964,6 +964,21 @@ declared backend version. This developer command requires package-index access;
 normal package users only need the installation steps at the start of this guide.
 A missing build dependency is a setup error, not a Jira authentication failure.
 
+To check documentation changes, install the documentation requirements and build
+and validate the site from the same checkout:
+
+```sh
+python -m pip install -r requirements-docs.txt
+python tools/prepare_docs_site.py
+python -m mkdocs build --strict
+python tools/check_docs_links.py
+```
+
+The last command exits nonzero and reports missing internal files, fragments or
+the search index; only a successful check prints `PASS`. These checks also remain
+active if Python optimization (`-O`, `-OO` or `PYTHONOPTIMIZE`) is enabled. This is
+a repository documentation check, not a Jira connection or upload command.
+
 Tests use synthetic data, blocked transport or a localhost fake service.
 [Release evidence](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/RELEASE-READINESS.md)
 distinguishes independent checks from user-reported validation.

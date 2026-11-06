@@ -1,0 +1,30 @@
+{
+  "task": "XRAY-WEEKLY-003",
+  "digest": "2e3e82a2e7f69c03157e65c78dfdacfac18dfda60a13458e0363050e4cad75d6",
+  "revision": "711015ad29ee820a62f5d7d181c5f870dba412aa",
+  "timestamp": "2026-11-06T08:19:58.464471+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reproduce original false PASS under optimized Python and reject missing targets, fragments and search index in normal, -O and -OO modes",
+    "Preserve successful checker output, existing link-resolution semantics, all runtime/dependency/workflow controls and privacy defaults",
+    "Update changelog, full beginner guide and site maintenance instructions; all five profiles and installed guide pass on current source",
+    "Obtain independent technical acceptance and green exact-head CI before merge; verify main CI and existing Pages updates without security bypass; no package release"
+  ],
+  "evidence_reviewed": [
+    "Compared frozen source and documentation against accepted main e06cb5e1395efb6018a8fc50edb0e21a0b7908c2; only two checker assertion guards replaced with explicit failing exits, 12 new regression cases and scoped docs/ledger/evidence changes. Abandoned named-anchor candidate is absent.",
+    "Independently ran 45 focused docs-link tests and Ruff successfully; reproduced baseline missing-link and missing-search false PASS under -O/-OO and patched failures under all three modes (12 subprocess probes).",
+    "Verified archived PR38 ledger equals accepted main exactly and all 70 preservation hashes match; no runtime, dependency, workflow, publishing or privacy-control changes.",
+    "Recomputed current harness digest; verified all five fixed command contracts, all 13 log SHA256 hashes, zero exit codes, source revision fb9cb7ef0b13b5b02b2c71629fa6798902ec43f5 and evidence-only source-to-reviewed-head diff.",
+    "Receipts/logs record 582 tests plus 19 subtests, 32 harness tests, offline verification, build/Twine, 15 clean-installed guide commands, strict docs build, 1223 links across 23 HTML pages and separate local HTTP browser checks.",
+    "Independently queried PR40 exact head and observed all 10 checks completed successfully across six push/PR workflows: 42186137276, 42186137290, 42186137293, 42186128475, 42186128271, 42186128232."
+  ],
+  "limits": [
+    "This is independent pre-merge technical acceptance. Main CI and live Pages verification cannot be completed before merge and remain mandatory operator completion gates. Acceptance/evidence-only head must retain the same digest and pass its own exact-head CI before merge.",
+    "Reviewer ran focused tests and synthetic probes, but did not rerun the full aggregate profiles; those results were evaluated from fresh receipts, logs and hosted CI.",
+    "Optional discarded-candidate file:// browser probe was denied with Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR before page inspection and was not retried. No policy, TLS, flag or alternate-transport bypass was used. This review makes no direct reviewer browser-validation claim.",
+    "No live Jira/workplace validation, native iteration proof, PyPI publication or GitHub approval action. Repository-only change warrants no package release."
+  ]
+}

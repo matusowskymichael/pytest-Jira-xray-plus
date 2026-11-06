@@ -28,6 +28,12 @@ those links. Actual missing files or fragments still fail the command; external
 URLs remain outside this local-file check. This does not change pytest reporting
 or require a new plugin option.
 
+The link checker uses explicit failure exits, so missing files/fragments and the
+required search index still fail under `python -O`, `-OO` or `PYTHONOPTIMIZE`.
+Earlier source could incorrectly print `PASS` in those modes because Python
+removes assert statements. The normal command and valid-site output are unchanged.
+This correction does not broaden fragment matching or validate external URLs.
+
 The browser check in `tools/check_docs_browser.py` also exercises desktop/mobile
 navigation, local search, clipboard copying and theme switching against a local server:
 

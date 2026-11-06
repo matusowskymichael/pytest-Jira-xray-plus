@@ -1,0 +1,8 @@
+{
+  "action": "Optional reviewer Playwright page.goto(path.as_uri() + \"#install\")",
+  "target": "file:///tmp/tmpvxnhbfmf/html/site/index.html#install",
+  "state": "denied before page inspection",
+  "reason": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR",
+  "context": "Discarded named-anchor candidate investigation. Loop stopped before reading :target; SVG/template browser cases did not run.",
+  "response": "No retry, no policy/TLS changes, no fallback probe. Checker-only review led to discarding that candidate. The shipped task is explicit docs-validation exits, with prescribed local HTTP docs/browser checks as separate verification."
+}

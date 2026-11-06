@@ -137,3 +137,13 @@ controls. CI's nonpublishing artifact handoff tests the current upload/download
 pair. The completed October 30 ledger is archived at its accepted commit; its old
 proofs do not certify the new pins. A fresh task, receipts and independent review
 are required before merge. No publishing workflow is dispatched for verification.
+
+## November 6 docs-checker regression
+
+Run `python -m pytest -q tests/test_docs_links.py` for normal and optimized-mode
+positive/negative controls. Missing targets, missing fragments and a missing
+search index must exit nonzero without PASS even under -O/-OO. The full docs
+profile keeps its normal invocation, strict build, link and local browser checks.
+The [Python assert specification](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement)
+explains why assertions cannot enforce these unconditional validation gates.
+No runtime, dependencies, publishing or workflow permissions are changed.

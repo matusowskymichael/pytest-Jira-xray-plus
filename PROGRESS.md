@@ -1,3 +1,48 @@
+# November 6 independently accepted — merge and deployment gates remain
+
+Reviewer /root/review_weekly1106 independently accepted exact head
+711015ad29ee820a62f5d7d181c5f870dba412aa with no findings after all ten
+hosted checks passed. All five current-source profiles and their thirteen log
+hashes were independently verified; harness acceptance passes. Review and limits
+are recorded in docs/agent/evidence/XRAY-WEEKLY-003-independent-review.json.
+Next: verify acceptance-only head CI, merge PR40, verify main CI, then publish and
+verify existing Pages. No package release; stop after this iteration.
+
+---
+
+# November 6 candidate verified — exact-head CI and review pending
+
+Five fresh profiles pass at fb9cb7ef0b13b5b02b2c71629fa6798902ec43f5;
+digest 2e3e82a2e7f69c03157e65c78dfdacfac18dfda60a13458e0363050e4cad75d6.
+582 tests plus 19 subtests, 45 focused docs-link tests, all 15 installed guide
+commands, package/Twine, offline and strict/local browser docs checks passed.
+Synthetic before/after evidence proves the original optimized checker falsely
+passed broken sites; explicit exits retain validation in all three Python modes.
+Independent source and receipt review has no findings. Next: exact pushed-head
+CI, final independent acceptance, accepted-head CI and merge, then main/Pages
+verification. No package release is warranted; no runtime/dependency/workflow change.
+The optional file-scheme investigation probe was denied and not retried; its
+exact limitation is recorded. Required local HTTP docs/browser checks passed.
+
+---
+
+# November 6 weekly iteration — docs validation guard
+
+Remote main e06cb5e is clean; PR38 is merged and its integrated CI passed.
+No open issues or PRs were found; public PyPI remains 0.1.10. PR38's ledger is
+archived at that accepted commit, not reused as current evidence.
+
+Concrete reproduction: the original docs checker exits zero and prints PASS for
+a missing.html link under Python -O/-OO because assert statements disappear.
+The new scoped task makes its two failure guards explicit. Twelve regressions
+cover missing links/fragments/search index and valid controls under all three modes.
+No runtime, dependency or workflow changes; no release warranted.
+Next: draft PR, fresh five-profile evidence, independent review and exact-head CI.
+A named-anchor candidate was discarded after independent review identified wider
+HTML parsing edge cases; none of that candidate is included in this task.
+
+---
+
 # PR38 independently accepted — final CI and merge gates remain
 
 Native reviewer /root/review_bot38 accepted exact repaired head
