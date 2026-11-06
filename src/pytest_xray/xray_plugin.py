@@ -232,8 +232,9 @@ class XrayPlugin:
 
         return None
 
+    @pytest.hookimpl(trylast=True)
     def pytest_collection_modifyitems(self, config: Config, items: list[Item]) -> None:
-        # Validate marker configuration before any fixture runs.
+        # Validate selected tests after pytest -k/-m filtering, before fixtures run.
         try:
             for item in items:
                 self._get_defects(item)

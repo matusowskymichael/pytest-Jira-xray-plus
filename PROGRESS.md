@@ -1,3 +1,62 @@
+# Runtime 0.1.11 independently accepted — merge and release gates remain
+
+Native reviewer /root/review_weekly1106 accepted exact PR #41 head
+dd5695165f65ac01295bb7ed4000b404476d4be7 with no findings after all ten
+checks passed. The reviewer independently ran 85 focused tests and 14 installed
+regressions, and verified five final profile receipts and 13 log hashes.
+Harness acceptance passes; current digest remains
+858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282.
+Next: acceptance-only head CI, merge/main CI, unused-version recheck, existing
+trusted publishing, public artifacts/install/tag and Pages verification. Version
+0.1.11 is prepared but not published. Stop after this one runtime iteration.
+
+---
+
+# Runtime 0.1.11 candidate — final verification and review
+
+All five profiles pass on committed scope cf4959c1697946f26ff209ac945a7982d56f1bef.
+The current digest is 858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282.
+Verification covers 596 tests plus 19 subtests, 85 focused tests, 14 installed-wheel
+regressions outside the checkout, and 17 installed guide commands with HTTP blocked.
+Strict documentation and local browser checks pass. Scope/status prose spacing
+was corrected; fresh profiles bind the committed correction. Earlier receipts
+are historical, including the fixed changelog-heading failure, and are not used
+for final acceptance. The runtime fix is unchanged.
+
+Next: final independent review and exact-head CI, acceptance and merge, main CI,
+then the existing trusted 0.1.11 publisher and public artifact/install/tag/Pages
+verification. No publication yet; stop after this one runtime iteration.
+
+---
+
+# Runtime 0.1.11 candidate verified — exact-head CI and review pending
+
+All five fresh profiles pass at 1a5b58792066ab1cbd21eefa2b335e4817abd116,
+digest 53c4afa46a84c5740f3efb10007764001c2df41edc34d37bafd8734b83446a25.
+596 tests plus 19 subtests; 85 focused tests; 14 installed-wheel regressions outside
+checkout; 17 installed guide commands with HTTP blocked; strict/local browser docs
+pass. Earlier full-suite failure caught missing Unreleased changelog heading;
+restored it without weakening tests and reran all profiles. Historical failed
+receipt remains archived and cannot satisfy current acceptance.
+Runtime change is one trylast hook decorator after standard -k/-m selection;
+selected duplicates/invalid markers still fail before fixtures. Version 0.1.11
+prepared, unpublished. Next exact-head CI/independent acceptance, merge/main CI,
+then warranted existing trusted release and public artifact/install/tag/Pages
+verification. No authentication, permissions or workplace access changes.
+
+---
+
+# Runtime selection fix — in progress
+
+Main 2018831 is clean and all final CI passed; PR #40 is completed and its ledger
+archived. No open issues/PRs. Reproduced plugin bug: selecting one marked test with
+-k still fails due to duplicate keys in deselected tests. New task XRAY-RUNTIME-001
+will validate after standard selection, retaining selected-marker safety checks.
+Only one runtime fix/release in flight. Release authorization explicitly confirmed;
+publication remains gated on fresh tests, independent review, exact CI and artifacts.
+
+---
+
 # November 6 iteration completed — merged and documentation verified
 
 PR [#40](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/40)

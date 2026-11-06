@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-WEEKLY-003",
-      "title": "Keep docs validation active under Python optimization",
-      "source": "docs/agent/task-weekly-2026-11-06.md",
-      "source_sha256": "a17f3a65636ffbbbc9b597898d53fcf815434245301d3563112671b9bc3d77ba",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/40",
+      "id": "XRAY-RUNTIME-001",
+      "title": "Validate selected Xray cases after pytest filters",
+      "source": "docs/agent/task-runtime-selection.md",
+      "source_sha256": "93dd2a5508974a780b829d0e8375b673052e381867441286595e7e32ea1bc587",
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/41",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Reproduce original false PASS under optimized Python and reject missing targets, fragments and search index in normal, -O and -OO modes",
-        "Preserve successful checker output, existing link-resolution semantics, all runtime/dependency/workflow controls and privacy defaults",
-        "Update changelog, full beginner guide and site maintenance instructions; all five profiles and installed guide pass on current source",
-        "Obtain independent technical acceptance and green exact-head CI before merge; verify main CI and existing Pages updates without security bypass; no package release"
+        "Regression fails before fix and passes afterward for -k/-m selected parametrized cases in serial and xdist",
+        "Selected duplicates and malformed markers still fail before fixtures; preserve aggregation, authentication, privacy and unrelated controls",
+        "Prepare 0.1.11 patch metadata, changelog, full beginner guide and migration; five profiles and installed wheel guide/regression pass on current source",
+        "Obtain independent technical acceptance and green exact-head CI before merge; verify main and existing trusted release/public artifacts/Pages before reporting publication"
       ],
       "checks": [
         "harness",
@@ -42,10 +42,8 @@
         ".github/workflows/agent.yml": "273f8b63a97e8fc78fc037344d27c898b43c32cbc769441266d5b17bb1d0b2e1",
         ".github/workflows/docs.yml": "e4b359a94d2d227048af75679868a13c6b00a00ddfa5b17c01b3905d24325885",
         ".github/workflows/github-release.yml": "f939cd7e7d920ef2e299ebb96e7a8946dbd2e9456dcec0c3a7628e40388c8ebb",
-        ".github/workflows/publish.yml": "148f47e64f2ae3837d0383e60857a6b3d085a61d7483ea26d7743b0b11389381",
         ".github/workflows/tests.yml": "66c65235ae86017bc0c47e2da875e8ac9dc5f3da736bbce602ab0ec44d363554",
         "README.rst": "986f80462b43686c1835b14b72fc20294ad57a347eb0738672de7053e6ba8672",
-        "pyproject.toml": "7f158d33135177eff44e44cf53af4cafd3f4bb4f789d6b85882ff8b71959914a",
         "requirements-docs.txt": "a4be7fdf9070754d509eba82cf61593db140cb4b3931b170878b07f1523e47b3",
         "requirements-tests.txt": "50bbd166255c5927edc5071435338fe435b7703f58d0c088aad89934c441ec19",
         "src/pytest_xray/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -59,7 +57,6 @@
         "src/pytest_xray/helper.py": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "b63301f07aa731dc911808f0edee8c5f0de9e9e7c127b5c49f25f6b7ed22022b",
-        "src/pytest_xray/xray_plugin.py": "cc3fd30cac3185e66a7bfa2b319456842b581a080db0e2d893e1e84d1a166d3e",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/agent/test_harness.py": "37e8d0443ad4d064c7c9bc8ac0a94d224e46b5d59cd568ec364800e294a2eb1f",
@@ -99,26 +96,27 @@
         "tools/build_release.py": "d4f190ee00865e8327af57ae6b3ed99dd30209c5da6ad58f4c1f30544c07fb34",
         "tools/check_docs_browser.py": "ad12e477d344fb9b1e35f09674fbb8333c2167fe2bbfb19a0f001153474fa6e0",
         "tools/check_harness_tests.py": "40facac06aa9508ac66c053528d2cea116d30ca0f491c890dd632d9f70ee4f0e",
-        "tools/check_installed_usage.py": "5ff38252da7d1ef2cd7aab7f9adeedbdce2d416633924b0bfb985a1e903e48b3",
         "tools/install_build_dependencies.py": "489daf121e9b42327a265c86143429da396667e813ead139e5925fcfdc25803c",
         "tools/measure_coverage.py": "72331564b55ec4e26ef1eec8a9f5bec33bef78d94502bb44c304cd006b5099b9",
         "tools/prepare_docs_site.py": "0452ebe778f4fb61398aaa264ef495ce1c093a226e177193513a47ab24407d2c",
         "tools/reproduce.py": "6f3576d6f9f1c71e23538ae7dd918c13f6058e632b6633695b1ed7befd55b0d8",
         "tools/status_badges.py": "8dd904d10e291138096ed7d62cdbb8d2bfcdcbbd7a8254d20709fa4fe03b37ab",
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
-        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
+        "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0",
+        "tools/check_docs_links.py": "2aac24dadd1582f4fa00d21437adf3c98d68b1bf9038d1cdf611085258e6b202",
+        "tests/test_docs_links.py": "56f20d32e1783ce02ad96833366dff424a89f39eff671fdc0566352380686529"
       },
       "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-WEEKLY-003-docs-1d589ebb70ae.json",
-        "docs/agent/evidence/XRAY-WEEKLY-003-harness-be2b6ed43ac9.json",
-        "docs/agent/evidence/XRAY-WEEKLY-003-offline-5427d8528ce0.json",
-        "docs/agent/evidence/XRAY-WEEKLY-003-package-747f01bf1ac8.json",
-        "docs/agent/evidence/XRAY-WEEKLY-003-tests-937f10128f31.json"
+        "docs/agent/evidence/XRAY-RUNTIME-001-offline-faf874e407a6.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-docs-588a73c20409.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-harness-b2eebf114d40.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-package-7777c8445aae.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-tests-98f18a1aa10b.json"
       ],
-      "review": "docs/agent/evidence/XRAY-WEEKLY-003-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-RUNTIME-001-independent-review.json",
       "blocker": "",
-      "next_action": "Iteration implemented, independently reviewed, merged and Pages verified. Verify final completion-record main CI, then stop; no further implementation or release."
+      "next_action": "Verify acceptance-head CI, merge PR #41, verify main CI, then publish 0.1.11 through existing trusted flow and verify public artifacts/install/tag/Pages; stop afterward."
     }
   ]
 }

@@ -566,3 +566,15 @@ Verify public artifacts, installed full guide, actual clean-source coverage and
 existing Pages after publication. No live Xray or native-iteration claims; any
 hosted browser certificate block must remain visible without a bypass. Stop after
 this iteration; do not combine the failing dependency bot PRs with the fix.
+
+## November 6 runtime candidate: 0.1.11
+
+Reproduced on released source: selecting one case with -k or -m still validates
+excluded Xray markers, causing spurious duplicate/invalid-marker collection
+errors. A trylast collection hook defers validation until standard pytest filters
+finish, preserving selected-case safeguards. Fourteen new regressions cover serial
+and xdist behavior. Patch metadata and existing publisher version literals advance
+to 0.1.11; authentication, permissions and transport are unchanged. No workplace
+validation. Native iterations remain unsupported. PyPI 0.1.11 was unused at start;
+recheck before publishing. Fresh profiles, independent review, exact CI and public
+artifact/install/tag/Pages checks remain required; this entry is not publication.

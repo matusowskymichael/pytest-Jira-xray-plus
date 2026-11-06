@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-RUNTIME-001",
+  "profile": "tests",
+  "digest": "96ddf3cb1eee6af6897a47917b18495de257b28eb094b6100204e232b01f711c",
+  "revision": "3bade05492f82c80e73b0218fabf9e9c3da532cf",
+  "timestamp": "2026-11-06T12:20:13.209865+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 1,
+      "duration_seconds": 135.263,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-tests-a778488f1ee2-0.log",
+      "log_sha256": "cd201370e16f3419edd402976c309a05be5927e4a82c28ee917a742076f5d5bb"
+    }
+  ],
+  "status": "failed"
+}

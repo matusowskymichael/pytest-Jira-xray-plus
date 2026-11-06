@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-11-06T12:25:56.258203+00:00",
+  "revision": "cf4959c1697946f26ff209ac945a7982d56f1bef",
+  "interpreter": "/workspace/pytest-xray-runtime-1106/.harness/installed/bin/python",
+  "package_identity": "/workspace/pytest-xray-runtime-1106/.harness/installed/lib/python3.12/site-packages/pytest_xray/xray_plugin.py\n0.1.11\n",
+  "method": "Copied regression outside checkout; wheel venv, PYTHONPATH/PYTEST/XRAY variables scrubbed; all synthetic local previews",
+  "test_sha256": "115cee8cf3acb34eeb6958c4edff45e036f24293f5e5abb34e11f19854a0a74a",
+  "log": "XRAY-RUNTIME-001-installed-regression.log",
+  "log_sha256": "4a1f7478c62d4a0bd857439f4d2db12a873493f5331ccd6b52a6f19d395e2ae1",
+  "exit_code": 0,
+  "stdout_tail": "..............                                                           [100%]\n14 passed in 7.99s\n"
+}

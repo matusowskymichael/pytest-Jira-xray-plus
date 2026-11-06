@@ -1,0 +1,626 @@
+FFFFFFFFFFFF..                                                           [100%]
+=================================== FAILURES ===================================
+___ test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection0-0] ____
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case0')>
+workers = 0, selection = ['-k', 'chosen'], excluded_marker = "'DEMO-1'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case0/runpytest-0 --jira-xray --xraypath=preview.json -n 0 -k chosen
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case0
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case0
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+collected 2 items / 1 error / 2 deselected / 0 selected
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+Duplicated test case ids: ['DEMO-1']
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case0/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - Duplicated test case ids: ['DEMO-1']
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 deselected, 1 error in 0.08s ========================
+___ test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection0-2] ____
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case1')>
+workers = 2, selection = ['-k', 'chosen'], excluded_marker = "'DEMO-1'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case1/runpytest-0 --jira-xray --xraypath=preview.json -n 2 -k chosen
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case1
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case1
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+created: 2/2 workers
+2 workers [0 items]
+
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+Duplicated test case ids: ['DEMO-1']
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case1/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - Duplicated test case ids: ['DEMO-1']
+=============================== 1 error in 0.51s ===============================
+___ test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection1-0] ____
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case2')>
+workers = 0, selection = ['-m', 'selected'], excluded_marker = "'DEMO-1'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case2/runpytest-0 --jira-xray --xraypath=preview.json -n 0 -m selected
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case2
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case2
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+collected 2 items / 1 error / 2 deselected / 0 selected
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+Duplicated test case ids: ['DEMO-1']
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case2/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - Duplicated test case ids: ['DEMO-1']
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 deselected, 1 error in 0.08s ========================
+___ test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection1-2] ____
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case3')>
+workers = 2, selection = ['-m', 'selected'], excluded_marker = "'DEMO-1'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case3/runpytest-0 --jira-xray --xraypath=preview.json -n 2 -m selected
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case3
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case3
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+created: 2/2 workers
+2 workers [0 items]
+
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+Duplicated test case ids: ['DEMO-1']
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case3/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - Duplicated test case ids: ['DEMO-1']
+=============================== 1 error in 0.51s ===============================
+______ test_deselected_cases_do_not_block_selected_case[''-selection0-0] _______
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case4')>
+workers = 0, selection = ['-k', 'chosen'], excluded_marker = "''"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case4/runpytest-0 --jira-xray --xraypath=preview.json -n 0 -k chosen
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case4
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case4
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+collected 2 items / 1 error / 2 deselected / 0 selected
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker requires nonempty string test keys
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case4/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker requires nonempty string test keys
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 deselected, 1 error in 0.10s ========================
+______ test_deselected_cases_do_not_block_selected_case[''-selection0-2] _______
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case5')>
+workers = 2, selection = ['-k', 'chosen'], excluded_marker = "''"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case5/runpytest-0 --jira-xray --xraypath=preview.json -n 2 -k chosen
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case5
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case5
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+created: 2/2 workers
+2 workers [0 items]
+
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker requires nonempty string test keys
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case5/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker requires nonempty string test keys
+=============================== 1 error in 0.52s ===============================
+______ test_deselected_cases_do_not_block_selected_case[''-selection1-0] _______
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case6')>
+workers = 0, selection = ['-m', 'selected'], excluded_marker = "''"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case6/runpytest-0 --jira-xray --xraypath=preview.json -n 0 -m selected
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case6
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case6
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+collected 2 items / 1 error / 2 deselected / 0 selected
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker requires nonempty string test keys
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case6/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker requires nonempty string test keys
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 deselected, 1 error in 0.10s ========================
+______ test_deselected_cases_do_not_block_selected_case[''-selection1-2] _______
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case7')>
+workers = 2, selection = ['-m', 'selected'], excluded_marker = "''"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case7/runpytest-0 --jira-xray --xraypath=preview.json -n 2 -m selected
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case7
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case7
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+created: 2/2 workers
+2 workers [0 items]
+
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker requires nonempty string test keys
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case7/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker requires nonempty string test keys
+=============================== 1 error in 0.39s ===============================
+_ test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection0-0] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case8')>
+workers = 0, selection = ['-k', 'chosen']
+excluded_marker = "'DEMO-2', defects='invalid'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case8/runpytest-0 --jira-xray --xraypath=preview.json -n 0 -k chosen
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case8
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case8
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+collected 2 items / 1 error / 2 deselected / 0 selected
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker defects must be a list of nonempty strings (an empty list is allowed)
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case8/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker defects must be a list of nonem...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 deselected, 1 error in 0.07s ========================
+_ test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection0-2] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case9')>
+workers = 2, selection = ['-k', 'chosen']
+excluded_marker = "'DEMO-2', defects='invalid'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case9/runpytest-0 --jira-xray --xraypath=preview.json -n 2 -k chosen
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case9
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case9
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+created: 2/2 workers
+2 workers [0 items]
+
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker defects must be a list of nonempty strings (an empty list is allowed)
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case9/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker defects must be a list of nonem...
+=============================== 1 error in 0.45s ===============================
+_ test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection1-0] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case10')>
+workers = 0, selection = ['-m', 'selected']
+excluded_marker = "'DEMO-2', defects='invalid'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case10/runpytest-0 --jira-xray --xraypath=preview.json -n 0 -m selected
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case10
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case10
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+collected 2 items / 1 error / 2 deselected / 0 selected
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker defects must be a list of nonempty strings (an empty list is allowed)
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case10/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker defects must be a list of nonem...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 2 deselected, 1 error in 0.08s ========================
+_ test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection1-2] _
+
+pytester = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case11')>
+workers = 2, selection = ['-m', 'selected']
+excluded_marker = "'DEMO-2', defects='invalid'"
+
+    @pytest.mark.parametrize('workers', [0, 2])
+    @pytest.mark.parametrize('selection', [['-k', 'chosen'], ['-m', 'selected']])
+    @pytest.mark.parametrize('excluded_marker', ["'DEMO-1'", "''", "'DEMO-2', defects='invalid'"])
+    def test_deselected_cases_do_not_block_selected_case(pytester, workers, selection, excluded_marker):
+        pytester.makeini('[pytest]\nmarkers = selected: synthetic selection marker\n')
+        pytester.makepyfile(f'''
+    import pytest
+    @pytest.mark.parametrize('value', [
+        pytest.param(1, id='chosen', marks=[pytest.mark.selected, pytest.mark.xray('DEMO-1')]),
+        pytest.param(2, id='excluded', marks=pytest.mark.xray({excluded_marker})),
+    ])
+    def test_case(value):
+        assert value == 1
+    ''')
+        result = pytester.runpytest_subprocess(
+            '--jira-xray', '--xraypath=preview.json', '-n', str(workers), *selection
+        )
+>       result.assert_outcomes(passed=1)
+E       AssertionError: assert {'passed': 0,...rors': 1, ...} == {'passed': 1,...rors': 0, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'passed': 0} != {'passed': 1}
+E         {'errors': 1} != {'errors': 0}
+E         Use -v to get more diff
+
+/workspace/pytest-xray-runtime-1106/tests/test_selected_markers.py:25: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1106-env/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case11/runpytest-0 --jira-xray --xraypath=preview.json -n 2 -m selected
+     in: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case11
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case11
+configfile: tox.ini
+plugins: pytest_httpserver-1.2.0, jira-xray-plus-0.1.10, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.5
+created: 2/2 workers
+2 workers [0 items]
+
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting xray marker configuration __________________
+xray marker defects must be a list of nonempty strings (an empty list is allowed)
+- Generated XRAY execution report file: /tmp/pytest-of-agent/pytest-7/test_deselected_cases_do_not_block_selected_case11/preview.json -
+=========================== short test summary info ============================
+ERROR xray marker configuration - xray marker defects must be a list of nonem...
+=============================== 1 error in 0.48s ===============================
+=========================== short test summary info ============================
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection0-0]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection0-2]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection1-0]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-1'-selection1-2]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case[''-selection0-0]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case[''-selection0-2]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case[''-selection1-0]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case[''-selection1-2]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection0-0]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection0-2]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection1-0]
+FAILED tests/test_selected_markers.py::test_deselected_cases_do_not_block_selected_case['DEMO-2', defects='invalid'-selection1-2]
+12 failed, 2 passed in 9.08s

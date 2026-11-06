@@ -1,7 +1,7 @@
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.10**. Active work: November 6 documentation validation correction. The plugin
+Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.10**. Active work: selected-test runtime validation correction for 0.1.11. The plugin
 imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
@@ -23,7 +23,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-weekly-2026-11-06.md): active product iteration and acceptance criteria.
+- [Current scope](docs/agent/task-runtime-selection.md): active product iteration and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -58,8 +58,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 - End with current progress, exact verification limits and an executable next step.
   A checkpoint or draft PR is not independent acceptance.
 
-Current maintenance policy (November 6): complete one weekly iteration, then stop.
-PR38 is merged and verified; its accepted ledger is archived. The active scope
-above is repository-only and needs no PyPI release. Independently reviewed, tested
-merge and existing Pages updates are authorized. Never submit a GitHub approval
-action for this task. Keep only one implementation or release in flight.
+Current maintenance policy: one explicitly requested runtime fix following PR40,
+then stop. Prior completed ledgers remain historical. Tested independently reviewed
+merge and meaningful stable patch release through existing trusted publishing,
+plus Pages updates, are authorized. No GitHub approval action. Keep one task active.

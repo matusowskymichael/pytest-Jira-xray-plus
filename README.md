@@ -22,7 +22,7 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.10 empty-report-path protection**, retaining Generic
+This guide covers **0.1.11 selected-test validation**, retaining Generic
 as the target Xray Test type. Core examples also work with 0.1.2 and 0.1.3; the
 nested local-report example requires 0.1.9, and multi-key attachment isolation
 requires 0.1.4 or later. Installation selects the latest published
@@ -169,6 +169,29 @@ The marker, `@pytest.mark.xray("DEMO-1")`, associates both cases with one Jira
 **Test** issue. `DEMO-1` is just a placeholder here; offline export does not look
 it up. A **Test Execution** is the Jira issue that holds a set of test results.
 A **Test Run** is the result of one Test inside that execution.
+
+To preview just one input case with **0.1.11+**, filter by its pytest ID:
+
+<!-- run:selection -->
+```sh
+python -m pytest -q test_example.py -k one-plus-one --jira-xray --xraypath=selected.json
+```
+
+Expect `1 passed, 1 deselected` and one `DEMO-1` result with status `PASS`.
+No duplicate override is needed: only one case runs. Version 0.1.10 and earlier
+incorrectly check the deselected case too and report a duplicate-key error.
+The same selection works with the optional pytest-xdist package installed
+(`python -m pip install pytest-xdist`):
+
+<!-- run:selection_parallel -->
+```sh
+python -m pytest -q test_example.py -k one-plus-one -n 2 --jira-xray --xraypath=selected-workers.json
+```
+
+Expect one passed case (xdist need not print a deselected count). Standard `-m`
+marker selection also runs before Xray validation. Deselected cases contribute
+no Xray results. Selected cases still need valid markers and unique keys unless
+you intentionally enable grouping with `--allow-duplicate-ids`.
 
 Generate the Xray preview and a case audit report:
 
@@ -739,6 +762,13 @@ xdist and retries. This reduces key-lookup work; it does not speed up test bodie
 or bound comment/attachment memory. Version 0.1.8 still uses scans.
 
 ## Troubleshooting and migration
+
+**Selecting a subset (0.1.11+):** standard `-k` and `-m` filters now run before
+Xray marker validation, in serial and xdist. Upgrade if selecting one case still
+reports duplicate keys or invalid markers from excluded tests. Validation still
+blocks invalid selected markers and selected duplicates before fixtures run.
+Custom selection hooks that run later than this plugin are outside this guarantee.
+Collect-only and runs without `--jira-xray` retain their behavior.
 
 **Duplicate Test keys (0.1.7+):** if separate pytest cases intentionally
 map to one existing Jira Test, add `--allow-duplicate-ids` to the same preview or

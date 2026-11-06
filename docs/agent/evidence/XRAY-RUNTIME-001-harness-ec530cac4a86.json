@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-RUNTIME-001",
+  "profile": "harness",
+  "digest": "53c4afa46a84c5740f3efb10007764001c2df41edc34d37bafd8734b83446a25",
+  "revision": "1a5b58792066ab1cbd21eefa2b335e4817abd116",
+  "timestamp": "2026-11-06T12:20:41.068230+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 2.473,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-harness-ec530cac4a86-0.log",
+      "log_sha256": "07870f65360a0814fbd345d076cc256bb9fe2005958e19b2b557f995f0cd6658"
+    }
+  ],
+  "status": "passed"
+}

@@ -147,3 +147,15 @@ profile keeps its normal invocation, strict build, link and local browser checks
 The [Python assert specification](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement)
 explains why assertions cannot enforce these unconditional validation gates.
 No runtime, dependencies, publishing or workflow permissions are changed.
+
+## Selected-test runtime regression (0.1.11)
+
+`tests/test_selected_markers.py` covers -k/-m selection in serial and xdist,
+excluded duplicates/malformed markers, and selected duplicate controls before
+fixtures. The unchanged plugin fails 12 selection tests; the scoped hook-ordering
+fix makes them pass. Existing key/defect/duplicate validation tests remain gates.
+The installed README checker now executes 17 commands, including selected serial
+and xdist previews with HTTP blocked. The only checker change validates these new
+usage commands. Official [pytest hook ordering documentation](https://docs.pytest.org/en/stable/how-to/writing_hook_functions.html#hook-function-ordering-call-example)
+describes trylast collection hooks. This guarantees ordering after standard
+pytest filters, not every third-party late hook or wrapper.

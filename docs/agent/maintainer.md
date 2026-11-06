@@ -1,3 +1,13 @@
+# Current authorization — selected-test runtime correction
+
+The user explicitly requested one worthwhile plugin logic fix after completed
+PR40 and a version bump for shipped logic changes. Complete the
+[bounded selection fix](task-runtime-selection.md), independently review and merge
+only after required checks. The exact standing release authorization was confirmed
+in this thread; publish verified 0.1.11 through the existing trusted flow only.
+No new permissions, authentication changes or GitHub approval action. Stop after
+this iteration. Earlier dated policies below are historical.
+
 # Current authorization — November 6 weekly iteration
 
 Complete the [scoped documentation validation fix](task-weekly-2026-11-06.md),

@@ -1,0 +1,34 @@
+{
+  "task": "XRAY-RUNTIME-001",
+  "profile": "offline",
+  "digest": "858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282",
+  "revision": "7772f381077d74434c8d055ac1df3bb39625616e",
+  "timestamp": "2026-11-06T12:24:30.168297+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/reproduce.py",
+      "src",
+      "--details"
+    ],
+    [
+      "{python}",
+      "tools/validate_offline.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.514,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-offline-12f7483976ab-0.log",
+      "log_sha256": "ee6b51be0c070d0f8d34f0e4796dc5b80f08a910fd34ec695c7c06e57ec28c91"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.849,
+      "log": "docs/agent/evidence/XRAY-RUNTIME-001-offline-12f7483976ab-1.log",
+      "log_sha256": "f3a6c7bb9eff35d7c632f4845321534f28230400005fa8ebf4ef100588df7a24"
+    }
+  ],
+  "status": "passed"
+}
