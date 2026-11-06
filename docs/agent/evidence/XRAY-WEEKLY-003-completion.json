@@ -1,0 +1,73 @@
+{
+  "task": "XRAY-WEEKLY-003",
+  "timestamp": "2026-11-06T08:44:50.579797+00:00",
+  "status": "merged_and_documentation_verified",
+  "pr": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/40",
+  "reviewed_revision": "711015ad29ee820a62f5d7d181c5f870dba412aa",
+  "accepted_revision": "4872c022523c8cb38f61b007cc73d88f3ed16c3a",
+  "merge_commit": "165184251a58f09b80923c0cb413934494bf33e7",
+  "pages_commit": "54b8f2263d65fedfd66468e1d24ea6a59c95fe91",
+  "digest": "2e3e82a2e7f69c03157e65c78dfdacfac18dfda60a13458e0363050e4cad75d6",
+  "verification": {
+    "tests": 582,
+    "subtests": 19,
+    "focused_tests": 45,
+    "installed_guide_commands": 15,
+    "profiles": [
+      "harness",
+      "tests",
+      "offline",
+      "package",
+      "docs"
+    ],
+    "reviewed_head_checks": 10,
+    "accepted_head_checks": 10,
+    "main_workflows": 3,
+    "live_files_matching": 109,
+    "coverage_status_files_preserved": 31,
+    "combined_site_html_pages": 41,
+    "combined_site_references": 2922,
+    "checker_modes": [
+      "normal",
+      "-O",
+      "-OO"
+    ]
+  },
+  "technical_review": {
+    "reviewer": "/root/review_weekly1106",
+    "independent": true,
+    "source_review": "XRAY-WEEKLY-003-independent-review.json",
+    "acceptance_delta": "Reviewer confirmed excluded-only delta to 4872c02, unchanged digest, no findings",
+    "pages_overlay": "Reviewer independently confirmed 34 generated outputs, 31 preservation hashes and reran all 3 combined-site checks; no findings"
+  },
+  "evidence": {
+    "accepted-ci": "XRAY-WEEKLY-003-accepted-ci.json",
+    "main-ci": "XRAY-WEEKLY-003-main-ci.json",
+    "pages-ci": "XRAY-WEEKLY-003-pages-ci.json",
+    "live-pages": "XRAY-WEEKLY-003-live-pages.json",
+    "combined-check": "XRAY-WEEKLY-003-combined-check.json",
+    "preserved-pages": "XRAY-WEEKLY-003-preserved-pages.json",
+    "pypi": "XRAY-WEEKLY-003-pypi.json",
+    "investigation-limit": "XRAY-WEEKLY-003-investigation-limit.json"
+  },
+  "release": {
+    "performed": false,
+    "published_version": "0.1.10",
+    "reason": "Repository tooling correction only; no plugin runtime change"
+  },
+  "limitations": [
+    "No live Jira/Xray or workplace access; native iterations remain unsupported",
+    "Optional discarded-candidate file:///tmp/tmpvxnhbfmf/html/site/index.html#install browser navigation was denied with ERR_BLOCKED_BY_ADMINISTRATOR before target inspection; no retry or bypass",
+    "Required local HTTP browser checks passed; public files verified over normally validated HTTPS, not a claim of live browser validation",
+    "Final evidence/progress bookkeeping commit still requires its own exact-head CI after push"
+  ],
+  "next_action": "Commit independently reviewed completion bookkeeping, verify its exact remote main CI, then stop this weekly iteration",
+  "completion_record_review": {
+    "reviewer": "/root/review_weekly1106",
+    "independent": true,
+    "verdict": "pass",
+    "findings": [],
+    "recorded_at": "2026-11-06T08:46:00.393309+00:00",
+    "scope": "Excluded-only delta, unchanged digest, merge SHA, six accepted-head and three main workflows, Pages deployment, all109 recorded hashes against deployment tree, three independently fetched public pages, unchanged PyPI version and honest limits. Final bookkeeping CI remains."
+  }
+}

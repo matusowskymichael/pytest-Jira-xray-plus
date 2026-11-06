@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "flags": [],
+      "stdout": "PASS: 41 HTML pages, 2922 internal links/fragments/assets, search index\n",
+      "exit_code": 0
+    },
+    {
+      "flags": [
+        "-O"
+      ],
+      "stdout": "PASS: 41 HTML pages, 2922 internal links/fragments/assets, search index\n",
+      "exit_code": 0
+    },
+    {
+      "flags": [
+        "-OO"
+      ],
+      "stdout": "PASS: 41 HTML pages, 2922 internal links/fragments/assets, search index\n",
+      "exit_code": 0
+    }
+  ],
+  "preserved_files": 31,
+  "checker_sha256": "2aac24dadd1582f4fa00d21437adf3c98d68b1bf9038d1cdf611085258e6b202",
+  "method": "Unmodified checker copied to temporary root with site symlink to deployment preview; no checker logic changed"
+}

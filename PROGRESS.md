@@ -1,3 +1,33 @@
+# November 6 iteration completed — merged and documentation verified
+
+PR [#40](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/40)
+merged as `165184251a58f09b80923c0cb413934494bf33e7` after independent technical
+review and all ten checks on the acceptance commit. All three merged-main
+workflows passed. The docs checker now rejects broken sites under normal Python,
+`-O` and `-OO`; plugin runtime, dependencies and privacy defaults are unchanged.
+
+Verification: 582 tests plus 19 subtests, 45 focused tests, five aggregate profiles,
+15 installed-guide commands, strict docs and local HTTP browser checks passed.
+Pages commit `54b8f2263d65fedfd66468e1d24ea6a59c95fe91` deployed successfully in
+[42189707541](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42189707541).
+All 109 public files match local hashes over normally validated HTTPS. All 31
+coverage/status files are preserved; combined-site checks pass for 41 HTML pages
+and 2,922 references under normal Python, `-O` and `-OO`.
+
+[Verified beginner quick start](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/).
+[Completion evidence](docs/agent/evidence/XRAY-WEEKLY-003-completion.json).
+No PyPI release: this is repository tooling only; public latest remains 0.1.10.
+No live Jira/Xray or native-iteration validation is claimed. An optional file-scheme
+probe for a discarded candidate was denied and not retried; exact target/reason
+is preserved in the investigation-limit evidence. Required local HTTP browser
+checks passed, and no security/certificate bypass was used.
+
+Only final bookkeeping CI remains after this completion record is pushed. Verify
+that exact remote main commit, then stop; this iteration authorizes no further
+implementation or release. Earlier checkpoints below are historical.
+
+---
+
 # November 6 independently accepted — merge and deployment gates remain
 
 Reviewer /root/review_weekly1106 independently accepted exact head

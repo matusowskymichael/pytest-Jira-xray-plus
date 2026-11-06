@@ -118,7 +118,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-WEEKLY-003-independent-review.json",
       "blocker": "",
-      "next_action": "Await acceptance-head CI, merge PR40, verify merged main CI and deploy/verify existing Pages; then stop. No release."
+      "next_action": "Iteration implemented, independently reviewed, merged and Pages verified. Verify final completion-record main CI, then stop; no further implementation or release."
     }
   ]
 }

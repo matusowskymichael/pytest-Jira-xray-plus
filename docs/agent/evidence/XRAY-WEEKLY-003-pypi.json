@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-11-06T08:43:47.199288+00:00",
+  "latest": "0.1.10",
+  "url": "https://pypi.org/project/pytest-jira-xray-plus/0.1.10/",
+  "release_performed": false,
+  "reason": "Repository docs checker only; installed plugin unchanged"
+}
