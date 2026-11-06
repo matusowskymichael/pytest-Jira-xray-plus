@@ -1,3 +1,19 @@
+# November 6 candidate verified — exact-head CI and review pending
+
+Five fresh profiles pass at fb9cb7ef0b13b5b02b2c71629fa6798902ec43f5;
+digest 2e3e82a2e7f69c03157e65c78dfdacfac18dfda60a13458e0363050e4cad75d6.
+582 tests plus 19 subtests, 45 focused docs-link tests, all 15 installed guide
+commands, package/Twine, offline and strict/local browser docs checks passed.
+Synthetic before/after evidence proves the original optimized checker falsely
+passed broken sites; explicit exits retain validation in all three Python modes.
+Independent source and receipt review has no findings. Next: exact pushed-head
+CI, final independent acceptance, accepted-head CI and merge, then main/Pages
+verification. No package release is warranted; no runtime/dependency/workflow change.
+The optional file-scheme investigation probe was denied and not retried; its
+exact limitation is recorded. Required local HTTP docs/browser checks passed.
+
+---
+
 # November 6 weekly iteration — docs validation guard
 
 Remote main e06cb5e is clean; PR38 is merged and its integrated CI passed.
