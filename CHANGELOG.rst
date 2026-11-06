@@ -1,3 +1,7 @@
+Unreleased
+==========
+- No additional runtime changes pending.
+
 0.1.11 [2026-11-06]
 ===================
 - Validate Xray markers after standard pytest -k/-m selection. Selecting one
