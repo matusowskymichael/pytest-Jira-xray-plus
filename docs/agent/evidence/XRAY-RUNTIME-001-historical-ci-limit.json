@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-11-06T12:28:45.127169+00:00",
+  "run": 42216546539,
+  "revision": "eb172adf83aae97a3007649de273cc86eb4457d7",
+  "observed": "Python 3.13/3.14 logs fail only missing Unreleased changelog section; Python 3.12 step log reports coverage CalledProcessError and refers to saved test log",
+  "action": "gh run download 42216546539 --name plugin-coverage-test-log --dir /tmp/xray-runtime-old-coverage",
+  "target": "GitHub Actions plugin-coverage-test-log artifact for run 42216546539",
+  "outcome": "Denied: artifact storage returned Forbidden; no test log downloaded",
+  "retry": false,
+  "limits": "Cannot independently identify old Python 3.12 test failure from unavailable artifact; final exact-head coverage must pass. No access-policy or certificate bypass."
+}

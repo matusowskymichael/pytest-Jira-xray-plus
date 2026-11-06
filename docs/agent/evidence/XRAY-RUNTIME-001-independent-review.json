@@ -1,0 +1,32 @@
+{
+  "task": "XRAY-RUNTIME-001",
+  "digest": "858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282",
+  "revision": "dd5695165f65ac01295bb7ed4000b404476d4be7",
+  "timestamp": "2026-11-06T12:33:12.750150+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Regression fails before fix and passes afterward for -k/-m selected parametrized cases in serial and xdist",
+    "Selected duplicates and malformed markers still fail before fixtures; preserve aggregation, authentication, privacy and unrelated controls",
+    "Prepare 0.1.11 patch metadata, changelog, full beginner guide and migration; five profiles and installed wheel guide/regression pass on current source",
+    "Obtain independent technical acceptance and green exact-head CI before merge; verify main and existing trusted release/public artifacts/Pages before reporting publication"
+  ],
+  "evidence_reviewed": [
+    "Reviewed complete source/scope/docs delta from accepted main 2018831e6a2141fdaeaddcfd92b66a0f22b1ec5f. Runtime change is one supported trylast collection-hook decorator: standard -k/-m filtering precedes marker/duplicate validation, still before fixtures. Existing error reporting and transport behavior remain unchanged.",
+    "Read all 14 added regressions and existing marker/duplicate safeguards. Independently ran 85 focused tests and Ruff successfully. Independently ran all 14 regressions outside checkout against the installed candidate wheel with PYTHONPATH/PYTEST/XRAY variables scrubbed; all passed. Later source changes only restore required changelog heading and fix scope spacing; final wheel hash matches that independently exercised wheel.",
+    "Verified archived prior ledger matches accepted main; all 68 preservation hashes match. Publisher workflow is byte-for-byte prior workflow after replacing version literals 0.1.10 with 0.1.11; no permission, authentication, account or unrelated dependency changes.",
+    "Read README selection examples, migration and custom-late-hook limitation, changelog, release-readiness and task contract. Official pytest hook-ordering documentation and installed standard mark-selection hook support the implementation.",
+    "Independently recomputed final digest and verified all five final fixed command contracts and 13 log SHA256 hashes, zero exit codes and tested revision cf4959c1697946f26ff209ac945a7982d56f1bef. Accepted only harness b2eebf114d40, tests 98f18a1aa10b, offline faf874e407a6, package 7777c8445aae and docs 588a73c20409. Earlier failed/stale receipts are historical, not accepted proof.",
+    "Final evidence supports 596 tests plus 19 subtests, 32 harness tests, offline checks, clean wheel install and 17 full-guide commands, 14 installed regressions, strict docs build, 1228 links across 23 pages and separate local HTTP browser checks. Verified reproduction and installed-regression hashes and source-to-review-head excluded-only evidence/progress delta.",
+    "Independently queried PR41 and confirmed exact head dd5695165f65ac01295bb7ed4000b404476d4be7 with all 10 checks completed successfully across six workflows: 42217862333, 42217862363, 42217862386, 42217868912, 42217868932, 42217868978."
+  ],
+  "limits": [
+    "Pre-merge independent technical acceptance only. Any acceptance/evidence-only head must retain the digest and pass its own exact-head CI. Merged-main CI, unused-version recheck, trusted publisher execution, tag/release, public artifact hashes, clean public-package install/tutorial/regression and deployed Pages verification remain mandatory operator gates; no publication is claimed here.",
+    "Reviewer reran focused and installed regressions, not all aggregate profiles. Full-suite/build/docs results were independently assessed from current receipts/logs and exact-head hosted CI.",
+    "Ordering guarantee covers standard pytest -k/-m filtering, not arbitrary third-party late selection hooks or wrappers; README states this limit.",
+    "Historical eb172ad Python 3.12 artifact download was reported Forbidden and was not retried. Available step log establishes a coverage CalledProcessError, not an underlying test cause. Final exact-head Python 3.12 coverage succeeded; no security bypass was used.",
+    "No live Jira/Xray/workplace validation, native iteration proof, credential access, GitHub approval or publishing action performed by reviewer."
+  ]
+}

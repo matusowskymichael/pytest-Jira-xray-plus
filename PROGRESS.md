@@ -1,3 +1,17 @@
+# Runtime 0.1.11 independently accepted — merge and release gates remain
+
+Native reviewer /root/review_weekly1106 accepted exact PR #41 head
+dd5695165f65ac01295bb7ed4000b404476d4be7 with no findings after all ten
+checks passed. The reviewer independently ran 85 focused tests and 14 installed
+regressions, and verified five final profile receipts and 13 log hashes.
+Harness acceptance passes; current digest remains
+858dfb38965b5ddc23e5f918461dd65c7e1cd21245b4f7a3ce4b3ea6358b8282.
+Next: acceptance-only head CI, merge/main CI, unused-version recheck, existing
+trusted publishing, public artifacts/install/tag and Pages verification. Version
+0.1.11 is prepared but not published. Stop after this one runtime iteration.
+
+---
+
 # Runtime 0.1.11 candidate — final verification and review
 
 All five profiles pass on committed scope cf4959c1697946f26ff209ac945a7982d56f1bef.

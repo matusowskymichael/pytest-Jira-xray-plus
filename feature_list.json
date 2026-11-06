@@ -106,11 +106,17 @@
         "tools/check_docs_links.py": "2aac24dadd1582f4fa00d21437adf3c98d68b1bf9038d1cdf611085258e6b202",
         "tests/test_docs_links.py": "56f20d32e1783ce02ad96833366dff424a89f39eff671fdc0566352380686529"
       },
-      "state": "in_progress",
-      "evidence": [],
-      "review": null,
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-RUNTIME-001-offline-faf874e407a6.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-docs-588a73c20409.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-harness-b2eebf114d40.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-package-7777c8445aae.json",
+        "docs/agent/evidence/XRAY-RUNTIME-001-tests-98f18a1aa10b.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-RUNTIME-001-independent-review.json",
       "blocker": "",
-      "next_action": "Reproduce selected-case failure, implement scoped fix, verify fresh profiles and independent review"
+      "next_action": "Verify acceptance-head CI, merge PR #41, verify main CI, then publish 0.1.11 through existing trusted flow and verify public artifacts/install/tag/Pages; stop afterward."
     }
   ]
 }
