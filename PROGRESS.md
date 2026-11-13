@@ -1,3 +1,16 @@
+# November 13 — staged deployment check found a missing coverage asset
+
+The combined Pages preview exposed a public HTTP 404 for
+`coverage/html/coverage_html_cb_54cfdca1.js`. Coverage's generated ignore rule
+excluded this new filename while its already tracked HTML was updated. The exact
+original asset matches the pinned coverage 7.17.0 package byte-for-byte. Restore
+that static asset, preserve all existing measurement/status files, and verify an
+export of the staged tree before deployment. The recovery documentation now
+includes this check. Earlier profile receipts below precede the updated scope;
+fresh current-source verification and review are required. No package release.
+
+---
+
 # November 13 candidate verified — review and hosted CI next
 
 All five current-source profiles passed. Verification includes 596 tests plus

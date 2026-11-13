@@ -988,7 +988,9 @@ python tools/agent.py resume
 Before new work, check current main CI and the published PyPI version using the
 [recovery procedure](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/agent/workflow.md#recover-after-a-completed-release).
 A historical red run or pending handoff does not justify repeating a completed
-release. Package users can follow the installation and tutorial above without the
+release. Before publishing documentation, also check the staged deployment tree:
+ignored generated assets can make a working preview pass while public pages have
+missing files. The recovery procedure includes the staged-tree check. Package users can follow the installation and tutorial above without the
 repository harness; these commands are for contributors working from a checkout.
 
 From a checkout in a fresh environment:

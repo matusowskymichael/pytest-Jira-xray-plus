@@ -3,9 +3,9 @@
   "tasks": [
     {
       "id": "XRAY-WEEKLY-004",
-      "title": "Reconcile completed-release recovery instructions",
+      "title": "Verify complete documentation deployments during release recovery",
       "source": "docs/agent/task-weekly-2026-11-13.md",
-      "source_sha256": "1d2bb8ecab487da55dfbf2c1918327723d0fbe392e080ab2f9947bd5e6982dce",
+      "source_sha256": "61048b74e60180f69c7a79d8ba6ddfaf54a9c1a139a02aa419b8d7d354bedd73",
       "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/43",
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -25,7 +25,7 @@
       "prerequisites": [],
       "acceptance": [
         "Reconcile actual main, PyPI 0.1.11 and final successful CI; preserve prior accepted ledger and historical evidence with exact provenance",
-        "Remove stale active-release claims from recovery entry points and document ledger-driven scope, completed-state recovery and exact-head CI checks without republishing",
+        "Remove stale active-release claims and document ledger-driven recovery; reproduce missing deployed coverage JS, restore verified exact asset and validate the staged deployment tree",
         "Update changelog and full beginner guide; preserve runtime, tests, tools, dependencies, version and workflow/security controls; all five profiles and installed tutorial pass",
         "Obtain independent review and green exact-head CI before merge; verify main and existing Pages, leave PR42 untouched, make no package release and stop"
       ],

@@ -113,3 +113,37 @@ stop instruction as the next action, and verify any final bookkeeping commit's
 remote CI before the final response. Do not leave instructions that imply another
 publication is required after a release has been verified. A later authorized
 iteration starts with a fresh remote-state check and archives the completed ledger.
+
+## Verify the staged documentation deployment
+
+A working-tree preview can contain ignored files that will never be pushed.
+Coverage's generated `.gitignore` ignores new files; when its JavaScript filename
+changes, already tracked HTML can be staged while the new dependency is omitted.
+The November 13 check found exactly this: public coverage HTML requested a missing
+`coverage_html_cb_54cfdca1.js`. Its restored bytes match the original generated
+asset and the pinned coverage 7.17.0 package; the measurement itself is unchanged.
+
+Stage the reviewed generated files in the dedicated `gh-pages` worktree. Inspect
+`git status --short --ignored` and verify any missing static asset against its
+pinned generator before explicitly adding that path with `git add -f -- PATH`.
+Preserve the generated ignore rule and existing coverage/status provenance.
+
+Then check what Git will actually publish. From the source checkout, replace
+`/absolute/path/to/gh-pages-worktree` with your deployment worktree path:
+
+```sh
+source_checkout=$PWD
+deployment_checkout=/absolute/path/to/gh-pages-worktree
+verification_dir=$(mktemp -d)
+mkdir -p "$verification_dir/tools" "$verification_dir/site"
+cp "$source_checkout/tools/check_docs_links.py" "$verification_dir/tools/"
+git -C "$deployment_checkout" checkout-index --all --prefix="$verification_dir/site/"
+python "$verification_dir/tools/check_docs_links.py"
+```
+
+This exports the index into a new temporary directory without changing either
+checkout. A missing dependency must fail here before publication. After the
+existing Pages deployment succeeds, verify all staged public files over normally
+validated HTTPS, including the repaired asset, and compare their hashes with the
+checked tree. A list of tracked-file hashes alone does not prove its links resolve;
+both link validation and public-byte verification are required.
