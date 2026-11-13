@@ -111,11 +111,17 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "in_progress",
-      "evidence": [],
-      "review": null,
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-WEEKLY-004-tests-af5c9f9cf8a3.json",
+        "docs/agent/evidence/XRAY-WEEKLY-004-package-e8b3560a8965.json",
+        "docs/agent/evidence/XRAY-WEEKLY-004-docs-fd9872bd4017.json",
+        "docs/agent/evidence/XRAY-WEEKLY-004-offline-b953b233e038.json",
+        "docs/agent/evidence/XRAY-WEEKLY-004-harness-12e0705040cd.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-WEEKLY-004-independent-review.json",
       "blocker": "",
-      "next_action": "Verify recovery documentation, five profiles, independent review and exact-head CI; merge and verify Pages, then stop"
+      "next_action": "Verify acceptance-head CI, merge and verify main, deploy reviewed Pages tree and verify public assets; record completion and stop without a package release"
     }
   ]
 }

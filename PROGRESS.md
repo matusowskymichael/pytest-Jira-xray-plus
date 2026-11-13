@@ -1,3 +1,16 @@
+# November 13 independent acceptance
+
+Independent technical review passed for `453766db9cb0812869a04f341b99092472f3f448`
+with no findings. All ten exact-head checks passed. The harness accepted all five
+fresh receipts for the unchanged final digest. This records pre-merge acceptance;
+acceptance-head CI, merged-main CI, Pages deployment and public verification are
+still completion gates. Stop after this repository-only iteration.
+
+Earlier entries below are historical observations, not instructions to rerun
+completed release work.
+
+---
+
 # November 13 revised candidate verified
 
 The staged-tree check reproduces the missing coverage JavaScript and passes after
