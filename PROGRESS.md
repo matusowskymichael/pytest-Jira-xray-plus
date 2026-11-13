@@ -1,3 +1,24 @@
+# November 13 — recovery documentation correction
+
+Observed main: `7d416f208cae318e9e0ee7fb9844f968b12994f0`. Its final tests,
+documentation and harness workflows all passed (42222119557, 42222119468,
+42222119387). Public PyPI is 0.1.11; the prior runtime iteration is complete.
+The accepted ledger is archived with that commit's provenance. No issues are
+open. Dependabot PR42 updates development tools and remains separate and untouched.
+
+Current task: XRAY-WEEKLY-004. Correct stale recovery instructions and explain how
+to distinguish historical checkpoints from current remote state. No package
+release or implementation change. Next: fresh verification, independent review,
+exact-head CI, merge and Pages verification; stop after this iteration.
+
+## Historical handoffs
+
+Entries below retain the status known when written. In particular, a historical
+"pending" statement does not mean that publication or CI should run again.
+Consult current remote state before acting; current task scope lives in the ledger.
+
+---
+
 # Runtime iteration completed — 0.1.11 published and verified
 
 PR [#41](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/41)

@@ -1,0 +1,50 @@
+{
+  "baseline": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+  "commands_verified": [
+    "python tools/agent.py preflight",
+    "python tools/agent.py resume",
+    "git fetch origin main",
+    "git rev-parse origin/main",
+    "gh run list --repo matusowskymichael/pytest-Jira-xray-plus --commit \"$(git rev-parse origin/main)\" --json name,headSha,status,conclusion,url"
+  ],
+  "preflight": "passed",
+  "resume_contains_current_summary": true,
+  "main_runs": [
+    {
+      "conclusion": "success",
+      "headSha": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+      "name": "pip in /. - Update #1700430757",
+      "status": "completed",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/43370393454"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+      "name": "github_actions in /. - Update #1700430749",
+      "status": "completed",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/43370393452"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+      "name": "documentation",
+      "status": "completed",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42222119468"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+      "name": "repository harness",
+      "status": "completed",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42222119387"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+      "name": "tests",
+      "status": "completed",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/42222119557"
+    }
+  ],
+  "limits": "These commands inspect recorded structure and current remote runs; they do not themselves run tests or prove live Jira compatibility."
+}

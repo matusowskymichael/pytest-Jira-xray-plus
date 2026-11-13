@@ -1,8 +1,10 @@
 # pytest-Jira-xray-plus
 
 Python pytest integration with **Jira plus Xray**, targeting existing **Generic
-Tests** on on-premises Xray **8.5.3-j10**. Latest published baseline: **0.1.10**. Active work: selected-test runtime validation correction for 0.1.11. The plugin
-imports aggregate Test Runs; native iterations/datasets are not implemented.
+Tests** on on-premises Xray **8.5.3-j10**. Current task state and scope are recorded in
+[the ledger](feature_list.json); observed release and CI results are recorded in
+[progress](PROGRESS.md). Check public PyPI and remote main before new work.
+The plugin imports aggregate Test Runs; native iterations/datasets are not implemented.
 
 ## Start here
 
@@ -23,7 +25,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 ## Read what the task needs
 
 - [Architecture and boundaries](docs/agent/architecture.md): plugin/report/import flow.
-- [Current scope](docs/agent/task-runtime-selection.md): active product iteration and acceptance criteria.
+- [Task ledger](feature_list.json): follow the selected task's `source` for scope and acceptance criteria.
 - [Workflow and recovery](docs/agent/workflow.md): start, verify, checkpoint, resume.
 - [Testing](docs/agent/testing.md): exact commands, environments and baseline debt.
 - [Completion](docs/agent/completion.md): current evidence and independent review.
@@ -58,7 +60,7 @@ scope, **not** application correctness. Read [progress](PROGRESS.md) and the
 - End with current progress, exact verification limits and an executable next step.
   A checkpoint or draft PR is not independent acceptance.
 
-Current maintenance policy: one explicitly requested runtime fix following PR40,
-then stop. Prior completed ledgers remain historical. Tested independently reviewed
-merge and meaningful stable patch release through existing trusted publishing,
-plus Pages updates, are authorized. No GitHub approval action. Keep one task active.
+Follow the current user-authorized iteration and maintainer policy. A passing task
+or historical release authorization does not start another iteration. Read the
+ledger before resuming, inspect current remote state, and stop after the authorized
+work. Never rerun publication merely because an old progress entry says pending.

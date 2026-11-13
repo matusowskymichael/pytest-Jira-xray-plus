@@ -1,0 +1,20 @@
+{
+  "baseline": "7d416f208cae318e9e0ee7fb9844f968b12994f0",
+  "observations": {
+    "AGENTS.md": "Names 0.1.10 as latest published baseline and completed 0.1.11 correction as active",
+    "PROGRESS.md": "Says final bookkeeping CI remains although all three final workflows passed",
+    "feature_list.json": "Runtime fix merged; 0.1.11 published and public artifacts, clean install, tag and Pages verified. Verify final bookkeeping main CI, then stop this iteration."
+  },
+  "verified_pypi_version": "0.1.11",
+  "verified_final_ci": [
+    42222119387,
+    42222119468,
+    42222119557
+  ],
+  "open_pr": {
+    "number": 42,
+    "head": "fa26ed8b27dc539982a9cf0948b1b92d29c66e56",
+    "scope": "Development dependency updates; separate and untouched"
+  },
+  "issues": []
+}

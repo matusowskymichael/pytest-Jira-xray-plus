@@ -1,4 +1,13 @@
-# Current authorization — selected-test runtime correction
+# Current authorization — November 13 recovery documentation
+
+Complete the [scoped recovery correction](task-weekly-2026-11-13.md), then stop.
+Tested independently reviewed commits, draft PR, accepted merge and existing Pages
+updates are authorized. No runtime/dependency changes, package release, tag or
+GitHub approval action. PR42 remains separate. Preserve all verification, privacy
+and security requirements. The ledger identifies the current task; older dated
+instructions below record completed authorizations, not additional work.
+
+# Historical authorization — completed 0.1.11 runtime correction
 
 The user explicitly requested one worthwhile plugin logic fix after completed
 PR40 and a version bump for shipped logic changes. Complete the
@@ -8,7 +17,7 @@ in this thread; publish verified 0.1.11 through the existing trusted flow only.
 No new permissions, authentication changes or GitHub approval action. Stop after
 this iteration. Earlier dated policies below are historical.
 
-# Current authorization — November 6 weekly iteration
+# Historical authorization — completed November 6 weekly iteration
 
 Complete the [scoped documentation validation fix](task-weekly-2026-11-06.md),
 then stop. PR38 and prior weekly work are completed history. Tested scoped
