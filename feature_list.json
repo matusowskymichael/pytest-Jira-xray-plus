@@ -6,7 +6,7 @@
       "title": "Reconcile completed-release recovery instructions",
       "source": "docs/agent/task-weekly-2026-11-13.md",
       "source_sha256": "1d2bb8ecab487da55dfbf2c1918327723d0fbe392e080ab2f9947bd5e6982dce",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/43",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
