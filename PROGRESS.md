@@ -1,3 +1,15 @@
+# November 13 candidate verified — review and hosted CI next
+
+All five current-source profiles passed. Verification includes 596 tests plus
+19 subtests, all 17 installed-guide commands, full package metadata, strict docs
+and local HTTP browser checks. Independent initial source review found no issues
+and verified all 73 preservation hashes. The documented recovery commands were
+executed successfully. Current scope is repository documentation only; no package
+release is warranted. Next: exact-head CI and final independent acceptance,
+merge, verify main and deploy/verify existing Pages, then stop.
+
+---
+
 # November 13 — recovery documentation correction
 
 Observed main: `7d416f208cae318e9e0ee7fb9844f968b12994f0`. Its final tests,
