@@ -82,3 +82,68 @@ Accepted receipts/reviews may identify earlier commits. Harness CI fetches full
 history (`fetch-depth: 0`). In a shallow local clone, missing evidence history
 blocks validation with `git fetch --unshallow` as the next command. Fetch history
 explicitly, then retry preflight; do not discard revision checks or rewrite proof.
+
+## Recover after a completed release
+
+Read the ledger state and its linked scope before following a previous next step.
+A passing task is accepted work, not a new implementation request. Progress entries
+are dated observations; older pending checks may have completed after the record
+was committed. Inspect the remote default branch and the checks for that exact SHA:
+
+```sh
+git fetch origin main
+git rev-parse origin/main
+gh run list --repo matusowskymichael/pytest-Jira-xray-plus --commit "$(git rev-parse origin/main)" --json name,headSha,status,conclusion,url
+```
+
+These are read-only remote checks plus a local fetch; they do not change the working
+tree, merge, deploy or publish. Match the SHA and inspect each applicable workflow's
+terminal conclusion. An old failed run on a superseded SHA is historical evidence,
+not proof current main is failing. If a run is queued or in progress, wait for its
+result. A real current failure must be investigated; never erase or weaken a gate.
+
+For release recovery, compare the recorded publisher run, tag target, public PyPI
+version/artifact hashes and Pages deployment. Inspect an uncertain outcome before
+any retry. A completed release must not be dispatched again to clear an old pending
+note. Keep prior receipts immutable and tied to their original commit/digest.
+
+At completion, record observed merge/release/deployment results with links and
+exact commits. Separate historical checkpoints from the current summary. Use a
+stop instruction as the next action, and verify any final bookkeeping commit's
+remote CI before the final response. Do not leave instructions that imply another
+publication is required after a release has been verified. A later authorized
+iteration starts with a fresh remote-state check and archives the completed ledger.
+
+## Verify the staged documentation deployment
+
+A working-tree preview can contain ignored files that will never be pushed.
+Coverage's generated `.gitignore` ignores new files; when its JavaScript filename
+changes, already tracked HTML can be staged while the new dependency is omitted.
+The November 13 check found exactly this: public coverage HTML requested a missing
+`coverage_html_cb_54cfdca1.js`. Its restored bytes match the original generated
+asset and the pinned coverage 7.17.0 package; the measurement itself is unchanged.
+
+Stage the reviewed generated files in the dedicated `gh-pages` worktree. Inspect
+`git status --short --ignored` and verify any missing static asset against its
+pinned generator before explicitly adding that path with `git add -f -- PATH`.
+Preserve the generated ignore rule and existing coverage/status provenance.
+
+Then check what Git will actually publish. From the source checkout, replace
+`/absolute/path/to/gh-pages-worktree` with your deployment worktree path:
+
+```sh
+source_checkout=$PWD
+deployment_checkout=/absolute/path/to/gh-pages-worktree
+verification_dir=$(mktemp -d)
+mkdir -p "$verification_dir/tools" "$verification_dir/site"
+cp "$source_checkout/tools/check_docs_links.py" "$verification_dir/tools/"
+git -C "$deployment_checkout" checkout-index --all --prefix="$verification_dir/site/"
+python "$verification_dir/tools/check_docs_links.py"
+```
+
+This exports the index into a new temporary directory without changing either
+checkout. A missing dependency must fail here before publication. After the
+existing Pages deployment succeeds, verify all staged public files over normally
+validated HTTPS, including the repaired asset, and compare their hashes with the
+checked tree. A list of tracked-file hashes alone does not prove its links resolve;
+both link validation and public-byte verification are required.

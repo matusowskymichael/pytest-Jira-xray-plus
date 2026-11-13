@@ -1,0 +1,31 @@
+{
+  "task": "XRAY-WEEKLY-004",
+  "digest": "0a43608885a1670f74773a9a288e5b1ddcd9bfa8c251febeaca84db28c1452e6",
+  "revision": "453766db9cb0812869a04f341b99092472f3f448",
+  "timestamp": "2026-11-13T07:51:01.072428+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile actual main, PyPI 0.1.11 and final successful CI; preserve prior accepted ledger and historical evidence with exact provenance",
+    "Remove stale active-release claims and document ledger-driven recovery; reproduce missing deployed coverage JS, restore verified exact asset and validate the staged deployment tree",
+    "Update changelog and full beginner guide; preserve runtime, tests, tools, dependencies, version and workflow/security controls; all five profiles and installed tutorial pass",
+    "Obtain independent review and green exact-head CI before merge; verify main and existing Pages, leave PR42 untouched, make no package release and stop"
+  ],
+  "evidence_reviewed": [
+    "Reviewed complete source/docs/ledger scope against main 7d416f208cae318e9e0ee7fb9844f968b12994f0, then revised scope for the real missing Pages dependency. Archived runtime ledger equals accepted main; all 73 preservation hashes match. Runtime, tests, tools, package version, dependencies and workflows are unchanged.",
+    "Independently ran documented preflight/resume and remote exact-SHA run query; verified baseline main workflows passed, public PyPI remains 0.1.11 and PR42 remains open at fa26ed8b27dc539982a9cf0948b1b92d29c66e56. Ledger-driven entry point, historical handoff separation and staged-deployment recovery instructions are consistent with scope.",
+    "Independently recomputed final digest and all five final fixed command contracts and 13 log hashes bound to tested source 10550469708eb64fbc62e9143a7ce83016ed5b70. Source-to-reviewed-head delta contains only excluded progress/evidence. Earlier superseded receipts are not accepted proof.",
+    "Final receipts record 596 tests plus 19 subtests, 32 harness tests, offline checks, build/Twine, 17 installed-guide commands, strict build, 23 pages and 1230 references, and local HTTP browser checks.",
+    "Independently verified restored coverage_html_cb_54cfdca1.js bytes exactly match pinned coverage 7.17.0 htmlfiles/coverage_html.js, SHA256 420dceb04f21b928d771cf8aa731001cf8cfaea889cefc92ceab1c427f30f2cf. All 31 existing coverage/status files remain unchanged. Added asset plus generated documentation are the only Pages changes.",
+    "Independently exported staged Pages index using the documented recipe and ran the unmodified checker successfully in normal/-O/-OO modes; re-exported latest staged tree 726f2ddc05e3abb25cd0c6958f0aa7528333faa4 and confirmed 41 pages/2930 references pass. Staged generated docs equal fresh build output. Read browser regression evidence: baseline JS 404 leaves 13 rows after filter; repaired staged JS 200 yields 1 row.",
+    "Independently queried PR43 exact head 453766db9cb0812869a04f341b99092472f3f448 and observed all 10 checks successful across six workflows: 43387731713, 43387731772, 43387731845, 43387736824, 43387736840, 43387737030."
+  ],
+  "limits": [
+    "Pre-merge independent technical acceptance only. Any acceptance/evidence-only head must retain this digest and pass exact-head CI. Merged-main CI, deployment of the reviewed staged tree and public HTTPS verification including the repaired asset remain mandatory operator completion gates. No publication is claimed yet.",
+    "Reviewer independently checked recovery commands, provenance, hashes and staged-site links; full application profiles and browser interaction results were assessed from fresh receipts/logs and CI, not rerun by reviewer.",
+    "Prior working-tree/link and tracked-file hash checks missed the ignored dependency. This review explicitly validates an exported staged index; historical verification does not establish that every prior referenced public dependency existed.",
+    "No runtime change or package release; PR42 must remain untouched and iteration must stop after final verification. No GitHub approval, workplace/live Jira access or native-iteration proof. Previously denied historical artifact was not retried; no certificate/security bypass."
+  ]
+}

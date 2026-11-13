@@ -1,3 +1,77 @@
+# November 13 independent acceptance
+
+Independent technical review passed for `453766db9cb0812869a04f341b99092472f3f448`
+with no findings. All ten exact-head checks passed. The harness accepted all five
+fresh receipts for the unchanged final digest. This records pre-merge acceptance;
+acceptance-head CI, merged-main CI, Pages deployment and public verification are
+still completion gates. Stop after this repository-only iteration.
+
+Earlier entries below are historical observations, not instructions to rerun
+completed release work.
+
+---
+
+# November 13 revised candidate verified
+
+The staged-tree check reproduces the missing coverage JavaScript and passes after
+restoring its verified exact bytes. Local Chromium confirms the filter changes
+from 13 unchanged rows to one matching row. All 31 existing coverage/status files
+are preserved. All five fresh profiles pass on the revised scope, covering
+596 tests plus 19 subtests, 17 installed-guide commands and local docs/browser
+checks. Source, tests, tools, dependencies, version and workflows remain unchanged.
+
+Next: final independent review and exact-head CI, accepted merge/main checks,
+then the existing Pages deployment and public verification. Stop after this
+repository-only iteration; no package release or PR42 modification.
+
+---
+
+# November 13 — staged deployment check found a missing coverage asset
+
+The combined Pages preview exposed a public HTTP 404 for
+`coverage/html/coverage_html_cb_54cfdca1.js`. Coverage's generated ignore rule
+excluded this new filename while its already tracked HTML was updated. The exact
+original asset matches the pinned coverage 7.17.0 package byte-for-byte. Restore
+that static asset, preserve all existing measurement/status files, and verify an
+export of the staged tree before deployment. The recovery documentation now
+includes this check. Earlier profile receipts below precede the updated scope;
+fresh current-source verification and review are required. No package release.
+
+---
+
+# November 13 candidate verified — review and hosted CI next
+
+All five current-source profiles passed. Verification includes 596 tests plus
+19 subtests, all 17 installed-guide commands, full package metadata, strict docs
+and local HTTP browser checks. Independent initial source review found no issues
+and verified all 73 preservation hashes. The documented recovery commands were
+executed successfully. Current scope is repository documentation only; no package
+release is warranted. Next: exact-head CI and final independent acceptance,
+merge, verify main and deploy/verify existing Pages, then stop.
+
+---
+
+# November 13 — recovery documentation correction
+
+Observed main: `7d416f208cae318e9e0ee7fb9844f968b12994f0`. Its final tests,
+documentation and harness workflows all passed (42222119557, 42222119468,
+42222119387). Public PyPI is 0.1.11; the prior runtime iteration is complete.
+The accepted ledger is archived with that commit's provenance. No issues are
+open. Dependabot PR42 updates development tools and remains separate and untouched.
+
+Current task: XRAY-WEEKLY-004. Correct stale recovery instructions and explain how
+to distinguish historical checkpoints from current remote state. No package
+release or implementation change. Next: fresh verification, independent review,
+exact-head CI, merge and Pages verification; stop after this iteration.
+
+## Historical handoffs
+
+Entries below retain the status known when written. In particular, a historical
+"pending" statement does not mean that publication or CI should run again.
+Consult current remote state before acting; current task scope lives in the ledger.
+
+---
+
 # Runtime iteration completed — 0.1.11 published and verified
 
 PR [#41](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/41)

@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-11-13T07:37:22.149169+00:00",
+  "pages_baseline": "2bbaf06f47087450170e9e2cc2d38115e491e8c8",
+  "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/coverage/html/coverage_html_cb_54cfdca1.js",
+  "observed_http_status": 404,
+  "missing_path": "coverage/html/coverage_html_cb_54cfdca1.js",
+  "reason": "Coverage generated .gitignore contains *, so git add omitted new hashed JS while updating already tracked HTML",
+  "affected_html_pages": 16,
+  "asset_source": "Exact original generated asset independently matches installed pinned coverage 7.17.0 htmlfiles/coverage_html.js",
+  "sha256": "420dceb04f21b928d771cf8aa731001cf8cfaea889cefc92ceab1c427f30f2cf",
+  "bytes": 27188,
+  "scope": "Restore this static generated asset only; preserve existing coverage measurement and status files"
+}

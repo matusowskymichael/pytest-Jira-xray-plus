@@ -975,6 +975,24 @@ This is an independent Apache-2.0 fork of
 Report issues with synthetic examples through
 [GitHub issues](https://github.com/matusowskymichael/pytest-Jira-xray-plus/issues).
 
+If you are resuming repository maintenance, read `AGENTS.md`, `PROGRESS.md` and
+`feature_list.json` first. The ledger links the current task scope; old progress
+entries may describe checks that have since finished. These local commands inspect
+the recorded state without running tests, contacting Jira or publishing a package:
+
+```sh
+python tools/agent.py preflight
+python tools/agent.py resume
+```
+
+Before new work, check current main CI and the published PyPI version using the
+[recovery procedure](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/agent/workflow.md#recover-after-a-completed-release).
+A historical red run or pending handoff does not justify repeating a completed
+release. Before publishing documentation, also check the staged deployment tree:
+ignored generated assets can make a working preview pass while public pages have
+missing files. The recovery procedure includes the staged-tree check. Package users can follow the installation and tutorial above without the
+repository harness; these commands are for contributors working from a checkout.
+
 From a checkout in a fresh environment:
 
 ```sh
