@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-11-13T08:08:01.919850+00:00",
+  "pypi_version": "0.1.11",
+  "pypi_url": "https://pypi.org/project/pytest-jira-xray-plus/0.1.11/",
+  "pr42": {
+    "state": "open",
+    "head": "fa26ed8b27dc539982a9cf0948b1b92d29c66e56",
+    "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/42"
+  }
+}

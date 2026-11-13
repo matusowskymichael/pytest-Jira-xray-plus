@@ -1,3 +1,33 @@
+# November 13 iteration completed — documentation deployment repaired
+
+PR [#43](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/43)
+merged as `ccf19e89e511fbb5b012fc769d15abf5aed80886` after independent review
+and all ten acceptance-head checks passed. All three merged-main workflows passed.
+Pages commit `a4a62dee47ce1c0a84abbb9df163e96168f90d21` deployed successfully
+in [run 43390681084](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/43390681084).
+All 110 public files matched their committed hashes over validated HTTPS. The
+missing coverage script now returns HTTP 200; local browser reproduction confirms
+filtering narrows 13 rows to one. All 31 existing coverage/status files are preserved.
+
+Recovery instructions now use the ledger and current remote state, and validate
+an export of staged Pages files so ignored assets cannot hide broken dependencies.
+Verification covered 596 tests plus 19 subtests, all five harness profiles, 17
+installed-guide commands, and 41 staged pages with 2,930 references. All 73 source,
+test, tool, dependency and workflow preservation hashes match. No plugin logic,
+version or authentication change was made. Public PyPI remains 0.1.11; no package
+release or tag was created. PR #42 remains separate and untouched.
+
+The [completion evidence](docs/agent/evidence/XRAY-WEEKLY-004-completion.json)
+records observed merge/deployment results and their limits. The operator checks
+exact final remote-head CI before the final handoff; this record does not claim
+its own future commit's CI result. No workplace or live Xray validation occurred.
+
+**Stop after this iteration.** Do not start another task or rerun publication
+from historical checkpoints. A new authorized iteration must reconcile actual
+remote state. Earlier entries below preserve what was known when written.
+
+---
+
 # November 13 independent acceptance
 
 Independent technical review passed for `453766db9cb0812869a04f341b99092472f3f448`

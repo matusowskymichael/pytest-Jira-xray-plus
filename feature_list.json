@@ -121,7 +121,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-WEEKLY-004-independent-review.json",
       "blocker": "",
-      "next_action": "Verify acceptance-head CI, merge and verify main, deploy reviewed Pages tree and verify public assets; record completion and stop without a package release"
+      "next_action": "Stop after this iteration. Reconcile actual remote state only when a new authorized task begins."
     }
   ]
 }

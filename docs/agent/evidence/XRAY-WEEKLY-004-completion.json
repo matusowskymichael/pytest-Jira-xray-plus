@@ -1,0 +1,39 @@
+{
+  "task": "XRAY-WEEKLY-004",
+  "timestamp": "2026-11-13T08:08:31.022957+00:00",
+  "status": "merged and deployed; final bookkeeping-head CI must be checked before handoff",
+  "reviewed_head": "453766db9cb0812869a04f341b99092472f3f448",
+  "accepted_head": "ac95650e483c9514290ac9549c8492762333f143",
+  "merge_commit": "ccf19e89e511fbb5b012fc769d15abf5aed80886",
+  "pages_commit": "a4a62dee47ce1c0a84abbb9df163e96168f90d21",
+  "pages_tree": "726f2ddc05e3abb25cd0c6958f0aa7528333faa4",
+  "digest": "0a43608885a1670f74773a9a288e5b1ddcd9bfa8c251febeaca84db28c1452e6",
+  "checks": {
+    "tests": 596,
+    "subtests": 19,
+    "installed_guide_commands": 17,
+    "required_profiles": 5,
+    "accepted_head_checks": 10,
+    "merged_main_workflows": 3,
+    "staged_pages": 41,
+    "staged_references": 2930,
+    "public_files_matching": 110,
+    "preserved_coverage_status_files": 31,
+    "preserved_source_files": 73
+  },
+  "repair": {
+    "asset": "coverage/html/coverage_html_cb_54cfdca1.js",
+    "before_http_status": 404,
+    "after_http_status": 200,
+    "sha256": "420dceb04f21b928d771cf8aa731001cf8cfaea889cefc92ceab1c427f30f2cf",
+    "local_browser_filter_rows_before": 13,
+    "local_browser_filter_rows_after": 1
+  },
+  "limits": [
+    "Repository and Pages repair only; no runtime, version, dependency or workflow change and no package release/tag.",
+    "Local browser regression and validated public HTTPS/hash checks; no live Jira/workplace validation or native iteration claims.",
+    "PR42 remains open and unchanged. Previously denied historical artifact was not retried.",
+    "Final bookkeeping changes are excluded from the accepted source digest. Check exact final remote-head CI before reporting completion; do not rerun a completed publisher."
+  ],
+  "next_action": "Stop after this iteration. Reconcile actual remote state only when a new authorized task begins."
+}
