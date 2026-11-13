@@ -1,3 +1,18 @@
+# November 13 revised candidate verified
+
+The staged-tree check reproduces the missing coverage JavaScript and passes after
+restoring its verified exact bytes. Local Chromium confirms the filter changes
+from 13 unchanged rows to one matching row. All 31 existing coverage/status files
+are preserved. All five fresh profiles pass on the revised scope, covering
+596 tests plus 19 subtests, 17 installed-guide commands and local docs/browser
+checks. Source, tests, tools, dependencies, version and workflows remain unchanged.
+
+Next: final independent review and exact-head CI, accepted merge/main checks,
+then the existing Pages deployment and public verification. Stop after this
+repository-only iteration; no package release or PR42 modification.
+
+---
+
 # November 13 — staged deployment check found a missing coverage asset
 
 The combined Pages preview exposed a public HTTP 404 for

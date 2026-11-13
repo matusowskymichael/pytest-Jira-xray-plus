@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-13T07:41:15.504227+00:00",
+  "method": "Local HTTP Chromium test of baseline git archive versus staged index; filter case_report; standard repository browser settings, no certificate or access-policy bypass",
+  "results": [
+    {
+      "tree": "before",
+      "script_http_status": 404,
+      "visible_rows_before_filter": 13,
+      "visible_rows_after_filter": 13,
+      "page_errors": []
+    },
+    {
+      "tree": "after",
+      "script_http_status": 200,
+      "visible_rows_before_filter": 13,
+      "visible_rows_after_filter": 1,
+      "page_errors": []
+    }
+  ]
+}

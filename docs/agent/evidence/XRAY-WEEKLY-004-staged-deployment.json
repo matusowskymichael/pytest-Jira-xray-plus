@@ -1,0 +1,23 @@
+{
+  "before": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "coverage/html/z_c3da03e42cf3f802_xray_publisher_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_xray_plugin_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_plugin_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_hooks_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_helper_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_file_publisher_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_exceptions_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_evidence_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_constant_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_comment_limits_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_case_results_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802_case_report_py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/z_c3da03e42cf3f802___init___py.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/index.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/function_index.html: missing coverage_html_cb_54cfdca1.js\ncoverage/html/class_index.html: missing coverage_html_cb_54cfdca1.js\n",
+    "staged_tree": "b2362e6fe81136a9a82ebd981e4dfab4c1563d23"
+  },
+  "after": {
+    "exit_code": 0,
+    "stdout": "PASS: 41 HTML pages, 2930 internal links/fragments/assets, search index\n",
+    "stderr": "",
+    "staged_tree": "23cce1d6d460a7a12b3b0b6c442d47edb83110ba"
+  },
+  "asset": "coverage/html/coverage_html_cb_54cfdca1.js",
+  "asset_sha256": "420dceb04f21b928d771cf8aa731001cf8cfaea889cefc92ceab1c427f30f2cf",
+  "preserved_files": 31,
+  "method": "Export staged index using documented checkout-index recipe; unmodified checker; only verified ignored asset explicitly added",
+  "final_staged_tree": "726f2ddc05e3abb25cd0c6958f0aa7528333faa4",
+  "final_staged_check": {
+    "exit_code": 0,
+    "stdout": "PASS: 41 HTML pages, 2930 internal links/fragments/assets, search index\n"
+  }
+}
