@@ -6,7 +6,7 @@
       "title": "Correct misleading offline export failure messages",
       "source": "docs/agent/task-weekly-2026-11-20.md",
       "source_sha256": "23b3a4b7577523801f139a1c8c38db5675834b1929b32fe6a38c1640a8daebee",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/44",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
