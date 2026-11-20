@@ -1,4 +1,12 @@
-# Current authorization — November 13 recovery documentation
+# Current authorization — November 20 offline diagnostic candidate
+
+Prepare the [offline failure-message fix](task-weekly-2026-11-20.md), its tests,
+documentation and initial draft PR. Parent coordinates independent review and
+approval. **Do not merge, deploy, tag or release.** Preserve authentication,
+permissions and release infrastructure; leave PR42 untouched. The source is an
+unreleased candidate, not a claim that published 0.1.11 contains this fix.
+
+# Historical authorization — completed November 13 recovery documentation
 
 Complete the [scoped recovery correction](task-weekly-2026-11-13.md), then stop.
 Tested independently reviewed commits, draft PR, accepted merge and existing Pages

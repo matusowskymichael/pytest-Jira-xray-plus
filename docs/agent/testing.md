@@ -159,3 +159,13 @@ and xdist previews with HTTP blocked. The only checker change validates these ne
 usage commands. Official [pytest hook ordering documentation](https://docs.pytest.org/en/stable/how-to/writing_hook_functions.html#hook-function-ordering-call-example)
 describes trylast collection hooks. This guarantees ordering after standard
 pytest filters, not every third-party late hook or wrapper.
+
+## November 20 offline failure diagnostic candidate
+
+`tests/test_offline_failure_summary.py` runs real subprocesses with HTTP blocked.
+Directory and regular-file parent failures cover passing/failing tests in serial
+and xdist, unchanged exit codes, retained file errors, preserved existing content
+and temporary-file cleanup. Success controls retain the generated-report message.
+The eight failure cases fail against unchanged main; both success controls pass.
+Existing `test_xray_plugin.py` online failure and `test_report_cleanup.py` cases
+remain required controls. This candidate is unreleased; no workplace validation.

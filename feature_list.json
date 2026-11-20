@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-WEEKLY-004",
-      "title": "Verify complete documentation deployments during release recovery",
-      "source": "docs/agent/task-weekly-2026-11-13.md",
-      "source_sha256": "61048b74e60180f69c7a79d8ba6ddfaf54a9c1a139a02aa419b8d7d354bedd73",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/43",
+      "id": "XRAY-WEEKLY-005",
+      "title": "Correct misleading offline export failure messages",
+      "source": "docs/agent/task-weekly-2026-11-20.md",
+      "source_sha256": "23b3a4b7577523801f139a1c8c38db5675834b1929b32fe6a38c1640a8daebee",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Reconcile actual main, PyPI 0.1.11 and final successful CI; preserve prior accepted ledger and historical evidence with exact provenance",
-        "Remove stale active-release claims and document ledger-driven recovery; reproduce missing deployed coverage JS, restore verified exact asset and validate the staged deployment tree",
-        "Update changelog and full beginner guide; preserve runtime, tests, tools, dependencies, version and workflow/security controls; all five profiles and installed tutorial pass",
-        "Obtain independent review and green exact-head CI before merge; verify main and existing Pages, leave PR42 untouched, make no package release and stop"
+        "Reproduce the misleading offline failure using a clean published 0.1.11 wheel with HTTP blocked; regression tests fail before the fix",
+        "Label FilePublisher failures as file export errors while preserving underlying diagnostics, exit codes, cleanup, success messages and online behavior in serial and xdist",
+        "Update changelog, relevant documentation and full beginner guide; preserve unrelated runtime, dependencies, authentication, privacy and workflow controls",
+        "All five current-source profiles, installed artifact guide and exact-head CI pass; hand off exact candidate for independent review without merging, deployment or release"
       ],
       "checks": [
         "harness",
@@ -59,7 +59,6 @@
         "src/pytest_xray/helper.py": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1",
         "src/pytest_xray/hooks.py": "8a79a7c372a58b3ad2356eb33a4d538c370ed3089985f71db93ec2879748aefd",
         "src/pytest_xray/plugin.py": "b63301f07aa731dc911808f0edee8c5f0de9e9e7c127b5c49f25f6b7ed22022b",
-        "src/pytest_xray/xray_plugin.py": "4ffdd6e578bc5bcb44918aab63ff78734bb32acffe9389fb990ef53f34ff85ea",
         "src/pytest_xray/xray_publisher.py": "fc91c976d4764672d06e168acd124a737dd3c6f352574ec6dc260fb72b8b5592",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "tests/agent/test_harness.py": "37e8d0443ad4d064c7c9bc8ac0a94d224e46b5d59cd568ec364800e294a2eb1f",
@@ -111,17 +110,11 @@
         "tools/tag_release.py": "1623ba98082d9228aa28525039f4a7ee8728cedc306f33022bab32ec1a750b63",
         "tools/validate_offline.py": "0e58b3fd11dae2f9d7ae9ad32de7815084112e9862048ea3441c7f359f5068b0"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-WEEKLY-004-tests-af5c9f9cf8a3.json",
-        "docs/agent/evidence/XRAY-WEEKLY-004-package-e8b3560a8965.json",
-        "docs/agent/evidence/XRAY-WEEKLY-004-docs-fd9872bd4017.json",
-        "docs/agent/evidence/XRAY-WEEKLY-004-offline-b953b233e038.json",
-        "docs/agent/evidence/XRAY-WEEKLY-004-harness-12e0705040cd.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-WEEKLY-004-independent-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "Stop after this iteration. Reconcile actual remote state only when a new authorized task begins."
+      "next_action": "Freeze draft candidate, run all five profiles and exact-head CI, hand off for independent review; do not merge or release"
     }
   ]
 }

@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Identify offline Xray export failures as file-export errors rather than Jira
+  publishing failures. Preserve the underlying diagnostic, exit status, atomic
+  cleanup and online publishing messages. This fix is not yet published.
 - Reconcile completed-release recovery instructions with verified 0.1.11 state.
   Use the task ledger for current scope and distinguish historical handoffs from
   exact remote-head CI, preventing accidental resumption of completed publishing.

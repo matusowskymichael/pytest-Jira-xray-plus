@@ -1,0 +1,394 @@
+FFFFFFFF..                                                               [100%]
+=================================== FAILURES ===================================
+_______ test_offline_write_failure_summary[directory-failed-test-serial] _______
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0')>
+workers = False, test_passes = False, destination_kind = 'directory'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       AssertionError: assert 'Xray file export' in '============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...summary.py::test_case - assert False\n============================== 1 failed in 0.02s ==============================='
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0/output
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+collected 1 item
+
+test_offline_write_failure_summary.py F                                  [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+
+    @pytest.mark.xray('SYN-1')
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_offline_write_failure_summary.py:3: AssertionError
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 21] Is a directory: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0/tmpvieerjap' -> '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary0/output'
+=========================== short test summary info ============================
+FAILED test_offline_write_failure_summary.py::test_case - assert False
+============================== 1 failed in 0.02s ===============================
+_______ test_offline_write_failure_summary[directory-failed-test-xdist] ________
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1')>
+workers = True, test_passes = False, destination_kind = 'directory'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       AssertionError: assert 'Xray file export' in '============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...summary.py::test_case - assert False\n============================== 1 failed in 0.45s ==============================='
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1/output -n 2
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+created: 2/2 workers
+2 workers [1 item]
+
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+[gw0] linux -- Python 3.12.14 /tmp/xray1120-dev/bin/python
+
+    @pytest.mark.xray('SYN-1')
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_offline_write_failure_summary.py:3: AssertionError
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 21] Is a directory: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1/tmpovcnvw93' -> '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary1/output'
+=========================== short test summary info ============================
+FAILED test_offline_write_failure_summary.py::test_case - assert False
+============================== 1 failed in 0.45s ===============================
+_______ test_offline_write_failure_summary[directory-passed-test-serial] _______
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2')>
+workers = False, test_passes = True, destination_kind = 'directory'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       assert 'Xray file export' in "============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...fline_write_failure_summary2/output'\n============================== 1 passed in 0.01s ==============================="
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2/output
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+collected 1 item
+
+test_offline_write_failure_summary.py .                                  [100%]
+
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 21] Is a directory: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2/tmpm56hdrq8' -> '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary2/output'
+============================== 1 passed in 0.01s ===============================
+_______ test_offline_write_failure_summary[directory-passed-test-xdist] ________
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3')>
+workers = True, test_passes = True, destination_kind = 'directory'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       assert 'Xray file export' in "============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...fline_write_failure_summary3/output'\n============================== 1 passed in 0.35s ==============================="
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3/output -n 2
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 21] Is a directory: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3/tmpugl3ojqo' -> '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary3/output'
+============================== 1 passed in 0.35s ===============================
+______ test_offline_write_failure_summary[file-parent-failed-test-serial] ______
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary4')>
+workers = False, test_passes = False, destination_kind = 'file-parent'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       AssertionError: assert 'Xray file export' in '============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...summary.py::test_case - assert False\n============================== 1 failed in 0.02s ==============================='
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary4/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary4/output/existing/report.json
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary4
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary4
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+collected 1 item
+
+test_offline_write_failure_summary.py F                                  [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+
+    @pytest.mark.xray('SYN-1')
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_offline_write_failure_summary.py:3: AssertionError
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 17] File exists: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary4/output/existing'
+=========================== short test summary info ============================
+FAILED test_offline_write_failure_summary.py::test_case - assert False
+============================== 1 failed in 0.02s ===============================
+______ test_offline_write_failure_summary[file-parent-failed-test-xdist] _______
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary5')>
+workers = True, test_passes = False, destination_kind = 'file-parent'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       AssertionError: assert 'Xray file export' in '============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...summary.py::test_case - assert False\n============================== 1 failed in 0.34s ==============================='
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary5/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary5/output/existing/report.json -n 2
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary5
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary5
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+created: 2/2 workers
+2 workers [1 item]
+
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_case ___________________________________
+[gw0] linux -- Python 3.12.14 /tmp/xray1120-dev/bin/python
+
+    @pytest.mark.xray('SYN-1')
+>   def test_case(): assert False
+                     ^^^^^^^^^^^^
+E   assert False
+
+test_offline_write_failure_summary.py:3: AssertionError
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 17] File exists: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary5/output/existing'
+=========================== short test summary info ============================
+FAILED test_offline_write_failure_summary.py::test_case - assert False
+============================== 1 failed in 0.34s ===============================
+______ test_offline_write_failure_summary[file-parent-passed-test-serial] ______
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary6')>
+workers = False, test_passes = True, destination_kind = 'file-parent'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       assert 'Xray file export' in "============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...te_failure_summary6/output/existing'\n============================== 1 passed in 0.01s ==============================="
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary6/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary6/output/existing/report.json
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary6
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary6
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+collected 1 item
+
+test_offline_write_failure_summary.py .                                  [100%]
+
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 17] File exists: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary6/output/existing'
+============================== 1 passed in 0.01s ===============================
+______ test_offline_write_failure_summary[file-parent-passed-test-xdist] _______
+
+offline_case = <Pytester PosixPath('/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary7')>
+workers = True, test_passes = True, destination_kind = 'file-parent'
+
+    @pytest.mark.parametrize('workers', [False, True], ids=['serial', 'xdist'])
+    @pytest.mark.parametrize('test_passes', [False, True], ids=['failed-test', 'passed-test'])
+    @pytest.mark.parametrize('destination_kind', ['directory', 'file-parent'])
+    def test_offline_write_failure_summary(offline_case, workers, test_passes, destination_kind):
+        runner = offline_case
+        runner.makepyfile(f"import pytest\n@pytest.mark.xray('SYN-1')\ndef test_case(): assert {test_passes}")
+        output = runner.path / 'output'
+        output.mkdir()
+        sentinel = output / 'existing'
+        sentinel.write_text('preserve me')
+        destination = output if destination_kind == 'directory' else sentinel / 'report.json'
+        args = ['--jira-xray', f'--xraypath={destination}']
+        if workers:
+            args += ['-n', '2']
+        result = runner.runpytest_subprocess(*args)
+        result.assert_outcomes(passed=int(test_passes), failed=int(not test_passes))
+        assert result.ret == (pytest.ExitCode.INTERNAL_ERROR if test_passes else pytest.ExitCode.TESTS_FAILED)
+        text = str(result.stdout) + str(result.stderr)
+>       assert 'Xray file export' in text
+E       assert 'Xray file export' in "============================= test session starts ==============================\nplatform linux -- Python 3.12.14, p...te_failure_summary7/output/existing'\n============================== 1 passed in 0.39s ==============================="
+
+/workspace/pytest-xray-weekly-1120/tests/test_offline_failure_summary.py:38: AssertionError
+----------------------------- Captured stdout call -----------------------------
+running: /tmp/xray1120-dev/bin/python -mpytest --basetemp=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary7/runpytest-0 --jira-xray --xraypath=/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary7/output/existing/report.json -n 2
+     in: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary7
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+rootdir: /tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary7
+plugins: pytest_httpserver-1.2.1, jira-xray-plus-0.1.11, rerunfailures-16.7, xdist-3.8.0, platformdirs-4.14.8
+created: 2/2 workers
+2 workers [1 item]
+
+.                                                                        [100%]
+---------------------------------- Jira XRAY -----------------------------------
+Could not publish results to Jira XRAY!
+Cannot export Xray results to file: [Errno 17] File exists: '/tmp/pytest-of-agent/pytest-0/test_offline_write_failure_summary7/output/existing'
+============================== 1 passed in 0.39s ===============================
+=========================== short test summary info ============================
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[directory-failed-test-serial]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[directory-failed-test-xdist]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[directory-passed-test-serial]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[directory-passed-test-xdist]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[file-parent-failed-test-serial]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[file-parent-failed-test-xdist]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[file-parent-passed-test-serial]
+FAILED tests/test_offline_failure_summary.py::test_offline_write_failure_summary[file-parent-passed-test-xdist]
+8 failed, 2 passed in 4.99s

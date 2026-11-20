@@ -1,3 +1,20 @@
+# November 20 candidate — offline failure diagnostic reproduced
+
+Fresh isolated checkout at main `7511b29d5150b1a8e516594835bc094bda5d0f02`;
+prior executor checkout was absent. No issues or active workflows; only PR42 is
+open, at `ad3e69172b3b7816ec562e0084769de3d709ecdb`. Public PyPI is 0.1.11.
+A clean installed wheel reproduces the false Jira failure line for a directory
+passed to --xraypath, with HTTP blocked and exit 3. A normal file export exits 0.
+Eight new failure regressions fail before the fix; two success controls pass.
+
+Current task: XRAY-WEEKLY-005. Change only the offline failure heading/summary,
+with tests, changelog and usage documentation. Prepare a draft and current-source
+verification for parent-coordinated independent review. Do not merge, deploy,
+tag or release. Version and publisher remain at 0.1.11 pending coordinated release
+preparation. Earlier entries below describe completed work.
+
+---
+
 # November 13 iteration completed — documentation deployment repaired
 
 PR [#43](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/43)

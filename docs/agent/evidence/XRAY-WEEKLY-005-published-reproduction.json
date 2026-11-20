@@ -1,0 +1,18 @@
+{
+  "package_version": "0.1.11",
+  "transport": "requests Session.request blocked in synthetic conftest",
+  "runs": [
+    {
+      "destination": "destination",
+      "exit_code": 3,
+      "stdout": ".                                                                        [100%]\n---------------------------------- Jira XRAY -----------------------------------\nCould not publish results to Jira XRAY!\nCannot export Xray results to file: [Errno 21] Is a directory: '/tmp/xray1120-repro/tmpa9dhjr9k' -> '/tmp/xray1120-repro/destination'\n1 passed in 0.00s\n",
+      "stderr": ""
+    },
+    {
+      "destination": "report.json",
+      "exit_code": 0,
+      "stdout": ".                                                                        [100%]\n---- Generated XRAY execution report file: /tmp/xray1120-repro/report.json -----\n1 passed in 0.00s\n",
+      "stderr": ""
+    }
+  ]
+}
