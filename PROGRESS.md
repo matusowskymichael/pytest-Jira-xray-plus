@@ -1,3 +1,93 @@
+# November 20 — independent release acceptance recorded
+
+Parent supplied independent reviewer `independent-rental-check`'s pass/no-findings
+verdict at 2026-11-20T09:11:26Z for exact candidate
+`0c76107dd433468fadb0a1fc97c5eac5bcfbd7f0` and its recorded digest. The reviewer
+accepted all four ledger criteria and verified source preservation, five profiles,
+eight artifact logs and ten hosted checks. This is external review provenance,
+not self-review. Harness acceptance records the five current release receipts.
+
+The parent's subsequent instruction authorizes completion of PR44 and 0.1.12
+only, superseding the earlier preparation-only hold below: verify the acceptance
+head, merge only after all checks pass, verify main, use the existing trusted
+publisher, then verify public hashes, installed guide, tag/release and live docs.
+Stop on a failed access/approval/artifact gate; do not bypass it. No security or
+workflow changes and no PR42 modification. Stop after this iteration.
+
+---
+
+# November 20 — 0.1.12 candidate verified locally
+
+Fresh checks on source `89e9c1cf9702942687f79b3310fa56b1ae6dbbe9` pass all five
+profiles: 606 tests plus 19 subtests, all 17 installed-guide commands, strict docs,
+links and local browser checks. Both publisher inline verification scripts passed
+locally against an explicit 0.1.12 artifact pair in fresh directories. A wheel
+rebuilt from the sdist has identical member contents to the direct wheel; both
+installed forms pass the ten offline diagnostic regressions. The sdist-built
+wheel also passes all 17 guide commands. Hashes and commands are recorded in
+[release candidate evidence](docs/agent/evidence/XRAY-WEEKLY-005-release-checks.json).
+
+Runtime and regression-test bytes remain identical to reviewed candidate
+`47ff4d52f11a0f4e79c10a4ab16fed16bebbfdf9`. Publisher changes are seven version
+literals only. Public PyPI still reports 0.1.11; 0.1.12 is not published.
+
+Keep PR44 a draft for second independent review and final exact-head CI.
+Do not merge, tag, publish, deploy, change settings or dispatch a release.
+PR42 remains separate. Earlier results below refer to their recorded source.
+
+---
+
+# November 20 — preparing 0.1.12 for second review
+
+Parent reported independent source/check review of candidate `47ff4d5` and now
+authorizes release preparation on draft PR44 only. Runtime and regression tests
+remain byte-for-byte unchanged. Advance package metadata and existing publisher
+version literals to 0.1.12; update notes and guide without claiming publication.
+Public PyPI is still 0.1.11 and 0.1.12 was unused at preparation. Prior receipts
+remain historical; fresh current-source profiles and artifact checks follow.
+
+Keep PR44 a draft. Do not merge, tag, publish, dispatch workflows, deploy, change
+settings or touch PR42. Return the exact candidate and checks for second review.
+
+---
+
+# November 20 candidate verified locally — parent review pending
+
+Draft [PR #44](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/44)
+contains the scoped offline failure-message fix. All five current-source profiles
+pass at `081fa40860725b680ac0d6171d1a2428ea7036de`: 606 tests plus 19 subtests,
+17 installed-guide commands, strict docs/link checks and local browser checks.
+All ten new tests also pass against the built wheel in a separate directory.
+The public 0.1.11 reproduction is verified against public artifact bytes; eight
+new failure tests fail before the correction and two success controls pass.
+
+Fresh receipts and their log hashes are recorded in
+[the candidate evidence](docs/agent/evidence/XRAY-WEEKLY-005-candidate-checks.json).
+The source digest is `9af64d0a3f06262d8aec87fd9057252048e4aed30937c7b70785737306d1598c`.
+Hosted exact-head CI and parent-coordinated independent review are completion
+gates, not claimed by these local results. Keep the PR a draft. Do not merge,
+deploy, approve, tag or release. Version/release preparation is deferred; the
+local candidate wheel is not the published 0.1.11 wheel. PR42 remains separate.
+
+---
+
+# November 20 candidate — offline failure diagnostic reproduced
+
+Fresh isolated checkout at main `7511b29d5150b1a8e516594835bc094bda5d0f02`;
+prior executor checkout was absent. No issues or active workflows; only PR42 is
+open, at `ad3e69172b3b7816ec562e0084769de3d709ecdb`. Public PyPI is 0.1.11.
+A clean installed wheel reproduces the false Jira failure line for a directory
+passed to --xraypath, with HTTP blocked and exit 3. A normal file export exits 0.
+Eight new failure regressions fail before the fix; two success controls pass.
+
+Current task: XRAY-WEEKLY-005. Change only the offline failure heading/summary,
+with tests, changelog and usage documentation. Prepare a draft and current-source
+verification for parent-coordinated independent review. Do not merge, deploy,
+tag or release. Version and publisher remain at 0.1.11 pending coordinated release
+preparation. Earlier entries below describe completed work.
+
+---
+
 # November 13 iteration completed — documentation deployment repaired
 
 PR [#43](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/43)

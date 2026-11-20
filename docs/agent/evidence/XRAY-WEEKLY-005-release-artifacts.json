@@ -1,0 +1,114 @@
+{
+  "source": "89e9c1cf9702942687f79b3310fa56b1ae6dbbe9",
+  "version": "0.1.12",
+  "published": false,
+  "artifacts": {
+    "pytest_jira_xray_plus-0.1.12-py3-none-any.whl": "11615d44fb69e6f63574ff34d1a32255ed317ed53d260bdc0e23bbccebab7c95",
+    "pytest_jira_xray_plus-0.1.12.tar.gz": "502e2a61c5f79b61fa96558b497614cf7d361530db1e8153d941f4cb2a905c3c"
+  },
+  "sdist_rebuilt_wheel_sha256": "f7e27ebe66d41a35969a11955247eec9130ca9340d3d761f4cc8b29db463b775",
+  "wheel_member_bytes_identical": true,
+  "sdist_source_matches_checkout": true,
+  "publisher_verification": "Both exact inline Python checks passed locally; no workflow dispatched",
+  "results": [
+    {
+      "label": "publisher-build",
+      "argv": [
+        "/tmp/xray1120-dev/bin/python",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/build-verify.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-publisher-build.log",
+      "log_sha256": "39bb4326522aecf86ac9f7b4a95e17354a98b21bb02a57048a8e9fbcbb2e0bd6"
+    },
+    {
+      "label": "publisher-publish",
+      "argv": [
+        "/tmp/xray1120-dev/bin/python",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/publish-verify.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-publisher-publish.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "sdist-wheel-build",
+      "argv": [
+        "/tmp/xray1120-dev/bin/python",
+        "-m",
+        "build",
+        "--wheel",
+        "--no-isolation",
+        "--outdir",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/sdist-wheel",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/source/pytest_jira_xray_plus-0.1.12"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-sdist-wheel-build.log",
+      "log_sha256": "c64a77134be726eeb3265d8fd203f6fdb01f2bda701b56d759043c2a5cc10d48"
+    },
+    {
+      "label": "sdist-venv",
+      "argv": [
+        "/tmp/xray1120-dev/bin/python",
+        "-m",
+        "venv",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/installed"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-sdist-venv.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "sdist-install",
+      "argv": [
+        "/tmp/xray1120-release-artifacts-3p0wwuld/installed/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/sdist-wheel/pytest_jira_xray_plus-0.1.12-py3-none-any.whl",
+        "pytest-xdist==3.8.0",
+        "pytest-rerunfailures==16.7"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-sdist-install.log",
+      "log_sha256": "3a4786866fd96f95f1e4bd21d57e9e55625ca460c88e9b538f6095ebce6ee463"
+    },
+    {
+      "label": "sdist-guide",
+      "argv": [
+        "/tmp/xray1120-dev/bin/python",
+        "/workspace/pytest-xray-weekly-1120/tools/check_installed_usage.py",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/installed/bin/python",
+        "/tmp/xray1120-release-artifacts-3p0wwuld/sdist-wheel/pytest_jira_xray_plus-0.1.12-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-sdist-guide.log",
+      "log_sha256": "0643e661f500a42410b10cd941516e30f20f352ec2a6fd2cf40d52634823f317"
+    },
+    {
+      "label": "wheel-regressions",
+      "argv": [
+        "/workspace/pytest-xray-weekly-1120/.harness/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-wheel-regressions.log",
+      "log_sha256": "9d39d942187dd41c08ba5e388d8f30fb454860f269d4347fa5ecf43a5e0c5a6a"
+    },
+    {
+      "label": "sdist-regressions",
+      "argv": [
+        "/tmp/xray1120-release-artifacts-3p0wwuld/installed/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-release-sdist-regressions.log",
+      "log_sha256": "0cf514989245e84aeae9a44fb51cdc54372d7202cc2be1b864b18d7182d2edfc"
+    }
+  ]
+}

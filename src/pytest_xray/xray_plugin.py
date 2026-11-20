@@ -298,8 +298,12 @@ class XrayPlugin:
             )
         if self.exception:
             terminalreporter.ensure_newline()
-            terminalreporter.section('Jira XRAY', sep='-', red=True, bold=True)
-            terminalreporter.write_line('Could not publish results to Jira XRAY!')
+            if isinstance(self.publisher, FilePublisher):
+                terminalreporter.section('Xray file export', sep='-', red=True, bold=True)
+                terminalreporter.write_line('Could not export Xray results to file!')
+            else:
+                terminalreporter.section('Jira XRAY', sep='-', red=True, bold=True)
+                terminalreporter.write_line('Could not publish results to Jira XRAY!')
             if self.exception.message:  # type: ignore[attr-defined]
                 terminalreporter.write_line(self.exception.message)  # type: ignore[attr-defined]
         else:

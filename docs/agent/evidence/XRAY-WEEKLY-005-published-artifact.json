@@ -1,0 +1,7 @@
+{
+  "filename": "pytest_jira_xray_plus-0.1.11-py3-none-any.whl",
+  "url": "https://files.pythonhosted.org/packages/68/a1/1aff3a3080e760d503cac4ad88bf9a1915fed13af13e4f3fbe6c3eb3bf81/pytest_jira_xray_plus-0.1.11-py3-none-any.whl",
+  "sha256": "6c86556228ebd68ab441672fa2b109271fda29e7fa3ac848ae29ff13589f5fa6",
+  "installed_plugin_matches_wheel": true,
+  "installed_plugin_path": "/tmp/xray1120-published/lib/python3.12/site-packages/pytest_xray/xray_plugin.py"
+}

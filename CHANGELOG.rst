@@ -7,6 +7,12 @@ Unreleased
   its generated ignore rule; check staged deployment links before publishing.
   Repository documentation only; no package release.
 
+0.1.12 [2026-11-20]
+===================
+- Identify offline Xray export failures as file-export errors rather than Jira
+  publishing failures. Preserve the underlying diagnostic, exit status, atomic
+  cleanup and online publishing messages. Release candidate; publication pending.
+
 0.1.11 [2026-11-06]
 ===================
 - Validate Xray markers after standard pytest -k/-m selection. Selecting one

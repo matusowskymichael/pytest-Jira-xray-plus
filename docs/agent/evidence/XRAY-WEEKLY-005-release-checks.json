@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-WEEKLY-005",
+  "version": "0.1.12",
+  "source": "89e9c1cf9702942687f79b3310fa56b1ae6dbbe9",
+  "digest": "488aed98011584fee9cb24219c4499837bce50c32897a610704f1371f950fb63",
+  "profiles": [
+    "docs/agent/evidence/XRAY-WEEKLY-005-docs-013365a7e2f2.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-harness-c0b5f6ce7637.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-offline-e7e258d5b4f9.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-package-bbab4a207d97.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-tests-2562a98b7b74.json"
+  ],
+  "runtime_and_regression_tests_identical_to": "47ff4d52f11a0f4e79c10a4ab16fed16bebbfdf9",
+  "publisher_diff": "Only seven replacements of 0.1.11 with 0.1.12; all other bytes unchanged",
+  "artifact_evidence": "docs/agent/evidence/XRAY-WEEKLY-005-release-artifacts.json",
+  "artifact_staging": "Explicit 0.1.12 wheel/sdist copied to fresh verification directories; prior 0.1.11 local artifacts retained outside those directories",
+  "limits": [
+    "Second independent review and exact final-head CI remain required.",
+    "No merge, tag, publication, deployment, workflow dispatch, settings change or PR42 modification.",
+    "Public PyPI remains 0.1.11; this is an unpublished 0.1.12 candidate."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-WEEKLY-005",
+  "profile": "tests",
+  "digest": "9af64d0a3f06262d8aec87fd9057252048e4aed30937c7b70785737306d1598c",
+  "revision": "081fa40860725b680ac0d6171d1a2428ea7036de",
+  "timestamp": "2026-11-20T08:49:14.324558+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 122.256,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-005-tests-c580f32049f5-0.log",
+      "log_sha256": "7b38b628169a853adc452df752ad758e0cb502a43a6876be26ff8554e8a47496"
+    }
+  ],
+  "status": "passed"
+}

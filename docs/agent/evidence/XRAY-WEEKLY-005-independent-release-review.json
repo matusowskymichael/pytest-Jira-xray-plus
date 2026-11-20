@@ -1,0 +1,27 @@
+{
+  "task": "XRAY-WEEKLY-005",
+  "revision": "0c76107dd433468fadb0a1fc97c5eac5bcfbd7f0",
+  "digest": "488aed98011584fee9cb24219c4499837bce50c32897a610704f1371f950fb63",
+  "timestamp": "2026-11-20T09:11:26Z",
+  "reviewer": "independent-rental-check",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reproduce the misleading offline failure using a clean published 0.1.11 wheel with HTTP blocked; regression tests fail before the fix",
+    "Label FilePublisher failures as file export errors while preserving underlying diagnostics, exit codes, cleanup, success messages and online behavior in serial and xdist",
+    "Prepare unpublished 0.1.12 metadata, release notes and full guide; preserve reviewed runtime/tests, dependencies, authentication, privacy and workflow security controls; verify wheel and sdist",
+    "All five current-source profiles, installed artifact guide and exact-head CI pass; hand off exact candidate for independent review without merging, deployment or release"
+  ],
+  "provenance": "External independent review supplied verbatim in substance by parent thread 6afc680d-9f34-8191-89b6-e288bba8f00f; this file records that review, not builder self-review.",
+  "verification": [
+    "66 source/test/tools entries byte-equal to reviewed 47ff4d52f11a0f4e79c10a4ab16fed16bebbfdf9",
+    "Version-only pyproject change and seven exact publishing workflow version replacements; no security changes",
+    "Five profile receipts, eight artifact logs and all ten exact hosted checks verified",
+    "PyPI 0.1.12 absent at review"
+  ],
+  "limits": [
+    "Acceptance-head CI, merged-main CI and existing trusted publishing/artifact/tag/docs verification remain operator gates.",
+    "No live workplace or Xray validation is claimed."
+  ]
+}

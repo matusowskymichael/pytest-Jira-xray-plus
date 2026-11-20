@@ -578,3 +578,18 @@ to 0.1.11; authentication, permissions and transport are unchanged. No workplace
 validation. Native iterations remain unsupported. PyPI 0.1.11 was unused at start;
 recheck before publishing. Fresh profiles, independent review, exact CI and public
 artifact/install/tag/Pages checks remain required; this entry is not publication.
+
+## November 20 release candidate: 0.1.12 (not published)
+
+The reviewed reporting fix distinguishes offline FilePublisher failures from Jira
+upload failures. Runtime and regression-test bytes are unchanged from draft PR44
+head `47ff4d52f11a0f4e79c10a4ab16fed16bebbfdf9`. Only package version, release
+notes, guide, publisher version literals and current scope/evidence are updated
+for this second candidate. Publisher permissions, action pins, SHA gate, artifact
+checks, environment and explicit opt-in are unchanged. PyPI still reports 0.1.11;
+0.1.12 was unused during preparation and must be rechecked before any publication.
+
+Rebuild wheel and sdist, verify their name/version/content and installed guide,
+run fresh profiles and exact-head CI, then return for a second independent review.
+Keep PR44 a draft. No merge, tag, workflow dispatch, deployment or publication is
+authorized in this preparation step. No workplace/live Xray validation is claimed.
