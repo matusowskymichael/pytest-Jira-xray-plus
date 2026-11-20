@@ -1,3 +1,21 @@
+# November 20 — independent release acceptance recorded
+
+Parent supplied independent reviewer `independent-rental-check`'s pass/no-findings
+verdict at 2026-11-20T09:11:26Z for exact candidate
+`0c76107dd433468fadb0a1fc97c5eac5bcfbd7f0` and its recorded digest. The reviewer
+accepted all four ledger criteria and verified source preservation, five profiles,
+eight artifact logs and ten hosted checks. This is external review provenance,
+not self-review. Harness acceptance records the five current release receipts.
+
+The parent's subsequent instruction authorizes completion of PR44 and 0.1.12
+only, superseding the earlier preparation-only hold below: verify the acceptance
+head, merge only after all checks pass, verify main, use the existing trusted
+publisher, then verify public hashes, installed guide, tag/release and live docs.
+Stop on a failed access/approval/artifact gate; do not bypass it. No security or
+workflow changes and no PR42 modification. Stop after this iteration.
+
+---
+
 # November 20 — 0.1.12 candidate verified locally
 
 Fresh checks on source `89e9c1cf9702942687f79b3310fa56b1ae6dbbe9` pass all five
