@@ -1,3 +1,24 @@
+# November 20 — 0.1.12 candidate verified locally
+
+Fresh checks on source `89e9c1cf9702942687f79b3310fa56b1ae6dbbe9` pass all five
+profiles: 606 tests plus 19 subtests, all 17 installed-guide commands, strict docs,
+links and local browser checks. Both publisher inline verification scripts passed
+locally against an explicit 0.1.12 artifact pair in fresh directories. A wheel
+rebuilt from the sdist has identical member contents to the direct wheel; both
+installed forms pass the ten offline diagnostic regressions. The sdist-built
+wheel also passes all 17 guide commands. Hashes and commands are recorded in
+[release candidate evidence](docs/agent/evidence/XRAY-WEEKLY-005-release-checks.json).
+
+Runtime and regression-test bytes remain identical to reviewed candidate
+`47ff4d52f11a0f4e79c10a4ab16fed16bebbfdf9`. Publisher changes are seven version
+literals only. Public PyPI still reports 0.1.11; 0.1.12 is not published.
+
+Keep PR44 a draft for second independent review and final exact-head CI.
+Do not merge, tag, publish, deploy, change settings or dispatch a release.
+PR42 remains separate. Earlier results below refer to their recorded source.
+
+---
+
 # November 20 — preparing 0.1.12 for second review
 
 Parent reported independent source/check review of candidate `47ff4d5` and now
