@@ -1,8 +1,10 @@
 # Current authorization — November 20 offline diagnostic candidate
 
 Prepare the [offline failure-message fix](task-weekly-2026-11-20.md), its tests,
-documentation and initial draft PR. Parent coordinates independent review and
-approval. **Do not merge, deploy, tag or release.** Preserve authentication,
+documentation and draft PR44. The parent now authorizes preparation of version
+0.1.12 on that same PR, preserving the reviewed runtime/tests and changing only
+required version literals in the existing publisher. Parent coordinates a second
+independent review and approval. **Do not merge, deploy, tag or release.** Preserve authentication,
 permissions and release infrastructure; leave PR42 untouched. The source is an
 unreleased candidate, not a claim that published 0.1.11 contains this fix.
 

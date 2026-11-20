@@ -11,14 +11,18 @@ successful export and existing online failure controls with synthetic inputs.
 
 Update changelog, relevant documentation and the full beginner guide. Preserve
 runtime dependencies, authentication, privacy, Generic Tests on on-premises Xray
-8.5.3-j10, workflows and release infrastructure. No workplace access/data,
+8.5.3-j10, workflow security and release infrastructure. No workplace access/data,
 credentials, new permissions, purchases or security-warning bypass. PR42 is
 separate and remains untouched. Do not retry previously denied historical artifacts.
 
 Archive the completed ledger with provenance. Prepare a frozen scoped commit and
 initial draft PR so the parent can coordinate independent review while all five
 current-source harness profiles, installed-wheel guide and exact-head CI run.
-Do not merge, approve, deploy, tag or publish. Package-version/release preparation
-remains for the parent's subsequent coordinated release decision; identify this
-candidate as unreleased and preserve current 0.1.11 metadata/publisher pins here.
+Prepare version 0.1.12 on this same draft PR after the parent's initial review of
+47ff4d52f11a0f4e79c10a4ab16fed16bebbfdf9. Preserve that runtime and regression-test
+diff exactly. Update package metadata, release notes, guide and only required
+publisher version literals; preserve all workflow security controls. Verify wheel,
+sdist, installed guide, current public version and fresh exact-head checks for a
+second independent review. Do not merge, approve, deploy, tag, publish, change
+settings or dispatch the release. Keep the candidate explicitly unpublished.
 Return exact source, evidence, checks and remaining review/approval gates, then stop.

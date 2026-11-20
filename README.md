@@ -22,15 +22,17 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers **0.1.11 selected-test validation**, retaining Generic
+This guide covers the **0.1.12 offline diagnostic correction** and 0.1.11
+selected-test validation, retaining Generic
 as the target Xray Test type. Core examples also work with 0.1.2 and 0.1.3; the
 nested local-report example requires 0.1.9, and multi-key attachment isolation
 requires 0.1.4 or later. Installation selects the latest published
 version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
 for availability.
 Offline previews still require neither network access nor credentials.
-The unreleased offline failure-message correction described below is not included
-in published 0.1.11; installation commands still select the published package.
+Version 0.1.12 is prepared for release but is not yet published. The offline
+failure-message correction below is absent from published 0.1.11; installation
+commands still select the published package.
 
 ## Jira/Xray prerequisites
 
@@ -256,7 +258,7 @@ provide a filename, not an existing directory, and ensure its parent is writable
 An otherwise passing run exits 3; a test-failure exit remains 1. In published
 0.1.11, this can misleadingly say `Could not publish results to Jira XRAY!` even
 though `--xraypath` selected offline output and no upload was attempted. The
-unreleased fix labels it `Xray file export` and
+0.1.12 candidate labels it `Xray file export` and
 `Could not export Xray results to file!`. It retains the detailed file error,
 preserves existing content and cleans up its temporary report on write failure.
 Do not remove `--xraypath` or add credentials to fix a local filesystem problem.
@@ -855,7 +857,7 @@ invalid values in export payloads.
 | Duplicate Jira IDs | Add `--allow-duplicate-ids` only when the cases intentionally share one Test. |
 | Empty report filename (0.1.10) | Supply a nonempty filename for the named option; execution stops with exit 4. In published 0.1.9, an empty `--xraypath` can select upload. Use a literal offline filename and check shell variables before running. |
 | No `xray.json` | Use both `--jira-xray` and `--xraypath=xray.json`. Case reporting is separate. |
-| Offline file-export failure | Inspect the detailed file error; use a writable filename rather than a directory. Published 0.1.11 labels this as a Jira publishing failure; the unreleased correction identifies file export. Exit codes and cleanup are unchanged. |
+| Offline file-export failure | Inspect the detailed file error; use a writable filename rather than a directory. Published 0.1.11 labels this as a Jira publishing failure; the 0.1.12 candidate identifies file export. Exit codes and cleanup are unchanged. |
 | `Cannot resolve` a report option | Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed. |
 | Cannot write a report | Check permissions and distinct paths. With version 0.1.8, create the case-report parent folder. Version 0.1.9 creates missing folders but still requires write permission and an unobstructed path. A previous file retained after failure is not a new result. With 0.1.8, inspect the named temporary file if removal also failed; it may contain report data. Remove only that file after the run when permissions allow. |
 | Comment exceeds the limit | Add `--xray-full-report=PATH` to retain full text before truncation; inspect the resulting export. |

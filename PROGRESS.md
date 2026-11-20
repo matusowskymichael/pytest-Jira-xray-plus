@@ -1,3 +1,17 @@
+# November 20 — preparing 0.1.12 for second review
+
+Parent reported independent source/check review of candidate `47ff4d5` and now
+authorizes release preparation on draft PR44 only. Runtime and regression tests
+remain byte-for-byte unchanged. Advance package metadata and existing publisher
+version literals to 0.1.12; update notes and guide without claiming publication.
+Public PyPI is still 0.1.11 and 0.1.12 was unused at preparation. Prior receipts
+remain historical; fresh current-source profiles and artifact checks follow.
+
+Keep PR44 a draft. Do not merge, tag, publish, dispatch workflows, deploy, change
+settings or touch PR42. Return the exact candidate and checks for second review.
+
+---
+
 # November 20 candidate verified locally — parent review pending
 
 Draft [PR #44](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/44)
