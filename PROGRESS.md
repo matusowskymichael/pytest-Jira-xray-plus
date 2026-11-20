@@ -1,3 +1,23 @@
+# November 20 candidate verified locally — parent review pending
+
+Draft [PR #44](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/44)
+contains the scoped offline failure-message fix. All five current-source profiles
+pass at `081fa40860725b680ac0d6171d1a2428ea7036de`: 606 tests plus 19 subtests,
+17 installed-guide commands, strict docs/link checks and local browser checks.
+All ten new tests also pass against the built wheel in a separate directory.
+The public 0.1.11 reproduction is verified against public artifact bytes; eight
+new failure tests fail before the correction and two success controls pass.
+
+Fresh receipts and their log hashes are recorded in
+[the candidate evidence](docs/agent/evidence/XRAY-WEEKLY-005-candidate-checks.json).
+The source digest is `9af64d0a3f06262d8aec87fd9057252048e4aed30937c7b70785737306d1598c`.
+Hosted exact-head CI and parent-coordinated independent review are completion
+gates, not claimed by these local results. Keep the PR a draft. Do not merge,
+deploy, approve, tag or release. Version/release preparation is deferred; the
+local candidate wheel is not the published 0.1.11 wheel. PR42 remains separate.
+
+---
+
 # November 20 candidate — offline failure diagnostic reproduced
 
 Fresh isolated checkout at main `7511b29d5150b1a8e516594835bc094bda5d0f02`;

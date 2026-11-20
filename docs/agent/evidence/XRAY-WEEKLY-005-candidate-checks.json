@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-WEEKLY-005",
+  "source_commit": "081fa40860725b680ac0d6171d1a2428ea7036de",
+  "digest": "9af64d0a3f06262d8aec87fd9057252048e4aed30937c7b70785737306d1598c",
+  "profiles": [
+    "docs/agent/evidence/XRAY-WEEKLY-005-docs-6538cfc74013.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-harness-9d97f37fbbaf.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-offline-b6b2930de785.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-package-a73f68bd04d0.json",
+    "docs/agent/evidence/XRAY-WEEKLY-005-tests-c580f32049f5.json"
+  ],
+  "tests": 606,
+  "subtests": 19,
+  "installed_guide_commands": 17,
+  "installed_regression_tests": 10,
+  "before_fix_failures": 8,
+  "before_fix_success_controls": 2,
+  "limits": [
+    "Independent review is coordinated by parent and remains pending.",
+    "Exact final-head hosted CI must be checked before acceptance.",
+    "Candidate wheel retains 0.1.11 metadata and is not the public artifact; version/release coordination is deferred.",
+    "No merge, deployment, tag, publication, approval action or workplace access."
+  ]
+}

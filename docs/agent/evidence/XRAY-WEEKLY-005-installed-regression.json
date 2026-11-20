@@ -1,0 +1,16 @@
+{
+  "tested_source": "081fa40860725b680ac0d6171d1a2428ea7036de",
+  "artifact_kind": "unreleased candidate wheel, not public 0.1.11",
+  "wheel_sha256": "99d9115846db0cb63f280ceeb4f7db7e831d12a6340bd5f82d0c8de62ee74437",
+  "command": [
+    "/workspace/pytest-xray-weekly-1120/.harness/installed/bin/python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "cwd": "/tmp/xray1120-installed-regression",
+  "exit_code": 0,
+  "log": "docs/agent/evidence/XRAY-WEEKLY-005-installed-regression.log",
+  "log_sha256": "b875a9e902a52e7583a9c538d51d46ee5805759f695d3b412d75dfa415616a05",
+  "installed_plugin": "/workspace/pytest-xray-weekly-1120/.harness/installed/lib/python3.12/site-packages/pytest_xray/xray_plugin.py"
+}
