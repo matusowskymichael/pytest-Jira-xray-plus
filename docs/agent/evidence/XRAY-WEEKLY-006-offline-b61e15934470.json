@@ -1,0 +1,34 @@
+{
+  "task": "XRAY-WEEKLY-006",
+  "profile": "offline",
+  "digest": "c9615546204625fab62e1542816ab98ca9589ed12721ac7e01a4b06a8e83700e",
+  "revision": "0f724636d7cee4d3b722a3f6890d53c84705d7b4",
+  "timestamp": "2026-11-27T07:45:03.717349+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/reproduce.py",
+      "src",
+      "--details"
+    ],
+    [
+      "{python}",
+      "tools/validate_offline.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.434,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-006-offline-b61e15934470-0.log",
+      "log_sha256": "f31b99f58bffee3d375edabbca23b6620b1758efa0808411318b73c3baa8642f"
+    },
+    {
+      "exit_code": 0,
+      "duration_seconds": 0.619,
+      "log": "docs/agent/evidence/XRAY-WEEKLY-006-offline-b61e15934470-1.log",
+      "log_sha256": "f3a6c7bb9eff35d7c632f4845321534f28230400005fa8ebf4ef100588df7a24"
+    }
+  ],
+  "status": "passed"
+}

@@ -1,3 +1,20 @@
+# November 27 candidate verified — independent acceptance pending
+
+All five profiles pass at `0f724636d7cee4d3b722a3f6890d53c84705d7b4`: 606 tests
+plus 19 subtests, 17 installed-guide commands and docs/browser checks. Public
+0.1.12 also passes the 17 current README commands with HTTP blocked. The actual
+generated installation-to-preview-to-reference navigation shows the corrected
+wording; an installed public-package directory-destination probe produces the
+file-export heading, detailed filesystem error and exit 3 after two passing cases.
+
+The staged Pages export passes 41 pages and 2,933 references; existing coverage
+files retain their hashes. This is fresh documentation/behavior evidence, not the
+missing publisher-artifact comparison. Initial independent source review found no
+issues. Next: final exact-head review and CI, accepted merge/main checks, existing
+Pages deployment and public verification, then stop. No release or tag changes.
+
+---
+
 # November 27 — published-status documentation correction
 
 Current main and v0.1.12 tag: `7a7445518ea3aea867124e2f17a7cb2d92f95469`.

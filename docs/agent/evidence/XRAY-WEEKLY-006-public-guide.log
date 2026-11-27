@@ -1,0 +1,1 @@
+PASS: all 17 README commands, selected serial/parallel cases, nested output folders, JSON excerpt, intentional failure, restored passing cases, values/redaction, Xray comments/archive, parallel/retries and hooks; HTTP blocked

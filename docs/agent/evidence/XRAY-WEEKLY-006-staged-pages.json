@@ -1,0 +1,48 @@
+{
+  "baseline": "a4a62dee47ce1c0a84abbb9df163e96168f90d21",
+  "staged_tree": "66fb379b6edb75b9ad36bf0b6ae40ac91ca89915",
+  "preserved_coverage_files": {
+    "coverage/coverage.json": "1630a019a25b229a1a63d4aefad699fc3c9e50087dfd1ba628ee80e58455a8c3",
+    "coverage/coverage.svg": "7e66a1b9169734375c8b94a1fe6d736156b7f1894097e880e59e71194bf3fc95",
+    "coverage/html/.gitignore": "8c2eb1fa82c314dc11791274cb7aa967245d1908442d6e788bc77f6e1aa5c2b8",
+    "coverage/html/class_index.html": "4f7bb2678d06436e1d628d5e7bd95b90c126603d362f6a6bb9d3d92fcab82778",
+    "coverage/html/coverage_html_cb_15cffcd0.js": "f6b4fff272644e71ad233c460f77a8a688a1d00e4a0984c41bbb76615f67b0da",
+    "coverage/html/coverage_html_cb_54cfdca1.js": "420dceb04f21b928d771cf8aa731001cf8cfaea889cefc92ceab1c427f30f2cf",
+    "coverage/html/favicon_32_cb_c827f16f.png": "bc8100fa8743c11bd243eb3259f4b012758651612fd9bf93bf8b734d17f02561",
+    "coverage/html/function_index.html": "a3d438b4860635ef7c9962a75d76f8aecc06175089815d2697bdb3c9b6e70919",
+    "coverage/html/index.html": "4b70820814e7fd7ede271c15b9744103cc5d5292833b4951cda8149a13e427fc",
+    "coverage/html/keybd_closed_cb_900cfef5.png": "7d9bf8ae66370e4349b4f423ac5279501384e4374da1fde675e099582ed33a8a",
+    "coverage/html/status.json": "1ea358dc5564c1089115498ef49b0922e8e3065b4a64dc0fc972cb8a3a31f2a3",
+    "coverage/html/style_cb_4667309f.css": "1b54edba892874f987fd65a5f0fc992bf4f5923ef6e53c687eb0ac0923dd932a",
+    "coverage/html/z_c3da03e42cf3f802___init___py.html": "bbd1f17efcbcd9570a3c596e0ae56d9ec1cd44947626a9753a721b4a367fc8f2",
+    "coverage/html/z_c3da03e42cf3f802_case_report_py.html": "58b2e279bfb3e2460f8face8b3aac1d378bcf95af950a1dbb7801b85045244ff",
+    "coverage/html/z_c3da03e42cf3f802_case_results_py.html": "11afb0fe91d7d3fde10a7062956d880c1480244a706f36bf2d09852fe9bcc279",
+    "coverage/html/z_c3da03e42cf3f802_comment_limits_py.html": "8f109b1a79a49edb508b3b265198e4baa1a19ffdbca8884fa868a4ce62892d5c",
+    "coverage/html/z_c3da03e42cf3f802_constant_py.html": "c56197c224419fa309258c22fe4c4eb6e74a22c4e72c3a4df2086ac95f6d76cb",
+    "coverage/html/z_c3da03e42cf3f802_evidence_py.html": "a355925fe9cd8108742536e0b41bef19a935797c7f795873c403f22942e4fbda",
+    "coverage/html/z_c3da03e42cf3f802_exceptions_py.html": "139e74cf3cddb48c102284c0db341116bc09434ad9d1887bf133f59262be0fff",
+    "coverage/html/z_c3da03e42cf3f802_file_publisher_py.html": "1a1ed570e78d0db0a4df843a655829633525f611cd30bbf291b6afa5b30a4a94",
+    "coverage/html/z_c3da03e42cf3f802_helper_py.html": "f441a000c208cc63a48d2afad860091ce9fbd21638d80f4167ab9fda30856041",
+    "coverage/html/z_c3da03e42cf3f802_hooks_py.html": "c94b1ad484d0ba1dce63408e41884caef91851ea29dd6350fa0f270754e0578f",
+    "coverage/html/z_c3da03e42cf3f802_plugin_py.html": "3619e83ee98cdc6c46bf4503d7dee72c2d8d8df04ac974534b57d7d4b3e8784e",
+    "coverage/html/z_c3da03e42cf3f802_xray_plugin_py.html": "448d04183b248fb33415c7899e8f1ca884ae974fb8dc39b4df81f8b6cc10d690",
+    "coverage/html/z_c3da03e42cf3f802_xray_publisher_py.html": "95280fef3fd30788639dd0cb6e443cfa079851d8a48b0e7a53aa6bf734f0c36d",
+    "coverage/index.html": "dad3fc4924f2d03edb92c2000974ed416db7322bfa45885b571015092b41c648",
+    "coverage/summary.json": "dfbfe72b31296141a729908667530ac7b8c0823cc6f8756861d732187e52e6be"
+  },
+  "exit_code": 0,
+  "stdout": "PASS: 41 HTML pages, 2933 internal links/fragments/assets, search index\n",
+  "metadata": {
+    "verified_utc": "2026-11-27T07:47:15.295163+00:00",
+    "pypi_source": "https://pypi.org/pypi/pytest-jira-xray-plus/json",
+    "published_version": "0.1.12",
+    "tested_python": [
+      "3.12",
+      "3.13",
+      "3.14"
+    ],
+    "license": "Apache-2.0",
+    "scope": "Metadata snapshots; refresh after each release. Workflow badges separately show live main CI."
+  },
+  "limits": "New isolated worktree; prior uncommitted executor work absent, not recovered. Prior artifact comparison remains unverified."
+}
