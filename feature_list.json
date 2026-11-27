@@ -6,7 +6,7 @@
       "title": "Correct published 0.1.12 documentation",
       "source": "docs/agent/task-weekly-2026-11-27.md",
       "source_sha256": "4083853d5ce2d0ec6964fcabce29db518940218778cd8cea7f23ed75c668d4c7",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/45",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
