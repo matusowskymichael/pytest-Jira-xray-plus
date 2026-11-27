@@ -1,5 +1,8 @@
 Unreleased
 ==========
+- Correct the main-branch guide and Pages documentation to identify 0.1.12 as
+  published and distinguish its offline file-export error from 0.1.11 wording.
+  Documentation only; published artifacts and the release tag are unchanged.
 - Reconcile completed-release recovery instructions with verified 0.1.11 state.
   Use the task ledger for current scope and distinguish historical handoffs from
   exact remote-head CI, preventing accidental resumption of completed publishing.
@@ -11,7 +14,7 @@ Unreleased
 ===================
 - Identify offline Xray export failures as file-export errors rather than Jira
   publishing failures. Preserve the underlying diagnostic, exit status, atomic
-  cleanup and online publishing messages. Release candidate; publication pending.
+  cleanup and online publishing messages.
 
 0.1.11 [2026-11-06]
 ===================

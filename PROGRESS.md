@@ -1,3 +1,54 @@
+# November 27 — independent acceptance recorded
+
+Independent reviewer `native-agent:/root/review_weekly1106` passed exact candidate
+`a46fbc61283c7b301575e186e0d1ab7ea65ad47e` with no findings. The harness accepted
+all five current-source profiles. All ten hosted checks pass. The PR Python 3.12
+job initially failed an artifact-ID lookup immediately after upload; the same
+artifact subsequently appeared in metadata, and one retry passed on unchanged
+source. This is separate from the forbidden November 20 artifact comparison,
+which remains unverified and untouched.
+
+Next: fresh acceptance-head CI, exact reviewed merge and main CI, then deploy the
+reviewed Pages tree and verify public bytes. No release, tag or PyPI-file changes.
+Stop after this documentation-only iteration.
+
+---
+
+# November 27 candidate verified — independent acceptance pending
+
+All five profiles pass at `0f724636d7cee4d3b722a3f6890d53c84705d7b4`: 606 tests
+plus 19 subtests, 17 installed-guide commands and docs/browser checks. Public
+0.1.12 also passes the 17 current README commands with HTTP blocked. The actual
+generated installation-to-preview-to-reference navigation shows the corrected
+wording; an installed public-package directory-destination probe produces the
+file-export heading, detailed filesystem error and exit 3 after two passing cases.
+
+The staged Pages export passes 41 pages and 2,933 references; existing coverage
+files retain their hashes. This is fresh documentation/behavior evidence, not the
+missing publisher-artifact comparison. Initial independent source review found no
+issues. Next: final exact-head review and CI, accepted merge/main checks, existing
+Pages deployment and public verification, then stop. No release or tag changes.
+
+---
+
+# November 27 — published-status documentation correction
+
+Current main and v0.1.12 tag: `7a7445518ea3aea867124e2f17a7cb2d92f95469`.
+Public PyPI is 0.1.12; publisher 44710901682 and tag workflow 44711253218
+succeeded. The separate artifact download returned Forbidden, so that comparison
+remains unverified and must not be retried or bypassed. Existing Pages is still
+`a4a62dee47ce1c0a84abbb9df163e96168f90d21`. Prior local Pages changes are absent
+from this executor; no recovery is claimed. No open issues or active workflows;
+only PR42 is open at `65aa18fa541f84f5664733575ee003a3851cf910`, left untouched.
+
+Task XRAY-WEEKLY-006 corrects stale published-status and offline-error wording in
+main's guide and Pages, with changelog and verified current-source evidence.
+No runtime/version/workflow change or new release. Next: five profiles, installed
+usage and reader-entry checks, draft PR, independent review and exact-head CI.
+Historical entries below retain what was known when written.
+
+---
+
 # November 20 — independent release acceptance recorded
 
 Parent supplied independent reviewer `independent-rental-check`'s pass/no-findings

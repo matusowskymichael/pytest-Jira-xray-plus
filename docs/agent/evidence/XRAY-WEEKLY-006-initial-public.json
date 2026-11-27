@@ -1,0 +1,17 @@
+{
+  "pypi": {
+    "url": "https://pypi.org/pypi/pytest-jira-xray-plus/json",
+    "sha256": "7eb59ff0f84021be346490eb41bf3e55ddb758823e517eef561de8f22b45f2e9",
+    "version": "0.1.12"
+  },
+  "install": {
+    "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/",
+    "sha256": "cfe9f01fe29e214e50cdb1002bbef9db0ca847c9e14541219fc32747edbb76a8",
+    "contains_offline_error": false
+  },
+  "preview": {
+    "url": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/xray/",
+    "sha256": "3c66ff2bfc0d9d76fd4270b6e2418e9083eefce9ee7c6d67e9fbb8e1155a4ac3",
+    "contains_offline_error": false
+  }
+}

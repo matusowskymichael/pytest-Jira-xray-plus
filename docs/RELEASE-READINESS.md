@@ -593,3 +593,20 @@ Rebuild wheel and sdist, verify their name/version/content and installed guide,
 run fresh profiles and exact-head CI, then return for a second independent review.
 Keep PR44 a draft. No merge, tag, workflow dispatch, deployment or publication is
 authorized in this preparation step. No workplace/live Xray validation is claimed.
+
+## November 27 documentation correction and verification limits
+
+Version 0.1.12 is published on PyPI, and tag v0.1.12 points to
+`7a7445518ea3aea867124e2f17a7cb2d92f95469`. Publisher run 44710901682 and tag
+workflow 44711253218 succeeded. The November 20 independent artifact download
+returned Forbidden; the publisher-artifact comparison remains unverified here.
+Do not retry that download or retrieve it through another route. Publication
+status does not imply that the missing comparison was completed.
+
+This documentation-only iteration corrects untagged main and existing Pages.
+It neither republishes nor modifies the tag or PyPI files. Historical candidate
+notes above describe their original state. The previous executor's uncommitted
+Pages work is absent from the current filesystem and was not recovered; new
+documentation is built from committed source while preserving remote Pages
+coverage assets. Fresh installed-guide checks validate current documentation
+commands; they do not replace the denied publisher-artifact comparison.

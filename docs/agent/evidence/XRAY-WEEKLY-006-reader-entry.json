@@ -1,0 +1,11 @@
+{
+  "source": "0f724636d7cee4d3b722a3f6890d53c84705d7b4",
+  "entry": "tutorial/install/ -> Preview the Xray import -> Reference -> Troubleshooting and migration",
+  "browser": "Chromium via local HTTP at Pages project prefix",
+  "page_errors": [],
+  "public_package_version": "0.1.12",
+  "diagnostic_exit_code": 3,
+  "stdout": "..                                                                       [100%]\n------------------------------- Xray file export -------------------------------\nCould not export Xray results to file!\nCannot export Xray results to file: [Errno 21] Is a directory: '/tmp/tmpgunzj7au/tmpck6qo8zh' -> '/tmp/tmpgunzj7au/destination'\n2 passed in 0.01s\n",
+  "stderr": "",
+  "limits": "Installed behavior and guide checks only; not a publisher-artifact comparison. Denied artifact untouched."
+}

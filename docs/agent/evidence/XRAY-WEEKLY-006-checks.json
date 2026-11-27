@@ -1,0 +1,23 @@
+{
+  "source": "0f724636d7cee4d3b722a3f6890d53c84705d7b4",
+  "digest": "c9615546204625fab62e1542816ab98ca9589ed12721ac7e01a4b06a8e83700e",
+  "profiles": [
+    "docs/agent/evidence/XRAY-WEEKLY-006-docs-f35547e3ce8e.json",
+    "docs/agent/evidence/XRAY-WEEKLY-006-harness-907e774e82f6.json",
+    "docs/agent/evidence/XRAY-WEEKLY-006-offline-b61e15934470.json",
+    "docs/agent/evidence/XRAY-WEEKLY-006-package-bc8e6d011157.json",
+    "docs/agent/evidence/XRAY-WEEKLY-006-tests-b070f536b706.json"
+  ],
+  "tests": 606,
+  "subtests": 19,
+  "installed_guide_commands": 17,
+  "public_guide_commands": 17,
+  "public_guide_log_sha256": "3dedc884a89b0dc726802829c202864825ad881cdb6c3bed61a7b575d4970850",
+  "reader_evidence": "docs/agent/evidence/XRAY-WEEKLY-006-reader-entry.json",
+  "pages_evidence": "docs/agent/evidence/XRAY-WEEKLY-006-staged-pages.json",
+  "limits": [
+    "Independent exact-head review and hosted CI still pending.",
+    "No publisher artifact comparison attempted or claimed; prior Forbidden remains binding.",
+    "Previous executor uncommitted Pages absent, not recovered."
+  ]
+}

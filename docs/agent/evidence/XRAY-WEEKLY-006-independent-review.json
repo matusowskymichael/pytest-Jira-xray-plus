@@ -1,0 +1,31 @@
+{
+  "task": "XRAY-WEEKLY-006",
+  "digest": "c9615546204625fab62e1542816ab98ca9589ed12721ac7e01a4b06a8e83700e",
+  "revision": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e",
+  "timestamp": "2026-11-27T08:06:14.736884+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Reconcile main, PyPI, tag, Pages, open work and prior Forbidden; preserve historical evidence without retry or a claim that the missing artifact comparison passed",
+    "Correct README, full beginner guide and changelog to distinguish published 0.1.12 offline errors from historical 0.1.11 wording; preserve all runtime, tests, tools, dependencies, version and workflow controls",
+    "All five current-source profiles and installed guide pass; exercise generated reader entry points and documented offline diagnostic without workplace access",
+    "Independent exact-head review and hosted CI precede merge; verify main and staged/live Pages while preserving coverage assets, leave PR42/tag/PyPI files untouched, make no release and stop"
+  ],
+  "evidence_reviewed": [
+    "Reviewed complete documentation/scope diff against main 7a7445518ea3aea867124e2f17a7cb2d92f95469. Published-status and historical offline-message distinctions match runtime source. All 74 preservation hashes match; runtime/tests/tools/dependencies/version/workflows unchanged. Archived accepted ledger equals its recorded commit.",
+    "Independently checked public PyPI metadata reports 0.1.12 and v0.1.12 tag points to 7a7445518ea3aea867124e2f17a7cb2d92f95469; PR42 remains open at 65aa18fa541f84f5664733575ee003a3851cf910. No publisher artifact was retrieved or compared.",
+    "Independently recomputed digest, verified all five fixed profile command contracts, 13 log hashes and successful results bound to tested source 0f724636d7cee4d3b722a3f6890d53c84705d7b4. Source-to-reviewed-head diff is excluded-only progress/evidence.",
+    "Current receipts record 606 tests plus 19 subtests, harness/offline/build/Twine/docs/browser success and 17 candidate-wheel guide commands. Verified public-guide log hash for 17 public 0.1.12 commands. Read reader-entry evidence for local Chromium install-to-preview-to-reference-to-troubleshooting navigation and offline diagnostic exit 3 with two passed tests; no page errors reported.",
+    "Independently verified staged Pages tree 66fb379b6edb75b9ad36bf0b6ae40ac91ca89915, all 27 preserved coverage file hashes against remote baseline a4a62dee47ce1c0a84abbb9df163e96168f90d21, and generated documentation bytes against current build. Exported staged index and ran unmodified checker: 41 HTML pages and 2933 references passed. Metadata update reflects verified public 0.1.12.",
+    "Independently observed all ten exact-head checks successful across six workflows: 45961012438, 45961012481, 45961012538, 45961019773, 45961019809, 45961019942. Run 45961019809 attempt 2 completed successfully on unchanged a46fbc61283c7b301575e186e0d1ab7ea65ad47e."
+  ],
+  "limits": [
+    "Pre-merge independent technical acceptance only. Any acceptance/evidence-only commit must retain the digest and pass its own exact-head CI. Merged-main CI and reviewed staged Pages deployment/public verification remain mandatory operator completion gates.",
+    "Publisher run 44710901682 artifact download previously returned Forbidden. The missing publisher-artifact comparison remains unverified; no retry, alternate retrieval route or equivalent verification claim is authorized or performed. Public metadata/installed behavior checks are distinct evidence.",
+    "Current run 45961019809 attempt 1 failed the publisher-smoke artifact-ID lookup after upload; parent diagnosed transient artifact visibility, while equivalent push CI passed. Reviewer observed initial failure and later successful attempt 2, not first-attempt success. This current-run retry is separate from the historical forbidden artifact.",
+    "Reviewer independently checked source, provenance, receipt/log hashes and staged links; full suites, installed-guide execution and browser interactions were assessed from current evidence and CI, not rerun by reviewer. Previous executor uncommitted Pages work was absent; no recovery is claimed.",
+    "No runtime release, tag/PyPI mutation, GitHub approval, workplace/live Jira access, native-iteration proof or certificate/security bypass. Preserve PR42 and stop after this documentation-only iteration."
+  ]
+}
