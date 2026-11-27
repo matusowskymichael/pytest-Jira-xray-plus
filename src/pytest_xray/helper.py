@@ -76,7 +76,11 @@ class TestCase:
     ) -> None:
         self.test_key = test_key
         self.status = status
-        self.comment = comment or ''
+        if type(self) is TestCase:
+            self._comment = comment or ''
+            self._comment_parts = None
+        else:
+            self.comment = comment or ''
         self.status_str_mapper = status_str_mapper or STATUS_STR_MAPPER_JIRA
         # One report can map to multiple Test keys; each aggregate owns its lists.
         self.evidences = list(evidences or [])
@@ -113,7 +117,7 @@ class TestCase:
 
         if type(self) is TestCase and type(other) is TestCase and self is not other:
             # Keep one fragment cheap; join an aggregate only on a public read.
-            comment = other.comment
+            comment = other._comment if other._comment_parts is None else other.comment
             if comment != '':
                 if self._comment_parts is not None:
                     self._comment_parts.append(comment)

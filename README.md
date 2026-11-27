@@ -778,7 +778,9 @@ xdist arrival order can differ between runs. Reading `TestCase.comment` returns 
 complete string, and assigning it replaces the prior comment. Subclass overrides
 retain the existing merge behavior. Repeated reads between merges can still incur
 repeated materialization; the optimization benefits aggregation before reading.
-This does not stream JSON or reduce the final payload size. The isolated benchmark
+This does not stream JSON or reduce the final payload size. Small/no-capture
+workloads are checked separately with warmed interleaved controls; the isolated
+large-comment result is not a promise of improvement for every suite. The isolated benchmark
 is not an end-to-end pytest or Jira speed claim; see
 [measurement and compatibility evidence](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/COMMENT-PERFORMANCE.md).
 

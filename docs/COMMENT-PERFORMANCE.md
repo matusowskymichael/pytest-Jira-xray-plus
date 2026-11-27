@@ -59,3 +59,32 @@ single-fragment control has roughly 0.27 µs overhead. The empty control is abou
 10,000 fragments. Small timings vary with noise and allocator state.
 Do not extrapolate these numbers to suite or network speed. Raw samples and exact
 dictionary hashes are in `docs/agent/evidence/XRAY-PERF-001-isolated-benchmark-reviewed.json`.
+
+## Bounded CI continuation and matched controls
+
+The exact-base constructor and incoming-comment path avoid needless descriptor
+calls; subclasses still follow their public descriptors. Seven warmed alternating
+AB/BA pairs compare clean installed 0.1.12 and the candidate under the same Python
+3.12.14 and dependency versions. No-capture paired median changes were +0.14% /
+−1.53% for one case, +4.22% / +1.63% for 1,000 cases, and +2.12% / −0.50% for
+10,000 cases (serial / two xdist workers). Entire payloads match after removing
+only timestamps. Identical-package serial controls ranged from −11.58% to +21.91%
+per pair for one case, and −14.63% to +12.99% for 1,000 cases. These measurements
+do not establish a material end-to-end no-capture regression or a universal speedup.
+
+The updated isolated 10,000-nonempty-fragment median was 639.75 ms versus 7.63 ms
+(about 84×). Empty fragments took 4.91 ms versus 5.94 ms: a measured 1.03 ms
+overhead across 10,000 merges from buffer/type bookkeeping, not a hidden win.
+The single-fragment median was 1.05 µs versus 1.53 µs. Raw samples are retained
+in `docs/agent/evidence/XRAY-COMMENT-001-fastpath-isolated.json`,
+`XRAY-COMMENT-001-fastpath-interleaved.json` and `XRAY-COMMENT-001-aa.json`.
+
+Reproduce the installed no-capture comparison with:
+
+```sh
+python tools/benchmark_comment_controls.py /path/to/baseline/python /path/to/candidate/python
+```
+
+This continuation authorizes a verified merge only. It does not authorize tags,
+PyPI publication, publisher dispatch or Pages deployment. Version 0.1.13 remains
+a prepared candidate until separately authorized publication completes.

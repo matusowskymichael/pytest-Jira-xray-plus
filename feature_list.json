@@ -5,7 +5,7 @@
       "id": "XRAY-COMMENT-001",
       "title": "Buffer aggregated Xray comments",
       "source": "docs/agent/task-comment-buffer.md",
-      "source_sha256": "123e3b12563463149e8ba7717c7f34c3312cf24aed17f23b193e61c53c5af0c7",
+      "source_sha256": "6073e5cbd3b2db78a1ad5c8d10a67e03749af85fe0f6eb6198582ccba4c5905c",
       "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/46",
       "owner": "Michael",
       "implementer": "codex-builder",
@@ -27,7 +27,7 @@
         "Preserve public comment semantics, separators, empty fragments, observed order, subclass behavior and repeated serialization; preserve status/defects/evidence and hook/truncation/archive contracts",
         "Matched baseline/candidate measurements include large and small/control workloads with exact output equality; actual installed serial and xdist CLI validates observed fragment ordering without hiding differences",
         "All five current-source profiles, installed guide, package and applicable docs checks pass; patch version and beginner documentation accurately describe verified behavior and limits",
-        "Independent exact-head review and fresh CI precede merge; verify main and release only if all artifact/post-release gates are available, never retry the forbidden historical artifact or expand scope"
+        "Independently review bounded test-workflow visibility repair, fail fast on authorization/errors, retain exact ID/run/provenance/checksums and permissions; fresh exact-head green CI precedes nonpublishing merge, with no tag, release, publisher dispatch or PR42 change"
       ],
       "checks": [
         "harness",
@@ -42,7 +42,6 @@
         ".github/workflows/agent.yml": "273f8b63a97e8fc78fc037344d27c898b43c32cbc769441266d5b17bb1d0b2e1",
         ".github/workflows/docs.yml": "e4b359a94d2d227048af75679868a13c6b00a00ddfa5b17c01b3905d24325885",
         ".github/workflows/github-release.yml": "f939cd7e7d920ef2e299ebb96e7a8946dbd2e9456dcec0c3a7628e40388c8ebb",
-        ".github/workflows/tests.yml": "66c65235ae86017bc0c47e2da875e8ac9dc5f3da736bbce602ab0ec44d363554",
         "README.rst": "986f80462b43686c1835b14b72fc20294ad57a347eb0738672de7053e6ba8672",
         "requirements-docs.txt": "a4be7fdf9070754d509eba82cf61593db140cb4b3931b170878b07f1523e47b3",
         "requirements-tests.txt": "50bbd166255c5927edc5071435338fe435b7703f58d0c088aad89934c441ec19",
@@ -109,7 +108,7 @@
         "src/pytest_xray/xray_plugin.py": "ea08a96592b43f68392ecc42c7e2b379f9b0675476bf0c24e0229642d423268f",
         "tests/test_offline_failure_summary.py": "ddcb5a222de1425f92d6864871f6b1bc66848ce4fa83fa12cf560cd83104a2f8"
       },
-      "state": "passing",
+      "state": "regression",
       "evidence": [
         "docs/agent/evidence/XRAY-COMMENT-001-harness-8e915aef55eb.json",
         "docs/agent/evidence/XRAY-COMMENT-001-tests-9ee6ea6e29d5.json",
@@ -119,7 +118,7 @@
       ],
       "review": "docs/agent/evidence/XRAY-COMMENT-001-independent-review.json",
       "blocker": "",
-      "next_action": "Fresh acceptance-head CI; exact merge/main CI; conditional trusted 0.1.13 release and public verification; Pages gates; stop"
+      "next_action": "Implement one bounded test-workflow repair and interleaved controls; verify and independently review; merge only if green and no automatic PyPI trigger"
     }
   ]
 }

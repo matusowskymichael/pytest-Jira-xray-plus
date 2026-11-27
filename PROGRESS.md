@@ -1,3 +1,59 @@
+## November 27 bounded continuation checkpoint
+
+PR #46 remains unmerged; no tag, publisher dispatch, PyPI publication or Pages
+deployment is authorized. The test workflow now gives reruns unique artifact
+names and waits only for empty exact-run public metadata, bounded to four checks.
+HTTP/auth/TLS/JSON/provenance/digest failures remain terminal. The exact pinned
+downloader and post-download file/hash/installed-guide checks are unchanged.
+A public metadata-only probe succeeded; no binary artifact was fetched.
+
+Focused regression checks: 41 passed; changed-file Ruff and helper mypy passed.
+Fresh full profiles and hosted CI remain pending. Independent source review found
+no issues; this is not final acceptance. Matched installed no-capture controls
+and identical-package controls are recorded with raw pairs and dependency hashes.
+The large isolated comment workload remains about 84 times faster; empty merges
+retain about 1.03 ms overhead per 10,000. See COMMENT-PERFORMANCE.md for limits.
+
+Next: freeze source, run all five profiles, review exact source/evidence and wait
+for fresh hosted checks before any nonpublishing merge. Stop if the bounded
+artifact repair fails; never retry Forbidden or access the historical artifact.
+
+# PR46 continuation — bounded CI repair, publication forbidden
+
+The user authorized one bounded test-workflow artifact visibility repair and
+matched interleaved no-capture controls. Passing source acceptance is explicitly
+reopened for fresh receipts/review. Preserve the prior blocker and staged Pages
+work. No tag, publication, publisher dispatch, approval action or Pages deployment.
+The publisher is workflow_dispatch-only; the tag workflow listens only to publisher
+completion/manual dispatch. Verify this again before any merge.
+
+---
+
+# Comment optimization — merge/release blocked by acceptance-head CI
+
+PR [#46](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/46) remains
+open at `04cfbf783c811020f02d981108b08348cd34879e`. Independent source acceptance,
+all five local profiles, 623 tests plus 19 subtests, installed guide and benchmark
+checks passed. All PR-event checks passed, but duplicate push tests run 45973192918
+failed the artifact-download smoke gate on attempts 1 and 2. Latest job
+140422180977 uploaded artifact 15186483290, then could not find its ID about
+0.28 seconds later; subsequent metadata lists it. No tests or package-build failure.
+
+Stop further retries. Required exact-head CI is red, so no merge, release dispatch,
+tag or Pages deployment occurred. PyPI remains 0.1.12; 0.1.13 is prepared only.
+A bounded CI artifact-visibility reliability fix is needed before continuing;
+that is outside the approved comment-only runtime change. Preserve artifact-ID,
+exact file-set and hash checks, workflow permissions, PR42 and the old forbidden
+artifact restriction. Do not bypass the gate or present source acceptance as merge.
+
+This operational record and updated next step are local and uncommitted, avoiding
+another automatic full matrix merely to publish a failure note. The remote
+candidate and independently reviewed source remain unchanged. A separate Pages
+worktree holds the reviewed generated docs/clean coverage, not deployed. Resume
+only with coordinated scope for the CI blocker; maintain one implementation/release.
+
+---
+
 # Comment optimization — independent acceptance recorded
 
 Independent reviewer `native-agent:/root/review_weekly1106` passed exact source

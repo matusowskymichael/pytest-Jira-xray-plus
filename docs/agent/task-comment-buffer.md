@@ -18,9 +18,15 @@ only if available. Preserve release/security controls; version literals only in
 the existing publisher. Start a draft PR, obtain independent exact-head review,
 accept through the harness and merge only with fresh passing CI. Verify main.
 
-Use existing trusted publishing only if every deployable-artifact and post-release
-verification gate is available. Do not retry or route around the prior Forbidden
-artifact from run 44710901682. A blocked release gate means report the actual merge
-and publication status, not a bypass or an unverifiable release. No permission,
-credential, account or settings expansion. Preserve certificate restrictions.
-Stop after this single explicitly approved optimization.
+Continuation authorized for one bounded attempt to repair acceptance-head artifact
+visibility in the test workflow only. Inspect failed logs and official behavior;
+preserve exact artifact ID, run/provenance and checksums. Retry only not-yet-visible
+metadata with a short bound; never retry Forbidden, permission or other errors.
+Keep permissions and pinned actions unchanged. Double-check no-capture controls
+with matched interleaved runs; avoid landing an unexplained material regression,
+using an in-scope lazy comment path if justified. Independent exact-head review and
+fresh green CI remain required. Merge only after verifying it cannot automatically
+publish to PyPI. No tag, publication, approval action or publisher dispatch is
+authorized in this continuation. No Pages deployment. PR42 stays untouched.
+The historical forbidden artifact from run 44710901682 remains off limits.
+Stop after this bounded attempt with terminal evidence or a concrete blocker.

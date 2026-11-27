@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- Bound CI artifact metadata visibility checks without retrying authorization or
+  other errors; keep exact uploaded ID, run/provenance and digest verification.
+  Use attempt-specific distribution names for rerun isolation. Test workflow only;
+  no publisher, permissions or runtime contract change.
 - Correct the main-branch guide and Pages documentation to identify 0.1.12 as
   published and distinguish its offline file-export error from 0.1.11 wording.
   Documentation only; published artifacts and the release tag are unchanged.

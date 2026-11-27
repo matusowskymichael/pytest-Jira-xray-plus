@@ -1,4 +1,13 @@
-# Current authorization — November 27 comment aggregation optimization
+# Current authorization — bounded PR46 continuation, no publication
+
+Continue [the comment task](task-comment-buffer.md) with one bounded test-workflow
+visibility repair and matched interleaved controls. Tested independently reviewed
+merge is authorized only with fresh green CI and verified absence of automatic
+PyPI publication. No tag, publish, approval action or publisher dispatch. No Pages
+deployment. Preserve permissions, exact artifact checks, PR42 and all prior
+Forbidden/certificate restrictions. Stop after this attempt.
+
+# Superseded authorization — November 27 comment aggregation optimization
 
 Complete [the separately approved bounded optimization](task-comment-buffer.md).
 Tested independently reviewed merge is authorized. Prepare 0.1.13; publish only
