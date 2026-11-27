@@ -1,0 +1,17 @@
+..........F.....                                                         [100%]
+=================================== FAILURES ===================================
+__________ test_many_merges_defer_join_and_cache_materialized_string ___________
+
+    def test_many_merges_defer_join_and_cache_materialized_string():
+        case = TestCase('SYN-1', Status.PASS, 'first')
+        for _ in range(1000):
+            case.merge(TestCase('SYN-1', Status.PASS, 'fragment'))
+        # Deterministic complexity guard: merges must not rebuild the growing prefix.
+>       assert case._comment == 'first'
+               ^^^^^^^^^^^^^
+E       AttributeError: 'TestCase' object has no attribute '_comment'. Did you mean: 'comment'?
+
+tests/test_comment_buffer.py:103: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_comment_buffer.py::test_many_merges_defer_join_and_cache_materialized_string
+1 failed, 15 passed in 1.16s

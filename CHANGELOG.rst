@@ -10,6 +10,15 @@ Unreleased
   its generated ignore rule; check staged deployment links before publishing.
   Repository documentation only; no package release.
 
+0.1.13 [2026-11-27]
+===================
+Release candidate; publication pending required verification gates.
+
+- Buffer aggregated Xray comment fragments and join when read or serialized,
+  avoiding repeated copies of a growing comment. Preserve public assignments,
+  separators, observed report order, subclass behavior, status, defects, evidence,
+  result hooks and full-archive/truncation content. No new options or server calls.
+
 0.1.12 [2026-11-20]
 ===================
 - Identify offline Xray export failures as file-export errors rather than Jira

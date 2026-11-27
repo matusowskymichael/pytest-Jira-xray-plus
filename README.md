@@ -22,7 +22,7 @@ explicit opt-in. Native Xray iteration rows and datasets are not supported.
 Offline Xray JSON is a preview before import; local case JSON and full-comment
 archives provide debugging and audit records for the integration.
 
-This guide covers the **0.1.12 offline diagnostic correction** and 0.1.11
+This guide also covers the **0.1.13 comment-buffering candidate**, the **0.1.12 offline diagnostic correction** and 0.1.11
 selected-test validation, retaining Generic
 as the target Xray Test type. Core examples also work with 0.1.2 and 0.1.3; the
 nested local-report example requires 0.1.9, and multi-key attachment isolation
@@ -30,7 +30,7 @@ requires 0.1.4 or later. Installation selects the latest published
 version; check the [PyPI release history](https://pypi.org/project/pytest-jira-xray-plus/#history)
 for availability.
 Offline previews still require neither network access nor credentials.
-Version **0.1.12 is published** on [PyPI](https://pypi.org/project/pytest-jira-xray-plus/0.1.12/).
+Version **0.1.13 is a candidate, not yet published**. Version **0.1.12 is published** on [PyPI](https://pypi.org/project/pytest-jira-xray-plus/0.1.12/).
 It includes the offline failure-message correction described below; 0.1.11 does
 not. Installation commands select the latest published package.
 
@@ -767,6 +767,19 @@ per-iteration evidence are outside this release. Crashed-worker reports can lack
 parameter metadata or Jira keys. Native rows and datasets are unsupported
 for the confirmed Generic target.
 
+
+**Comment aggregation (0.1.13 candidate):** when many pytest cases share one
+Generic Test key, comment fragments are buffered and joined when the final comment
+is read. Existing preview/upload commands need no changes. `--add-captures` and
+`--xray-parameter-details` remain opt-in; the comment limit and full-report archive
+policy are unchanged. Fragment separators and observed arrival order are preserved;
+xdist arrival order can differ between runs. Reading `TestCase.comment` returns the
+complete string, and assigning it replaces the prior comment. Subclass overrides
+retain the existing merge behavior. Repeated reads between merges can still incur
+repeated materialization; the optimization benefits aggregation before reading.
+This does not stream JSON or reduce the final payload size. The isolated benchmark
+is not an end-to-end pytest or Jira speed claim; see
+[measurement and compatibility evidence](docs/COMMENT-PERFORMANCE.md).
 
 **Aggregation performance (0.1.9):** large suites with many distinct Jira Test
 keys avoid repeated scans of earlier keys while results are grouped. The plugin

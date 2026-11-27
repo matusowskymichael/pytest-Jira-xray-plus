@@ -1,3 +1,17 @@
+# November 27 — separately approved comment aggregation optimization
+
+Current main is `d3753f8dcf579a42d2666161889bd7f660627c82`; documentation iteration
+is complete with green final CI. Only PR42 remains open, unchanged; no in-progress
+workflow or competing implementation. Public PyPI is 0.1.12; 0.1.13 is absent.
+New isolated worktree preserves prior checkouts. No repository-local skills found.
+
+Implement only the approved buffered-comment optimization. Fresh regression,
+matched baseline measurements, installed CLI checks, five profiles and independent
+review are required. The forbidden historical publisher artifact remains untouched;
+publication is conditional on all release verification gates being available.
+
+---
+
 # November 27 completed — published-status documentation corrected
 
 PR [#45](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/45) merged

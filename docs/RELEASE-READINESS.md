@@ -610,3 +610,20 @@ Pages work is absent from the current filesystem and was not recovered; new
 documentation is built from committed source while preserving remote Pages
 coverage assets. Fresh installed-guide checks validate current documentation
 commands; they do not replace the denied publisher-artifact comparison.
+
+
+## Separately approved November 27 comment-buffering candidate (0.1.13)
+
+Only ordinary TestCase comment aggregation changes. Public strings/assignments,
+legacy subclass/self-merge semantics, observed fragment order, hook data and
+truncation/full archival bytes remain covered by focused tests. Copy/serialization
+materializes pending fragments to prevent shallow-copy aliasing. Streaming JSON,
+marker hooks, case reports, dependencies and authentication remain unchanged.
+
+Version 0.1.13 was absent from PyPI at initial reconciliation. Publisher changes
+are exactly seven version-string replacements; its action pins, SHA/opt-in/hash
+gates, pypi environment and permissions remain unchanged. Publication requires
+fresh candidate/acceptance/main CI, independent review and available artifact and
+post-release gates. Do not dispatch publication if artifact verification is blocked.
+The previously forbidden run 44710901682 artifact remains untouched and its missing
+comparison remains unverified. No live Jira or workplace validation is claimed.

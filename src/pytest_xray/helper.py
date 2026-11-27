@@ -63,6 +63,7 @@ STATUS_STR_MAPPER_JIRA: dict[Status, str] = {x: x.value for x in Status}
 
 class TestCase:
     __test__ = False
+    _comment_parts: Optional[list[str]]
 
     def __init__(
         self,
@@ -81,6 +82,24 @@ class TestCase:
         self.evidences = list(evidences or [])
         self.defects = list(defects or [])
 
+    @property
+    def comment(self) -> str:
+        if self._comment_parts is not None:
+            self._comment = ('\n' + '-' * 80 + '\n').join(self._comment_parts)
+            self._comment_parts = None
+        return self._comment
+
+    @comment.setter
+    def comment(self, value: str) -> None:
+        self._comment = value
+        self._comment_parts = None
+
+    def __getstate__(self):
+        # A shallow copy must not share a mutable pending-fragment buffer.
+        if type(self) is TestCase:
+            _ = self.comment
+        return super().__getstate__()
+
     def merge(self, other: 'TestCase') -> None:
         """
         Merges this test case with other, in order to obtain
@@ -92,13 +111,25 @@ class TestCase:
         if self.test_key != other.test_key:
             raise ValueError(f'Cannot merge test with different test keys: {self.test_key} {other.test_key}')
 
-        if self.comment == '':
-            if other.comment != '':
-                self.comment = other.comment
+        if type(self) is TestCase and self is not other:
+            # Keep one fragment cheap; join an aggregate only on a public read.
+            comment = other.comment
+            if comment != '':
+                if self._comment_parts is not None:
+                    self._comment_parts.append(comment)
+                elif self._comment == '':
+                    self.comment = comment
+                else:
+                    self._comment_parts = [self._comment, comment]
         else:
-            if other.comment != '':
-                self.comment += '\n' + '-' * 80 + '\n'
-                self.comment += other.comment
+            # Preserve subclass descriptors and legacy self-merge assignment order.
+            if self.comment == '':
+                if other.comment != '':
+                    self.comment = other.comment
+            else:
+                if other.comment != '':
+                    self.comment += '\n' + '-' * 80 + '\n'
+                    self.comment += other.comment
 
         self.status = _merge_status(self.status, other.status)
 
