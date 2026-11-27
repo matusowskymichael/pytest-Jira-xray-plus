@@ -1,3 +1,19 @@
+# November 27 — independent acceptance recorded
+
+Independent reviewer `native-agent:/root/review_weekly1106` passed exact candidate
+`a46fbc61283c7b301575e186e0d1ab7ea65ad47e` with no findings. The harness accepted
+all five current-source profiles. All ten hosted checks pass. The PR Python 3.12
+job initially failed an artifact-ID lookup immediately after upload; the same
+artifact subsequently appeared in metadata, and one retry passed on unchanged
+source. This is separate from the forbidden November 20 artifact comparison,
+which remains unverified and untouched.
+
+Next: fresh acceptance-head CI, exact reviewed merge and main CI, then deploy the
+reviewed Pages tree and verify public bytes. No release, tag or PyPI-file changes.
+Stop after this documentation-only iteration.
+
+---
+
 # November 27 candidate verified — independent acceptance pending
 
 All five profiles pass at `0f724636d7cee4d3b722a3f6890d53c84705d7b4`: 606 tests

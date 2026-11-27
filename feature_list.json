@@ -112,11 +112,17 @@
         "src/pytest_xray/xray_plugin.py": "ea08a96592b43f68392ecc42c7e2b379f9b0675476bf0c24e0229642d423268f",
         "tests/test_offline_failure_summary.py": "ddcb5a222de1425f92d6864871f6b1bc66848ce4fa83fa12cf560cd83104a2f8"
       },
-      "state": "in_progress",
-      "evidence": [],
-      "review": null,
+      "state": "passing",
+      "evidence": [
+        "docs/agent/evidence/XRAY-WEEKLY-006-docs-f35547e3ce8e.json",
+        "docs/agent/evidence/XRAY-WEEKLY-006-harness-907e774e82f6.json",
+        "docs/agent/evidence/XRAY-WEEKLY-006-offline-b61e15934470.json",
+        "docs/agent/evidence/XRAY-WEEKLY-006-package-bc8e6d011157.json",
+        "docs/agent/evidence/XRAY-WEEKLY-006-tests-b070f536b706.json"
+      ],
+      "review": "docs/agent/evidence/XRAY-WEEKLY-006-independent-review.json",
       "blocker": "",
-      "next_action": "Verify documentation correction, installed usage and all profiles; independent review and exact CI, merge and Pages verification, then stop"
+      "next_action": "Fresh acceptance-head CI, exact reviewed merge and main CI, reviewed Pages deployment/public verification, then stop"
     }
   ]
 }

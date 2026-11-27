@@ -1,0 +1,76 @@
+{
+  "revision": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e",
+  "runs": [
+    {
+      "id": 45961019773,
+      "name": "repository harness",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45961019773",
+      "head": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e"
+    },
+    {
+      "id": 45961019942,
+      "name": "documentation",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45961019942",
+      "head": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e"
+    },
+    {
+      "id": 45961019809,
+      "name": "tests",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 2,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45961019809",
+      "head": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e"
+    },
+    {
+      "id": 45961012538,
+      "name": "repository harness",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45961012538",
+      "head": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e"
+    },
+    {
+      "id": 45961012481,
+      "name": "documentation",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45961012481",
+      "head": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e"
+    },
+    {
+      "id": 45961012438,
+      "name": "tests",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45961012438",
+      "head": "a46fbc61283c7b301575e186e0d1ab7ea65ad47e"
+    }
+  ],
+  "initial_failure": {
+    "run": 45961019809,
+    "attempt": 1,
+    "job": 140378589738,
+    "step": "Smoke-test publisher artifact download without publishing",
+    "error": "None of the provided artifact IDs were found",
+    "artifact_id": 15180304256,
+    "evidence": "Upload finalized at 07:54:32.494Z; download lookup failed at 07:54:32.858Z. Subsequent current-run metadata listed the exact nonexpired artifact. Equivalent push job passed.",
+    "resolution": "One rerun of failed current-run jobs; attempt 2 succeeded with unchanged source."
+  },
+  "limits": "No attempt to retrieve or compare the forbidden publisher run 44710901682 artifact."
+}
