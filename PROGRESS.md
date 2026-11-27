@@ -1,3 +1,22 @@
+## November 27 bounded source verification complete
+
+Source `094184a2456bbaade09c44804ee868e14079c055`, digest
+`357677a198a301738da47b7c4538a1ee3f1419dc6a653f45bc116deaf841ce30`:
+all five fresh profiles pass, with 647 tests plus 19 subtests and all 17 installed
+README commands. Local desktop/mobile docs checks pass. Both hosted events pass
+all checks, including exact artifact metadata, pinned download, checksums and
+installed-guide handoff. Source CI run IDs are in the bounded-source-ci evidence.
+
+Final installed 10,000-case capture medians: serial 12,514.88 ms to 5,991.98 ms;
+two-worker xdist 11,804.01 ms to 5,467.57 ms. Each run checks exact observed fragment
+order and full hook/archive contents; serial dictionaries differ only in timestamps.
+Matched no-capture controls and small isolated overhead remain disclosed.
+
+Independent final review and acceptance-head CI remain required before merge.
+No publication, tag, publisher/approval dispatch or Pages deployment. Public
+0.1.12 remains the released baseline; 0.1.13 is prepared source only. PR #42 and
+the historical Forbidden artifact are untouched.
+
 ## November 27 bounded continuation checkpoint
 
 PR #46 remains unmerged; no tag, publisher dispatch, PyPI publication or Pages

@@ -108,15 +108,15 @@
         "src/pytest_xray/xray_plugin.py": "ea08a96592b43f68392ecc42c7e2b379f9b0675476bf0c24e0229642d423268f",
         "tests/test_offline_failure_summary.py": "ddcb5a222de1425f92d6864871f6b1bc66848ce4fa83fa12cf560cd83104a2f8"
       },
-      "state": "regression",
+      "state": "passing",
       "evidence": [
-        "docs/agent/evidence/XRAY-COMMENT-001-harness-8e915aef55eb.json",
-        "docs/agent/evidence/XRAY-COMMENT-001-tests-9ee6ea6e29d5.json",
-        "docs/agent/evidence/XRAY-COMMENT-001-offline-370ae25d4e68.json",
-        "docs/agent/evidence/XRAY-COMMENT-001-package-453ae9c3d859.json",
-        "docs/agent/evidence/XRAY-COMMENT-001-docs-fb8c342558fa.json"
+        "docs/agent/evidence/XRAY-COMMENT-001-harness-d182ec36f0e1.json",
+        "docs/agent/evidence/XRAY-COMMENT-001-tests-38e6c8768087.json",
+        "docs/agent/evidence/XRAY-COMMENT-001-offline-5a648ee7d632.json",
+        "docs/agent/evidence/XRAY-COMMENT-001-package-9b9974ebfb92.json",
+        "docs/agent/evidence/XRAY-COMMENT-001-docs-e6ee05d1747c.json"
       ],
-      "review": "docs/agent/evidence/XRAY-COMMENT-001-independent-review.json",
+      "review": "docs/agent/evidence/XRAY-COMMENT-001-continuation-review.json",
       "blocker": "",
       "next_action": "Implement one bounded test-workflow repair and interleaved controls; verify and independently review; merge only if green and no automatic PyPI trigger"
     }

@@ -1,0 +1,58 @@
+{
+  "scope": "Installed pytest CLI including startup, collection, execution and offline files",
+  "no_http": true,
+  "workloads": [
+    {
+      "cases": 10000,
+      "captures": true,
+      "workers": 0,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            13142.243826001504,
+            12226.102646000072,
+            12514.87784100027
+          ],
+          "median_ms": 12514.87784100027
+        },
+        {
+          "python": "/tmp/xray-comment-fastpath-installed/bin/python",
+          "ms": [
+            5397.217613000976,
+            5991.980951001096,
+            6142.666781999651
+          ],
+          "median_ms": 5991.980951001096
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 10000,
+      "captures": true,
+      "workers": 2,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            11766.464751999592,
+            11804.01483300011,
+            11895.550136001475
+          ],
+          "median_ms": 11804.01483300011
+        },
+        {
+          "python": "/tmp/xray-comment-fastpath-installed/bin/python",
+          "ms": [
+            5467.568919999394,
+            5384.576465999999,
+            5475.804816000164
+          ],
+          "median_ms": 5467.568919999394
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    }
+  ]
+}
