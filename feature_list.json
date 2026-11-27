@@ -2,11 +2,11 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-WEEKLY-005",
-      "title": "Correct misleading offline export failure messages",
-      "source": "docs/agent/task-weekly-2026-11-20.md",
-      "source_sha256": "255d2bac7f5d52dcea728f6916d79a52fb9f1c8db7eb9d0c2687cf5690989542",
-      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/44",
+      "id": "XRAY-WEEKLY-006",
+      "title": "Correct published 0.1.12 documentation",
+      "source": "docs/agent/task-weekly-2026-11-27.md",
+      "source_sha256": "4083853d5ce2d0ec6964fcabce29db518940218778cd8cea7f23ed75c668d4c7",
+      "source_url": null,
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
@@ -24,10 +24,10 @@
       ],
       "prerequisites": [],
       "acceptance": [
-        "Reproduce the misleading offline failure using a clean published 0.1.11 wheel with HTTP blocked; regression tests fail before the fix",
-        "Label FilePublisher failures as file export errors while preserving underlying diagnostics, exit codes, cleanup, success messages and online behavior in serial and xdist",
-        "Prepare unpublished 0.1.12 metadata, release notes and full guide; preserve reviewed runtime/tests, dependencies, authentication, privacy and workflow security controls; verify wheel and sdist",
-        "All five current-source profiles, installed artifact guide and exact-head CI pass; hand off exact candidate for independent review without merging, deployment or release"
+        "Reconcile main, PyPI, tag, Pages, open work and prior Forbidden; preserve historical evidence without retry or a claim that the missing artifact comparison passed",
+        "Correct README, full beginner guide and changelog to distinguish published 0.1.12 offline errors from historical 0.1.11 wording; preserve all runtime, tests, tools, dependencies, version and workflow controls",
+        "All five current-source profiles and installed guide pass; exercise generated reader entry points and documented offline diagnostic without workplace access",
+        "Independent exact-head review and hosted CI precede merge; verify main and staged/live Pages while preserving coverage assets, leave PR42/tag/PyPI files untouched, make no release and stop"
       ],
       "checks": [
         "harness",
@@ -112,17 +112,11 @@
         "src/pytest_xray/xray_plugin.py": "ea08a96592b43f68392ecc42c7e2b379f9b0675476bf0c24e0229642d423268f",
         "tests/test_offline_failure_summary.py": "ddcb5a222de1425f92d6864871f6b1bc66848ce4fa83fa12cf560cd83104a2f8"
       },
-      "state": "passing",
-      "evidence": [
-        "docs/agent/evidence/XRAY-WEEKLY-005-docs-013365a7e2f2.json",
-        "docs/agent/evidence/XRAY-WEEKLY-005-harness-c0b5f6ce7637.json",
-        "docs/agent/evidence/XRAY-WEEKLY-005-offline-e7e258d5b4f9.json",
-        "docs/agent/evidence/XRAY-WEEKLY-005-package-bbab4a207d97.json",
-        "docs/agent/evidence/XRAY-WEEKLY-005-tests-2562a98b7b74.json"
-      ],
-      "review": "docs/agent/evidence/XRAY-WEEKLY-005-independent-release-review.json",
+      "state": "in_progress",
+      "evidence": [],
+      "review": null,
       "blocker": "",
-      "next_action": "Verify acceptance-head CI, merge exact candidate, verify main and existing 0.1.12 trusted release/artifacts/tag/docs, then stop"
+      "next_action": "Verify documentation correction, installed usage and all profiles; independent review and exact CI, merge and Pages verification, then stop"
     }
   ]
 }

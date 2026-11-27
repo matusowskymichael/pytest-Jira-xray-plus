@@ -1,4 +1,13 @@
-# Current authorization — November 20 offline diagnostic candidate
+# Current authorization — November 27 documentation correction
+
+Complete the [bounded published-status correction](task-weekly-2026-11-27.md).
+Prepare a draft PR, obtain independent exact-head review and fresh CI before
+merging, then verify the existing Pages deployment. No package release, tag or
+PyPI-file change. Never retry or route around the Forbidden artifact download
+from run 44710901682. Keep the missing comparison explicit. Leave PR42 untouched,
+preserve verification/security/privacy controls and stop after this iteration.
+
+# Historical authorization — completed November 20 release preparation
 
 Prepare the [offline failure-message fix](task-weekly-2026-11-20.md), its tests,
 documentation and draft PR44. The parent now authorizes preparation of version

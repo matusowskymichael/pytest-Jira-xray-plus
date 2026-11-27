@@ -1,3 +1,21 @@
+# November 27 — published-status documentation correction
+
+Current main and v0.1.12 tag: `7a7445518ea3aea867124e2f17a7cb2d92f95469`.
+Public PyPI is 0.1.12; publisher 44710901682 and tag workflow 44711253218
+succeeded. The separate artifact download returned Forbidden, so that comparison
+remains unverified and must not be retried or bypassed. Existing Pages is still
+`a4a62dee47ce1c0a84abbb9df163e96168f90d21`. Prior local Pages changes are absent
+from this executor; no recovery is claimed. No open issues or active workflows;
+only PR42 is open at `65aa18fa541f84f5664733575ee003a3851cf910`, left untouched.
+
+Task XRAY-WEEKLY-006 corrects stale published-status and offline-error wording in
+main's guide and Pages, with changelog and verified current-source evidence.
+No runtime/version/workflow change or new release. Next: five profiles, installed
+usage and reader-entry checks, draft PR, independent review and exact-head CI.
+Historical entries below retain what was known when written.
+
+---
+
 # November 20 — independent release acceptance recorded
 
 Parent supplied independent reviewer `independent-rental-check`'s pass/no-findings
