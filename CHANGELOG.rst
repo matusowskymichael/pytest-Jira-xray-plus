@@ -1,5 +1,9 @@
 Unreleased
 ==========
+- Bound CI artifact metadata visibility checks without retrying authorization or
+  other errors; keep exact uploaded ID, run/provenance and digest verification.
+  Use attempt-specific distribution names for rerun isolation. Test workflow only;
+  no publisher, permissions or runtime contract change.
 - Correct the main-branch guide and Pages documentation to identify 0.1.12 as
   published and distinguish its offline file-export error from 0.1.11 wording.
   Documentation only; published artifacts and the release tag are unchanged.
@@ -9,6 +13,13 @@ Unreleased
   Restore a verified generated coverage JavaScript asset omitted from Pages by
   its generated ignore rule; check staged deployment links before publishing.
   Repository documentation only; no package release.
+
+0.1.13 [2026-11-27]
+===================
+- Buffer aggregated Xray comment fragments and join when read or serialized,
+  avoiding repeated copies of a growing comment. Preserve public assignments,
+  separators, observed report order, subclass behavior, status, defects, evidence,
+  result hooks and full-archive/truncation content. No new options or server calls.
 
 0.1.12 [2026-11-20]
 ===================

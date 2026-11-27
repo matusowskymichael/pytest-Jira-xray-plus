@@ -1,0 +1,13 @@
+{
+  "run": 45970410778,
+  "artifact_id": 15184911839,
+  "source": "b9c59f827b399076b3f0f664c3bbc5bab803ce69",
+  "retrieval": "GitHub connector and its returned file reference, verified HTTPS",
+  "sha256": {
+    "pytest_jira_xray_plus-0.1.13-py3-none-any.whl": "a8631542566fc781aedc04a15f2458ae9433184998358c446459619b8ea9d459",
+    "pytest_jira_xray_plus-0.1.13.tar.gz": "13c4ec6331952a7af87fce5a95a226433ee749b6657060bfe314b1714c58d31e"
+  },
+  "wheel_sdist_helper_equals_current_source": true,
+  "version": "0.1.13",
+  "limits": "Pre-release access/packaging probe on this new CI artifact only; final release artifacts must be verified separately. Historical forbidden artifact untouched."
+}

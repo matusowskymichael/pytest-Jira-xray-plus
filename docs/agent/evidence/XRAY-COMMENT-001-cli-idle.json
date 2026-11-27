@@ -1,0 +1,166 @@
+{
+  "scope": "Installed pytest CLI including startup, collection, execution and offline files",
+  "no_http": true,
+  "workloads": [
+    {
+      "cases": 1,
+      "captures": true,
+      "workers": 0,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            301.8708299996433,
+            225.90889900038746,
+            243.92559399984748
+          ],
+          "median_ms": 243.92559399984748
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            262.50737300051696,
+            241.69137300032162,
+            240.29607200009195
+          ],
+          "median_ms": 241.69137300032162
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 1,
+      "captures": true,
+      "workers": 2,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            608.0275390004317,
+            575.4734319998533,
+            546.4301729998624
+          ],
+          "median_ms": 575.4734319998533
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            638.4742469999765,
+            542.875713000285,
+            542.613311000423
+          ],
+          "median_ms": 542.875713000285
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 1000,
+      "captures": false,
+      "workers": 0,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            685.2916070001811,
+            635.629725000399,
+            652.129701999911
+          ],
+          "median_ms": 652.129701999911
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            723.9791010006229,
+            707.0100320006532,
+            726.5073950002261
+          ],
+          "median_ms": 723.9791010006229
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 1000,
+      "captures": false,
+      "workers": 2,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            956.1824239999623,
+            919.4777200000317,
+            986.590372000137
+          ],
+          "median_ms": 956.1824239999623
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            1000.9361140000692,
+            1147.7918489999865,
+            981.4509230000112
+          ],
+          "median_ms": 1000.9361140000692
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 1000,
+      "captures": true,
+      "workers": 0,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            720.7697109997753,
+            775.1635329996134,
+            743.2792210001935
+          ],
+          "median_ms": 743.2792210001935
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            674.8749139997017,
+            670.7599629999095,
+            723.4538660004546
+          ],
+          "median_ms": 674.8749139997017
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 1000,
+      "captures": true,
+      "workers": 2,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            959.4428929995047,
+            978.8828800001284,
+            919.5485199998075
+          ],
+          "median_ms": 959.4428929995047
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            936.5182029996504,
+            947.8914600003918,
+            1001.1941800003115
+          ],
+          "median_ms": 947.8914600003918
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    }
+  ],
+  "revision": "59c2fa869718ec5b0e119e50dcf12349b2354a6e",
+  "baseline_revision": "d3753f8dcf579a42d2666161889bd7f660627c82",
+  "candidate_helper_sha256": "166604966adcd9d51809f39711970e2dc5a9c031e76139fcb45e97aa1c22929b",
+  "local_execution": "Sequential after all repository profiles completed; dedicated installed venv for candidate CLI"
+}

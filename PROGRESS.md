@@ -1,3 +1,165 @@
+## November 27 bounded source verification complete
+
+Source `094184a2456bbaade09c44804ee868e14079c055`, digest
+`357677a198a301738da47b7c4538a1ee3f1419dc6a653f45bc116deaf841ce30`:
+all five fresh profiles pass, with 647 tests plus 19 subtests and all 17 installed
+README commands. Local desktop/mobile docs checks pass. Both hosted events pass
+all checks, including exact artifact metadata, pinned download, checksums and
+installed-guide handoff. Source CI run IDs are in the bounded-source-ci evidence.
+
+Final installed 10,000-case capture medians: serial 12,514.88 ms to 5,991.98 ms;
+two-worker xdist 11,804.01 ms to 5,467.57 ms. Each run checks exact observed fragment
+order and full hook/archive contents; serial dictionaries differ only in timestamps.
+Matched no-capture controls and small isolated overhead remain disclosed.
+
+Independent final review and acceptance-head CI remain required before merge.
+No publication, tag, publisher/approval dispatch or Pages deployment. Public
+0.1.12 remains the released baseline; 0.1.13 is prepared source only. PR #42 and
+the historical Forbidden artifact are untouched.
+
+## November 27 bounded continuation checkpoint
+
+PR #46 remains unmerged; no tag, publisher dispatch, PyPI publication or Pages
+deployment is authorized. The test workflow now gives reruns unique artifact
+names and waits only for empty exact-run public metadata, bounded to four checks.
+HTTP/auth/TLS/JSON/provenance/digest failures remain terminal. The exact pinned
+downloader and post-download file/hash/installed-guide checks are unchanged.
+A public metadata-only probe succeeded; no binary artifact was fetched.
+
+Focused regression checks: 41 passed; changed-file Ruff and helper mypy passed.
+Fresh full profiles and hosted CI remain pending. Independent source review found
+no issues; this is not final acceptance. Matched installed no-capture controls
+and identical-package controls are recorded with raw pairs and dependency hashes.
+The large isolated comment workload remains about 84 times faster; empty merges
+retain about 1.03 ms overhead per 10,000. See COMMENT-PERFORMANCE.md for limits.
+
+Next: freeze source, run all five profiles, review exact source/evidence and wait
+for fresh hosted checks before any nonpublishing merge. Stop if the bounded
+artifact repair fails; never retry Forbidden or access the historical artifact.
+
+# PR46 continuation — bounded CI repair, publication forbidden
+
+The user authorized one bounded test-workflow artifact visibility repair and
+matched interleaved no-capture controls. Passing source acceptance is explicitly
+reopened for fresh receipts/review. Preserve the prior blocker and staged Pages
+work. No tag, publication, publisher dispatch, approval action or Pages deployment.
+The publisher is workflow_dispatch-only; the tag workflow listens only to publisher
+completion/manual dispatch. Verify this again before any merge.
+
+---
+
+# Comment optimization — merge/release blocked by acceptance-head CI
+
+PR [#46](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/46) remains
+open at `04cfbf783c811020f02d981108b08348cd34879e`. Independent source acceptance,
+all five local profiles, 623 tests plus 19 subtests, installed guide and benchmark
+checks passed. All PR-event checks passed, but duplicate push tests run 45973192918
+failed the artifact-download smoke gate on attempts 1 and 2. Latest job
+140422180977 uploaded artifact 15186483290, then could not find its ID about
+0.28 seconds later; subsequent metadata lists it. No tests or package-build failure.
+
+Stop further retries. Required exact-head CI is red, so no merge, release dispatch,
+tag or Pages deployment occurred. PyPI remains 0.1.12; 0.1.13 is prepared only.
+A bounded CI artifact-visibility reliability fix is needed before continuing;
+that is outside the approved comment-only runtime change. Preserve artifact-ID,
+exact file-set and hash checks, workflow permissions, PR42 and the old forbidden
+artifact restriction. Do not bypass the gate or present source acceptance as merge.
+
+This operational record and updated next step are local and uncommitted, avoiding
+another automatic full matrix merely to publish a failure note. The remote
+candidate and independently reviewed source remain unchanged. A separate Pages
+worktree holds the reviewed generated docs/clean coverage, not deployed. Resume
+only with coordinated scope for the CI blocker; maintain one implementation/release.
+
+---
+
+# Comment optimization — independent acceptance recorded
+
+Independent reviewer `native-agent:/root/review_weekly1106` passed exact source
+`59c2fa869718ec5b0e119e50dcf12349b2354a6e` with no unresolved findings, verifying
+all ten hosted checks, five receipts and 13 log hashes, runtime compatibility,
+benchmark provenance and staged documentation links. The harness accepted the
+actual review and current-source receipts. The original push workflow artifact
+lookup failed immediately after upload; one retry passed with unchanged source.
+
+The improvement targets large nonempty aggregated comments. Controls remain
+visible: the idle 1,000-case no-capture CLI measured about 11% slower serially,
+and isolated single/empty fragments also have overhead. No general speedup claim.
+
+Next: fresh acceptance-head CI, merge exact reviewed source and verify main;
+recheck unused 0.1.13 and all release gates, then existing trusted publishing,
+new release artifact/PyPI/tag/installed-guide verification and gated Pages update.
+If any gate is unavailable, stop that action and report actual status. Never retry
+or route around the historical forbidden artifact. Stop after this optimization.
+
+---
+
+# Comment optimization — final source verified
+
+All five fresh profiles pass at `59c2fa869718ec5b0e119e50dcf12349b2354a6e`:
+623 tests plus 19 subtests, 17 focused checks, 17 installed-guide commands,
+package/Twine and local docs/browser checks. Independent early review's incoming
+subclass finding is resolved. Final exact-head acceptance and CI remain pending.
+
+Sequential idle measurements preserve every output fragment. The isolated
+10,000-fragment comparison is 656.99 ms to 7.28 ms; small/empty controls expose
+overhead. The actual installed 10,000-case CLI median is 12,210.77 ms to 5,640.30 ms
+serial and 11,807.15 ms to 5,671.84 ms with two xdist workers. These synthetic local
+runs include startup, collection, execution and offline files, not Jira/network
+work. Serial dictionaries match after removing timestamps only; each xdist run
+matches its exact observed arrival fragments/order. Raw samples and both the
+small controls and interrupted/invalid initial trial are preserved in evidence.
+
+---
+
+# Comment optimization — release verification access confirmed
+
+The new candidate artifact for run 45970410778 (artifact 15184911839) downloaded
+successfully through the supported connector and its returned file reference;
+wheel/sdist bytes and hashes are available. This is a distinct current artifact,
+not a retry or alternate route to forbidden historical run 44710901682.
+No release has been dispatched. Publication still requires final acceptance, CI,
+main verification and exact release artifact/post-publish checks.
+
+The task ID is now XRAY-COMMENT-001 to avoid reusing the historical October 16
+XRAY-PERF-001 identifier. Preliminary November receipts retain their recorded IDs,
+source commits and failures as history; fresh final receipts use the unique ID.
+User-facing version wording is neutral so a successful release does not leave
+an immutable package README saying the version is unpublished.
+
+---
+
+# Comment optimization — compatibility correction and fresh checks
+
+Independent early review found that an incoming subclass descriptor also requires
+the legacy merge path. Both operands now must be exact TestCase instances to use
+the buffer; a regression preserves the legacy getter count/output. Reviewer reran
+all 17 focused tests successfully. The unchanged baseline passes 16 compatibility
+checks and fails only the deterministic deferred-join complexity check.
+
+The reviewed runtime benchmark reports 616.93 ms to 7.76 ms for 10,000 nonempty
+195-character fragments, with exact entire-dictionary equality. One-fragment and
+empty controls expose overhead, documented alongside the gain. These are isolated
+Linux CPython 3.12.14 measurements, not end-to-end claims. Earlier timing evidence
+remains historical. A README relative-link error failed docs/package gates and is
+corrected to an absolute link. Fresh complete profiles and hosted CI are required.
+
+---
+
+# November 27 — separately approved comment aggregation optimization
+
+Current main is `d3753f8dcf579a42d2666161889bd7f660627c82`; documentation iteration
+is complete with green final CI. Only PR42 remains open, unchanged; no in-progress
+workflow or competing implementation. Public PyPI is 0.1.12; 0.1.13 is absent.
+New isolated worktree preserves prior checkouts. No repository-local skills found.
+
+Implement only the approved buffered-comment optimization. Fresh regression,
+matched baseline measurements, installed CLI checks, five profiles and independent
+review are required. The forbidden historical publisher artifact remains untouched;
+publication is conditional on all release verification gates being available.
+
+---
+
 # November 27 completed — published-status documentation corrected
 
 PR [#45](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/45) merged

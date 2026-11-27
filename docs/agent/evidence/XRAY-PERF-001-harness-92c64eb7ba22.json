@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-PERF-001",
+  "profile": "harness",
+  "digest": "8c487adaa314cd250ff0aa3e856e7c70b6f14905137fe95d8709ba694daab15a",
+  "revision": "c54082133e675ac6ecd26aa9fe3e2b386997f6e3",
+  "timestamp": "2026-11-27T09:00:21.127210+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 1.952,
+      "log": "docs/agent/evidence/XRAY-PERF-001-harness-92c64eb7ba22-0.log",
+      "log_sha256": "2afd2462b8991ebe5fc2eb8d7b4b13fcf256eefa8d1afb12e4b757cc352d9cb8"
+    }
+  ],
+  "status": "passed"
+}

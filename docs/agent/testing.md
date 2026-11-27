@@ -169,3 +169,27 @@ and temporary-file cleanup. Success controls retain the generated-report message
 The eight failure cases fail against unchanged main; both success controls pass.
 Existing `test_xray_plugin.py` online failure and `test_report_cleanup.py` cases
 remain required controls. This candidate is unreleased; no workplace validation.
+
+
+## PR46 bounded artifact visibility continuation (no publication)
+
+The failed current CI logs show an upload ID absent from the immediate downloader
+listing. The pinned downloader lists artifacts with `latest: true` before filtering
+IDs; rerun names must therefore be unique per attempt. Distribution artifacts now
+include the run-attempt suffix; the download still uses the exact upload output ID.
+
+A test-workflow-only metadata guard uses GitHub's documented public
+[run-artifact endpoint](https://docs.github.com/en/rest/actions/artifacts#list-workflow-run-artifacts),
+without authentication or new permissions. It checks exact ID, attempt-specific
+name, run, repository, head SHA and uploaded ZIP digest. Only a successful empty
+listing is retried: four requests, two seconds between them, five-second request
+timeouts. HTTP errors (including 401/403/404/429), TLS/transport errors, malformed
+metadata and mismatched provenance/digests fail immediately. No fallback lookup,
+ignored failure or checksum relaxation. The pinned downloader and subsequent exact
+file-set/SHA256/installed-guide checks remain unchanged. The publisher is untouched.
+
+Run `python -m pytest -q tests/test_artifact_visibility.py` to exercise the exact
+inline workflow guard using synthetic responses. The interleaved no-capture
+benchmark uses seven warmed AB/BA pairs per workload and compares entire payloads
+after timestamp-only normalization. No publisher, tag or approval dispatch is
+allowed in this continuation; merging runs tests/docs/harness, not publication.

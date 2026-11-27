@@ -1,0 +1,23 @@
+{
+  "revision": "04cfbf783c811020f02d981108b08348cd34879e",
+  "run": 45973192918,
+  "attempt": 1,
+  "job": 140418398928,
+  "artifact_id": 15186975199,
+  "error": "None of the provided artifact IDs were found",
+  "upload_finalized": "2026-11-27T09:29:57.0101437Z",
+  "lookup_failed": "2026-11-27T09:29:57.4318617Z",
+  "metadata_afterward": "Exact uploaded artifact present and nonexpired",
+  "other_checks": "All PR-event checks and push Python 3.13/3.14 passed",
+  "action": "Stopped further retries after same gate failed again. Merge, publication and Pages deployment not executed.",
+  "scope": "Existing handoff visibility race; no workflow/security change or historical artifact retry",
+  "attempt_2": {
+    "job": 140422180977,
+    "artifact_id": 15186483290,
+    "upload_finalized": "2026-11-27T09:38:09.5319077Z",
+    "lookup_failed": "2026-11-27T09:38:09.8105049Z",
+    "conclusion": "failure",
+    "error": "None of the provided artifact IDs were found",
+    "metadata_afterward": "Exact new artifact listed and nonexpired"
+  }
+}

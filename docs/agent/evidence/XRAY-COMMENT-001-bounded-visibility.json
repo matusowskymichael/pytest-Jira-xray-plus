@@ -1,0 +1,26 @@
+{
+  "revision": "094184a2456bbaade09c44804ee868e14079c055",
+  "failed_run": 45973192918,
+  "failed_attempts": [
+    1,
+    2
+  ],
+  "failed_step": "Smoke-test publisher artifact download without publishing",
+  "error": "None of the provided artifact IDs were found",
+  "attempt_2_artifact_id": 15186483290,
+  "observed_delay_seconds": 0.279,
+  "diagnosis": "Pinned downloader uses latest:true listing before filtering IDs. Immediate visibility and same-name rerun filtering are plausible causes; unique attempt names and bounded exact metadata visibility guard address both without weakening identity checks.",
+  "public_metadata_probe": {
+    "run_id": 45973200243,
+    "artifact_id": 15185578627,
+    "result": "Exact inline guard succeeded with public unauthenticated metadata. Expected digest came from metadata for this connectivity probe, not an independent upload checksum. No binary fetched."
+  },
+  "retry_policy": "Only HTTP 200 complete empty listing; four requests, two-second delays, five-second request timeout. All HTTP/auth/TLS/JSON/identity failures terminal.",
+  "historical_forbidden_run_44710901682": "Untouched; missing post-publish comparison remains unverified.",
+  "publication": "Not authorized or executed; existing publisher workflow_dispatch only; release workflow follows publisher only.",
+  "official_sources": [
+    "https://docs.github.com/en/rest/actions/artifacts#list-workflow-run-artifacts",
+    "https://github.com/actions/download-artifact/blob/9000827ccba6bdab643e8b6fd33ac0654aef8333/src/download-artifact.ts",
+    "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md"
+  ]
+}

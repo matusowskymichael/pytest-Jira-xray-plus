@@ -1,0 +1,4 @@
+forward: case-a=failed, case-b=passed; pytest_exit_status=1; Xray JSON status=FAIL
+reverse: case-a=failed, case-b=passed; pytest_exit_status=1; Xray JSON status=FAIL
+PASS: both cases retained in both orders; comments retained; no Jira request made.
+Native iterations: NOT tested. Temporary reports removed.

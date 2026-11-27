@@ -1,0 +1,58 @@
+{
+  "runs": [
+    {
+      "id": 45978395675,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45978395675",
+      "head": "094184a2456bbaade09c44804ee868e14079c055",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45978395666,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45978395666",
+      "head": "094184a2456bbaade09c44804ee868e14079c055",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45978395640,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45978395640",
+      "head": "094184a2456bbaade09c44804ee868e14079c055",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45978386857,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45978386857",
+      "head": "094184a2456bbaade09c44804ee868e14079c055",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45978386797,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45978386797",
+      "head": "094184a2456bbaade09c44804ee868e14079c055",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45978386777,
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45978386777",
+      "head": "094184a2456bbaade09c44804ee868e14079c055",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifact_handoff": {
+    "run": 45978386777,
+    "artifact_id": 15187773932,
+    "upload_and_download_sha256": "45ba0ed1e1e881233bf411260dd34053469278461e21443d8cd9cda3a024168e"
+  },
+  "publication": "None; no publisher dispatched."
+}

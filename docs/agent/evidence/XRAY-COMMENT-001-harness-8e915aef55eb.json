@@ -1,0 +1,22 @@
+{
+  "task": "XRAY-COMMENT-001",
+  "profile": "harness",
+  "digest": "d0413bc90194e3b52c5fc31829ccf4196a605a2c76d3bb851b08ddbb638312b9",
+  "revision": "59c2fa869718ec5b0e119e50dcf12349b2354a6e",
+  "timestamp": "2026-11-27T09:07:12.653531+00:00",
+  "commands": [
+    [
+      "{python}",
+      "tools/check_harness_tests.py"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 3.588,
+      "log": "docs/agent/evidence/XRAY-COMMENT-001-harness-8e915aef55eb-0.log",
+      "log_sha256": "7dcba9d22347f669f3eac2b5dd3015d97f4da3746792086e503c28ba255bc2bf"
+    }
+  ],
+  "status": "passed"
+}

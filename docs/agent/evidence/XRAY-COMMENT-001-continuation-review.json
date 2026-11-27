@@ -1,0 +1,32 @@
+{
+  "task": "XRAY-COMMENT-001",
+  "revision": "094184a2456bbaade09c44804ee868e14079c055",
+  "digest": "357677a198a301738da47b7c4538a1ee3f1419dc6a653f45bc116deaf841ce30",
+  "timestamp": "2026-11-27T10:07:13.247701+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Preserve public comment semantics, separators, empty fragments, observed order, subclass behavior and repeated serialization; preserve status/defects/evidence and hook/truncation/archive contracts",
+    "Matched baseline/candidate measurements include large and small/control workloads with exact output equality; actual installed serial and xdist CLI validates observed fragment ordering without hiding differences",
+    "All five current-source profiles, installed guide, package and applicable docs checks pass; patch version and beginner documentation accurately describe verified behavior and limits",
+    "Independently review bounded test-workflow visibility repair, fail fast on authorization/errors, retain exact ID/run/provenance/checksums and permissions; fresh exact-head green CI precedes nonpublishing merge, with no tag, release, publisher dispatch or PR42 change"
+  ],
+  "evidence_reviewed": [
+    "Independently reviewed current runtime, test-workflow, regression tests, benchmark probes, documentation, scope and release triggers. Exact-class fast path retains legacy subclass/self-merge sequencing; incoming subclass descriptor regression remains covered. Direct initialization and materialized incoming string access apply only to exact TestCase. Copy/pickle materialization avoids shared mutable fragment state; public comment reads/assignment and serialization preserve expected strings.",
+    "Independently reran tests/test_comment_buffer.py and tests/test_artifact_visibility.py: 41 passed. Reviewed exact inline workflow script and synthetic success, bounded empty-list retry, HTTP/auth/TLS/JSON and identity failure cases. Attempt-specific names avoid same-name rerun filtering. Four metadata requests, five-second timeouts and two-second sleeps retry only successful empty listings. Exact artifact ID/name/run/repository/head/digest checks, pinned downloader, post-download checksums and permissions remain intact.",
+    "Recomputed exact current digest, all 70 preservation hashes, five fixed command contracts and 13 current log SHA256 hashes. Current receipts harness-d182ec36f0e1, tests-38e6c8768087, offline-5a648ee7d632, package-9b9974ebfb92 and docs-e6ee05d1747c bind reviewed source and pass. Evidence supports 647 tests plus 19 subtests, 17 installed-guide commands, package/build/offline and documentation/local-browser validation. Historical receipts/reviews are not current acceptance proof.",
+    "Reviewed matched installed environment/helper provenance, paired AB/BA controls, A/A controls and isolated measurements. Independently recomputed interleaved paired percentages and medians, and final large captured CLI medians: serial 12514.877841 to 5991.980951 ms; xdist 11804.014833 to 5467.568920 ms. Probes check observed fragment arrival order and full hook/archive contents; serial cross-version comparison removes only timestamps. No timing rerun was performed by reviewer.",
+    "Independently observed PR46 head 094184a2456bbaade09c44804ee868e14079c055 with all ten checks completed SUCCESS across six workflows: 45978395675, 45978386797, 45978395640, 45978386857, 45978395666 and 45978386777. Both Python 3.12 artifact handoff jobs are green. Read metadata-probe limitations: expected digest in the standalone connectivity probe came from metadata, not an independent upload checksum.",
+    "Current scope explicitly supersedes historical conditional publication authority. Publisher remains manual workflow_dispatch; merge/test workflows cannot automatically publish. No tag, release, publisher dispatch, Pages deployment or GitHub PR approval is authorized by this review. Version 0.1.13 is prepared but not claimed published."
+  ],
+  "limits": [
+    "Pre-merge technical acceptance only. Any acceptance-only successor must retain this digest and pass fresh exact-head CI before nonpublishing merge; integrated main checks remain required. No release or deployment gate is waived.",
+    "Performance is workload-specific. Paired no-capture medians range from -1.53% to +4.22%; A/A calibration covers only serial 1-case and 1000-case workloads, not every workload. Isolated 10000 empty merges retain about 1.03 ms overhead; single-fragment overhead remains disclosed. Large-comment speedups are not universal suite or Jira/network improvements; repeated reads can repeatedly materialize.",
+    "Reviewer reran 41 focused tests and independently verified source, receipts, hashes, raw benchmark arithmetic and hosted checks, rather than rerunning all aggregate suites or timing experiments. Historical failed/invalid benchmark trials and superseded source evidence are not pooled with final measurements.",
+    "Historical Forbidden artifact comparison from publisher run 44710901682 remains unverified and untouched. No artifact retrieval or alternate route was used in this review. Current distinct metadata and green artifact handoffs do not establish that old comparison.",
+    "No real Jira/Xray/workplace data, credentials or server validation; no native iteration claim, permission expansion, security-warning bypass, GitHub approval or publication action."
+  ],
+  "independent_test_log_sha256": "e95a0b7581bdead07ffa182af9e4762d9eefc95122ea2281534ecdbf9bc87c5f"
+}

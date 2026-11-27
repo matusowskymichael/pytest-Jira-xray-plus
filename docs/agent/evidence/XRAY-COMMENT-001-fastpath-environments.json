@@ -1,0 +1,49 @@
+{
+  "environments": [
+    {
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "packages": {
+        "pytest-jira-xray-plus": "0.1.12",
+        "pytest-rerunfailures": "16.7",
+        "pytest-xdist": "3.8.0",
+        "pytest": "9.2.0",
+        "requests": "2.34.2",
+        "certifi": "2026.11.20",
+        "charset-normalizer": "3.5.3",
+        "execnet": "2.1.2",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "packaging": "26.4",
+        "pluggy": "1.7.0",
+        "Pygments": "2.21.0",
+        "urllib3": "2.8.0",
+        "pip": "25.0.1"
+      },
+      "helper_sha256": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1"
+    },
+    {
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "packages": {
+        "pytest-jira-xray-plus": "0.1.13",
+        "pytest-rerunfailures": "16.7",
+        "pytest-xdist": "3.8.0",
+        "pytest": "9.2.0",
+        "requests": "2.34.2",
+        "certifi": "2026.11.20",
+        "charset-normalizer": "3.5.3",
+        "execnet": "2.1.2",
+        "idna": "3.20",
+        "iniconfig": "2.3.1",
+        "packaging": "26.4",
+        "pluggy": "1.7.0",
+        "Pygments": "2.21.0",
+        "urllib3": "2.8.0",
+        "pip": "25.0.1"
+      },
+      "helper_sha256": "4f2f5db6d50728f47021a77f2a7a5952b9e104e7e708287ce2c20f16ecbc53c6"
+    }
+  ],
+  "dependency_versions_identical_except_plugin": true,
+  "candidate_helper_matches_source": true,
+  "limitations": "Synthetic offline Linux measurements; not workplace validation or publication."
+}

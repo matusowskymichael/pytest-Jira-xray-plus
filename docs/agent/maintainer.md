@@ -1,4 +1,22 @@
-# Current authorization — November 27 documentation correction
+# Current authorization — bounded PR46 continuation, no publication
+
+Continue [the comment task](task-comment-buffer.md) with one bounded test-workflow
+visibility repair and matched interleaved controls. Tested independently reviewed
+merge is authorized only with fresh green CI and verified absence of automatic
+PyPI publication. No tag, publish, approval action or publisher dispatch. No Pages
+deployment. Preserve permissions, exact artifact checks, PR42 and all prior
+Forbidden/certificate restrictions. Stop after this attempt.
+
+# Superseded authorization — November 27 comment aggregation optimization
+
+Complete [the separately approved bounded optimization](task-comment-buffer.md).
+Tested independently reviewed merge is authorized. Prepare 0.1.13; publish only
+through the existing trusted flow if all artifact and post-release gates are
+available. Never retry or route around the forbidden run 44710901682 artifact.
+Preserve all security controls, PR42 and the excluded runtime areas. Stop after
+this optimization. Earlier completed scopes below are historical.
+
+# Historical authorization — completed November 27 documentation correction
 
 Complete the [bounded published-status correction](task-weekly-2026-11-27.md).
 Prepare a draft PR, obtain independent exact-head review and fresh CI before

@@ -1,0 +1,31 @@
+{
+  "task": "XRAY-COMMENT-001",
+  "revision": "59c2fa869718ec5b0e119e50dcf12349b2354a6e",
+  "digest": "d0413bc90194e3b52c5fc31829ccf4196a605a2c76d3bb851b08ddbb638312b9",
+  "timestamp": "2026-11-27T09:22:04.860486+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "acceptance": [
+    "Preserve public comment semantics, separators, empty fragments, observed order, subclass behavior and repeated serialization; preserve status/defects/evidence and hook/truncation/archive contracts",
+    "Matched baseline/candidate measurements include large and small/control workloads with exact output equality; actual installed serial and xdist CLI validates observed fragment ordering without hiding differences",
+    "All five current-source profiles, installed guide, package and applicable docs checks pass; patch version and beginner documentation accurately describe verified behavior and limits",
+    "Independent exact-head review and fresh CI precede merge; verify main and release only if all artifact/post-release gates are available, never retry the forbidden historical artifact or expand scope"
+  ],
+  "evidence_reviewed": [
+    "Reviewed runtime diff, all 17 focused tests, benchmark code, documentation and release controls. Lazy fragments preserve ordinary reads/assignment, separators, empty fragments and serialization. Legacy fallback covers self-merge and either operand subclass; __getstate__ materializes exact TestCase before copying to avoid buffer aliasing. Independently reproduced incoming-subclass regression, requested fix, and ran all 17 focused tests successfully after correction.",
+    "Verified prior accepted ledger against d3753f8dcf579a42d2666161889bd7f660627c82, all 71 preservation hashes and version-only publisher replacement 0.1.12 to 0.1.13. No marker-hook, streaming JSON, case-report, credential or permission changes.",
+    "Independently verified current XRAY-COMMENT-001 digest, all five fixed profile command contracts and 13 log hashes bound to exact source 59c2fa869718ec5b0e119e50dcf12349b2354a6e. Results support 623 tests plus 19 subtests, 17 installed-guide commands, offline/build/Twine and docs/local-browser checks. Earlier XRAY-PERF-001 receipts are historical and not acceptance proof.",
+    "Read matched isolated/installed CLI probes and final idle evidence; recomputed sample medians and independently checked installed helper hashes against baseline/candidate source. Large CLI probe is an exact workload-only adaptation of committed tool. All workloads assert complete comment fragments and observed arrival order; serial equality normalizes only timestamps. Dedicated benchmark venv avoids shared-profile recreation; interrupted trial contributes no timings.",
+    "Final idle measurements: isolated 10000 nonempty fragments 656.986 to 7.284 ms; installed 10000 captured cases serial 12210.771 to 5640.302 ms and xdist 11807.150 to 5671.844 ms. These are separate synthetic workloads, not Jira/network speed claims. Control overhead is explicitly retained below.",
+    "Verified clean-source coverage log hash: 623 tests plus 19 subtests, 796/814 lines and 242/266 branches at reviewed source. Independently exported staged Pages tree c7b07929d7175cb44c03092f751cd918650d3baf and checked 41 HTML pages/2977 references successfully; not deployed and metadata refresh remains publication-gated.",
+    "Independently observed all ten exact-head checks successful. Six workflow runs: 45971003462, 45971003455, 45971003452, 45970992756, 45970992912, 45970992753. Last run succeeded on attempt 2 after a transient current-run artifact-ID lookup failure; source unchanged."
+  ],
+  "limits": [
+    "Pre-merge technical acceptance only. Evidence/acceptance-only successor must retain digest and pass fresh exact-head CI; verify merged main. Release remains conditional on all deployable-artifact and post-release gates being available, including final-source artifact checks, unused version, public artifacts/install/tag and Pages verification. This review does not authorize bypassing a blocked gate or claim publication.",
+    "Performance is workload-dependent: idle 1000 cases without captures slowed from 652.130 to 723.979 ms serial and 956.182 to 1000.936 ms xdist; isolated 10000 empty fragments slowed from 4.993 to 6.184 ms; single-fragment isolated overhead is about 0.33 microseconds. Large-comment speedups must not be presented as universal suite improvement.",
+    "Reviewer reran focused compatibility tests and staged link checks, not full aggregate suites or benchmark timing runs. Those were independently assessed from source, exact provenance, receipts, raw samples and CI. Benchmark windows/platforms are not pooled; reads after each merge can still repeatedly materialize.",
+    "Historical publisher run 44710901682 Forbidden comparison remains unverified and untouched. Current-run artifact smoke retry and separate new artifact access do not establish that historical comparison. No GitHub approval, workplace/live Jira access, native iteration proof or certificate/security bypass."
+  ]
+}

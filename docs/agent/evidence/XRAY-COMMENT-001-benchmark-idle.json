@@ -1,0 +1,115 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "sources": [
+    "/workspace/pytest-xray-weekly-1127/src",
+    "src"
+  ],
+  "scope": "Isolated merge plus as_dict; not end-to-end",
+  "workloads": [
+    {
+      "fragments": 1,
+      "empty": false,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 1000,
+      "baseline_ms": [
+        0.001082449000023189,
+        0.0010463560001880978,
+        0.0010647230001268326,
+        0.0010453649992996361,
+        0.0010408580001239898
+      ],
+      "candidate_ms": [
+        0.0014180850002958323,
+        0.0013729379998039803,
+        0.0015555079999103327,
+        0.0013631539995913045,
+        0.001354471000013291
+      ],
+      "baseline_median_ms": 0.0010463560001880978,
+      "candidate_median_ms": 0.0013729379998039803,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "e2a94f49ad630146def22e25e071fec0051ce84fae6e3ec1ebabd81ad2890567"
+    },
+    {
+      "fragments": 10,
+      "empty": false,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 100,
+      "baseline_ms": [
+        0.007743039996057632,
+        0.007665529992664233,
+        0.009255780005332781,
+        0.008132310003929888,
+        0.007747139998173225
+      ],
+      "candidate_ms": [
+        0.007660520004719729,
+        0.007410340003843885,
+        0.00790166999649955,
+        0.008148229999278556,
+        0.007887349993325188
+      ],
+      "baseline_median_ms": 0.007747139998173225,
+      "candidate_median_ms": 0.007887349993325188,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "e9172ffcf006207fcfda0bec08f0aabe1944f9b3f991f9f8a82def2d8ad149d7"
+    },
+    {
+      "fragments": 10000,
+      "empty": true,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 1,
+      "baseline_ms": [
+        5.0302720001127454,
+        4.993477000425628,
+        5.042040000262205,
+        4.8483230002602795,
+        4.8295449996658135
+      ],
+      "candidate_ms": [
+        6.022785999448388,
+        6.18449600005988,
+        6.421515000511135,
+        5.965893000393407,
+        6.320067000160634
+      ],
+      "baseline_median_ms": 4.993477000425628,
+      "candidate_median_ms": 6.18449600005988,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "e7bdf8bf40f9d0d60438f5478813aa86f021b1be65d232a5617790a2631bc4b9"
+    },
+    {
+      "fragments": 10000,
+      "empty": false,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 1,
+      "baseline_ms": [
+        4734.706876999553,
+        651.0358440000346,
+        705.9502250003789,
+        649.7390180002185,
+        656.9864700004473
+      ],
+      "candidate_ms": [
+        9.221652000633185,
+        9.11504500072624,
+        7.284391000212054,
+        6.741557999703218,
+        6.720888000018022
+      ],
+      "baseline_median_ms": 656.9864700004473,
+      "candidate_median_ms": 7.284391000212054,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "51173838ad94afa68a24b1d7865872b6dc7f4a75c76cfaa07aa96337ff3ab560"
+    }
+  ],
+  "revision": "59c2fa869718ec5b0e119e50dcf12349b2354a6e",
+  "baseline_revision": "d3753f8dcf579a42d2666161889bd7f660627c82",
+  "candidate_helper_sha256": "166604966adcd9d51809f39711970e2dc5a9c031e76139fcb45e97aa1c22929b",
+  "local_execution": "Sequential after all repository profiles completed; dedicated installed venv for candidate CLI"
+}

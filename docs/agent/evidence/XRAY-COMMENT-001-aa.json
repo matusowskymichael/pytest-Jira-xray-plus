@@ -1,0 +1,158 @@
+{
+  "python_paths": [
+    "/tmp/xray1127-public/bin/python",
+    "/tmp/xray1127-public/bin/python"
+  ],
+  "warmups_per_environment": 1,
+  "protocol": "Seven AB/BA alternating pairs per workload, sequential, HTTP blocked",
+  "workloads": [
+    {
+      "cases": 1,
+      "workers": 0,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 250.4619419996743,
+          "candidate_ms": 290.39380400081427,
+          "candidate_delta_percent": 15.943285308069633
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 248.68485699971643,
+          "candidate_ms": 251.71539499933715,
+          "candidate_delta_percent": 1.2186258689744767
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 261.81738000013866,
+          "candidate_ms": 248.08945699987817,
+          "candidate_delta_percent": -5.243319981375272
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 277.51187100056995,
+          "candidate_ms": 254.1544680007064,
+          "candidate_delta_percent": -8.416722108372642
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 295.65648099924147,
+          "candidate_ms": 261.41385400023864,
+          "candidate_delta_percent": -11.581896288311256
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 276.9773560003159,
+          "candidate_ms": 297.1048310000697,
+          "candidate_delta_percent": 7.266830505714994
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 261.4580899999055,
+          "candidate_ms": 318.75205999949685,
+          "candidate_delta_percent": 21.913251947802447
+        }
+      ],
+      "baseline_median_ms": 261.81738000013866,
+      "candidate_median_ms": 261.41385400023864,
+      "paired_delta_median_percent": 1.2186258689744767,
+      "payload_equal_after_timestamp_only_normalization": true
+    },
+    {
+      "cases": 1000,
+      "workers": 0,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 712.8498860001855,
+          "candidate_ms": 750.8372500005862,
+          "candidate_delta_percent": 5.328942985955787
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 709.4275730005393,
+          "candidate_ms": 734.7524589995373,
+          "candidate_delta_percent": 3.5697634209346907
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 805.4753039996285,
+          "candidate_ms": 687.6119529997595,
+          "candidate_delta_percent": -14.632770292846043
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 790.1388290001705,
+          "candidate_ms": 744.5709080002416,
+          "candidate_delta_percent": -5.767077800440445
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 748.6896119999074,
+          "candidate_ms": 746.9563410004412,
+          "candidate_delta_percent": -0.2315072857544065
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 750.5545689991777,
+          "candidate_ms": 848.0776170008539,
+          "candidate_delta_percent": 12.993465369442458
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 799.5081059998483,
+          "candidate_ms": 744.9090589998377,
+          "candidate_delta_percent": -6.829079854259912
+        }
+      ],
+      "baseline_median_ms": 750.5545689991777,
+      "candidate_median_ms": 744.9090589998377,
+      "paired_delta_median_percent": -0.2315072857544065,
+      "payload_equal_after_timestamp_only_normalization": true
+    }
+  ]
+}

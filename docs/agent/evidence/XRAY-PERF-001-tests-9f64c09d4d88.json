@@ -1,0 +1,24 @@
+{
+  "task": "XRAY-PERF-001",
+  "profile": "tests",
+  "digest": "e5217239c5136aa0ff33419325204d7dd2eb21e9da952f47973ec23224851fbb",
+  "revision": "b9c59f827b399076b3f0f664c3bbc5bab803ce69",
+  "timestamp": "2026-11-27T09:04:47.820400+00:00",
+  "commands": [
+    [
+      "{python}",
+      "-m",
+      "pytest",
+      "-q"
+    ]
+  ],
+  "results": [
+    {
+      "exit_code": 0,
+      "duration_seconds": 121.595,
+      "log": "docs/agent/evidence/XRAY-PERF-001-tests-9f64c09d4d88-0.log",
+      "log_sha256": "50f67fe1ae2b2e209d4cc0a7b60b5f6c51cab53f1fc2f1006b6ccf32746b28e4"
+    }
+  ],
+  "status": "passed"
+}

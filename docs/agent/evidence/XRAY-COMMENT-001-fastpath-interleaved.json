@@ -1,0 +1,454 @@
+{
+  "python_paths": [
+    "/tmp/xray1127-public/bin/python",
+    "/tmp/xray-comment-fastpath-installed/bin/python"
+  ],
+  "warmups_per_environment": 1,
+  "protocol": "Seven AB/BA alternating pairs per workload, sequential, HTTP blocked",
+  "workloads": [
+    {
+      "cases": 1,
+      "workers": 0,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 255.9796430005008,
+          "candidate_ms": 250.0546340006622,
+          "candidate_delta_percent": -2.314640699700876
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 263.5586259993943,
+          "candidate_ms": 254.15583799986052,
+          "candidate_delta_percent": -3.5676267334749934
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 244.81626600027084,
+          "candidate_ms": 289.95793600006436,
+          "candidate_delta_percent": 18.438999473892626
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 237.39976799970464,
+          "candidate_ms": 237.7203930000178,
+          "candidate_delta_percent": 0.13505699816587224
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 219.57172499969602,
+          "candidate_ms": 234.1046510000524,
+          "candidate_delta_percent": 6.618760225332521
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 248.60065200027748,
+          "candidate_ms": 221.86555400003272,
+          "candidate_delta_percent": -10.754234868303936
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 278.77307800008566,
+          "candidate_ms": 313.7927399993714,
+          "candidate_delta_percent": 12.562067417168233
+        }
+      ],
+      "baseline_median_ms": 248.60065200027748,
+      "candidate_median_ms": 250.0546340006622,
+      "paired_delta_median_percent": 0.13505699816587224,
+      "payload_equal_after_timestamp_only_normalization": true
+    },
+    {
+      "cases": 1,
+      "workers": 2,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 512.0654930005912,
+          "candidate_ms": 504.233738000039,
+          "candidate_delta_percent": -1.5294440081599414
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 514.1431080000984,
+          "candidate_ms": 564.2199829999299,
+          "candidate_delta_percent": 9.739870907658243
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 521.4384069995504,
+          "candidate_ms": 526.4329770006952,
+          "candidate_delta_percent": 0.9578446723716771
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 582.8716390005866,
+          "candidate_ms": 612.3562969996783,
+          "candidate_delta_percent": 5.058516494240006
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 546.6552349998892,
+          "candidate_ms": 517.9892460000701,
+          "candidate_delta_percent": -5.243888133592078
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 579.1596090002713,
+          "candidate_ms": 521.5354510000907,
+          "candidate_delta_percent": -9.949616151521646
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 555.4871929998626,
+          "candidate_ms": 543.0473739997979,
+          "candidate_delta_percent": -2.2394429892945933
+        }
+      ],
+      "baseline_median_ms": 546.6552349998892,
+      "candidate_median_ms": 526.4329770006952,
+      "paired_delta_median_percent": -1.5294440081599414,
+      "payload_equal_after_timestamp_only_normalization": true
+    },
+    {
+      "cases": 1000,
+      "workers": 0,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 616.5530920006859,
+          "candidate_ms": 642.5997529995584,
+          "candidate_delta_percent": 4.22456092375636
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 628.6255899995012,
+          "candidate_ms": 673.3338789999834,
+          "candidate_delta_percent": 7.112069523055475
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 619.7041089999402,
+          "candidate_ms": 719.6344120002323,
+          "candidate_delta_percent": 16.125486590940397
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 667.3189030007052,
+          "candidate_ms": 663.1970210000873,
+          "candidate_delta_percent": -0.6176779920489595
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 675.5454549993374,
+          "candidate_ms": 639.2723409999235,
+          "candidate_delta_percent": -5.369455708861148
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 715.6739619995278,
+          "candidate_ms": 649.1008270004386,
+          "candidate_delta_percent": -9.302159717127335
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 622.4678219996349,
+          "candidate_ms": 681.5653869998641,
+          "candidate_delta_percent": 9.494075502631194
+        }
+      ],
+      "baseline_median_ms": 628.6255899995012,
+      "candidate_median_ms": 663.1970210000873,
+      "paired_delta_median_percent": 4.22456092375636,
+      "payload_equal_after_timestamp_only_normalization": true
+    },
+    {
+      "cases": 1000,
+      "workers": 2,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 1035.1180050001858,
+          "candidate_ms": 1017.9686609999408,
+          "candidate_delta_percent": -1.6567525554965101
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 1011.5167880003355,
+          "candidate_ms": 1029.872406999857,
+          "candidate_delta_percent": 1.814662813042256
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 1098.551832999874,
+          "candidate_ms": 1046.894257000531,
+          "candidate_delta_percent": -4.702333968009398
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 923.2338259998869,
+          "candidate_ms": 958.4892420007236,
+          "candidate_delta_percent": 3.818687639900342
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 1016.8809599999804,
+          "candidate_ms": 959.8951230000239,
+          "candidate_delta_percent": -5.603983085685627
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 914.843638000093,
+          "candidate_ms": 984.1238439994413,
+          "candidate_delta_percent": 7.572901326700943
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 922.4427319995812,
+          "candidate_ms": 937.4499940004171,
+          "candidate_delta_percent": 1.6269044657444054
+        }
+      ],
+      "baseline_median_ms": 1011.5167880003355,
+      "candidate_median_ms": 984.1238439994413,
+      "paired_delta_median_percent": 1.6269044657444054,
+      "payload_equal_after_timestamp_only_normalization": true
+    },
+    {
+      "cases": 10000,
+      "workers": 0,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5547.848522000095,
+          "candidate_ms": 5665.6380220001665,
+          "candidate_delta_percent": 2.1231563827486477
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 5404.256063000503,
+          "candidate_ms": 5609.888562999913,
+          "candidate_delta_percent": 3.8050103030321747
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5890.069967000272,
+          "candidate_ms": 5712.239734999457,
+          "candidate_delta_percent": -3.019153133954733
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 5133.280785999887,
+          "candidate_ms": 5650.800280999647,
+          "candidate_delta_percent": 10.0816518046549
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5649.504277000233,
+          "candidate_ms": 5490.726353999889,
+          "candidate_delta_percent": -2.8104753127941917
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 5309.134853000614,
+          "candidate_ms": 5441.345467999781,
+          "candidate_delta_percent": 2.4902478211576096
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5619.159087999833,
+          "candidate_ms": 5647.76521299973,
+          "candidate_delta_percent": 0.5090819560703785
+        }
+      ],
+      "baseline_median_ms": 5547.848522000095,
+      "candidate_median_ms": 5647.76521299973,
+      "paired_delta_median_percent": 2.1231563827486477,
+      "payload_equal_after_timestamp_only_normalization": true
+    },
+    {
+      "cases": 10000,
+      "workers": 2,
+      "captures": false,
+      "pairs": [
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5804.549324000618,
+          "candidate_ms": 6256.0962719999225,
+          "candidate_delta_percent": 7.779190472759878
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 5896.129736000148,
+          "candidate_ms": 5671.649019000142,
+          "candidate_delta_percent": -3.8072553870276638
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5338.906089999909,
+          "candidate_ms": 5483.86948299958,
+          "candidate_delta_percent": 2.715226500634582
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 5561.626134000107,
+          "candidate_ms": 5588.181131000965,
+          "candidate_delta_percent": 0.47746821453025223
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5546.483363001244,
+          "candidate_ms": 5510.516763000851,
+          "candidate_delta_percent": -0.6484577280140069
+        },
+        {
+          "order": [
+            1,
+            0
+          ],
+          "baseline_ms": 5726.481036999758,
+          "candidate_ms": 5698.097307000353,
+          "candidate_delta_percent": -0.4956574520375234
+        },
+        {
+          "order": [
+            0,
+            1
+          ],
+          "baseline_ms": 5639.531617000102,
+          "candidate_ms": 5274.620641999718,
+          "candidate_delta_percent": -6.470590108944108
+        }
+      ],
+      "baseline_median_ms": 5639.531617000102,
+      "candidate_median_ms": 5588.181131000965,
+      "paired_delta_median_percent": -0.4956574520375234,
+      "payload_equal_after_timestamp_only_normalization": true
+    }
+  ]
+}
