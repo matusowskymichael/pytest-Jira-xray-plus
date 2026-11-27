@@ -1,0 +1,113 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "sources": [
+    "/workspace/pytest-xray-weekly-1127/src",
+    "src"
+  ],
+  "scope": "Isolated merge plus as_dict; not end-to-end",
+  "workloads": [
+    {
+      "fragments": 1,
+      "empty": false,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 1000,
+      "baseline_ms": [
+        0.001091981999707059,
+        0.001087675000235322,
+        0.0010467850006534718,
+        0.001037671000631235,
+        0.0010724519997893367
+      ],
+      "candidate_ms": [
+        0.0014867060008327826,
+        0.0013395979995038942,
+        0.0013226430000941036,
+        0.0013427530002445565,
+        0.0013329989997146185
+      ],
+      "baseline_median_ms": 0.0010724519997893367,
+      "candidate_median_ms": 0.0013395979995038942,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "e2a94f49ad630146def22e25e071fec0051ce84fae6e3ec1ebabd81ad2890567"
+    },
+    {
+      "fragments": 10,
+      "empty": false,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 100,
+      "baseline_ms": [
+        0.007912480004961253,
+        0.007654800001546391,
+        0.00778829999944719,
+        0.007821849994797958,
+        0.008667089996379218
+      ],
+      "candidate_ms": [
+        0.007769769999868004,
+        0.007783490000292659,
+        0.007935419998830184,
+        0.007752749997962383,
+        0.007789910005158163
+      ],
+      "baseline_median_ms": 0.007821849994797958,
+      "candidate_median_ms": 0.007783490000292659,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "e9172ffcf006207fcfda0bec08f0aabe1944f9b3f991f9f8a82def2d8ad149d7"
+    },
+    {
+      "fragments": 10000,
+      "empty": true,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 1,
+      "baseline_ms": [
+        4.844039999625238,
+        6.682361999992281,
+        4.7505410002486315,
+        4.731463000098302,
+        4.873101000157476
+      ],
+      "candidate_ms": [
+        6.160819000797346,
+        6.181990000186488,
+        6.1752990004606545,
+        6.206766000104835,
+        6.207636999533861
+      ],
+      "baseline_median_ms": 4.844039999625238,
+      "candidate_median_ms": 6.181990000186488,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "e7bdf8bf40f9d0d60438f5478813aa86f021b1be65d232a5617790a2631bc4b9"
+    },
+    {
+      "fragments": 10000,
+      "empty": false,
+      "fragment_ascii_characters": 195,
+      "repetitions": 5,
+      "batches": 1,
+      "baseline_ms": [
+        4657.806086000164,
+        613.2912780003608,
+        616.9292000004134,
+        622.4991349999982,
+        610.6188519997886
+      ],
+      "candidate_ms": [
+        9.330167999905825,
+        9.48047099973337,
+        7.764404999761609,
+        7.104321000042546,
+        7.081868000568647
+      ],
+      "baseline_median_ms": 616.9292000004134,
+      "candidate_median_ms": 7.764404999761609,
+      "entire_dictionary_equal": true,
+      "dictionary_sha256": "51173838ad94afa68a24b1d7865872b6dc7f4a75c76cfaa07aa96337ff3ab560"
+    }
+  ],
+  "baseline_revision": "d3753f8dcf579a42d2666161889bd7f660627c82",
+  "candidate_helper_sha256": "166604966adcd9d51809f39711970e2dc5a9c031e76139fcb45e97aa1c22929b"
+}

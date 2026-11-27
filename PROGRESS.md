@@ -1,3 +1,20 @@
+# Comment optimization — compatibility correction and fresh checks
+
+Independent early review found that an incoming subclass descriptor also requires
+the legacy merge path. Both operands now must be exact TestCase instances to use
+the buffer; a regression preserves the legacy getter count/output. Reviewer reran
+all 17 focused tests successfully. The unchanged baseline passes 16 compatibility
+checks and fails only the deterministic deferred-join complexity check.
+
+The reviewed runtime benchmark reports 616.93 ms to 7.76 ms for 10,000 nonempty
+195-character fragments, with exact entire-dictionary equality. One-fragment and
+empty controls expose overhead, documented alongside the gain. These are isolated
+Linux CPython 3.12.14 measurements, not end-to-end claims. Earlier timing evidence
+remains historical. A README relative-link error failed docs/package gates and is
+corrected to an absolute link. Fresh complete profiles and hosted CI are required.
+
+---
+
 # November 27 — separately approved comment aggregation optimization
 
 Current main is `d3753f8dcf579a42d2666161889bd7f660627c82`; documentation iteration

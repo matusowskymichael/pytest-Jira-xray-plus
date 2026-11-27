@@ -111,7 +111,7 @@ class TestCase:
         if self.test_key != other.test_key:
             raise ValueError(f'Cannot merge test with different test keys: {self.test_key} {other.test_key}')
 
-        if type(self) is TestCase and self is not other:
+        if type(self) is TestCase and type(other) is TestCase and self is not other:
             # Keep one fragment cheap; join an aggregate only on a public read.
             comment = other.comment
             if comment != '':

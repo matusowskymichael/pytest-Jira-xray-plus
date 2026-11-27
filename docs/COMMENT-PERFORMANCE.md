@@ -49,13 +49,13 @@ final `as_dict`; complete dictionaries equal for every workload:
 
 | Fragments | Baseline median | Candidate median |
 | --- | ---: | ---: |
-| 1 nonempty | 1.10 µs | 1.37 µs |
-| 10 nonempty | 8.42 µs | 7.57 µs |
-| 10,000 empty (control) | 8.13 ms | 6.62 ms |
-| 10,000 nonempty | 653.72 ms | 9.32 ms |
+| 1 nonempty | 1.07 µs | 1.34 µs |
+| 10 nonempty | 7.82 µs | 7.78 µs |
+| 10,000 empty (control) | 4.84 ms | 6.18 ms |
+| 10,000 nonempty | 616.93 ms | 7.76 ms |
 
-The large nonempty case improved about 70× in this isolated measurement. The
-single-fragment control has roughly 0.27 µs overhead. Empty/small timings vary with
-noise and allocator state; an earlier empty control was slower in the candidate.
+The large nonempty case improved about 79× in this isolated measurement. The
+single-fragment control has roughly 0.27 µs overhead. The empty control is about 1.34 ms slower for
+10,000 fragments. Small timings vary with noise and allocator state.
 Do not extrapolate these numbers to suite or network speed. Raw samples and exact
-dictionary hashes are in `docs/agent/evidence/XRAY-PERF-001-isolated-benchmark.json`.
+dictionary hashes are in `docs/agent/evidence/XRAY-PERF-001-isolated-benchmark-reviewed.json`.

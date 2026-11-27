@@ -779,7 +779,7 @@ retain the existing merge behavior. Repeated reads between merges can still incu
 repeated materialization; the optimization benefits aggregation before reading.
 This does not stream JSON or reduce the final payload size. The isolated benchmark
 is not an end-to-end pytest or Jira speed claim; see
-[measurement and compatibility evidence](docs/COMMENT-PERFORMANCE.md).
+[measurement and compatibility evidence](https://github.com/matusowskymichael/pytest-Jira-xray-plus/blob/main/docs/COMMENT-PERFORMANCE.md).
 
 **Aggregation performance (0.1.9):** large suites with many distinct Jira Test
 keys avoid repeated scans of earlier keys while results are grouped. The plugin

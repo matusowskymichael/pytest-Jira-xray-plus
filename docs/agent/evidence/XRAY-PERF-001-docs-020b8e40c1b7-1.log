@@ -1,0 +1,15 @@
+
+[33m │  [1mMaterial for MkDocs reaches end of life on May 5, 2027.[0m
+[33m │[0m  Critical fixes and security updates continue until that date.
+[33m │[0m
+[33m │[0m  Zensical is its maintained successor, built by the same team.
+[33m │[0m  Try it alongside MkDocs with your existing mkdocs.yml:
+[33m │[0m  [36m[4mhttps://zensical.org/docs/compatibility/mkdocs/migration/[0m
+
+[90m  To disable this warning, set NO_MKDOCS_2_WARNING=1.[0m
+
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /workspace/pytest-xray-comments-1127/site
+WARNING -  Doc file 'reference/compatibility.md' contains a link 'docs/COMMENT-PERFORMANCE.md', but the target 'reference/docs/COMMENT-PERFORMANCE.md' is not found among documentation files.
+
+Aborted with 1 warnings in strict mode!

@@ -171,3 +171,21 @@ def test_copied_pending_comments_are_independent(clone):
     other.merge(TestCase('SYN-1', Status.PASS, 'copy'))
     assert case.comment == SEPARATOR.join(['a', 'b', 'original'])
     assert other.comment == SEPARATOR.join(['a', 'b', 'copy'])
+
+
+def test_incoming_subclass_descriptor_retains_legacy_reads():
+    class IncomingCase(TestCase):
+        @property
+        def comment(self):
+            self.reads += 1
+            return f'fragment-{self.reads}'
+
+        @comment.setter
+        def comment(self, value):
+            self.reads = 0
+
+    case = TestCase('SYN-1', Status.PASS, 'first')
+    incoming = IncomingCase('SYN-1', Status.PASS)
+    case.merge(incoming)
+    assert incoming.reads == 2
+    assert case.comment == 'first' + SEPARATOR + 'fragment-2'

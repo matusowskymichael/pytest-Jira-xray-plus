@@ -1,0 +1,6 @@
+PASS: all 17 README commands, selected serial/parallel cases, nested output folders, JSON excerpt, intentional failure, restored passing cases, values/redaction, Xray comments/archive, parallel/retries and hooks; HTTP blocked
+Traceback (most recent call last):
+  File "/workspace/pytest-xray-comments-1127/tools/check_installed_usage.py", line 140, in <module>
+    assert all(link.startswith(('https://', '#')) for link in re.findall(r'href="([^"]+)"', html))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
