@@ -1369,6 +1369,10 @@ invalid values in export payloads.</p>
 <td>Use both <code>--jira-xray</code> and <code>--xraypath=xray.json</code>. Case reporting is separate.</td>
 </tr>
 <tr>
+<td>Offline file-export failure</td>
+<td>Inspect the detailed file error; use a writable filename rather than a directory. Published 0.1.11 labels this as a Jira publishing failure; 0.1.12 identifies file export. Exit codes and cleanup are unchanged.</td>
+</tr>
+<tr>
 <td><code>Cannot resolve</code> a report option</td>
 <td>Correct the named path, home-directory spelling or filesystem access and rerun. Version 0.1.8 uses exit 4 for raised expansion/resolution errors; it does not guarantee a later write will succeed.</td>
 </tr>

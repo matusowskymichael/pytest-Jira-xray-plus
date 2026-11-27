@@ -1380,6 +1380,15 @@ passing cases usually have no comment text; failure details can still appear.</p
 <p><strong>Keep <code>--xraypath</code> in every offline export command.</strong> Without it, <code>--jira-xray</code>
 selects uploading. This also applies when options are inherited from <code>pytest.ini</code>
 or <code>PYTEST_ADDOPTS</code>.</p>
+<p>If a local export cannot be written, inspect the file error and destination:
+provide a filename, not an existing directory, and ensure its parent is writable.
+An otherwise passing run exits 3; a test-failure exit remains 1. In published
+0.1.11, this can misleadingly say <code>Could not publish results to Jira XRAY!</code> even
+though <code>--xraypath</code> selected offline output and no upload was attempted. Version
+0.1.12 labels it <code>Xray file export</code> and
+<code>Could not export Xray results to file!</code>. It retains the detailed file error,
+preserves existing content and cleans up its temporary report on write failure.
+Do not remove <code>--xraypath</code> or add credentials to fix a local filesystem problem.</p>
 <p><strong>Give every report option a nonempty filename.</strong> In published 0.1.9,
 <code>--jira-xray --xraypath=""</code> selects upload, and empty case/full-report arguments
 silently disable those outputs. For offline work, use a literal value such as
