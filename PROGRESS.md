@@ -1,3 +1,42 @@
+# Comment optimization — independent acceptance recorded
+
+Independent reviewer `native-agent:/root/review_weekly1106` passed exact source
+`59c2fa869718ec5b0e119e50dcf12349b2354a6e` with no unresolved findings, verifying
+all ten hosted checks, five receipts and 13 log hashes, runtime compatibility,
+benchmark provenance and staged documentation links. The harness accepted the
+actual review and current-source receipts. The original push workflow artifact
+lookup failed immediately after upload; one retry passed with unchanged source.
+
+The improvement targets large nonempty aggregated comments. Controls remain
+visible: the idle 1,000-case no-capture CLI measured about 11% slower serially,
+and isolated single/empty fragments also have overhead. No general speedup claim.
+
+Next: fresh acceptance-head CI, merge exact reviewed source and verify main;
+recheck unused 0.1.13 and all release gates, then existing trusted publishing,
+new release artifact/PyPI/tag/installed-guide verification and gated Pages update.
+If any gate is unavailable, stop that action and report actual status. Never retry
+or route around the historical forbidden artifact. Stop after this optimization.
+
+---
+
+# Comment optimization — final source verified
+
+All five fresh profiles pass at `59c2fa869718ec5b0e119e50dcf12349b2354a6e`:
+623 tests plus 19 subtests, 17 focused checks, 17 installed-guide commands,
+package/Twine and local docs/browser checks. Independent early review's incoming
+subclass finding is resolved. Final exact-head acceptance and CI remain pending.
+
+Sequential idle measurements preserve every output fragment. The isolated
+10,000-fragment comparison is 656.99 ms to 7.28 ms; small/empty controls expose
+overhead. The actual installed 10,000-case CLI median is 12,210.77 ms to 5,640.30 ms
+serial and 11,807.15 ms to 5,671.84 ms with two xdist workers. These synthetic local
+runs include startup, collection, execution and offline files, not Jira/network
+work. Serial dictionaries match after removing timestamps only; each xdist run
+matches its exact observed arrival fragments/order. Raw samples and both the
+small controls and interrupted/invalid initial trial are preserved in evidence.
+
+---
+
 # Comment optimization — release verification access confirmed
 
 The new candidate artifact for run 45970410778 (artifact 15184911839) downloaded

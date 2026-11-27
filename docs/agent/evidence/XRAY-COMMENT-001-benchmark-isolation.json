@@ -1,0 +1,10 @@
+{
+  "trial": "First 10000-case CLI timing attempt",
+  "status": "invalid; no timing result used",
+  "cause": "Package profile recreated its harness-owned installed venv while benchmark was using it; subprocess reported No module named pytest",
+  "resolution": "Use a separate dedicated benchmark venv installed from final candidate wheel; run only after all local profiles finish",
+  "artifact_sha256": {
+    "pytest_jira_xray_plus-0.1.13-py3-none-any.whl": "7b2688762e4102f8d1ca8149004348dbc1a72b5076b0b1fc27836de5c3d1de38",
+    "pytest_jira_xray_plus-0.1.13.tar.gz": "5727f933ee4cbe4710fc34d106591710a40e39f405d42dcaa4e1f9e3278bf155"
+  }
+}

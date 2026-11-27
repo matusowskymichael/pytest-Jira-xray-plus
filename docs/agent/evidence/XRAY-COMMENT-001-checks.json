@@ -1,0 +1,33 @@
+{
+  "candidate_revision": "59c2fa869718ec5b0e119e50dcf12349b2354a6e",
+  "task": "XRAY-COMMENT-001",
+  "digest": "d0413bc90194e3b52c5fc31829ccf4196a605a2c76d3bb851b08ddbb638312b9",
+  "profiles": [
+    "docs/agent/evidence/XRAY-COMMENT-001-docs-fb8c342558fa.json",
+    "docs/agent/evidence/XRAY-COMMENT-001-harness-8e915aef55eb.json",
+    "docs/agent/evidence/XRAY-COMMENT-001-offline-370ae25d4e68.json",
+    "docs/agent/evidence/XRAY-COMMENT-001-package-453ae9c3d859.json",
+    "docs/agent/evidence/XRAY-COMMENT-001-tests-9ee6ea6e29d5.json"
+  ],
+  "tests": 623,
+  "subtests": 19,
+  "focused_tests": 17,
+  "guide_commands": 17,
+  "cli_cases": [
+    1,
+    1000,
+    10000
+  ],
+  "cli_workers": [
+    0,
+    2
+  ],
+  "timing_scope": "Isolated merge and installed synthetic CLI reported separately; no Jira/server timing claim",
+  "historical_forbidden": "Publisher run44710901682 artifact remains unverified and untouched",
+  "coverage_log_sha256": "d66d948e5af490acbfcfe46b249bfbaa68dff7ff4e30dc6c997447159f201ee3",
+  "coverage": {
+    "lines": "796/814",
+    "branches": "242/266",
+    "clean_source": "59c2fa869718ec5b0e119e50dcf12349b2354a6e"
+  }
+}

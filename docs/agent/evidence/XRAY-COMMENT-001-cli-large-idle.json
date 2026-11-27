@@ -1,0 +1,62 @@
+{
+  "scope": "Installed pytest CLI including startup, collection, execution and offline files",
+  "no_http": true,
+  "workloads": [
+    {
+      "cases": 10000,
+      "captures": true,
+      "workers": 0,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            12179.252391999398,
+            12210.770993000551,
+            12653.635910000048
+          ],
+          "median_ms": 12210.770993000551
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            5874.661908000235,
+            5622.8385619997425,
+            5640.301884999644
+          ],
+          "median_ms": 5640.301884999644
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    },
+    {
+      "cases": 10000,
+      "captures": true,
+      "workers": 2,
+      "measurements": [
+        {
+          "python": "/tmp/xray1127-public/bin/python",
+          "ms": [
+            11920.538566000687,
+            11750.001985999916,
+            11807.149815999765
+          ],
+          "median_ms": 11807.149815999765
+        },
+        {
+          "python": "/tmp/xray-comment-benchmark-installed/bin/python",
+          "ms": [
+            5740.153619999546,
+            5600.069547999738,
+            5671.843601000546
+          ],
+          "median_ms": 5671.843601000546
+        }
+      ],
+      "verification": "Exact observed fragment order and full hook dictionary; serial baseline/candidate equal after timestamp-only normalization"
+    }
+  ],
+  "revision": "59c2fa869718ec5b0e119e50dcf12349b2354a6e",
+  "baseline_revision": "d3753f8dcf579a42d2666161889bd7f660627c82",
+  "candidate_helper_sha256": "166604966adcd9d51809f39711970e2dc5a9c031e76139fcb45e97aa1c22929b",
+  "local_execution": "Sequential after all repository profiles completed; dedicated installed venv for candidate CLI"
+}

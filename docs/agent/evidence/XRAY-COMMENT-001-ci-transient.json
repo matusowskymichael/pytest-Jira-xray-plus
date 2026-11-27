@@ -1,0 +1,14 @@
+{
+  "run": 45970992753,
+  "attempt": 1,
+  "job": 140411114906,
+  "step": "Smoke-test publisher artifact download without publishing",
+  "error": "None of the provided artifact IDs were found",
+  "artifact_id": 15184828418,
+  "upload_finalized": "2026-11-27T09:12:51.0182319Z",
+  "lookup_failed": "2026-11-27T09:12:51.3113526Z",
+  "current_metadata": "exact artifact subsequently listed as nonexpired; PR-event equivalent all green",
+  "action": "one supported retry of failed current-run jobs; terminal result pending",
+  "limits": "No old forbidden artifact access, workflow edits or weakened guards",
+  "resolution": "Attempt 2 completed successfully on unchanged source; no workflow changes"
+}

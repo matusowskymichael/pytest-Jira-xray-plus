@@ -1,0 +1,25 @@
+{
+  "baseline": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "helper_sha256": "00705010f477bb9b803242ca0b98038dedc8e35ccddf5c24e676ff475877a8d1",
+    "versions": {
+      "pytest": "9.2.0",
+      "pytest-xdist": "3.8.0",
+      "pytest-rerunfailures": "16.7",
+      "requests": "2.34.2",
+      "pytest-jira-xray-plus": "0.1.12"
+    }
+  },
+  "candidate": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "helper_sha256": "166604966adcd9d51809f39711970e2dc5a9c031e76139fcb45e97aa1c22929b",
+    "versions": {
+      "pytest": "9.2.0",
+      "pytest-xdist": "3.8.0",
+      "pytest-rerunfailures": "16.7",
+      "requests": "2.34.2",
+      "pytest-jira-xray-plus": "0.1.13"
+    }
+  },
+  "scope": "Installed behavior benchmark provenance only, not historical publisher artifact comparison"
+}

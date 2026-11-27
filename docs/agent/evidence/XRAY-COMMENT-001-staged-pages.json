@@ -1,0 +1,7 @@
+{
+  "baseline": "8e22cbb454c7388a21aa1375b1967a4a212ebef6",
+  "staged_tree": "c7b07929d7175cb44c03092f751cd918650d3baf",
+  "checks": "PASS: 41 HTML pages, 2977 internal links/fragments/assets, search index\n",
+  "status": "Prepared, not deployed; publication metadata refresh requires observed release",
+  "coverage_source": "59c2fa869718ec5b0e119e50dcf12349b2354a6e"
+}
