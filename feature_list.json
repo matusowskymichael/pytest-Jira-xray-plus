@@ -2,7 +2,7 @@
   "schema_version": 1,
   "tasks": [
     {
-      "id": "XRAY-PERF-001",
+      "id": "XRAY-COMMENT-001",
       "title": "Buffer aggregated Xray comments",
       "source": "docs/agent/task-comment-buffer.md",
       "source_sha256": "123e3b12563463149e8ba7717c7f34c3312cf24aed17f23b193e61c53c5af0c7",

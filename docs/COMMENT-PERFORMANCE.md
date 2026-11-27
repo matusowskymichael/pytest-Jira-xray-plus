@@ -1,4 +1,4 @@
-# Comment aggregation candidate: 0.1.13
+# Comment aggregation: 0.1.13
 
 The November 27 optimization buffers fragments only inside ordinary `TestCase`
 aggregation. A single fragment remains a string without allocating a list. Public
@@ -38,7 +38,7 @@ Its real serial/xdist CLI checks record arrival fragments before aggregation and
 assert the exact final order. They do not normalize order or drop comments. All
 HTTP requests are blocked; no workplace/live Jira compatibility is claimed.
 
-Version 0.1.13 remains a candidate until the existing release gates pass. The
+Publication requires all existing release gates to pass. The
 previous Forbidden artifact from publisher run 44710901682 must not be retried or
 accessed through another route. Its missing comparison remains unverified.
 

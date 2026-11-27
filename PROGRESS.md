@@ -1,3 +1,20 @@
+# Comment optimization — release verification access confirmed
+
+The new candidate artifact for run 45970410778 (artifact 15184911839) downloaded
+successfully through the supported connector and its returned file reference;
+wheel/sdist bytes and hashes are available. This is a distinct current artifact,
+not a retry or alternate route to forbidden historical run 44710901682.
+No release has been dispatched. Publication still requires final acceptance, CI,
+main verification and exact release artifact/post-publish checks.
+
+The task ID is now XRAY-COMMENT-001 to avoid reusing the historical October 16
+XRAY-PERF-001 identifier. Preliminary November receipts retain their recorded IDs,
+source commits and failures as history; fresh final receipts use the unique ID.
+User-facing version wording is neutral so a successful release does not leave
+an immutable package README saying the version is unpublished.
+
+---
+
 # Comment optimization — compatibility correction and fresh checks
 
 Independent early review found that an incoming subclass descriptor also requires
