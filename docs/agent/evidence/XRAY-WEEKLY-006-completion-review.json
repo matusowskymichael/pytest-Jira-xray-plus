@@ -1,0 +1,21 @@
+{
+  "task": "XRAY-WEEKLY-006",
+  "revision": "0a4b2cdc51d1826ea976fa97419083f679478fae",
+  "digest": "c9615546204625fab62e1542816ab98ca9589ed12721ac7e01a4b06a8e83700e",
+  "timestamp": "2026-11-27T08:23:42.874967+00:00",
+  "reviewer": "native-agent:/root/review_weekly1106",
+  "independent": true,
+  "verdict": "pass",
+  "findings": [],
+  "verification": [
+    "Exact completion commit changes only seven excluded progress, ledger-execution and evidence files. No source changes; accepted digest preserved. Completion wording accurately states results and remaining limits.",
+    "Independently verified PR45 merged at d17018733669c454b97edff50d581ca7c0282667 and its tree equals accepted 98576d9d49339c7c1a59f22de3f5057dfc4fab18. Queried all six acceptance workflows, three main workflows and Pages run 45964994894: all succeeded on recorded exact heads.",
+    "Pages 8e22cbb454c7388a21aa1375b1967a4a212ebef6 tree equals reviewed staged tree 66fb379b6edb75b9ad36bf0b6ae40ac91ca89915. All 110 recorded public hashes match deployed tree; independently fetched installation, preview, troubleshooting and metadata URLs over default validated HTTPS and verified bytes.",
+    "PyPI metadata remains 0.1.12, tag v0.1.12 remains at 7a7445518ea3aea867124e2f17a7cb2d92f95469, and PR42 remains open at unchanged 65aa18fa541f84f5664733575ee003a3851cf910. Prior 27 coverage-file preservation checks remain applicable."
+  ],
+  "limitations": [
+    "Final bookkeeping-head CI remains required after push, including any review-evidence-only successor; then stop this iteration.",
+    "Live Chromium was blocked by ERR_CERT_AUTHORITY_INVALID and not retried or bypassed. Local browser success and validated live HTTPS byte checks do not claim live browser success. Reviewer assessed recorded browser evidence and directly fetched four public files, not all 110.",
+    "Publisher run 44710901682 forbidden artifact comparison remains unverified. No retry, alternate retrieval, missing-comparison success claim, GitHub approval, publishing or workplace access occurred in this review."
+  ]
+}
