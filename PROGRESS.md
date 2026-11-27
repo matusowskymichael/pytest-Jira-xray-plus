@@ -1,3 +1,39 @@
+# November 27 completed — published-status documentation corrected
+
+PR [#45](https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/45) merged
+as `d17018733669c454b97edff50d581ca7c0282667` after independent technical
+acceptance and all ten acceptance-head checks. The merge tree equals the accepted
+tree. Main tests, documentation and harness workflows all passed.
+
+The README, generated beginner guide and changelog now identify 0.1.12 as
+published and distinguish its offline file-export error from historical 0.1.11
+Jira wording. No runtime, tests, tools, dependencies, version or workflow changes;
+no release dispatched. PyPI remains 0.1.12, its tag remains at
+`7a7445518ea3aea867124e2f17a7cb2d92f95469`, and PR42 remains untouched.
+
+All five profiles passed: 606 tests plus 19 subtests and 17 installed guide
+commands. A separate public 0.1.12 install passed all 17 guide commands and the
+synthetic two-case offline-error probe (exit 3). Local Chromium exercised the
+actual install-to-preview-to-troubleshooting route. Reviewed staged Pages checks
+passed 41 HTML pages and 2,933 references; all 27 coverage assets were preserved.
+
+Pages commit `8e22cbb454c7388a21aa1375b1967a4a212ebef6` deployed successfully in
+[run 45964994894](https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45964994894).
+All 110 public files match reviewed bytes over normally verified HTTPS. The
+[live quick start](https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/)
+is updated. Hosted Chromium navigation remains blocked by
+`ERR_CERT_AUTHORITY_INVALID`; no bypass or browser retry was used. Local navigation
+and live HTTPS byte checks are separate evidence, not a claim of live browser success.
+
+The forbidden publisher run 44710901682 artifact was not retried or accessed by
+another route; its missing post-publish comparison remains unverified. Prior
+uncommitted Pages work was absent in this executor, not recovered. No workplace
+access, Jira data/credentials or live Xray validation. Final completion records
+change only excluded evidence/progress/execution state; their exact-head CI is the
+last bookkeeping check. Stop after this single documentation-only iteration.
+
+---
+
 # November 27 — independent acceptance recorded
 
 Independent reviewer `native-agent:/root/review_weekly1106` passed exact candidate

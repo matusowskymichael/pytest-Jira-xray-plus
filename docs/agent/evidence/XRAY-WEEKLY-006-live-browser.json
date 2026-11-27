@@ -1,0 +1,6 @@
+{
+  "entry": "https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/",
+  "certificate_bypass": false,
+  "status": "blocked_or_failed",
+  "error": "Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\nCall log:\n  - navigating to \"https://matusowskymichael.github.io/pytest-Jira-xray-plus/tutorial/install/\", waiting until \"networkidle\"\n"
+}

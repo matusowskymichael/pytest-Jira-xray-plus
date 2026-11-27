@@ -1,0 +1,13 @@
+{
+  "revision": "8e22cbb454c7388a21aa1375b1967a4a212ebef6",
+  "runs": [
+    {
+      "id": 45964994894,
+      "name": "pages build and deployment",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/actions/runs/45964994894",
+      "head": "8e22cbb454c7388a21aa1375b1967a4a212ebef6"
+    }
+  ]
+}
