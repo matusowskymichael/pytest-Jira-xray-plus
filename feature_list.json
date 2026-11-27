@@ -6,7 +6,7 @@
       "title": "Buffer aggregated Xray comments",
       "source": "docs/agent/task-comment-buffer.md",
       "source_sha256": "123e3b12563463149e8ba7717c7f34c3312cf24aed17f23b193e61c53c5af0c7",
-      "source_url": null,
+      "source_url": "https://github.com/matusowskymichael/pytest-Jira-xray-plus/pull/46",
       "owner": "Michael",
       "implementer": "codex-builder",
       "scope": [
